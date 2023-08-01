@@ -1,1 +1,1 @@
-# eCommerce-Application
+# eCommerce-Application React + TypeScript + Vite
