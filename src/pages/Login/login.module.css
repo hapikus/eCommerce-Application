@@ -1,0 +1,122 @@
+.loginPageContainter {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+
+  background-image: url('../../assets/images/LoginPageBackground.jpg');
+}
+
+/* .backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/images/LoginPageBackground.jpg');
+  opacity: 0.7;
+}
+
+.loginPageContainter:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #fff 40%, #000 70%);
+} */
+
+
+.loginContentContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  margin-top: 80px;
+
+  width: 700px;
+  height: 430px;
+
+  z-index: 1;
+}
+
+.loginTitle {
+  font-size: 31px;
+  font-weight: 500;
+
+  margin: 8px 16px 0;
+  color: #FFFFFF;
+}
+
+.loginFormAndLogo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  column-gap: 40px;
+
+  padding: 24px 32px;
+
+  background-color: #181A21;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+
+  width: 400px;  
+}
+
+.loginLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.loginFormNameContText {
+  color: #AFAFAF;
+}
+
+.loginFormNameContInput {
+  height: 40px;
+  background-color: #32353C;
+  color: #fff  
+}
+
+.loginFormPasswordContText {
+  color: #AFAFAF;
+}
+
+.loginFormPasswordContInput {
+  height: 40px;
+  background-color: #32353C;
+  color: #fff
+}
+
+.loginFormPasswordContInput input {
+  background-color: #32353C;
+  color: #fff
+}
+
+.loginFormSubmitCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginFormSubmitButton {
+  width: 270px;
+  height: 47px;
+  margin-top: 12px;
+}
+
+.helpCont {
+  display: flex;
+  justify-content: center;
+  color: #AFAFAF;
+  margin-top: auto;
+}
+
+.helpLink {
+  font-size: 14px;
+}
