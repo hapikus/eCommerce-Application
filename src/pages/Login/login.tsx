@@ -1,19 +1,31 @@
 /* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable import/no-extraneous-dependencies */
-
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Form, Input, Button, Image,
 } from 'antd';
-// import { Link } from 'react-router-dom';
-import LoginFormValues from '../../types/types';
-
+import { RootState } from '../../redux/store';
+import { setLoginAnswer, setIsAuthorizedUserAction, setAccountEmailAction } from '../../redux/slice/authSlice';
+import loginUser from '../../models/Users/loginUser';
+import { LoginFormValues } from '../../types/types';
 import styles from './login.module.css';
 
 function LoginPage() {
+  const mainLocation = '/main';
+  // const supportLocation = '/support';
+
+  const dispatch = useDispatch();
+  const loginAnswer = useSelector((state: RootState) => state.auth.loginAnswer);
+  const isAuthorizedUser = useSelector((state: RootState) => state.auth.isAuthorizedUser);
   const [loginForm] = Form.useForm();
 
-  const onFinish = (values: LoginFormValues) => {
-    console.log('Received values of form:', values);
+  const onFinish = async (values: LoginFormValues) => {
+    const loginUserResponce = await loginUser(values.username, values.password);
+    dispatch(setIsAuthorizedUserAction(loginUserResponce === 'Login was success'));
+    if (isAuthorizedUser) {
+      dispatch(setAccountEmailAction(values.username));
+      window.location.hash = mainLocation;
+    }
+    dispatch(setLoginAnswer(loginUserResponce));
     loginForm.resetFields(['password']);
   };
 
@@ -74,6 +86,9 @@ function LoginPage() {
                 </Form.Item>
               </div>
             </Form>
+            <div className={styles.loginAnswerCont}>
+              {loginAnswer}
+            </div>
             <div className={styles.helpCont}>
               <p className={styles.helpLink}>
                 Help, I can&apos;t sign in

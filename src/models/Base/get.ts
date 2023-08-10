@@ -1,6 +1,6 @@
 import { FetchResponse } from '../../types/interfaces';
 
-class Post {
+class Get {
   public domain: string;
 
   public url: string;
@@ -13,7 +13,7 @@ class Post {
 
   async fetch(body?: string): Promise<FetchResponse> {
     const response = await fetch(`${this.domain}/${this.url}`, {
-      method: 'POST',
+      method: 'GET',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
@@ -23,10 +23,10 @@ class Post {
     });
     const error = { msg: '' };
     if (!response.ok) {
-      error.msg = 'POST fetch: Incorrect request';
+      error.msg = 'GET fetch: Incorrect request';
     }
     return { response, error };
   }
 }
 
-export default Post;
+export default Get;

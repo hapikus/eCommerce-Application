@@ -3,4 +3,10 @@ type LoginFormValues = {
   password: string;
 };
 
-export default LoginFormValues;
+type UserDto = {
+  email: string;
+  id: string;
+  isActivated: boolean;
+};
+
+export type { UserDto, LoginFormValues };
