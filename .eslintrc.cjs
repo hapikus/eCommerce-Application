@@ -19,5 +19,9 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    "object-curly-newline": "off",
+    "react/react-in-jsx-scope": "off",
+    "operator-linebreak": "off",
+    "no-param-reassign": ["error", { "props": false }],
   },
 }
