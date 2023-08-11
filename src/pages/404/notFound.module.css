@@ -1,0 +1,20 @@
+
+.notFoundPage {
+  background-color:  black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color:white;
+}
+.card {
+  background: url(../../assets/images/notfound.gif) center no-repeat;
+  width: 800px;
+  height: 600px;
+  padding: 0;
+}
+
+.title404 {
+  font-size: 50px;
+  color:white;
+  margin: auto;
+}

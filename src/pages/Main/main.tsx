@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import '../Header/logo.css';
+import './logo.css';
 
 function HomePage() {
   return (
