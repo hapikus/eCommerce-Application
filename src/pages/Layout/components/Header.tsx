@@ -2,6 +2,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useNavigate } from 'react-router-dom';
 import { Button, Menu } from 'antd';
+import styles from '../layout.module.css';
 
 function Header() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function Header() {
   }
 
   return (
-    <div className="header">
+    <div className={styles.header}>
       <Menu
         style={{ backgroundColor: '#09090b', color: 'white' }}
         onClick={onMenuClick}
