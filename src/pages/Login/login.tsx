@@ -4,23 +4,69 @@ import {
   Form, Input, Button, Image,
 } from 'antd';
 import { RootState } from '../../redux/store';
-import { setLoginAnswer, setIsAuthorizedUserAction, setAccountEmailAction } from '../../redux/slice/authSlice';
+import {
+  setLoginAnswer,
+  setIsAuthorizedUserAction,
+  setAccountEmailAction,
+} from '../../redux/slice/authSlice';
 import loginUser from '../../models/Users/loginUser';
 import { LoginFormValues } from '../../types/types';
 import styles from './login.module.css';
 
+import logoutUser from '../../models/Users/logoutUser';
+import checkAuth from '../../models/Users/checkAuth';
+import getUsers from '../../models/Users/getUsers';
+
+async function logout() {
+  const checkAuthReturn = await logoutUser();
+  console.log(
+    '🚀 ~ file: login.tsx:19 ~ checkAuthLogin ~ checkAuthReturn:',
+    checkAuthReturn,
+  );
+}
+
 function LoginPage() {
+  const dispatch = useDispatch();
+
+  async function checkAuthLogin() {
+    const checkAuthReturn = await checkAuth();
+    if (checkAuthReturn.email) {
+      dispatch(setIsAuthorizedUserAction(true));
+      dispatch(setAccountEmailAction(checkAuthReturn.email));
+      dispatch(setLoginAnswer('Login was success'));
+    } else {
+      dispatch(setIsAuthorizedUserAction(false));
+      dispatch(setAccountEmailAction(''));
+      dispatch(setLoginAnswer(''));
+    }
+    console.log(
+      '🚀 ~ file: login.tsx:19 ~ checkAuthLogin ~ checkAuthReturn:',
+      checkAuthReturn,
+    );
+  }
+
+  async function getAndRefresh() {
+    const answer = await getUsers();
+    console.log('🚀 ~ file: login.tsx:50 ~ getAndRefresh ~ answer:', answer);
+    console.log('🚀 ~ file: login.tsx:50 ~ getAndRefresh ~ answer.length:', answer.length);
+    if (!answer.length) {
+      checkAuthLogin();
+    }
+  }
+
   const mainLocation = '/main';
   // const supportLocation = '/support';
-
-  const dispatch = useDispatch();
   const loginAnswer = useSelector((state: RootState) => state.auth.loginAnswer);
-  const isAuthorizedUser = useSelector((state: RootState) => state.auth.isAuthorizedUser);
+  const isAuthorizedUser = useSelector(
+    (state: RootState) => state.auth.isAuthorizedUser,
+  );
   const [loginForm] = Form.useForm();
 
   const onFinish = async (values: LoginFormValues) => {
     const loginUserResponce = await loginUser(values.username, values.password);
-    dispatch(setIsAuthorizedUserAction(loginUserResponce === 'Login was success'));
+    dispatch(
+      setIsAuthorizedUserAction(loginUserResponce === 'Login was success'),
+    );
     if (isAuthorizedUser) {
       dispatch(setAccountEmailAction(values.username));
       window.location.hash = mainLocation;
@@ -86,9 +132,7 @@ function LoginPage() {
                 </Form.Item>
               </div>
             </Form>
-            <div className={styles.loginAnswerCont}>
-              {loginAnswer}
-            </div>
+            <div className={styles.loginAnswerCont}>{loginAnswer}</div>
             <div className={styles.helpCont}>
               <p className={styles.helpLink}>
                 Help, I can&apos;t sign in
@@ -104,6 +148,21 @@ function LoginPage() {
           </div>
         </div>
       </div>
+      <Button
+        onClick={() => checkAuthLogin()}
+      >
+        Check auth
+      </Button>
+      <Button
+        onClick={logout}
+      >
+        Logout
+      </Button>
+      <Button
+        onClick={() => getAndRefresh()}
+      >
+        getAndRefresh
+      </Button>
     </div>
   );
 }

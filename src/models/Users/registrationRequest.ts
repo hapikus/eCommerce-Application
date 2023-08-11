@@ -1,5 +1,8 @@
 import Post from '../Base/post';
-import { AuthorizationFetchResponse, AuthorizationFetchError } from '../../types/interfaces';
+import {
+  AuthorizationFetchResponse,
+  AuthorizationFetchError,
+} from '../../types/interfaces';
 
 class RegistrationRequest extends Post {
   constructor() {

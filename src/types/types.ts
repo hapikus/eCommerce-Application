@@ -1,3 +1,16 @@
+type UserInstance = {
+  _id: string;
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  isActivated: boolean;
+  activationLink: string;
+  billingAddress: string[];
+  shippingAddress: string[];
+  orders: string[];
+};
+
 type LoginFormValues = {
   username: string;
   password: string;
@@ -9,4 +22,4 @@ type UserDto = {
   isActivated: boolean;
 };
 
-export type { UserDto, LoginFormValues };
+export type { UserInstance, UserDto, LoginFormValues };

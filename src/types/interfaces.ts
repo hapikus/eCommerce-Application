@@ -16,4 +16,8 @@ interface AuthorizationFetchError {
   errors: string[];
 }
 
-export type { FetchResponse, AuthorizationFetchResponse, AuthorizationFetchError };
+export type {
+  FetchResponse,
+  AuthorizationFetchResponse,
+  AuthorizationFetchError,
+};

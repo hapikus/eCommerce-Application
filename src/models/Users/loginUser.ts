@@ -1,5 +1,8 @@
 import LoginRequest from './loginRequest';
-import { AuthorizationFetchResponse, AuthorizationFetchError } from '../../types/interfaces';
+import {
+  AuthorizationFetchResponse,
+  AuthorizationFetchError,
+} from '../../types/interfaces';
 
 const msgForCustomer = 'Please check your password and account name and try again.';
 

@@ -16,15 +16,24 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setLoginAnswer: (state, action: PayloadAction<SetLoginAnswerAction['payload']>) => {
+    setLoginAnswer: (
+      state,
+      action: PayloadAction<SetLoginAnswerAction['payload']>,
+    ) => {
       // eslint-disable-next-line no-param-reassign
       state.loginAnswer = action.payload;
     },
-    setIsAuthorizedUserAction: (state, action: PayloadAction<SetIsAuthorizedUserAction['payload']>) => {
+    setIsAuthorizedUserAction: (
+      state,
+      action: PayloadAction<SetIsAuthorizedUserAction['payload']>,
+    ) => {
       // eslint-disable-next-line no-param-reassign
       state.isAuthorizedUser = action.payload;
     },
-    setAccountEmailAction: (state, action: PayloadAction<SetAccountEmailAction['payload']>) => {
+    setAccountEmailAction: (
+      state,
+      action: PayloadAction<SetAccountEmailAction['payload']>,
+    ) => {
       // eslint-disable-next-line no-param-reassign
       state.accountEmail = action.payload;
     },
