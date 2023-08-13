@@ -1,77 +1,35 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   Form, Input, Button, Image,
 } from 'antd';
-import { RootState } from '../../redux/store';
-import {
-  setLoginAnswer,
-  setIsAuthorizedUserAction,
-  setAccountEmailAction,
-} from '../../redux/slice/authSlice';
-import loginUser from '../../models/Users/loginUser';
-import { LoginFormValues } from '../../types/types';
+
+import store, { RootState } from '../../redux/store';
+
+import { loginAsync } from '../../redux/slice/authSlice';
+import LoginFormValues from '../../types/types';
+
 import styles from './login.module.css';
 
-import logoutUser from '../../models/Users/logoutUser';
-import checkAuth from '../../models/Users/checkAuth';
-import getUsers from '../../models/Users/getUsers';
-
-async function logout() {
-  const checkAuthReturn = await logoutUser();
-  console.log(
-    '🚀 ~ file: login.tsx:19 ~ checkAuthLogin ~ checkAuthReturn:',
-    checkAuthReturn,
-  );
-}
+const errorStateChecker = (logErrMsg: string): string => {
+  if (
+    logErrMsg === 'Пользователя не существует'
+    || logErrMsg === 'Неверный пароль'
+  ) {
+    return 'Please check your password and account name and try again.';
+  }
+  return 'An unknown error occurred';
+};
 
 function LoginPage() {
-  const dispatch = useDispatch();
-
-  async function checkAuthLogin() {
-    const checkAuthReturn = await checkAuth();
-    if (checkAuthReturn.email) {
-      dispatch(setIsAuthorizedUserAction(true));
-      dispatch(setAccountEmailAction(checkAuthReturn.email));
-      dispatch(setLoginAnswer('Login was success'));
-    } else {
-      dispatch(setIsAuthorizedUserAction(false));
-      dispatch(setAccountEmailAction(''));
-      dispatch(setLoginAnswer(''));
-    }
-    console.log(
-      '🚀 ~ file: login.tsx:19 ~ checkAuthLogin ~ checkAuthReturn:',
-      checkAuthReturn,
-    );
-  }
-
-  async function getAndRefresh() {
-    const answer = await getUsers();
-    console.log('🚀 ~ file: login.tsx:50 ~ getAndRefresh ~ answer:', answer);
-    console.log('🚀 ~ file: login.tsx:50 ~ getAndRefresh ~ answer.length:', answer.length);
-    if (!answer.length) {
-      checkAuthLogin();
-    }
-  }
-
-  const mainLocation = '/main';
-  // const supportLocation = '/support';
-  const loginAnswer = useSelector((state: RootState) => state.auth.loginAnswer);
-  const isAuthorizedUser = useSelector(
-    (state: RootState) => state.auth.isAuthorizedUser,
+  const loginErrorState = useSelector(
+    (state: RootState) => state.auth.loginError,
   );
+
   const [loginForm] = Form.useForm();
 
   const onFinish = async (values: LoginFormValues) => {
-    const loginUserResponce = await loginUser(values.username, values.password);
-    dispatch(
-      setIsAuthorizedUserAction(loginUserResponce === 'Login was success'),
-    );
-    if (isAuthorizedUser) {
-      dispatch(setAccountEmailAction(values.username));
-      window.location.hash = mainLocation;
-    }
-    dispatch(setLoginAnswer(loginUserResponce));
+    store.dispatch(loginAsync(values));
     loginForm.resetFields(['password']);
   };
 
@@ -88,7 +46,7 @@ function LoginPage() {
                   Sign in with email
                 </p>
                 <Form.Item
-                  name="username"
+                  name="email"
                   rules={[
                     { required: true, message: 'Please input your username!' },
                     {
@@ -132,12 +90,11 @@ function LoginPage() {
                 </Form.Item>
               </div>
             </Form>
-            <div className={styles.loginAnswerCont}>{loginAnswer}</div>
+            <div className={styles.loginAnswerCont}>
+              {loginErrorState && `${errorStateChecker(loginErrorState)}`}
+            </div>
             <div className={styles.helpCont}>
-              <p className={styles.helpLink}>
-                Help, I can&apos;t sign in
-                {/* <Link to="/support"> Help, I can&apos;t sign in</Link> */}
-              </p>
+              <p className={styles.helpLink}>Help, I can&apos;t sign in</p>
             </div>
           </div>
           <div className={styles.loginLogo}>
@@ -148,21 +105,6 @@ function LoginPage() {
           </div>
         </div>
       </div>
-      <Button
-        onClick={() => checkAuthLogin()}
-      >
-        Check auth
-      </Button>
-      <Button
-        onClick={logout}
-      >
-        Logout
-      </Button>
-      <Button
-        onClick={() => getAndRefresh()}
-      >
-        getAndRefresh
-      </Button>
     </div>
   );
 }

@@ -1,27 +1,13 @@
+import { IUserDto } from './IUser';
+
 interface AuthState {
-  loginAnswer: string;
-  isAuthorizedUser: boolean;
-  accountEmail: string;
+  user: IUserDto;
+  isAuth: boolean;
+  isLoading: boolean;
+  loginError: null | string;
+  logoutError: null | string;
+  registError: null | string;
+  checkError: null | string;
 }
 
-interface SetLoginAnswerAction {
-  type: string;
-  payload: string;
-}
-
-interface SetIsAuthorizedUserAction {
-  type: boolean;
-  payload: boolean;
-}
-
-interface SetAccountEmailAction {
-  type: string;
-  payload: string;
-}
-
-export type {
-  AuthState,
-  SetLoginAnswerAction,
-  SetIsAuthorizedUserAction,
-  SetAccountEmailAction,
-};
+export default AuthState;

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './slice/authSlice';
-import { AuthState } from '../types/storeType';
+import AuthState from '../types/storeType';
 
 const store = configureStore({
   reducer: {
@@ -10,7 +10,6 @@ const store = configureStore({
 
 export type RootState = {
   auth: AuthState;
-  // Add more slices' states here if needed
 };
 
 export default store;
