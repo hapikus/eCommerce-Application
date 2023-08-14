@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/react-in-jsx-scope */
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Outlet } from 'react-router-dom';
 import { Button, Menu } from 'antd';
 import styles from '../layout.module.css';
 
-function Header() {
+function HeaderUi() {
   const navigate = useNavigate();
 
   function onMenuClick(item: { key: string }) {
@@ -12,10 +12,14 @@ function Header() {
   }
 
   return (
-    <div className={styles.header}>
+    <>
+      <div className={styles.logotip} />
       <Menu
-        style={{ backgroundColor: '#09090b', color: 'white' }}
+        style={{
+          backgroundColor: 'black', color: 'white', height: 70, fontSize: 24,
+        }}
         onClick={onMenuClick}
+        theme="light"
         mode="horizontal"
         items={[
           {
@@ -23,7 +27,7 @@ function Header() {
             key: '',
           },
           {
-            label: <Button>Log in</Button>,
+            label: <Button style={{ backgroundColor: '#DCFF50' }}>Log in</Button>,
             key: 'login',
           },
           {
@@ -32,8 +36,9 @@ function Header() {
           },
         ]}
       />
-    </div>
+      <Outlet />
+    </>
   );
 }
 
-export default Header;
+export default HeaderUi;

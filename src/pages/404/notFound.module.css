@@ -8,6 +8,7 @@
   color:white;
   height: 100%;
 }
+
 .card {
   background: url(../../assets/images/notfound.gif) center no-repeat;
   width: 800px;
@@ -18,7 +19,6 @@
 .title404 {
   font-size: 50px;
   color:white;
-  /* margin: auto; */
   margin: 0;
 }
 
