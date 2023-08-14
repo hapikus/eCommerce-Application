@@ -11,7 +11,7 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'jest.config.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   },
   plugins: ['react-refresh'],
   rules: {
@@ -19,9 +19,17 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    "object-curly-newline": "off",
-    "react/react-in-jsx-scope": "off",
-    "operator-linebreak": "off",
-    "no-param-reassign": ["error", { "props": false }],
+    'object-curly-newline': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'operator-linebreak': 'off',
+    'no-param-reassign': ['error', { props: false }],
+    'import/no-extraneous-dependencies': [
+      'error', {
+         'devDependencies': false, 
+         'optionalDependencies': false, 
+         'peerDependencies': false, 
+         'packageDir': "./",
+      },
+    ]
   },
-}
+};
