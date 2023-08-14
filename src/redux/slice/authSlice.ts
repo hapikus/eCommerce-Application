@@ -105,21 +105,31 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(loginAsync.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(loginAsync.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.isAuth = true;
         state.user = action.payload;
         state.loginError = null;
       })
       .addCase(loginAsync.rejected, (state, action) => {
+        state.isLoading = false;
         state.isAuth = false;
         state.loginError = action.payload as string;
       })
+      .addCase(registAsync.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(registAsync.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.isAuth = true;
         state.user = action.payload;
         state.loginError = null;
       })
       .addCase(registAsync.rejected, (state, action) => {
+        state.isLoading = false;
         state.isAuth = false;
         state.registError = action.payload as string;
       })

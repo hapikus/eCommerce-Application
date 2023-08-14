@@ -29,7 +29,7 @@ function LoginPage() {
   const [loginForm] = Form.useForm();
 
   const onFinish = async (values: LoginFormValues) => {
-    store.dispatch(loginAsync(values));
+    await store.dispatch(loginAsync(values));
     loginForm.resetFields(['password']);
   };
 
