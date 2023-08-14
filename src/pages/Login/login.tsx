@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { useSelector } from 'react-redux';
 import {
   Form, Input, Button, Image,

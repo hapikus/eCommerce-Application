@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios, { AxiosInstance } from 'axios';
 
 export const API_URL = 'http://localhost:5000/api';

@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { AxiosResponse } from 'axios';
 import $api from '../Base/http';
 import AuthResponse from '../../types/AuthResponse';

@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 function App() {
   return (<h1>eCommerce-Application</h1>);
 }
