@@ -1,21 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { Form, Input, Button, Image } from 'antd';
+import { Form, Input, Button, Image, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import store, { RootState } from '../../redux/store';
-
 import { loginAsync } from '../../redux/slice/authSlice';
+
+import passwordValidationRules from '../../utils/passValid';
 import LoginFormValues from '../../types/types';
 
 import styles from './login.module.css';
 
 const errorStateChecker = (logErrMsg: string): string => {
-  if (
-    logErrMsg === 'Пользователя не существует' ||
-    logErrMsg === 'Неверный пароль'
-  ) {
-    return 'Please check your password and account name and try again.';
+  if (logErrMsg === 'Пользователя не существует') {
+    return 'Please check your account name and try again.';
+  }
+  if (logErrMsg === 'Неверный пароль') {
+    return 'Please check your password and try again.';
   }
   return 'An unknown error occurred';
 };
@@ -35,17 +36,19 @@ function LoginPage() {
     loginForm.resetFields(['password']);
   };
 
+  const isAuthRef = useRef(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isAuthState) {
-      navigate('/');
+    if (isAuthState && !isAuthRef.current) {
+      isAuthRef.current = true;
+
+      message.success('Login successful! Redirecting to the main page...');
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
     }
   }, [isAuthState, navigate]);
-
-  if (isAuthState) {
-    return null;
-  }
 
   return (
     <div className={styles.loginPageContainter}>
@@ -77,14 +80,7 @@ function LoginPage() {
                 <p className={styles.loginFormPasswordContText}>Password</p>
                 <Form.Item<LoginFormValues>
                   name="password"
-                  rules={[
-                    { required: true, message: 'Please input your password!' },
-                    {
-                      min: 3,
-                      max: 32,
-                      message: 'Password must be between 3 and 32 characters!',
-                    },
-                  ]}
+                  rules={[...passwordValidationRules]}
                 >
                   <Input.Password
                     className={styles.loginFormPasswordContInput}
