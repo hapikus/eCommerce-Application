@@ -1,5 +1,15 @@
+import { HashRouter } from 'react-router-dom';
+import './pages/Layout/layout.module.css';
+import LayoutUi from './pages/Layout/layout';
+
 function App() {
-  return (<h1>eCommerce-Application</h1>);
+  return (
+    <div className="App">
+      <HashRouter>
+        <LayoutUi />
+      </HashRouter>
+    </div>
+  );
 }
 
 export default App;
