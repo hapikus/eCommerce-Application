@@ -1,0 +1,12 @@
+.logotip {
+  height: 64px;
+  width: 64px;
+  background-image: url(../../../assets/images/mainLogo.png);
+}
+
+.header {
+  background-color: #eee;
+  color: black;
+  height: 70;
+  font-size: 24;
+}

@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Form, Input, Button, Image } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 import store, { RootState } from '../../redux/store';
 
@@ -19,16 +21,31 @@ const errorStateChecker = (logErrMsg: string): string => {
 };
 
 function LoginPage() {
+  const isAuthState = useSelector(
+    (state: RootState) => state.auth.isAuth,
+  );
+
   const loginErrorState = useSelector(
     (state: RootState) => state.auth.loginError,
   );
 
   const [loginForm] = Form.useForm();
-
   const onFinish = async (values: LoginFormValues) => {
     await store.dispatch(loginAsync(values));
     loginForm.resetFields(['password']);
   };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthState) {
+      navigate('/');
+    }
+  }, [isAuthState, navigate]);
+
+  if (isAuthState) {
+    return null;
+  }
 
   return (
     <div className={styles.loginPageContainter}>
