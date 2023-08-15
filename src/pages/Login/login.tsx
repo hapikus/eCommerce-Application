@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux';
-import {
-  Form, Input, Button, Image,
-} from 'antd';
+import { Form, Input, Button, Image } from 'antd';
 
 import store, { RootState } from '../../redux/store';
 
@@ -12,8 +10,8 @@ import styles from './login.module.css';
 
 const errorStateChecker = (logErrMsg: string): string => {
   if (
-    logErrMsg === 'Пользователя не существует'
-    || logErrMsg === 'Неверный пароль'
+    logErrMsg === 'Пользователя не существует' ||
+    logErrMsg === 'Неверный пароль'
   ) {
     return 'Please check your password and account name and try again.';
   }

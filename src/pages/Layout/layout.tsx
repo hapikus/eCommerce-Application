@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Layout, Space } from 'antd';
 import { Outlet } from 'react-router-dom';
 import AppRoutes from '../router';

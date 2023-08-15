@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './Main/main';
 import Login from './LoginPageExample/login';

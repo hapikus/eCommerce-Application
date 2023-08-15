@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import styles from './notFound.module.css';

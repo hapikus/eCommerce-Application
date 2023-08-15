@@ -66,23 +66,20 @@ export const registAsync = createAsyncThunk(
   },
 );
 
-export const checkAuth = createAsyncThunk(
-  'auth/check',
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {
-        withCredentials: true,
-      });
-      localStorage.setItem('token', response.data.accessToken);
-      return response.data.user;
-    } catch (error) {
-      if (error instanceof AxiosError && error.response?.data?.message) {
-        return thunkAPI.rejectWithValue(error.response.data.message);
-      }
-      return thunkAPI.rejectWithValue('An unknown error occurred');
+export const checkAuth = createAsyncThunk('auth/check', async (_, thunkAPI) => {
+  try {
+    const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {
+      withCredentials: true,
+    });
+    localStorage.setItem('token', response.data.accessToken);
+    return response.data.user;
+  } catch (error) {
+    if (error instanceof AxiosError && error.response?.data?.message) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
-  },
-);
+    return thunkAPI.rejectWithValue('An unknown error occurred');
+  }
+});
 
 export const logoutAsync = createAsyncThunk(
   'auth/logout',

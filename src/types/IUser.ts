@@ -17,7 +17,4 @@ interface IUserDb {
   orders: string[];
 }
 
-export type {
-  IUserDto,
-  IUserDb,
-};
+export type { IUserDto, IUserDb };
