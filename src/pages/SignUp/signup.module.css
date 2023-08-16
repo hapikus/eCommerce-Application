@@ -1,0 +1,101 @@
+.signupPageContainter {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  position: relative;
+}
+
+.signupContentContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  margin-top: 40px;
+  z-index: 1;
+}
+
+.signupTitle {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 8px 16px 0;
+  color: #d6fb41;
+}
+
+.signupFormAndLogo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  column-gap: 40px;
+  padding: 24px 32px;
+  background-color: #181A21;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  width: 400px;  
+}
+
+.signupLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.signupFormNameContText {
+  color: #AFAFAF;
+}
+
+.signupFormNameContInput {
+  height: 40px;
+  background-color: #32353C;
+  color: #fff  
+}
+
+.signupFormPasswordContText {
+  color: #AFAFAF;
+}
+
+.signupFormPasswordContInput {
+  height: 40px;
+  background-color: #32353C;
+  color: #fff
+}
+
+.signupFormPasswordContInput input {
+  background-color: #32353C;
+  color: #fff
+}
+
+.signupFormPasswordContInput svg {
+  color: #fff
+}
+
+.signupAnswerCont {
+  font-size: 14px;
+  font-weight: 500;
+  color: #c15755;
+  text-align: center;
+}
+
+.signupFormSubmitCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupFormSubmitButton {
+  width: 270px;
+  height: 47px;
+}
+
+.helpCont {
+  display: flex;
+  justify-content: center;
+  color: #AFAFAF;
+  margin-top: auto;
+}
+
+.helpLink {
+  font-size: 14px;
+}
