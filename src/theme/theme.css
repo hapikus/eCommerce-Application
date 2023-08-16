@@ -1,0 +1,27 @@
+html,
+html[data-theme="light"] {
+  --bg-color-main: #ffffff;
+  --color-main: #595959;
+  --color-accent: #003eb3;
+}
+
+html[data-theme="dark"] {
+  --bg-color-main: #595959;
+  --color-main: #fafafa;
+  --color-accent: #69b1ff;
+}
+
+html[data-theme="barbie"] {
+  --bg-color-main: #ffd6e7;
+  --color-main: #13c2c2;
+  --color-accent: #006d75;
+}
+
+html * {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+body {
+  background-color: var(--bg-color-main);
+  color: var(--color-main);
+}

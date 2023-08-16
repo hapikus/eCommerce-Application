@@ -1,38 +1,92 @@
+import { useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import { Menu } from 'antd';
+import { Drawer, Menu } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
 import styles from './header.module.css';
 
-function HeaderUi() {
+// eslint-disable-next-line react/prop-types
+function MainMenu({ isInLine = false }) {
   const navigate = useNavigate();
 
   const onMenuClick = (item: { key: string }) => navigate(`/${item.key}`);
 
   return (
     <>
-      <div className={styles.logotip} />
-      <Menu
-        className={styles.header}
-        onClick={onMenuClick}
-        theme="light"
-        mode="horizontal"
-        items={[
-          {
-            label: 'Store',
-            key: '',
-          },
-          {
-            label: 'Login',
-            key: 'login',
-          },
-          {
-            label: 'Sign up',
-            key: 'signup',
-          },
-        ]}
-      />
-      <Outlet />
+      <div className={styles.menu_main}>
+        <Menu
+          className={isInLine ? styles.menu_items_line : styles.menu_items}
+          onClick={onMenuClick}
+          theme="light"
+          mode={isInLine ? 'inline' : 'horizontal'}
+          items={[
+            {
+              label: 'Store',
+              key: '',
+            },
+            {
+              label: 'Information',
+              key: 'information',
+            },
+            {
+              label: 'Support',
+              key: 'support',
+            },
+          ]}
+        />
+        <Outlet />
+      </div>
+      <div className={styles.menu_reg}>
+        <Menu
+          className={isInLine ? styles.menu_items_line : styles.menu_items}
+          onClick={onMenuClick}
+          theme="light"
+          mode={isInLine ? 'inline' : 'horizontal'}
+          items={[
+            {
+              label: 'Login',
+              key: 'login',
+            },
+            {
+              label: 'Sign up',
+              key: 'signup',
+            },
+          ]}
+        />
+        <Outlet />
+      </div>
     </>
   );
 }
 
-export default HeaderUi;
+function Header() {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  return (
+    <>
+      <div className={styles.burgerMenu}>
+        <MenuOutlined
+          className={styles.burger_icon}
+          onClick={() => {
+            setOpenMenu(true);
+          }}
+        />
+        <div className={styles.logotip} />
+      </div>
+      <div className={styles.headerMenu}>
+        <div className={styles.logotip} />
+        <MainMenu />
+      </div>
+      <Drawer
+        placement="left"
+        open={openMenu}
+        closable={false}
+        onClose={() => {
+          setOpenMenu(false);
+        }}
+      >
+        <MainMenu isInLine />
+      </Drawer>
+    </>
+  );
+}
+export default Header;

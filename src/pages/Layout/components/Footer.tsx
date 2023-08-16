@@ -1,6 +1,6 @@
 import styles from '../layout.module.css';
 
-function FooterUi() {
+function Footer() {
   return (
     <div className={styles.footer}>
       <h1>2023</h1>
@@ -8,4 +8,4 @@ function FooterUi() {
   );
 }
 
-export default FooterUi;
+export default Footer;
