@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Drawer, Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import styles from './header.module.css';
@@ -33,7 +33,6 @@ function MainMenu({ isInLine = false }) {
             },
           ]}
         />
-        <Outlet />
       </div>
       <div className={styles.menu_reg}>
         <Menu
@@ -52,7 +51,6 @@ function MainMenu({ isInLine = false }) {
             },
           ]}
         />
-        <Outlet />
       </div>
     </>
   );

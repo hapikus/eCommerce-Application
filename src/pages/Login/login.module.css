@@ -3,7 +3,10 @@
   justify-content: center;
   height: 100vh;
   position: relative;
-  background: darkgray;
+  background-color: var(--bg-footer);
+  background-size: cover;
+  background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
+  background-color:var(--color-text);
 }
 
 .loginContentContainer {
@@ -11,19 +14,16 @@
   flex-direction: column;
   row-gap: 40px;
   margin-top: 80px;
-
   width: 700px;
   height: 430px;
-
   z-index: 1;
 }
 
 .loginTitle {
   font-size: 31px;
   font-weight: 500;
-
   margin: 8px 16px 0;
-  color: #FFFFFF;
+  color: var(--color-text);
 }
 
 .loginFormAndLogo {
@@ -31,17 +31,14 @@
   justify-content: space-between;
   flex-direction: row;
   column-gap: 40px;
-
   padding: 24px 32px;
-
-  background-color: #181A21;
+  background-color: var(--bg-color-main);
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
-
-  width: 400px;  
+  width: 400px;
 }
 
 .loginLogo {
@@ -52,32 +49,32 @@
 }
 
 .loginFormNameContText {
-  color: #AFAFAF;
+  color: var(--color-text);
 }
 
 .loginFormNameContInput {
   height: 40px;
-  background-color: #32353C;
-  color: #fff  
+  background-color: var(--bg-footer);
+  color: var(--color-text)
 }
 
 .loginFormPasswordContText {
-  color: #AFAFAF;
+  color: var(--color-text);
 }
 
 .loginFormPasswordContInput {
   height: 40px;
-  background-color: #32353C;
-  color: #fff
+  background-color: var(--bg-footer);
+  color: var(--color-text)
 }
 
 .loginFormPasswordContInput input {
-  background-color: #32353C;
-  color: #fff
+  background-color: var(--bg-footer);
+  color: var(--color-text)
 }
 
 .loginFormPasswordContInput svg {
-  color: #fff
+  color: var(--color-text)
 }
 
 .loginAnswerCont {

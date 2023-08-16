@@ -1,14 +1,24 @@
 html,
 html[data-theme="light"] {
-  --bg-color-main: #ffffff;
-  --color-main: #595959;
-  --color-accent: #003eb3;
+  --bg-color-main: #eae7ea;
+  --bg-footer: #eae7ea;
+  --color-main: #e6f4ff;
+  --color-accent: #000;
+  --color-text: #000;
+  --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
+  --gpStoreDarkGrey: #d4d4d4d6;
+  --gpStoreDarkerGrey: #a4b9d3f2;
 }
 
 html[data-theme="dark"] {
-  --bg-color-main: #595959;
+  --bg-color-main: #171a21;
+  --bg-footer: #171a21;
   --color-main: #fafafa;
   --color-accent: #69b1ff;
+  --color-text: #fff;
+  --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
+  --gpStoreDarkGrey: rgba(42, 71, 94, 0.2);
+  --gpStoreDarkerGrey: rgba(27, 40, 56, 0.8);
 }
 
 

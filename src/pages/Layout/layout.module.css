@@ -12,7 +12,7 @@
 
 .footer {
   height: 70px;
-  /* background-color: #eee; */
+  background-color: var(--bg-color-main);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +23,6 @@
 .content {
   /* background-color: #eee; */
   min-height: 120px;
-  /* color: black; */
+  color: var(--color-text);
   text-align: center;
 }

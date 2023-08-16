@@ -6,7 +6,7 @@
 
 .menu_items {
   display: flex;
-  /* background-color: #eee; */
+  background-color: var(--bg-footer);
   /* color: black; */
   width: 100%;
   justify-content: space-between;
@@ -90,7 +90,8 @@
     z-index: 20;
     box-shadow: 0 0 7px 0 rgba( 0, 0, 0, 0.75 );
     overflow: hidden;
-    padding: 13px 8px;
+    padding: 19px 8px;
+    background-color: var(--bg-color-main);
 }
 }
 
