@@ -3,6 +3,7 @@
   justify-content: center;
   height: auto;
   position: relative;
+  text-align: left;
 }
 
 .signupContentContainer {
@@ -17,7 +18,7 @@
   font-size: 40px;
   font-weight: 500;
   margin: 8px 16px 0;
-  color: #d6fb41;
+  color: white;
 }
 
 .signupFormAndLogo {
@@ -98,4 +99,40 @@
 
 .helpLink {
   font-size: 14px;
+}
+
+@media (max-width: 709px) {
+  .signupPageContainter {
+    background: #181A21;
+  }
+
+  .signupContentContainer {
+    width: 310px;
+    margin: 30px 0 10px 0;
+  }
+  
+  .signupTitle {
+    font-size: 34px;
+  }
+
+  .signupFormAndLogo {
+    padding: 5px 5px;
+    background-color: transparent;
+  }
+
+  .signupForm {
+    width: 300px;  
+  }
+
+  .signupFormPasswordCont {
+    height: 106px;
+  }
+
+  .signupLogo {
+    display: none;
+  }
+
+  .signupAnswerCont {
+    margin-bottom: 17px;
+  }
 }

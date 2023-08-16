@@ -3,7 +3,6 @@ import {
   Form, Input, Button, Typography, Select, FormInstance,
 } from 'antd';
 import { Link } from 'react-router-dom';
-// import { useState } from 'react';
 import styles from './signup.module.css';
 
 function SubmitButton({ form }: { form: FormInstance }) {
@@ -32,7 +31,6 @@ function SubmitButton({ form }: { form: FormInstance }) {
 function SignUp() {
   const [signupForm] = Form.useForm();
   const { Option } = Select;
-  // const [state, setShowForm] = useState(true);
 
   const countries = [
     'Belarus',
@@ -46,7 +44,6 @@ function SignUp() {
   ];
 
   return (
-
     <div className={styles.signupPageContainter}>
       <div className={styles.signupContentContainer}>
         <p className={styles.signupTitle}>SIGN IN</p>
@@ -54,12 +51,6 @@ function SignUp() {
           <div className={styles.signupForm}>
             <Form
               onFinish={() => {
-                // setShowForm = false;
-                // message.loading({ content: 'Registration...', duration: 2 })
-                //   .then((state) => {
-                //     message.success({ content: 'Registration successful!', duration: 2 });
-                //     setShowForm = true;
-                //   });
               }}
               // onFieldsChange={onFieldsChange}
               form={signupForm}
@@ -83,7 +74,10 @@ function SignUp() {
                   ]}
                   name="firstName"
                 >
-                  <Input className={styles.signupFormNameContInput} placeholder="Enter your firstname!.." />
+                  <Input
+                    className={styles.signupFormNameContInput}
+                    placeholder="Enter your firstname!.."
+                  />
                 </Form.Item>
               </div>
               <div className={styles.signupFormNameCont}>
@@ -103,7 +97,10 @@ function SignUp() {
                   ]}
                   name="lastName"
                 >
-                  <Input className={styles.signupFormNameContInput} placeholder="Enter your lastname!.." />
+                  <Input
+                    className={styles.signupFormNameContInput}
+                    placeholder="Enter your lastname!.."
+                  />
                 </Form.Item>
               </div>
               <div className={styles.signupFormNameCont}>
@@ -120,7 +117,10 @@ function SignUp() {
                   ]}
                   name="email"
                 >
-                  <Input className={styles.signupFormNameContInput} placeholder="Enter your email.." />
+                  <Input
+                    className={styles.signupFormNameContInput}
+                    placeholder="Enter your email.."
+                  />
                 </Form.Item>
               </div>
               {/* Adrees */}
@@ -156,7 +156,10 @@ function SignUp() {
                     },
                   ]}
                 >
-                  <Input className={styles.signupFormNameContInput} placeholder="City" />
+                  <Input
+                    className={styles.signupFormNameContInput}
+                    placeholder="City"
+                  />
                 </Form.Item>
 
                 <Form.Item
@@ -168,7 +171,10 @@ function SignUp() {
                     },
                   ]}
                 >
-                  <Input className={styles.signupFormNameContInput} placeholder="Street" />
+                  <Input
+                    className={styles.signupFormNameContInput}
+                    placeholder="Street"
+                  />
                 </Form.Item>
 
                 <Form.Item
@@ -184,7 +190,10 @@ function SignUp() {
                     },
                   ]}
                 >
-                  <Input className={styles.signupFormNameContInput} placeholder="Postal Code" />
+                  <Input
+                    className={styles.signupFormNameContInput}
+                    placeholder="Postal Code"
+                  />
                 </Form.Item>
               </div>
               {/* Data */}
@@ -220,7 +229,10 @@ function SignUp() {
                       width: 'calc(50% - 8px)',
                     }}
                   >
-                    <Input className={styles.signupFormNameContInput} placeholder="Input birth year" />
+                    <Input
+                      className={styles.signupFormNameContInput}
+                      placeholder="Input birth year"
+                    />
                   </Form.Item>
                   <Form.Item
                     name="month"
@@ -232,7 +244,9 @@ function SignUp() {
                         validator(_, value) {
                           return new Promise((resolve) => {
                             if (value && !/^(0[1-9]|1[0-2])$/.test(value)) {
-                              throw new Error('The month should be in format 01');
+                              throw new Error(
+                                'The month should be in format 01',
+                              );
                             } else {
                               resolve('Good!');
                             }
@@ -246,12 +260,17 @@ function SignUp() {
                       margin: '0 8px',
                     }}
                   >
-                    <Input className={styles.signupFormNameContInput} placeholder="Input birth month" />
+                    <Input
+                      className={styles.signupFormNameContInput}
+                      placeholder="Input birth month"
+                    />
                   </Form.Item>
                 </Form.Item>
               </div>
               <div className={styles.signupFormPasswordCont}>
-                <p className={styles.signupFormPasswordContText}>Create password</p>
+                <p className={styles.signupFormPasswordContText}>
+                  Create password
+                </p>
                 <Form.Item
                   name="password"
                   rules={[
@@ -271,14 +290,15 @@ function SignUp() {
               <Typography.Paragraph type="secondary">
                 Already have an account?
               </Typography.Paragraph>
-              <p><Link to="/login">LOG IN</Link></p>
+              <p>
+                <Link to="/login">LOG IN</Link>
+              </p>
               <SubmitButton form={signupForm} />
             </Form>
           </div>
         </div>
       </div>
     </div>
-
   );
 }
 
