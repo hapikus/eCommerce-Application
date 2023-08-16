@@ -101,6 +101,11 @@
   font-size: 14px;
 }
 
+.message {
+  color: green;
+  font-size: large;
+}
+
 @media (max-width: 709px) {
   .signupPageContainter {
     background: #181A21;
@@ -110,7 +115,7 @@
     width: 310px;
     margin: 30px 0 10px 0;
   }
-  
+
   .signupTitle {
     font-size: 34px;
   }

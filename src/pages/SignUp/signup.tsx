@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  Form, Input, Button, Typography, Select, FormInstance,
+  Form, Input, Button, Typography, Select, FormInstance, Checkbox, message,
 } from 'antd';
 import { Link } from 'react-router-dom';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import styles from './signup.module.css';
 
 function SubmitButton({ form }: { form: FormInstance }) {
@@ -31,6 +32,9 @@ function SubmitButton({ form }: { form: FormInstance }) {
 function SignUp() {
   const [signupForm] = Form.useForm();
   const { Option } = Select;
+  const [showForm, setShowForm] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [billingAddress] = Form.useForm();
 
   const countries = [
     'Belarus',
@@ -43,16 +47,25 @@ function SignUp() {
     'China',
   ];
 
+  const onChangeSameAddress = (event: CheckboxChangeEvent) => {
+    setShowForm(event.target.checked);
+  };
+
   return (
     <div className={styles.signupPageContainter}>
       <div className={styles.signupContentContainer}>
         <p className={styles.signupTitle}>SIGN IN</p>
         <div className={styles.signupFormAndLogo}>
           <div className={styles.signupForm}>
+            {isRegistered && <p className={styles.message}>Sign up successfully!</p>}
             <Form
               onFinish={() => {
+                setIsRegistered(true);
+
+                setTimeout(() => {
+                  message.success('Вы зарегистрировались');
+                }, 2000);
               }}
-              // onFieldsChange={onFieldsChange}
               form={signupForm}
               name="signupForm"
             >
@@ -123,10 +136,10 @@ function SignUp() {
                   />
                 </Form.Item>
               </div>
-              {/* Adrees */}
+              {/* Adress */}
               <div className={styles.signupFormNameCont}>
                 <p className={styles.signupFormNameContText}>
-                  Enter your adress
+                  Enter your shipping address
                 </p>
                 <Form.Item
                   name="country"
@@ -195,7 +208,101 @@ function SignUp() {
                     placeholder="Postal Code"
                   />
                 </Form.Item>
+                <Form.Item
+                  name="defaultAddress"
+                >
+                  <Checkbox style={{ color: '#ffffff94' }} className="styles.checkbox">
+                    Set as default address
+                  </Checkbox>
+                </Form.Item>
+                <Form.Item
+                  name="sameAddress"
+                >
+                  <Checkbox style={{ color: '#ffffff94' }} checked={showForm} onChange={onChangeSameAddress}>
+                    Have the same billign address
+                  </Checkbox>
+                  {showForm ? null : (
+                    <Form
+                      form={billingAddress}
+                      onFinish={() => {
+                      }}
+                    >
+                      {/* Добавьте необходимые поля для формы */}
+                      <p className={styles.signupFormNameContText}>
+                        Enter your billing address
+                      </p>
+                      <Form.Item
+                        name="country"
+                        rules={[
+                          {
+                            required: true,
+                            message: 'Please select your country!',
+                          },
+                        ]}
+                      >
+                        <Select size="large" placeholder="Select Country">
+                          {countries.map((country) => (
+                            <Option key={country}>{country}</Option>
+                          ))}
+                        </Select>
+                      </Form.Item>
+                      <Form.Item
+                        name="city"
+                        rules={[
+                          {
+                            required: true,
+                            message: 'Please enter your city!',
+                          },
+                          {
+                            pattern: /^[a-zA-Z\s]+$/,
+                            message: 'City must contain only alphabets and spaces!',
+                          },
+                        ]}
+                      >
+                        <Input
+                          className={styles.signupFormNameContInput}
+                          placeholder="City"
+                        />
+                      </Form.Item>
+
+                      <Form.Item
+                        name="street"
+                        rules={[
+                          {
+                            required: true,
+                            message: 'Please enter your street address!',
+                          },
+                        ]}
+                      >
+                        <Input
+                          className={styles.signupFormNameContInput}
+                          placeholder="Street"
+                        />
+                      </Form.Item>
+
+                      <Form.Item
+                        name="postalCode"
+                        rules={[
+                          {
+                            required: true,
+                            message: 'Please enter your postal code!',
+                          },
+                          {
+                            pattern: /[a-zA-Z]\d[a-zA-Z] \d[a-zA-Z]\d|\d{5}/,
+                            message: 'Postal code must contain only 5 characters',
+                          },
+                        ]}
+                      >
+                        <Input
+                          className={styles.signupFormNameContInput}
+                          placeholder="Postal Code"
+                        />
+                      </Form.Item>
+                    </Form>
+                  ) }
+                </Form.Item>
               </div>
+
               {/* Data */}
               <div className={styles.signupFormNameCont}>
                 <p className={styles.signupFormNameContText}>
@@ -276,9 +383,10 @@ function SignUp() {
                   rules={[
                     { required: true, message: 'Please input your password!' },
                     {
-                      min: 3,
+                      min: 8,
                       max: 32,
-                      message: 'Password must be between 3 and 32 characters!',
+                      pattern: /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}/,
+                      message: 'Password must be between more than 8 characters!',
                     },
                   ]}
                 >
