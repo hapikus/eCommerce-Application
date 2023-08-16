@@ -6,8 +6,8 @@
 
 .menu_items {
   display: flex;
-  background-color: #eee;
-  color: black;
+  /* background-color: #eee; */
+  /* color: black; */
   width: 100%;
   justify-content: space-between;
   border-bottom: none;
@@ -17,8 +17,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #eee;
-  color: black;
+  /* background-color: #eee; */
+  /* color: black; */
   width: 100%;
 }
 
@@ -40,24 +40,24 @@
 
 .menu_reg > .menu_items {
   display: flex;
-  background-color: #eee;
-  color: black;
+  /* background-color: #eee; */
+  /* color: black; */
   width: 100%;
   justify-content: flex-end;
 }
 
 .headerMenu {
   display: flex;
-  background-color: #eee;
-  color: black;
+  /* background-color: #eee;
+  color: black; */
   width: 100%;
 }
 
 .burgerMenu {
   display: flex;
   justify-content: center;
-  background-color: #eee;
-  color: black;
+  /* background-color: #eee;
+  color: black; */
   width: 100%;
 }
 

@@ -11,11 +11,6 @@ html[data-theme="dark"] {
   --color-accent: #69b1ff;
 }
 
-html[data-theme="barbie"] {
-  --bg-color-main: #ffd6e7;
-  --color-main: #13c2c2;
-  --color-accent: #006d75;
-}
 
 html * {
   transition: color 0.2s ease, background-color 0.2s ease;

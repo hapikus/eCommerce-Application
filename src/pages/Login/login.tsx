@@ -22,9 +22,7 @@ const errorStateChecker = (logErrMsg: string): string => {
 };
 
 function LoginPage() {
-  const isAuthState = useSelector(
-    (state: RootState) => state.auth.isAuth,
-  );
+  const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
 
   const loginErrorState = useSelector(
     (state: RootState) => state.auth.loginError,
