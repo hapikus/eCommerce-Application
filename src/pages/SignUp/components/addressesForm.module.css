@@ -1,0 +1,19 @@
+.title {
+  font-size: 18px;
+  text-align: center;
+  color: white;
+}
+
+.NameContText {
+  color: #AFAFAF;
+}
+
+.NameContInput {
+  height: 40px;
+  background-color: #32353C;
+  color: #fff
+}
+
+.checkBox {
+  color: #AFAFAF;
+}
