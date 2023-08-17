@@ -3,7 +3,7 @@
   justify-content: center;
   height: 100vh;
   position: relative;
-  background-color: var(--bg-footer);
+  background-color: var(--bg-color-menu);
   background-size: cover;
   background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
   background-color:var(--color-text);
@@ -46,6 +46,10 @@
   justify-content: center;
   align-items: center;
   width: 200px;
+  background-image: var(--image2);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .loginFormNameContText {
@@ -54,7 +58,7 @@
 
 .loginFormNameContInput {
   height: 40px;
-  background-color: var(--bg-footer);
+  background-color: var(--bg-color-menu);
   color: var(--color-text)
 }
 
@@ -64,12 +68,12 @@
 
 .loginFormPasswordContInput {
   height: 40px;
-  background-color: var(--bg-footer);
+  background-color: var(--bg-color-menu);
   color: var(--color-text)
 }
 
 .loginFormPasswordContInput input {
-  background-color: var(--bg-footer);
+  background-color: var(--bg-color-menu);
   color: var(--color-text)
 }
 

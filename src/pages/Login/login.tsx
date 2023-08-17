@@ -107,8 +107,7 @@ function LoginPage() {
           </div>
           <div className={styles.loginLogo}>
             <Image
-              width={200}
-              src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
+              preview={false}
             />
           </div>
         </div>

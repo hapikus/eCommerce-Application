@@ -82,7 +82,9 @@ function Header() {
           setOpenMenu(false);
         }}
       >
-        <MainMenu isInLine />
+        <MainMenu
+          isInLine
+        />
       </Drawer>
     </>
   );

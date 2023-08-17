@@ -1,0 +1,68 @@
+.footer {
+    /* height: 70px; */
+    width: 100%;
+    background-color: var(--bg-color-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color: black; */
+    text-align: center;
+    margin: auto;
+    flex-direction: column;
+}
+
+.rule {
+  height: 8px;
+  border-top: 1px solid var(--gpStoreDarkerGrey);
+  width: 100%;
+}
+
+.footer_logo {
+    /* float: left; */
+    width: 100%;
+    display: flex;
+    padding-top: 2px;
+    /* width: 30px; */
+    /* height: 30px; */
+    justify-content: space-between;
+}
+
+.footer_logo_github {
+  display: flex;
+  width: 50%;
+  background-color: var(--color-text); 
+  -webkit-mask-image: var(--image-github);
+  mask-image: var(--image-logo);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-position: left;
+  -webkit-mask-position: left;
+  height: 30px;
+  width: 30px;
+}
+
+.footer_logo_rss {
+  display: flex;
+  width: 50%;
+  background-color: var(--color-text); 
+  -webkit-mask-image: var(--image-rss);
+  mask-image: var(--image-logo);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-position: left;
+  -webkit-mask-position: left;
+  height: 50px;
+  width: 50px;
+}
+
+.footer_text {
+    float: left;
+    margin-left: 12px;
+    color: var(--color-text);
+    font-size: 12px;
+    line-height: 16px;
+}

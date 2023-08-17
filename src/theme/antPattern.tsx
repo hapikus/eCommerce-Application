@@ -33,11 +33,13 @@ const antPattern = {
   },
   [themes.barbie]: {
     token: {
-      colorText: '#fff',
+      colorText: '#000',
+      colorPrimary: '#08979c',
     },
     components: {
       Layout: {
-        colorBgHeader: '#eee',
+        colorBgHeader: '#ffe6f9',
+        colorBgBody: '#417a9b',
       },
     },
   },

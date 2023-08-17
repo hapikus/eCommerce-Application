@@ -1,17 +1,16 @@
 /* Basic components */
 .header {
-  height: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  height: 100px;
   align-items: center;
-  /* box-shadow: 1px 2px 2px #00000033; */
-  /* background-color: #eee; */
   text-align: center;
   line-height: 64px;
+  padding-top: 30px;
 }
 
 .footer {
-  height: 70px;
+  height: 100%;
   background-color: var(--bg-color-main);
   display: flex;
   justify-content: center;
@@ -21,8 +20,20 @@
 }
 
 .content {
-  /* background-color: #eee; */
+  background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey));
+  height: 100%;
   min-height: 120px;
   color: var(--color-text);
   text-align: center;
+}
+
+.theme_switcher {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 120px;
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--bg-color-main);
+  z-index: 999;
 }

@@ -1,5 +1,5 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { ConfigProvider, Radio } from 'antd';
+import { ConfigProvider, Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 import NotFound from './pages/404/notFound';
@@ -10,7 +10,7 @@ import LayoutPage from './pages/Layout/layout';
 import { setTheme } from './redux/slice/themeSlice';
 import antPattern, { getThemeAlgorithm } from './theme/antPattern';
 
-import './pages/Layout/layout.module.css';
+import styles from './pages/Layout/layout.module.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,14 +26,32 @@ function App() {
       }}
     >
       <div className="App">
-        <Radio.Group
+        <Select
+          className={styles.theme_switcher}
+          defaultValue={themeState}
+          autoFocus={false}
+          onChange={(value) => {
+            dispatch(setTheme(value));
+          }}
+          options={Object.values(themesState).map((themeMap) => ({
+            value: themeMap,
+            label: themeMap,
+          }))}
+        />
+        {/* <Radio.Group
+          // { Object.values(themesState).map((themeMap) => (
+          //   <Select.Option value={themeMap}>{themeMap}</Select.Option>
+          // ))}
+          className={styles.theme_switcher}
           value={themeState}
           onChange={(e) => {
             dispatch(setTheme(e.target.value));
           }}
         >
-          {Object.values(themesState).map((themeMap) => <Radio value={themeMap}>{themeMap}</Radio>)}
-        </Radio.Group>
+          {Object.values(themesState).map((themeMap) => (
+            <Radio.Button value={themeMap}>{themeMap}</Radio.Button>
+          ))}
+        </Radio.Group> */}
         <HashRouter>
           <Routes>
             <Route path="/" element={<LayoutPage />}>
