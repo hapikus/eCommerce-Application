@@ -17,3 +17,8 @@
 .checkBox {
   color: #AFAFAF;
 }
+
+.checkBoxCont {
+  display: flex;
+  flex-direction: column;
+}

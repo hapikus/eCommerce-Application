@@ -1,5 +1,10 @@
-import { useState } from 'react';
-import { Form, Image, Button } from 'antd';
+import { useEffect, useRef, useState } from 'react';
+import { Form, Image, Button, message } from 'antd';
+
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { registAsync } from '../../redux/slice/authSlice';
+import store, { RootState } from '../../redux/store';
 
 import PersonalDataForm from './components/personalForm';
 import AddressesDataForm from './components/addressesForm';
@@ -16,6 +21,24 @@ function SignUp() {
   const [currentForm, setCurrentForm] = useState('Pesonal');
   const [pesonalDataValues, setPesonalDataValues] = useState({});
 
+  const isAuthState = useSelector(
+    (state: RootState) => state.auth.isAuth,
+  );
+
+  const isAuthRef = useRef(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthState && !isAuthRef.current) {
+      isAuthRef.current = true;
+
+      message.success('Login successful! Redirecting to the main page...');
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+    }
+  }, [isAuthState, navigate]);
+
   const handlePersonalDataSubmit = async () => {
     try {
       const personValues = await PersonalData.validateFields();
@@ -29,8 +52,7 @@ function SignUp() {
   const handleAddresssesDataSubmit = async () => {
     try {
       const adressValues = await AddresssesData.validateFields();
-      console.log(pesonalDataValues);
-      console.log(adressValues);
+      await store.dispatch(registAsync({ ...pesonalDataValues, ...adressValues }));
     } catch {
       // The catch block is omitted, so the error will be muted
     }
@@ -52,7 +74,7 @@ function SignUp() {
           <div className={styles.imageContainerPersonal}>
             <Image
               width={250}
-              height={556}
+              height="100%"
               src={PersonalDataImg}
               style={{ objectFit: 'cover' }}
             />
@@ -67,7 +89,7 @@ function SignUp() {
             <Image
               preview={false}
               width={250}
-              height={885}
+              height="100%"
               src={AddressesDataImg}
               style={{ objectFit: 'cover' }}
             />
