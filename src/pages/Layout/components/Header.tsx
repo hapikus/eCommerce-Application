@@ -1,23 +1,17 @@
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable react/react-in-jsx-scope */
 import { useNavigate, Outlet } from 'react-router-dom';
-import { Button, Menu } from 'antd';
-import styles from '../layout.module.css';
+import { Menu } from 'antd';
+import styles from './header.module.css';
 
 function HeaderUi() {
   const navigate = useNavigate();
 
-  function onMenuClick(item: { key: string }) {
-    return navigate(`/${item.key}`);
-  }
+  const onMenuClick = (item: { key: string }) => navigate(`/${item.key}`);
 
   return (
     <>
       <div className={styles.logotip} />
       <Menu
-        style={{
-          backgroundColor: 'black', color: 'white', height: 70, fontSize: 24,
-        }}
+        className={styles.header}
         onClick={onMenuClick}
         theme="light"
         mode="horizontal"
@@ -27,11 +21,11 @@ function HeaderUi() {
             key: '',
           },
           {
-            label: <Button style={{ backgroundColor: '#DCFF50' }}>Log in</Button>,
+            label: 'Login',
             key: 'login',
           },
           {
-            label: <Button>Sign up</Button>,
+            label: 'Sign up',
             key: 'signup',
           },
         ]}
