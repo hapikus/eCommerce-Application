@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, Drawer, Menu, Avatar } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { RootState } from '../../../redux/store';
+import store, { RootState } from '../../../redux/store';
 
 import styles from './header.module.css';
+import { logoutAsync } from '../../../redux/slice/authSlice';
 
 // eslint-disable-next-line react/prop-types
 function MainMenu({ isInLine = false }) {
@@ -13,6 +14,10 @@ function MainMenu({ isInLine = false }) {
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
   const onMenuClick = (item: { key: string }) => navigate(`/${item.key}`);
+
+  const logOut = async () => {
+    await store.dispatch(logoutAsync());
+  };
 
   const renderLoginMenu = () => (
     <Menu
@@ -35,10 +40,8 @@ function MainMenu({ isInLine = false }) {
 
   const renderAuthMenu = () => (
     <>
-      <Avatar size="large">
-        {userInfo}
-      </Avatar>
-      <Button>Logout</Button>
+      <Button onClick={logOut}>Logout</Button>
+      <Avatar size="large">{userInfo}</Avatar>
     </>
   );
 
@@ -85,10 +88,10 @@ function Header() {
             setOpenMenu(true);
           }}
         />
-        <div className={styles.logotip} />
+        <Link to="/" className={styles.logotip} />
       </div>
       <div className={styles.headerMenu}>
-        <div className={styles.logotip} />
+        <Link to="/" className={styles.logotip} />
         <MainMenu />
       </div>
       <Drawer

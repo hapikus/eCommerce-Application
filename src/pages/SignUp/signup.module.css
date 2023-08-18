@@ -6,7 +6,6 @@
   background-color: var(--bg-color-menu);
   background-size: cover;
   background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
-  /* background-color:var(--color-text); */
 }
 
 .signupContentContainer {

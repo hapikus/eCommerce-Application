@@ -11,10 +11,9 @@
 }
 
 .card {
-  fill: red;
   display: flex;
   width: 50%;
-  background-color: var(--color-text); 
+  background-color: var(--color-text);
   -webkit-mask-image: url('./src/assets/images/taro.svg');
   mask-image: url('./src/assets/images/taro.svg');
   -webkit-mask-repeat: no-repeat;
