@@ -54,6 +54,7 @@
 
 .loginFormNameContText {
   color: var(--color-text);
+  text-align: left;
 }
 
 .loginFormNameContInput {
@@ -64,6 +65,8 @@
 
 .loginFormPasswordContText {
   color: var(--color-text);
+  text-align: left;
+  color: #AFAFAF;
 }
 
 .loginFormPasswordContInput {
@@ -86,6 +89,7 @@
   font-weight: 500;
   color: #c15755;
   text-align: center;
+  height: 17px;
 }
 
 .loginFormSubmitCont {
@@ -108,4 +112,36 @@
 
 .helpLink {
   font-size: 14px;
+}
+
+@media (max-width: 709px) {
+  .loginPageContainter {
+    background: #181A21;
+  }
+
+  .loginContentContainer {
+    width: 310px;
+    height: 454px;
+  }
+
+  .loginFormAndLogo {
+    padding: 5px 5px;
+    background-color: transparent;
+  }
+
+  .loginForm {
+    width: 300px;  
+  }
+
+  .loginFormPasswordCont {
+    height: 106px;
+  }
+
+  .loginLogo {
+    display: none;
+  }
+
+  .loginAnswerCont {
+    margin-bottom: 17px;
+  }
 }

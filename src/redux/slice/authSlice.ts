@@ -41,19 +41,41 @@ export const registAsync = createAsyncThunk(
   'auth/regist',
   async (
     loginData: {
-      email: string;
-      password: string;
       firstName: string;
       lastName: string;
+      email: string;
+      dob: Date;
+      password: string;
+      defaultShipping: undefined | boolean;
+      shipCountry: string;
+      shipCity: string;
+      shipStreet: string;
+      shipPostalCode: string;
+      defaultBilling: undefined | boolean;
+      billCountry: string;
+      billCity: string;
+      billStreet: string;
+      billPostalCode: string;
     },
     thunkAPI,
   ) => {
     try {
       const response = await AuthService.registration(
-        loginData.email,
-        loginData.password,
         loginData.firstName,
         loginData.lastName,
+        loginData.email,
+        loginData.dob,
+        loginData.password,
+        loginData.defaultShipping,
+        loginData.shipCountry,
+        loginData.shipCity,
+        loginData.shipStreet,
+        loginData.shipPostalCode,
+        loginData.defaultBilling,
+        loginData.billCountry,
+        loginData.billCity,
+        loginData.billStreet,
+        loginData.billPostalCode,
       );
       localStorage.setItem('token', response.data.accessToken);
       return response.data.user;
