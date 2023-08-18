@@ -11,16 +11,40 @@ export default class AuthService {
   }
 
   static async registration(
-    email: string,
-    password: string,
     firstName: string,
     lastName: string,
+    email: string,
+    dob: Date,
+    password: string,
+    defaultShipping: undefined | boolean,
+    shipCountry: string,
+    shipCity: string,
+    shipStreet: string,
+    shipPostalCode: string,
+    defaultBilling: undefined | boolean,
+    billCountry: string,
+    billCity: string,
+    billStreet: string,
+    billPostalCode: string,
   ): Promise<AxiosResponse<AuthResponse>> {
+    const defaultShippingCheck = defaultShipping || false;
+    const defaultBillingCkeck = defaultBilling || false;
     return $api.post<AuthResponse>('/registration', {
-      email,
-      password,
       firstName,
       lastName,
+      email,
+      dob,
+      password,
+      defaultShippingCheck,
+      shipCountry,
+      shipCity,
+      shipStreet,
+      shipPostalCode,
+      defaultBillingCkeck,
+      billCountry,
+      billCity,
+      billStreet,
+      billPostalCode,
     });
   }
 
