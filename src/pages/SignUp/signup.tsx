@@ -73,6 +73,7 @@ function SignUp() {
           </div>
           <div className={styles.imageContainerPersonal}>
             <Image
+              preview={false}
               width={250}
               height="100%"
               src={PersonalDataImg}

@@ -1,9 +1,12 @@
 .signupPageContainter {
   display: flex;
   justify-content: center;
-  height: auto;
+  height: 100vh;
   position: relative;
-  text-align: left;
+  background-color: var(--bg-color-menu);
+  background-size: cover;
+  background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
+  /* background-color:var(--color-text); */
 }
 
 .signupContentContainer {
@@ -19,7 +22,7 @@
   font-size: 40px;
   font-weight: 500;
   margin: 8px 16px 0;
-  color: white;
+  color: var(--color-text)
 }
 
 .signupFormAndLogo {
@@ -28,7 +31,7 @@
   flex-direction: row;
   column-gap: 40px;
   padding: 24px 32px;
-  background-color: #181A21;
+  background-color: var(--bg-color-main);
 }
 
 .signupForm {
@@ -60,7 +63,7 @@
 
 @media (max-width: 709px) {
   .signupPageContainter {
-    background: #181A21;
+    background-image: var(--bg-color-main);
   }
 
   .signupContentContainer {
@@ -87,5 +90,11 @@
 
   .signupAnswerCont {
     margin-bottom: 17px;
+  }
+  .imageContainerPersonal {
+    display: none;
+  }
+  .imageContainerAddress {
+    display: none;
   }
 }

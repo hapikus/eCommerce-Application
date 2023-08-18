@@ -1,7 +1,7 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { ConfigProvider, Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './redux/store';
+import store, { RootState } from './redux/store';
 import LayoutPage from './pages/Layout/layout';
 import MainPage from './pages/Main/main';
 import InfoPage from './pages/Info/info';
@@ -13,11 +13,21 @@ import { setTheme } from './redux/slice/themeSlice';
 import antPattern, { getThemeAlgorithm } from './theme/antPattern';
 
 import styles from './pages/Layout/layout.module.css';
+import { checkAuth } from './redux/slice/authSlice';
 
 function App() {
   const dispatch = useDispatch();
   const themeState = useSelector((state: RootState) => state.theme.theme);
   const themesState = useSelector((state: RootState) => state.theme.themes);
+  const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
+
+  const refreshToken = async () => {
+    await store.dispatch(checkAuth());
+  };
+
+  if (!isAuthState) {
+    refreshToken();
+  }
 
   return (
     <ConfigProvider

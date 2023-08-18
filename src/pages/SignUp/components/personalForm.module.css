@@ -1,40 +1,40 @@
 .personalDataFormNameContText {
-  color: #AFAFAF;
+  color: var(--color-text)
 }
 
 .personalDataFormDatePickerCont {
-  color: #AFAFAF;
+  color: var(--color-text)
 }
 
 .personalDataFormNameContInput {
   height: 40px;
-  background-color: #32353C;
-  color: #fff  
+  background-color: var(--bg-color-main);
+  color: var(--color-text)
 }
 
 .personalDataFormPasswordContText {
-  color: #AFAFAF;
+  color: var(--color-text)
 }
 
 .personalDataFormPasswordContInput {
   height: 40px;
-  background-color: #32353C;
-  color: #fff
+  background-color: var(--bg-color-main);
+  color: var(--color-text)
 }
 
 .personalDataFormPasswordContInput input {
-  background-color: #32353C;
-  color: #fff
+  background-color: var(--bg-color-main);
+  color: var(--color-text)
 }
 
 .personalDataFormPasswordContInput svg {
-  color: #fff
+  color: var(--color-text)
 }
 
 .personalDataFormDatePicker {
   height: 40px;
   width: 100%;
-  background-color: #32353C;
+  background-color: var(--bg-color-main);
 }
 
 .personalDataFormDatePicker input {

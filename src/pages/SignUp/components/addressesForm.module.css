@@ -1,21 +1,21 @@
 .title {
   font-size: 18px;
   text-align: center;
-  color: white;
+  color: var(--color-text)
 }
 
 .NameContText {
-  color: #AFAFAF;
+  color: var(--color-text)
 }
 
 .NameContInput {
   height: 40px;
-  background-color: #32353C;
-  color: #fff
+  background-color: var(--bg-color-main);
+  color: var(--color-text)
 }
 
 .checkBox {
-  color: #AFAFAF;
+  color: var(--color-text)
 }
 
 .checkBoxCont {

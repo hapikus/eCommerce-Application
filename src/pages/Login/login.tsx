@@ -10,6 +10,7 @@ import passwordValidationRules from '../../utils/passValid';
 import LoginFormValues from '../../types/types';
 
 import styles from './login.module.css';
+import AddressesDataImg from '../../assets/images/abstract-digital-grid-black-background.jpg';
 
 const errorStateChecker = (logErrMsg: string): string => {
   if (logErrMsg === 'Пользователя не существует') {
@@ -106,7 +107,13 @@ function LoginPage() {
             </div>
           </div>
           <div className={styles.loginLogo}>
-            <Image preview={false} />
+            <Image
+              preview={false}
+              width={250}
+              height="100%"
+              src={AddressesDataImg}
+              style={{ objectFit: 'cover' }}
+            />
           </div>
         </div>
       </div>

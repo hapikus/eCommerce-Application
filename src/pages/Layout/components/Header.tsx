@@ -1,14 +1,46 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Drawer, Menu } from 'antd';
+import { useSelector } from 'react-redux';
+import { Button, Drawer, Menu, Avatar } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
+import { RootState } from '../../../redux/store';
+
 import styles from './header.module.css';
 
 // eslint-disable-next-line react/prop-types
 function MainMenu({ isInLine = false }) {
   const navigate = useNavigate();
-
+  const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
+  const userInfo = useSelector((state: RootState) => state.auth.user.email);
   const onMenuClick = (item: { key: string }) => navigate(`/${item.key}`);
+
+  const renderLoginMenu = () => (
+    <Menu
+      className={isInLine ? styles.menu_items_line : styles.menu_items}
+      onClick={onMenuClick}
+      theme="light"
+      mode={isInLine ? 'inline' : 'horizontal'}
+      items={[
+        {
+          label: 'Login',
+          key: 'login',
+        },
+        {
+          label: 'Sign up',
+          key: 'signup',
+        },
+      ]}
+    />
+  );
+
+  const renderAuthMenu = () => (
+    <>
+      <Avatar size="large">
+        {userInfo}
+      </Avatar>
+      <Button>Logout</Button>
+    </>
+  );
 
   return (
     <>
@@ -35,22 +67,7 @@ function MainMenu({ isInLine = false }) {
         />
       </div>
       <div className={styles.menu_reg}>
-        <Menu
-          className={isInLine ? styles.menu_items_line : styles.menu_items}
-          onClick={onMenuClick}
-          theme="light"
-          mode={isInLine ? 'inline' : 'horizontal'}
-          items={[
-            {
-              label: 'Login',
-              key: 'login',
-            },
-            {
-              label: 'Sign up',
-              key: 'signup',
-            },
-          ]}
-        />
+        {isAuthState ? renderAuthMenu() : renderLoginMenu()}
       </div>
     </>
   );
