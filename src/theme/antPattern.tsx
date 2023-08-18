@@ -13,6 +13,7 @@ const antPattern = {
     token: {
       colorBgContainer: '#eae7ea',
       colorText: '#000',
+      labelAlign: 'left',
     },
     components: {
       Layout: {

@@ -3,7 +3,6 @@
   justify-content: center;
   height: 100vh;
   position: relative;
-  background-color: var(--bg-color-menu);
   background-size: cover;
   background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
 }
@@ -22,7 +21,6 @@
   font-size: 31px;
   font-weight: 500;
   margin: 8px 16px 0;
-  color: var(--color-text);
 }
 
 .loginFormAndLogo {
@@ -51,38 +49,17 @@
   background-repeat: no-repeat;
 }
 
-.loginFormNameContText {
-  color: var(--color-text);
-  text-align: left;
-}
-
 .loginFormNameContInput {
   height: 40px;
-  color: var(--color-text)
-}
-
-.loginFormPasswordContText {
-  color: var(--color-text);
-  text-align: left;
 }
 
 .loginFormPasswordContInput {
   height: 40px;
-  color: var(--color-text)
-}
-
-.loginFormPasswordContInput input {
-  color: var(--color-text)
-}
-
-.loginFormPasswordContInput svg {
-  color: var(--color-text)
 }
 
 .loginAnswerCont {
   font-size: 14px;
   font-weight: 500;
-  color: #c15755;
   text-align: center;
   height: 17px;
 }
@@ -101,7 +78,6 @@
 .helpCont {
   display: flex;
   justify-content: center;
-  color: #AFAFAF;
   margin-top: auto;
 }
 

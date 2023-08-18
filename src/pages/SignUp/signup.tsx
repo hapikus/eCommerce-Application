@@ -65,6 +65,7 @@ function SignUp() {
           <div className={styles.signupForm}>
             <PersonalDataForm formInstance={PersonalData} />
             <Button
+              type="primary"
               className={styles.submitButton}
               onClick={handlePersonalDataSubmit}
             >
@@ -98,6 +99,7 @@ function SignUp() {
           <div className={styles.signupForm}>
             <AddressesDataForm formInstance={AddresssesData} />
             <Button
+              type="primary"
               className={styles.submitButton}
               onClick={handleAddresssesDataSubmit}
             >

@@ -1,9 +1,8 @@
 .signupPageContainter {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   position: relative;
-  background-color: var(--bg-color-menu);
   background-size: cover;
   background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
 }
@@ -12,16 +11,17 @@
   display: flex;
   flex-direction: column;
   width: 700px;
+  height: auto;
   row-gap: 40px;
   margin-top: 40px;
   z-index: 1;
+  margin-bottom: 40px;
 }
 
 .signupTitle {
   font-size: 40px;
   font-weight: 500;
   margin: 8px 16px 0;
-  color: var(--color-text)
 }
 
 .signupFormAndLogo {
@@ -62,7 +62,7 @@
 
 @media (max-width: 709px) {
   .signupPageContainter {
-    background-image: var(--bg-color-main);
+    background: var(--bg-color-main);
   }
 
   .signupContentContainer {

@@ -1,44 +1,14 @@
-.personalDataFormNameContText {
-  color: var(--color-text)
-}
-
-.personalDataFormDatePickerCont {
-  color: var(--color-text)
-}
-
 .personalDataFormNameContInput {
   height: 40px;
-  background-color: var(--bg-color-main);
-  color: var(--color-text)
-}
-
-.personalDataFormPasswordContText {
-  color: var(--color-text)
 }
 
 .personalDataFormPasswordContInput {
   height: 40px;
-  background-color: var(--bg-color-main);
-  color: var(--color-text)
-}
-
-.personalDataFormPasswordContInput input {
-  background-color: var(--bg-color-main);
-  color: var(--color-text)
-}
-
-.personalDataFormPasswordContInput svg {
-  color: var(--color-text)
 }
 
 .personalDataFormDatePicker {
   height: 40px;
   width: 100%;
-  background-color: var(--bg-color-main);
-}
-
-.personalDataFormDatePicker input {
-  color: transparent;
 }
 
 @media (max-width: 709px) {
