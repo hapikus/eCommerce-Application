@@ -40,20 +40,6 @@ function App() {
             label: themeMap,
           }))}
         />
-        {/* <Radio.Group
-          // { Object.values(themesState).map((themeMap) => (
-          //   <Select.Option value={themeMap}>{themeMap}</Select.Option>
-          // ))}
-          className={styles.theme_switcher}
-          value={themeState}
-          onChange={(e) => {
-            dispatch(setTheme(e.target.value));
-          }}
-        >
-          {Object.values(themesState).map((themeMap) => (
-            <Radio.Button value={themeMap}>{themeMap}</Radio.Button>
-          ))}
-        </Radio.Group> */}
         <HashRouter>
           <Routes>
             <Route path="/" element={<LayoutPage />}>

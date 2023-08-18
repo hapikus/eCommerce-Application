@@ -9,10 +9,7 @@ interface PersonalDataFormProps {
 
 function PersonalDataForm({ formInstance }: PersonalDataFormProps) {
   return (
-    <Form
-      form={formInstance}
-      name="perosnalDataForm"
-    >
+    <Form form={formInstance} name="perosnalDataForm">
       <div className={styles.personalDataFormNameCont}>
         <p className={styles.personalDataFormNameContText}>First name</p>
         <Form.Item

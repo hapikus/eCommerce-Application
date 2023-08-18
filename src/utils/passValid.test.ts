@@ -6,7 +6,9 @@ describe('Password Validation', () => {
   test('should pass all validation rules for a valid password', async () => {
     await Promise.all(
       passwordValidationRules.map(async (rule) => {
-        await expect(rule.validator({}, validPassword)).resolves.toBeUndefined();
+        await expect(
+          rule.validator({}, validPassword),
+        ).resolves.toBeUndefined();
       }),
     );
   });

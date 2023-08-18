@@ -21,9 +21,7 @@ function SignUp() {
   const [currentForm, setCurrentForm] = useState('Pesonal');
   const [pesonalDataValues, setPesonalDataValues] = useState({});
 
-  const isAuthState = useSelector(
-    (state: RootState) => state.auth.isAuth,
-  );
+  const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
 
   const isAuthRef = useRef(false);
   const navigate = useNavigate();
@@ -52,7 +50,9 @@ function SignUp() {
   const handleAddresssesDataSubmit = async () => {
     try {
       const adressValues = await AddresssesData.validateFields();
-      await store.dispatch(registAsync({ ...pesonalDataValues, ...adressValues }));
+      await store.dispatch(
+        registAsync({ ...pesonalDataValues, ...adressValues }),
+      );
     } catch {
       // The catch block is omitted, so the error will be muted
     }
