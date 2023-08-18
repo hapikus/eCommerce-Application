@@ -11,6 +11,7 @@ const getThemeAlgorithm = (currentTheme: string) => {
 const antPattern = {
   [themes.light]: {
     token: {
+      colorBgContainer: '#eae7ea',
       colorText: '#000',
     },
     components: {
@@ -22,6 +23,7 @@ const antPattern = {
   },
   [themes.dark]: {
     token: {
+      colorBgContainer: '#171a21',
       colorText: '#fff',
     },
     components: {
@@ -33,6 +35,7 @@ const antPattern = {
   },
   [themes.barbie]: {
     token: {
+      colorBgContainer: '#ffe6f9',
       colorText: '#000',
       colorPrimary: '#08979c',
     },

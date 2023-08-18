@@ -2,11 +2,13 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { ConfigProvider, Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
-import NotFound from './pages/404/notFound';
+import LayoutPage from './pages/Layout/layout';
+import MainPage from './pages/Main/main';
+import InfoPage from './pages/Info/info';
+import Support from './pages/Support/support';
 import LoginPage from './pages/Login/login';
 import SignUp from './pages/SignUp/signup';
-import Support from './pages/Support/support';
-import LayoutPage from './pages/Layout/layout';
+import NotFound from './pages/404/notFound';
 import { setTheme } from './redux/slice/themeSlice';
 import antPattern, { getThemeAlgorithm } from './theme/antPattern';
 
@@ -55,9 +57,11 @@ function App() {
         <HashRouter>
           <Routes>
             <Route path="/" element={<LayoutPage />}>
+              <Route path="/main" element={<MainPage />} />
+              <Route path="/info" element={<InfoPage />} />
+              <Route path="/support" element={<Support />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/support" element={<Support />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

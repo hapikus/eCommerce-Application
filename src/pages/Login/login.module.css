@@ -58,7 +58,7 @@
 
 .loginFormNameContInput {
   height: 40px;
-  background-color: var(--bg-color-menu);
+  /* background-color: var(--bg-color-menu); */
   color: var(--color-text)
 }
 
@@ -68,12 +68,12 @@
 
 .loginFormPasswordContInput {
   height: 40px;
-  background-color: var(--bg-color-menu);
+  /* background-color: var(--bg-color-menu); */
   color: var(--color-text)
 }
 
 .loginFormPasswordContInput input {
-  background-color: var(--bg-color-menu);
+  /* background-color: var(--bg-color-menu); */
   color: var(--color-text)
 }
 

@@ -25,7 +25,7 @@ function MainMenu({ isInLine = false }) {
             },
             {
               label: 'Information',
-              key: 'information',
+              key: 'info',
             },
             {
               label: 'Support',
@@ -82,9 +82,7 @@ function Header() {
           setOpenMenu(false);
         }}
       >
-        <MainMenu
-          isInLine
-        />
+        <MainMenu isInLine />
       </Drawer>
     </>
   );

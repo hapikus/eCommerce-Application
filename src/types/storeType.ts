@@ -11,7 +11,7 @@ interface AuthState {
 }
 
 interface ThemeState {
-  themes: { [key: string] : string };
+  themes: { [key: string]: string };
   theme: string;
 }
 
@@ -20,6 +20,6 @@ interface SetThemeSuper {
   payload: string;
 }
 
-type ThemeType = { [key: string] : string };
+type ThemeType = { [key: string]: string };
 
 export type { AuthState, ThemeState, SetThemeSuper, ThemeType };

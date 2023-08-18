@@ -106,9 +106,7 @@ function LoginPage() {
             </div>
           </div>
           <div className={styles.loginLogo}>
-            <Image
-              preview={false}
-            />
+            <Image preview={false} />
           </div>
         </div>
       </div>
