@@ -8,12 +8,20 @@ import store, { RootState } from '../../../redux/store';
 import styles from './header.module.css';
 import { logoutAsync } from '../../../redux/slice/authSlice';
 
-// eslint-disable-next-line react/prop-types
-function MainMenu({ isInLine = false }) {
+function MainMenu({
+  isInLine = false,
+  setOpenMenu,
+}: {
+  isInLine: boolean;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const navigate = useNavigate();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
-  const onMenuClick = (item: { key: string }) => navigate(`/${item.key}`);
+  const onMenuClick = (item: { key: string }) => {
+    setOpenMenu(false);
+    return navigate(`/${item.key}`);
+  };
 
   const logOut = async () => {
     await store.dispatch(logoutAsync());
@@ -41,7 +49,7 @@ function MainMenu({ isInLine = false }) {
   const renderAuthMenu = () => (
     <>
       <Button onClick={logOut}>Logout</Button>
-      <Avatar size="large">{userInfo}</Avatar>
+      <Avatar size="large">{userInfo[0]}</Avatar>
     </>
   );
 
@@ -92,7 +100,10 @@ function Header() {
       </div>
       <div className={styles.headerMenu}>
         <Link to="/" className={styles.logotip} />
-        <MainMenu />
+        <MainMenu
+          setOpenMenu={setOpenMenu}
+          isInLine={false}
+        />
       </div>
       <Drawer
         placement="left"
@@ -103,6 +114,7 @@ function Header() {
         }}
       >
         <MainMenu
+          setOpenMenu={setOpenMenu}
           isInLine
         />
       </Drawer>
