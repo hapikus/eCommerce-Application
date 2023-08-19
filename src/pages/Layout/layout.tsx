@@ -1,11 +1,10 @@
 import { Layout, Space } from 'antd';
 import { Outlet } from 'react-router-dom';
-import AppRoutes from '../router';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/header';
+import Footer from './components/footer';
 import styles from './layout.module.css';
 
-function LayoutUi() {
+function LayoutPage() {
   return (
     <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
       <Layout style={{ minHeight: '100vh' }}>
@@ -13,7 +12,6 @@ function LayoutUi() {
           <Header />
         </Layout.Header>
         <Layout.Content className={styles.content}>
-          <AppRoutes />
           <Outlet />
         </Layout.Content>
         <Layout.Footer className={styles.footer}>
@@ -24,4 +22,4 @@ function LayoutUi() {
   );
 }
 
-export default LayoutUi;
+export default LayoutPage;

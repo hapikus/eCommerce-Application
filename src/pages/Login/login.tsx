@@ -10,6 +10,7 @@ import passwordValidationRules from '../../utils/passValid';
 import LoginFormValues from '../../types/types';
 
 import styles from './login.module.css';
+import AddressesDataImg from '../../assets/images/abstract-digital-grid-black-background.jpg';
 
 const errorStateChecker = (logErrMsg: string): string => {
   if (logErrMsg === 'Пользователя не существует') {
@@ -22,9 +23,7 @@ const errorStateChecker = (logErrMsg: string): string => {
 };
 
 function LoginPage() {
-  const isAuthState = useSelector(
-    (state: RootState) => state.auth.isAuth,
-  );
+  const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
 
   const loginErrorState = useSelector(
     (state: RootState) => state.auth.loginError,
@@ -109,8 +108,11 @@ function LoginPage() {
           </div>
           <div className={styles.loginLogo}>
             <Image
-              width={200}
-              src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
+              preview={false}
+              width={250}
+              height="100%"
+              src={AddressesDataImg}
+              style={{ objectFit: 'cover' }}
             />
           </div>
         </div>

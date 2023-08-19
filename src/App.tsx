@@ -1,14 +1,69 @@
-import { HashRouter } from 'react-router-dom';
-import './pages/Layout/layout.module.css';
-import LayoutUi from './pages/Layout/layout';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import { ConfigProvider, Select } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import store, { RootState } from './redux/store';
+import LayoutPage from './pages/Layout/layout';
+import MainPage from './pages/Main/main';
+import InfoPage from './pages/Info/info';
+import Support from './pages/Support/support';
+import LoginPage from './pages/Login/login';
+import SignUp from './pages/SignUp/signup';
+import NotFound from './pages/404/notFound';
+import { setTheme } from './redux/slice/themeSlice';
+import antPattern, { getThemeAlgorithm } from './theme/antPattern';
+
+import styles from './pages/Layout/layout.module.css';
+import { checkAuth } from './redux/slice/authSlice';
 
 function App() {
+  const dispatch = useDispatch();
+  const themeState = useSelector((state: RootState) => state.theme.theme);
+  const themesState = useSelector((state: RootState) => state.theme.themes);
+  const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
+
+  const refreshToken = async () => {
+    await store.dispatch(checkAuth());
+  };
+
+  if (!isAuthState) {
+    refreshToken();
+  }
+
   return (
-    <div className="App">
-      <HashRouter>
-        <LayoutUi />
-      </HashRouter>
-    </div>
+    <ConfigProvider
+      theme={{
+        token: antPattern[themeState].token,
+        components: antPattern[themeState].components,
+        algorithm: getThemeAlgorithm(themeState),
+      }}
+    >
+      <div className="App">
+        <Select
+          className={styles.theme_switcher}
+          defaultValue={themeState}
+          autoFocus={false}
+          onChange={(value) => {
+            dispatch(setTheme(value));
+          }}
+          options={Object.values(themesState).map((themeMap) => ({
+            value: themeMap,
+            label: themeMap,
+          }))}
+        />
+        <HashRouter>
+          <Routes>
+            <Route path="/" element={<LayoutPage />}>
+              <Route path="/main" element={<MainPage />} />
+              <Route path="/info" element={<InfoPage />} />
+              <Route path="/support" element={<Support />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </HashRouter>
+      </div>
+    </ConfigProvider>
   );
 }
 

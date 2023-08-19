@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.5",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/axios": "^0.14.0",
     "@types/react-redux": "^7.1.25",

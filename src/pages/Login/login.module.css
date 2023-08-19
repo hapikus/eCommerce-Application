@@ -3,7 +3,8 @@
   justify-content: center;
   height: 100vh;
   position: relative;
-  background: darkgray;
+  background-size: cover;
+  background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
 }
 
 .loginContentContainer {
@@ -11,19 +12,15 @@
   flex-direction: column;
   row-gap: 40px;
   margin-top: 80px;
-
   width: 700px;
   height: 430px;
-
   z-index: 1;
 }
 
 .loginTitle {
   font-size: 31px;
   font-weight: 500;
-
   margin: 8px 16px 0;
-  color: #FFFFFF;
 }
 
 .loginFormAndLogo {
@@ -31,17 +28,14 @@
   justify-content: space-between;
   flex-direction: row;
   column-gap: 40px;
-
   padding: 24px 32px;
-
-  background-color: #181A21;
+  background-color: var(--bg-color-main);
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
-
-  width: 400px;  
+  width: 400px;
 }
 
 .loginLogo {
@@ -49,43 +43,23 @@
   justify-content: center;
   align-items: center;
   width: 200px;
-}
-
-.loginFormNameContText {
-  text-align: left;
-  color: #AFAFAF;
+  background-image: var(--image2);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .loginFormNameContInput {
   height: 40px;
-  background-color: #32353C;
-  color: #fff  
-}
-
-.loginFormPasswordContText {
-  text-align: left;
-  color: #AFAFAF;
 }
 
 .loginFormPasswordContInput {
   height: 40px;
-  background-color: #32353C;
-  color: #fff
-}
-
-.loginFormPasswordContInput input {
-  background-color: #32353C;
-  color: #fff
-}
-
-.loginFormPasswordContInput svg {
-  color: #fff
 }
 
 .loginAnswerCont {
   font-size: 14px;
   font-weight: 500;
-  color: #c15755;
   text-align: center;
   height: 17px;
 }
@@ -104,7 +78,6 @@
 .helpCont {
   display: flex;
   justify-content: center;
-  color: #AFAFAF;
   margin-top: auto;
 }
 
@@ -114,7 +87,7 @@
 
 @media (max-width: 709px) {
   .loginPageContainter {
-    background: #181A21;
+    background: var(--bg-color-main);
   }
 
   .loginContentContainer {
@@ -128,7 +101,7 @@
   }
 
   .loginForm {
-    width: 300px;  
+    width: 300px;
   }
 
   .loginFormPasswordCont {

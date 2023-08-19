@@ -10,4 +10,16 @@ interface AuthState {
   checkError: null | string;
 }
 
-export default AuthState;
+interface ThemeState {
+  themes: { [key: string]: string };
+  theme: string;
+}
+
+interface SetThemeSuper {
+  type: string;
+  payload: string;
+}
+
+type ThemeType = { [key: string]: string };
+
+export type { AuthState, ThemeState, SetThemeSuper, ThemeType };

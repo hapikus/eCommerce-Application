@@ -4,7 +4,7 @@ import AuthService from '../../models/Users/AuthService';
 
 import { API_URL } from '../../models/Base/http';
 
-import AuthState from '../../types/storeType';
+import { AuthState } from '../../types/storeType';
 import AuthResponse from '../../types/AuthResponse';
 import { IUserDto } from '../../types/IUser';
 

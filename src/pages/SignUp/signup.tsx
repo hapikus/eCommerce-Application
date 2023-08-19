@@ -21,8 +21,10 @@ function SignUp() {
   const [currentForm, setCurrentForm] = useState('Pesonal');
   const [pesonalDataValues, setPesonalDataValues] = useState({});
 
-  const isAuthState = useSelector(
-    (state: RootState) => state.auth.isAuth,
+  const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
+
+  const signupErrorState = useSelector(
+    (state: RootState) => state.auth.registError,
   );
 
   const isAuthRef = useRef(false);
@@ -50,11 +52,17 @@ function SignUp() {
   };
 
   const handleAddresssesDataSubmit = async () => {
-    try {
-      const adressValues = await AddresssesData.validateFields();
-      await store.dispatch(registAsync({ ...pesonalDataValues, ...adressValues }));
-    } catch {
-      // The catch block is omitted, so the error will be muted
+    const adressValues = await AddresssesData.validateFields();
+    await store.dispatch(
+      registAsync({ ...pesonalDataValues, ...adressValues }),
+    );
+    if (signupErrorState) {
+      message.error(signupErrorState);
+      PersonalData.resetFields();
+      AddresssesData.resetFields();
+      setTimeout(() => {
+        setCurrentForm('Pesonal');
+      }, 1000);
     }
   };
 
@@ -65,6 +73,7 @@ function SignUp() {
           <div className={styles.signupForm}>
             <PersonalDataForm formInstance={PersonalData} />
             <Button
+              type="primary"
               className={styles.submitButton}
               onClick={handlePersonalDataSubmit}
             >
@@ -73,6 +82,7 @@ function SignUp() {
           </div>
           <div className={styles.imageContainerPersonal}>
             <Image
+              preview={false}
               width={250}
               height="100%"
               src={PersonalDataImg}
@@ -97,6 +107,7 @@ function SignUp() {
           <div className={styles.signupForm}>
             <AddressesDataForm formInstance={AddresssesData} />
             <Button
+              type="primary"
               className={styles.submitButton}
               onClick={handleAddresssesDataSubmit}
             >
