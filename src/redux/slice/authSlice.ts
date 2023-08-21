@@ -1,14 +1,15 @@
 import axios, { AxiosError } from 'axios';
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import AuthService from '../../models/Users/AuthService';
 
 import { API_URL } from '../../models/Base/http';
 
-import { AuthState } from '../../types/storeType';
+import { AuthState, IsFirstLoadInt } from '../../types/storeType';
 import AuthResponse from '../../types/AuthResponse';
 import { IUserDto } from '../../types/IUser';
 
 const initialState: AuthState = {
+  isFirstLoad: true,
   user: {} as IUserDto,
   isAuth: false,
   isLoading: false,
@@ -119,7 +120,11 @@ export const logoutAsync = createAsyncThunk(
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    setIsFirstLoad: (state, action: PayloadAction<IsFirstLoadInt['payload']>) => {
+      state.isFirstLoad = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loginAsync.pending, (state) => {
@@ -174,5 +179,7 @@ const authSlice = createSlice({
       });
   },
 });
+
+export const { setIsFirstLoad } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -14,6 +14,13 @@ import AddressesDataImg from '../../assets/images/pexels-pixabay-256450.jpg';
 
 import styles from './signup.module.css';
 
+const errorStateChecker = (logErrMsg: string): string => {
+  if (logErrMsg.includes('Пользователь с почтовым ящиком')) {
+    return 'Email already in use. Please use another.';
+  }
+  return 'An unknown error occurred';
+};
+
 function SignUp() {
   const [PersonalData] = Form.useForm();
   const [AddresssesData] = Form.useForm();
@@ -22,6 +29,7 @@ function SignUp() {
   const [pesonalDataValues, setPesonalDataValues] = useState({});
 
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
+  const isLoadingtState = useSelector((state: RootState) => state.auth.isLoading);
 
   const signupErrorState = useSelector(
     (state: RootState) => state.auth.registError,
@@ -56,10 +64,10 @@ function SignUp() {
     await store.dispatch(
       registAsync({ ...pesonalDataValues, ...adressValues }),
     );
+    PersonalData.resetFields();
+    AddresssesData.resetFields();
     if (signupErrorState) {
-      message.error(signupErrorState);
-      PersonalData.resetFields();
-      AddresssesData.resetFields();
+      message.error(errorStateChecker(signupErrorState));
       setTimeout(() => {
         setCurrentForm('Pesonal');
       }, 1000);
@@ -110,6 +118,7 @@ function SignUp() {
               type="primary"
               className={styles.submitButton}
               onClick={handleAddresssesDataSubmit}
+              disabled={isLoadingtState}
             >
               Submit Addresses Data
             </Button>
@@ -123,7 +132,7 @@ function SignUp() {
   return (
     <div className={styles.signupPageContainter}>
       <div className={styles.signupContentContainer}>
-        <p className={styles.signupTitle}>SIGN IN</p>
+        <p className={styles.signupTitle}>SIGN UP</p>
         <div className={styles.signupFormAndLogo}>
           {changeForm(currentForm)}
         </div>

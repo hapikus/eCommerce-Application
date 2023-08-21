@@ -1,5 +1,7 @@
 import { Form, Input, DatePicker, FormInstance } from 'antd';
+
 import passwordValidationRules from '../../../utils/passValid';
+import dobValidation from '../../../utils/dobValid';
 
 import styles from './personalForm.module.css';
 
@@ -65,12 +67,7 @@ function PersonalDataForm({ formInstance }: PersonalDataFormProps) {
         <p className={styles.personalDataFormNameContText}>Date of Birth</p>
         <Form.Item
           name="dob"
-          rules={[
-            {
-              required: true,
-              message: 'Please select your date of birth!',
-            },
-          ]}
+          rules={[...dobValidation]}
         >
           <DatePicker
             className={styles.personalDataFormDatePicker}

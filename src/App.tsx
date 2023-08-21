@@ -13,19 +13,21 @@ import { setTheme } from './redux/slice/themeSlice';
 import antPattern, { getThemeAlgorithm } from './theme/antPattern';
 
 import styles from './pages/Layout/layout.module.css';
-import { checkAuth } from './redux/slice/authSlice';
+import { checkAuth, setIsFirstLoad } from './redux/slice/authSlice';
 
 function App() {
   const dispatch = useDispatch();
   const themeState = useSelector((state: RootState) => state.theme.theme);
   const themesState = useSelector((state: RootState) => state.theme.themes);
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
+  const isFirstLoadState = useSelector((state: RootState) => state.auth.isFirstLoad);
 
   const refreshToken = async () => {
     await store.dispatch(checkAuth());
   };
 
-  if (!isAuthState) {
+  if (isFirstLoadState && !isAuthState) {
+    dispatch(setIsFirstLoad(false));
     refreshToken();
   }
 
