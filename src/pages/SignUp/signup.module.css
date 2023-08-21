@@ -1,8 +1,9 @@
 .signupPageContainter {
   display: flex;
+  flex: 1;
   justify-content: center;
-  height: 100%;
-  position: relative;
+  /* height: 100%; */
+  /* position: relative; */
   background-size: cover;
   background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
 }
@@ -16,6 +17,7 @@
   margin-top: 40px;
   z-index: 1;
   margin-bottom: 40px;
+  justify-content: center;
 }
 
 .signupTitle {
