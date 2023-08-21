@@ -1,6 +1,7 @@
 import { IUserDto } from './IUser';
 
 interface AuthState {
+  isFirstLoad: boolean;
   user: IUserDto;
   isAuth: boolean;
   isLoading: boolean;
@@ -20,6 +21,11 @@ interface SetThemeSuper {
   payload: string;
 }
 
+interface IsFirstLoadInt {
+  type: boolean;
+  payload: boolean;
+}
+
 type ThemeType = { [key: string]: string };
 
-export type { AuthState, ThemeState, SetThemeSuper, ThemeType };
+export type { AuthState, ThemeState, SetThemeSuper, ThemeType, IsFirstLoadInt };

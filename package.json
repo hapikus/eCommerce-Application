@@ -1,6 +1,7 @@
 {
   "name": "ecommerce-application",
   "private": true,
+  "homepage": "https://hapikus.github.io/super-store-s2",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -37,6 +38,7 @@
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "gh-pages": "^6.0.0",
     "husky": "^8.0.3",
     "jest": "^29.6.2",
     "prettier": "^3.0.0",

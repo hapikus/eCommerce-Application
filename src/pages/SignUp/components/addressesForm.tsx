@@ -1,10 +1,22 @@
 import { useState } from 'react';
-import { Form, Input, FormInstance, Checkbox } from 'antd';
+import { Form, Input, FormInstance, Checkbox, Select } from 'antd';
 import styles from './addressesForm.module.css';
+
+const { Option } = Select;
 
 interface AddressseslDataFormProps {
   formInstance: FormInstance;
 }
+
+const countries = [
+  { value: 'belarus', label: 'Belarus' },
+  { value: 'kazakhstan', label: 'Kazakhstan' },
+  { value: 'kyrgyzstan', label: 'Kyrgyzstan' },
+  { value: 'russia', label: 'Russia' },
+  { value: 'tajikistan', label: 'Tajikistan' },
+  { value: 'turkmenistan', label: 'Turkmenistan' },
+  { value: 'uzbekistan', label: 'Uzbekistan' },
+];
 
 function AddressesDataForm({ formInstance }: AddressseslDataFormProps) {
   const [defaultShippingChecked, setDefaultShippingChecked] = useState(true);
@@ -19,16 +31,35 @@ function AddressesDataForm({ formInstance }: AddressseslDataFormProps) {
           name="billCountry"
           rules={[
             {
-              required: !theSameAddress,
-              message: 'Please enter your country!',
-            },
-            {
-              pattern: /^[a-zA-Z\s]+$/,
-              message: 'City must contain only alphabets and spaces!',
+              required: true,
+              message: 'Please select your country!',
             },
           ]}
         >
-          <Input className={styles.NameContInput} disabled={theSameAddress} />
+          <Select
+            size="large"
+            placeholder="Select your country"
+            optionFilterProp="children"
+            filterOption={(input, option) => {
+              if (
+                option &&
+                option.children &&
+                option.children instanceof String
+              ) {
+                return (
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
+                  0
+                );
+              }
+              return false;
+            }}
+          >
+            {countries.map((country) => (
+              <Option key={country.value} value={country.value}>
+                {country.label}
+              </Option>
+            ))}
+          </Select>
         </Form.Item>
       </div>
       <div className={styles.NameCont}>
@@ -77,8 +108,8 @@ function AddressesDataForm({ formInstance }: AddressseslDataFormProps) {
               message: 'Please enter your postal code!',
             },
             {
-              min: 3,
-              message: 'Postal code must be at least 3 characters long.',
+              pattern: /^[0-9]{6}$/,
+              message: 'Postal code should be 6 digits.',
             },
           ]}
         >
@@ -111,15 +142,34 @@ function AddressesDataForm({ formInstance }: AddressseslDataFormProps) {
           rules={[
             {
               required: true,
-              message: 'Please enter your country!',
-            },
-            {
-              pattern: /^[a-zA-Z\s]+$/,
-              message: 'City must contain only alphabets and spaces!',
+              message: 'Please select your country!',
             },
           ]}
         >
-          <Input className={styles.NameContInput} />
+          <Select
+            size="large"
+            placeholder="Select your country"
+            optionFilterProp="children"
+            filterOption={(input, option) => {
+              if (
+                option &&
+                option.children &&
+                option.children instanceof String
+              ) {
+                return (
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
+                  0
+                );
+              }
+              return false;
+            }}
+          >
+            {countries.map((country) => (
+              <Option key={country.value} value={country.value}>
+                {country.label}
+              </Option>
+            ))}
+          </Select>
         </Form.Item>
       </div>
       <div className={styles.NameCont}>
@@ -168,8 +218,8 @@ function AddressesDataForm({ formInstance }: AddressseslDataFormProps) {
               message: 'Please enter your postal code!',
             },
             {
-              min: 3,
-              message: 'Postal code must be at least 3 characters long.',
+              pattern: /^[0-9]{6}$/,
+              message: 'Postal code should be 6 digits.',
             },
           ]}
         >
