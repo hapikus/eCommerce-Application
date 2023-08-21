@@ -101,11 +101,10 @@ function Header() {
         </Link>
       </div>
       <div className={styles.headerMenu}>
-        <Link to="/" className={styles.logotip} />
-        <MainMenu
-          setOpenMenu={setOpenMenu}
-          isInLine={false}
-        />
+        <Link to="/" className={styles.logotip}>
+          <MehOutlined className={styles.logotip} />
+        </Link>
+        <MainMenu setOpenMenu={setOpenMenu} isInLine={false} />
       </div>
       <Drawer
         placement="left"
@@ -115,10 +114,7 @@ function Header() {
           setOpenMenu(false);
         }}
       >
-        <MainMenu
-          setOpenMenu={setOpenMenu}
-          isInLine
-        />
+        <MainMenu setOpenMenu={setOpenMenu} isInLine />
       </Drawer>
     </>
   );
