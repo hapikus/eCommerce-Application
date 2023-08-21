@@ -29,7 +29,9 @@ function SignUp() {
   const [pesonalDataValues, setPesonalDataValues] = useState({});
 
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
-  const isLoadingtState = useSelector((state: RootState) => state.auth.isLoading);
+  const isLoadingtState = useSelector(
+    (state: RootState) => state.auth.isLoading,
+  );
 
   const signupErrorState = useSelector(
     (state: RootState) => state.auth.registError,

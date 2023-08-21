@@ -41,17 +41,21 @@ function AddressesDataForm({ formInstance }: AddressseslDataFormProps) {
             placeholder="Select your country"
             optionFilterProp="children"
             filterOption={(input, option) => {
-              if (option && option.children && (option.children instanceof String)) {
-                return option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+              if (
+                option &&
+                option.children &&
+                option.children instanceof String
+              ) {
+                return (
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
+                  0
+                );
               }
               return false;
             }}
           >
             {countries.map((country) => (
-              <Option
-                key={country.value}
-                value={country.value}
-              >
+              <Option key={country.value} value={country.value}>
                 {country.label}
               </Option>
             ))}
@@ -147,17 +151,21 @@ function AddressesDataForm({ formInstance }: AddressseslDataFormProps) {
             placeholder="Select your country"
             optionFilterProp="children"
             filterOption={(input, option) => {
-              if (option && option.children && (option.children instanceof String)) {
-                return option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+              if (
+                option &&
+                option.children &&
+                option.children instanceof String
+              ) {
+                return (
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
+                  0
+                );
               }
               return false;
             }}
           >
             {countries.map((country) => (
-              <Option
-                key={country.value}
-                value={country.value}
-              >
+              <Option key={country.value} value={country.value}>
                 {country.label}
               </Option>
             ))}

@@ -22,7 +22,8 @@ const dobValidation = [
           selectedDate.getMonth(),
           selectedDate.getDate(),
         );
-        const diffYears = Math.floor((utc1 - utc2) / MS_PER_DAY) / DAYS_PER_YEAR;
+        const diffYears =
+          Math.floor((utc1 - utc2) / MS_PER_DAY) / DAYS_PER_YEAR;
         if (diffYears < 13) {
           return Promise.reject(
             new Error('You must be at least 13 years old.'),

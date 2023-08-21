@@ -65,10 +65,7 @@ function PersonalDataForm({ formInstance }: PersonalDataFormProps) {
       </div>
       <div className={styles.personalDataFormDatePickerCont}>
         <p className={styles.personalDataFormNameContText}>Date of Birth</p>
-        <Form.Item
-          name="dob"
-          rules={[...dobValidation]}
-        >
+        <Form.Item name="dob" rules={[...dobValidation]}>
           <DatePicker
             className={styles.personalDataFormDatePicker}
             placeholder=""

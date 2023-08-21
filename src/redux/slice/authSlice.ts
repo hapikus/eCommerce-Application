@@ -121,7 +121,10 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setIsFirstLoad: (state, action: PayloadAction<IsFirstLoadInt['payload']>) => {
+    setIsFirstLoad: (
+      state,
+      action: PayloadAction<IsFirstLoadInt['payload']>,
+    ) => {
       state.isFirstLoad = action.payload;
     },
   },

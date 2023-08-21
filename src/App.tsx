@@ -20,7 +20,9 @@ function App() {
   const themeState = useSelector((state: RootState) => state.theme.theme);
   const themesState = useSelector((state: RootState) => state.theme.themes);
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
-  const isFirstLoadState = useSelector((state: RootState) => state.auth.isFirstLoad);
+  const isFirstLoadState = useSelector(
+    (state: RootState) => state.auth.isFirstLoad,
+  );
 
   const refreshToken = async () => {
     await store.dispatch(checkAuth());

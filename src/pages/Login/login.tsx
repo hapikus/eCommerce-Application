@@ -24,7 +24,9 @@ const errorStateChecker = (logErrMsg: string): string => {
 
 function LoginPage() {
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
-  const isLoadingtState = useSelector((state: RootState) => state.auth.isLoading);
+  const isLoadingtState = useSelector(
+    (state: RootState) => state.auth.isLoading,
+  );
 
   const loginErrorState = useSelector(
     (state: RootState) => state.auth.loginError,
