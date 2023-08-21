@@ -40,16 +40,6 @@
 
 .footer_logo_rss {
   display: flex;
-  width: 50%;
-  background-color: var(--color-text);
-  -webkit-mask-image: var(--image-rss);
-  mask-image: var(--image-logo);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  mask-size: contain;
-  -webkit-mask-size: contain;
-  mask-position: left;
-  -webkit-mask-position: left;
   height: 50px;
   width: 50px;
 }

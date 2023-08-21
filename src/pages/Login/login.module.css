@@ -1,8 +1,9 @@
 .loginPageContainter {
   display: flex;
+  flex: 1;
   justify-content: center;
-  height: 100vh;
-  position: relative;
+  /* height: 100%; */
+  /* position: relative; */
   background-size: cover;
   background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
 }
@@ -10,11 +11,13 @@
 .loginContentContainer {
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
-  margin-top: 80px;
   width: 700px;
-  height: 430px;
+  height: auto;
+  row-gap: 40px;
+  margin-top: 40px;
   z-index: 1;
+  margin-bottom: 40px;
+  justify-content: center;
 }
 
 .loginTitle {
@@ -92,7 +95,6 @@
 
   .loginContentContainer {
     width: 310px;
-    height: 454px;
   }
 
   .loginFormAndLogo {

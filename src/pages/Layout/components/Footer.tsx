@@ -1,4 +1,6 @@
 import styles from './footer.module.css';
+import MarkupSVGGit from './logoGit';
+import MarkupSVGRSS from './logoRSS';
 
 function Footer() {
   return (
@@ -6,10 +8,10 @@ function Footer() {
       <div className={styles.rule} />
       <div className={styles.footer_logo}>
         <a href="https://rs.school/" target="_blank" rel="noreferrer">
-          <div className={styles.footer_logo_rss} />
+          <MarkupSVGRSS />
         </a>
         <a href="https://github.com/" target="_blank" rel="noreferrer">
-          <div className={styles.footer_logo_github} />
+          <MarkupSVGGit />
         </a>
       </div>
       <div className={styles.footer_text}>

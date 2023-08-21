@@ -9,15 +9,8 @@
   width: 15%;
   min-width: 64px;
   min-height: 64px;
-  background-color: var(--color-text);
-  -webkit-mask-image: var(--image-logo);
-  mask-image: var(--image-logo);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  mask-size: contain;
-  -webkit-mask-size: contain;
-  mask-position: left;
-  -webkit-mask-position: left;
+  font-size: 36px;
+  color: var(--color-text);
 }
 
 .menu_main {

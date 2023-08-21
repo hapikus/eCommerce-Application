@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, Drawer, Menu, Avatar } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined, MehOutlined } from '@ant-design/icons';
 import store, { RootState } from '../../../redux/store';
 
 import styles from './header.module.css';
@@ -96,10 +96,14 @@ function Header() {
             setOpenMenu(true);
           }}
         />
-        <Link to="/" className={styles.logotip} />
+        <Link to="/" className={styles.logotip}>
+          <MehOutlined className={styles.logotip} />
+        </Link>
       </div>
       <div className={styles.headerMenu}>
-        <Link to="/" className={styles.logotip} />
+        <Link to="/" className={styles.logotip}>
+          <MehOutlined className={styles.logotip} />
+        </Link>
         <MainMenu setOpenMenu={setOpenMenu} isInLine={false} />
       </div>
       <Drawer

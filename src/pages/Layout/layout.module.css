@@ -24,6 +24,8 @@
   min-height: 120px;
   color: var(--color-text);
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .theme_switcher {
