@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Form, Input, Button, Image, message } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import store, { RootState } from '../../redux/store';
 import { loginAsync } from '../../redux/slice/authSlice';
@@ -24,6 +24,9 @@ const errorStateChecker = (logErrMsg: string): string => {
 
 function LoginPage() {
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
+  const isLoadingtState = useSelector(
+    (state: RootState) => state.auth.isLoading,
+  );
 
   const loginErrorState = useSelector(
     (state: RootState) => state.auth.loginError,
@@ -93,6 +96,7 @@ function LoginPage() {
                     className={styles.loginFormSubmitButton}
                     type="primary"
                     htmlType="submit"
+                    disabled={isLoadingtState}
                   >
                     Sign in
                   </Button>
@@ -103,7 +107,9 @@ function LoginPage() {
               {loginErrorState && `${errorStateChecker(loginErrorState)}`}
             </div>
             <div className={styles.helpCont}>
-              <p className={styles.helpLink}>Help, I can&apos;t sign in</p>
+              <Link to="/support" className={styles.helpLink}>
+                Help, I can&apos;t sign in
+              </Link>
             </div>
           </div>
           <div className={styles.loginLogo}>

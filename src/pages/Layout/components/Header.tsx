@@ -35,7 +35,7 @@ function MainMenu({
       mode={isInLine ? 'inline' : 'horizontal'}
       items={[
         {
-          label: 'Login',
+          label: 'Sign in',
           key: 'login',
         },
         {
