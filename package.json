@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
+    "preview": "vite build && vite preview",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "prepare": "husky install",
     "test": "jest"

@@ -57,7 +57,7 @@ function App() {
         <HashRouter>
           <Routes>
             <Route path="/" element={<LayoutPage />}>
-              <Route path="/main" element={<MainPage />} />
+              <Route index element={<MainPage />} />
               <Route path="/info" element={<InfoPage />} />
               <Route path="/support" element={<Support />} />
               <Route path="/login" element={<LoginPage />} />

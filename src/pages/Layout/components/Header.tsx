@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, Drawer, Menu, Avatar } from 'antd';
@@ -18,6 +18,16 @@ function MainMenu({
   const navigate = useNavigate();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
+  const currentPage = useSelector(
+    (state: RootState) => state.theme.currentPage,
+  );
+
+  const [currentPageState, setCurrentPageState] = useState('');
+
+  useEffect(() => {
+    setCurrentPageState(currentPage);
+  }, [currentPage]);
+
   const onMenuClick = (item: { key: string }) => {
     setOpenMenu(false);
     return navigate(`/${item.key}`);
@@ -27,12 +37,13 @@ function MainMenu({
     await store.dispatch(logoutAsync());
   };
 
-  const renderLoginMenu = () => (
+  const renderLoginMenu = (currentPageProp: string) => (
     <Menu
       className={isInLine ? styles.menu_items_line : styles.menu_items}
       onClick={onMenuClick}
       theme="light"
       mode={isInLine ? 'inline' : 'horizontal'}
+      selectedKeys={[currentPageProp]}
       items={[
         {
           label: 'Sign in',
@@ -61,6 +72,7 @@ function MainMenu({
           onClick={onMenuClick}
           theme="light"
           mode={isInLine ? 'inline' : 'horizontal'}
+          selectedKeys={[currentPageState]}
           items={[
             {
               label: 'Store',
@@ -78,7 +90,7 @@ function MainMenu({
         />
       </div>
       <div className={styles.menu_reg}>
-        {isAuthState ? renderAuthMenu() : renderLoginMenu()}
+        {isAuthState ? renderAuthMenu() : renderLoginMenu(currentPageState)}
       </div>
     </>
   );
