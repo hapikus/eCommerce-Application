@@ -61,12 +61,9 @@ function SideBar() {
 
 function MainPage() {
   return (
-    <>
-      <div className={styles.container}>
-        <SideBar
-         />
-      </div>
-    </>
+    <div className={styles.container}>
+      <SideBar />
+    </div>
   );
 }
 
