@@ -6,11 +6,11 @@
 .logotip {
   display: flex;
   height: 100%;
-  width: 15%;
   min-width: 64px;
   min-height: 64px;
   font-size: 36px;
   color: var(--color-text);
+  justify-content: center;
 }
 
 .menu_main {
