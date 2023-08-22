@@ -1,13 +1,12 @@
 
 .notFoundPage {
   display: flex;
+  flex: 1;
   justify-content: center;
-  height: 100vh;
-  position: relative;
-  background-color: var(--bg-color-menu);
+  /* height: 100%; */
+  /* position: relative; */
   background-size: cover;
   background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
-  background-color:var(--color-text);
 }
 
 .card {
