@@ -14,6 +14,7 @@ interface AuthState {
 interface ThemeState {
   themes: { [key: string]: string };
   theme: string;
+  currentPage: string;
 }
 
 interface SetThemeSuper {
@@ -26,6 +27,11 @@ interface IsFirstLoadInt {
   payload: boolean;
 }
 
+interface ICurrentPage {
+  type: string;
+  payload: string;
+}
+
 type ThemeType = { [key: string]: string };
 
-export type { AuthState, ThemeState, SetThemeSuper, ThemeType, IsFirstLoadInt };
+export type { AuthState, ThemeState, SetThemeSuper, ThemeType, IsFirstLoadInt, ICurrentPage };

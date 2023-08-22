@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Form, Input, Button, Image, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 
 import store, { RootState } from '../../redux/store';
 import { loginAsync } from '../../redux/slice/authSlice';
+import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import passwordValidationRules from '../../utils/passValid';
 import LoginFormValues from '../../types/types';
@@ -23,6 +24,8 @@ const errorStateChecker = (logErrMsg: string): string => {
 };
 
 function LoginPage() {
+  const dispatch = useDispatch();
+  dispatch(setCurrentPage('login'));
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const isLoadingtState = useSelector(
     (state: RootState) => state.auth.isLoading,
@@ -47,7 +50,7 @@ function LoginPage() {
 
       message.success('Login successful! Redirecting to the main page...');
       setTimeout(() => {
-        navigate('/');
+        navigate('/main');
       }, 1000);
     }
   }, [isAuthState, navigate]);

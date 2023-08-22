@@ -18,6 +18,7 @@ function MainMenu({
   const navigate = useNavigate();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
+  const currentPageState = useSelector((state: RootState) => state.theme.currentPage);
   const onMenuClick = (item: { key: string }) => {
     setOpenMenu(false);
     return navigate(`/${item.key}`);
@@ -33,6 +34,7 @@ function MainMenu({
       onClick={onMenuClick}
       theme="light"
       mode={isInLine ? 'inline' : 'horizontal'}
+      selectedKeys={[currentPageState]}
       items={[
         {
           label: 'Sign in',
@@ -61,10 +63,11 @@ function MainMenu({
           onClick={onMenuClick}
           theme="light"
           mode={isInLine ? 'inline' : 'horizontal'}
+          selectedKeys={[currentPageState]}
           items={[
             {
               label: 'Store',
-              key: '',
+              key: 'main',
             },
             {
               label: 'Information',
@@ -96,12 +99,12 @@ function Header() {
             setOpenMenu(true);
           }}
         />
-        <Link to="/" className={styles.logotip}>
+        <Link to="/main" className={styles.logotip}>
           <MehOutlined className={styles.logotip} />
         </Link>
       </div>
       <div className={styles.headerMenu}>
-        <Link to="/" className={styles.logotip}>
+        <Link to="/main" className={styles.logotip}>
           <MehOutlined className={styles.logotip} />
         </Link>
         <MainMenu setOpenMenu={setOpenMenu} isInLine={false} />

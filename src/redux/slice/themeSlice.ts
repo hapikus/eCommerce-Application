@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { ThemeState, SetThemeSuper } from '../../types/storeType';
+import { ThemeState, SetThemeSuper, ICurrentPage } from '../../types/storeType';
 
 export const themes = {
   light: 'light',
@@ -10,6 +10,7 @@ export const themes = {
 const initialState: ThemeState = {
   theme: 'light',
   themes,
+  currentPage: 'main',
 };
 
 const themeSlice = createSlice({
@@ -20,9 +21,12 @@ const themeSlice = createSlice({
       state.theme = action.payload;
       document.documentElement.setAttribute('data-theme', action.payload);
     },
+    setCurrentPage: (state, action: PayloadAction<ICurrentPage['payload']>) => {
+      state.currentPage = action.payload;
+    },
   },
 });
 
-export const { setTheme } = themeSlice.actions;
+export const { setTheme, setCurrentPage } = themeSlice.actions;
 
 export default themeSlice.reducer;
