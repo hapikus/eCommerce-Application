@@ -18,7 +18,9 @@ function MainMenu({
   const navigate = useNavigate();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
-  const currentPage = useSelector((state: RootState) => state.theme.currentPage);
+  const currentPage = useSelector(
+    (state: RootState) => state.theme.currentPage,
+  );
 
   const [currentPageState, setCurrentPageState] = useState('');
 

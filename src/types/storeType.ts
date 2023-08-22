@@ -34,4 +34,11 @@ interface ICurrentPage {
 
 type ThemeType = { [key: string]: string };
 
-export type { AuthState, ThemeState, SetThemeSuper, ThemeType, IsFirstLoadInt, ICurrentPage };
+export type {
+  AuthState,
+  ThemeState,
+  SetThemeSuper,
+  ThemeType,
+  IsFirstLoadInt,
+  ICurrentPage,
+};
