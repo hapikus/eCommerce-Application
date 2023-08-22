@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Form, Image, Button, message } from 'antd';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -24,7 +24,15 @@ const errorStateChecker = (logErrMsg: string): string => {
 
 function SignUp() {
   const dispatch = useDispatch();
-  dispatch(setCurrentPage('signup'));
+
+  const memoizedDispatch = useCallback(() => {
+    dispatch(setCurrentPage('signup'));
+  }, [dispatch]);
+
+  useEffect(() => {
+    memoizedDispatch();
+  }, [memoizedDispatch]);
+
   const [PersonalData] = Form.useForm();
   const [AddresssesData] = Form.useForm();
 

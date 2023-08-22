@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Form, Input, Button, Image, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
@@ -25,7 +25,15 @@ const errorStateChecker = (logErrMsg: string): string => {
 
 function LoginPage() {
   const dispatch = useDispatch();
-  dispatch(setCurrentPage('login'));
+
+  const memoizedDispatch = useCallback(() => {
+    dispatch(setCurrentPage('login'));
+  }, [dispatch]);
+
+  useEffect(() => {
+    memoizedDispatch();
+  }, [memoizedDispatch]);
+
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const isLoadingtState = useSelector(
     (state: RootState) => state.auth.isLoading,
