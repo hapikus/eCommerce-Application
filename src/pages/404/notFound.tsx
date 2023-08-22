@@ -1,5 +1,6 @@
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
+import MarkupSVGTaro from './components/card';
 import styles from './notFound.module.css';
 
 function NotFound() {
@@ -12,7 +13,9 @@ function NotFound() {
           <Link to="/main">To main page</Link>
         </Button>
       </div>
-      <div className={styles.card} />
+      <div className={styles.card}>
+        <MarkupSVGTaro />
+      </div>
     </div>
   );
 }

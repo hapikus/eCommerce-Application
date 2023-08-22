@@ -12,15 +12,6 @@
 .card {
   display: flex;
   width: 50%;
-  background-color: var(--color-text);
-  -webkit-mask-image: url('./src/assets/images/taro.svg');
-  mask-image: url('./src/assets/images/taro.svg');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  mask-size: contain;
-  -webkit-mask-size: contain;
-  mask-position: center;
-  -webkit-mask-position: center;
   height: auto;
   width: 100%;
 }
