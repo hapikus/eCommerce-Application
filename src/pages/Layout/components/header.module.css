@@ -18,6 +18,7 @@
   display: flex;
   width: auto;
   justify-content: space-around;
+  min-width: 320px;
 }
 
 .menu_reg {
@@ -100,5 +101,8 @@
 @media (min-width: 710px) {
   .burgerMenu {
     display: none;
+  }
+  .headerMenu{
+    display: flex;
   }
 }
