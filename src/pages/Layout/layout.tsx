@@ -1,7 +1,7 @@
 import { Layout, Space } from 'antd';
 import { Outlet } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/header';
+import Footer from './components/footer';
 import styles from './layout.module.css';
 
 function LayoutPage() {
