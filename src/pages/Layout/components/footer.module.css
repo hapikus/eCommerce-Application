@@ -22,28 +22,6 @@
     justify-content: space-between;
 }
 
-.footer_logo_github {
-  display: flex;
-  width: 50%;
-  background-color: var(--color-text);
-  -webkit-mask-image: var(--image-github);
-  mask-image: var(--image-logo);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  mask-size: contain;
-  -webkit-mask-size: contain;
-  mask-position: left;
-  -webkit-mask-position: left;
-  height: 30px;
-  width: 30px;
-}
-
-.footer_logo_rss {
-  display: flex;
-  height: 50px;
-  width: 50px;
-}
-
 .footer_text {
     float: left;
     margin-left: 12px;

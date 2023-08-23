@@ -14,7 +14,6 @@ function MarkupSVGTaro() {
       x="0px"
       y="0px"
       viewBox="0 0 1200 1200"
-
     >
       <path
         fill={antPattern[themeState].token.colorText}
