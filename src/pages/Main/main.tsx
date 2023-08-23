@@ -19,10 +19,6 @@ function SideBar() {
         mode="vertical"
         items={[
           {
-            label: 'Store',
-            key: '',
-          },
-          {
             label: 'Information',
             key: 'info',
           },
