@@ -17,7 +17,7 @@ function SideBar() {
         items={[
           {
             label: 'Store',
-            key: 'main',
+            key: '',
           },
           {
             label: 'Information',
@@ -49,4 +49,5 @@ function MainPage() {
   );
 }
 
+export { SideBar };
 export default MainPage;

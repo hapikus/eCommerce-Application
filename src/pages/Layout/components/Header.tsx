@@ -5,6 +5,8 @@ import { Button, Drawer, Menu, Avatar } from 'antd';
 import { MenuOutlined, MehOutlined } from '@ant-design/icons';
 import store, { RootState } from '../../../redux/store';
 
+import { SideBar } from '../../Main/main';
+
 import styles from './header.module.css';
 import { logoutAsync } from '../../../redux/slice/authSlice';
 
@@ -114,7 +116,7 @@ function Header() {
           setOpenMenu(false);
         }}
       >
-        <MainMenu setOpenMenu={setOpenMenu} isInLine />
+        <SideBar />
       </Drawer>
     </>
   );

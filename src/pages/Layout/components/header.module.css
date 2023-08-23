@@ -68,7 +68,7 @@
   font-size: 30px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 710px) {
   .headerMenu {
     display: none;
   }
@@ -97,7 +97,7 @@
 }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 710px) {
   .burgerMenu {
     display: none;
   }
