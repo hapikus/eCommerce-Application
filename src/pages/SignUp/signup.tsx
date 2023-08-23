@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Form, Image, Button, message } from 'antd';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { registAsync } from '../../redux/slice/authSlice';
+import { setCurrentPage } from '../../redux/slice/themeSlice';
 import store, { RootState } from '../../redux/store';
 
 import PersonalDataForm from './components/personalForm';
@@ -22,6 +23,16 @@ const errorStateChecker = (logErrMsg: string): string => {
 };
 
 function SignUp() {
+  const dispatch = useDispatch();
+
+  const memoizedDispatch = useCallback(() => {
+    dispatch(setCurrentPage('signup'));
+  }, [dispatch]);
+
+  useEffect(() => {
+    memoizedDispatch();
+  }, [memoizedDispatch]);
+
   const [PersonalData] = Form.useForm();
   const [AddresssesData] = Form.useForm();
 
@@ -46,7 +57,7 @@ function SignUp() {
 
       message.success('Login successful! Redirecting to the main page...');
       setTimeout(() => {
-        navigate('/');
+        navigate('/main');
       }, 1000);
     }
   }, [isAuthState, navigate]);

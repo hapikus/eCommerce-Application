@@ -1,3 +1,6 @@
+import { useEffect, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCurrentPage } from '../../redux/slice/themeSlice';
 import { Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
@@ -42,7 +45,17 @@ function SideBar() {
 }
 
 function MainPage() {
-  return (
+  const dispatch = useDispatch();
+
+  const memoizedDispatch = useCallback(() => {
+    dispatch(setCurrentPage(''));
+  }, [dispatch]);
+
+  useEffect(() => {
+    memoizedDispatch();
+  }, [memoizedDispatch]);
+
+    return (
     <div className={styles.container}>
       <SideBar />
     </div>
