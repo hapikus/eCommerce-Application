@@ -1,11 +1,12 @@
 .headerMenu {
   display: flex;
   width: 100%;
+  justify-content: space-between;
 }
 
 .logotip {
   display: flex;
-  height: 100%;
+  width: auto;
   min-width: 64px;
   min-height: 64px;
   font-size: 36px;
@@ -15,15 +16,15 @@
 
 .menu_main {
   display: flex;
-  width: 60%;
+  width: auto;
   justify-content: space-around;
+  min-width: 260px;
 }
 
 .menu_reg {
   display: flex;
-  margin-left: auto;
   align-items: center;
-  width: 25%;
+  width: auto;
   min-width: 160px;
   justify-content: space-around;
 }
@@ -100,5 +101,8 @@
 @media (min-width: 710px) {
   .burgerMenu {
     display: none;
+  }
+  .headerMenu{
+    display: flex;
   }
 }

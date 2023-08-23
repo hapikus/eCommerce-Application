@@ -1,8 +1,8 @@
 import { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 import { Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import styles from './main.module.css';
 
@@ -18,10 +18,6 @@ function SideBar() {
         theme="light"
         mode="vertical"
         items={[
-          {
-            label: 'Store',
-            key: '',
-          },
           {
             label: 'Information',
             key: 'info',
@@ -55,7 +51,7 @@ function MainPage() {
     memoizedDispatch();
   }, [memoizedDispatch]);
 
-    return (
+  return (
     <div className={styles.container}>
       <SideBar />
     </div>

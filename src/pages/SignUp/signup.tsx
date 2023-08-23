@@ -57,7 +57,7 @@ function SignUp() {
 
       message.success('Login successful! Redirecting to the main page...');
       setTimeout(() => {
-        navigate('/main');
+        navigate('/');
       }, 1000);
     }
   }, [isAuthState, navigate]);
