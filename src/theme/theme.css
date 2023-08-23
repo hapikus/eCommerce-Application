@@ -5,10 +5,7 @@ html[data-theme="light"] {
   --color-main: #e6f4ff;
   --color-accent: #000;
   --color-text: #000;
-  --image-logo: url("./src/assets/images/mainLogo.png");
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
-  --image-github: url('./src/assets/images/github-mark.svg');
-  --image-rss: url('./src/assets/images/rs_school_js.svg');
   --gpStoreDarkGrey: #d4d4d4d6;
   --gpStoreDarkerGrey: #a4b9d3f2;
 }
@@ -19,7 +16,6 @@ html[data-theme="dark"] {
   --color-main: #fafafa;
   --color-accent: #69b1ff;
   --color-text: #fff;
-  --image-logo: url("./src/assets/images/mainLogo.png");
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
   --gpStoreDarkGrey: rgba(42, 71, 94, 0.9);
   --gpStoreDarkerGrey: rgba(27, 40, 56, 0.8);
@@ -31,7 +27,6 @@ html[data-theme="barbie"] {
   --color-main: #fafafa;
   --color-accent: #000;
   --color-text: #000;
-  --image-logo: url("./src/assets/images/mainLogo.png");
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
   --gpStoreDarkGrey: #fbc2f7d6;
   --gpStoreDarkerGrey: #ffd6e7f2;
