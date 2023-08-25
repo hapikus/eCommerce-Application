@@ -1,0 +1,142 @@
+.productCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 940px;
+  margin: 20px 0px;
+}
+
+.productTitle {
+  font-size: 26px;
+  align-items: center;
+}
+
+.headerBlockCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  background: linear-gradient(to right, rgba(0,0,0,0) 50%,rgba(0,0,0,0.4) 100%);
+  padding: 10px;
+}
+
+.imgCarousel {
+  width: 600px;
+  height: 338px;
+}
+
+.imgCarouselCont {
+  width: 600px;
+  height: 338px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.centerVertically {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.headerBlockContRight {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.headerImg {
+  width: 325px;
+  height: 151px;
+}
+
+.shortDescCont {
+  font-size: 12px;
+  text-align: left;
+  padding-right: 16px;
+}
+
+.detailsData {
+  display: flex;
+  flex-direction: column;
+}
+
+.recentReview {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  height: 16px;
+}
+
+.allReview {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  height: 16px;
+}
+
+.reviewText {
+  text-align: left;
+  width: 104px;
+}
+
+.reviewTextResult {
+  margin-right: 4px;
+}
+
+.releaseDate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 10px;
+  height: 38px;
+}
+
+.releaseText {
+  text-align: left;
+  width: 104px;
+}
+
+.developData {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 10px;
+  height: 16px;
+}
+
+.developText {
+  text-align: left;
+  width: 104px;
+}
+
+.mainCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  padding: 0 10px;
+}
+
+.mainLeft {
+  width: 616px;
+}
+
+.priceCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 72px;  
+  background: linear-gradient( -60deg, rgba(226,244,255,0.3) 5%,rgba(84, 107, 115, 0.3) 95%);
+
+  font-size: 21px;
+}
+
+.priceButton {
+  position: absolute;
+  height: 36px;
+  right: 18px;
+  bottom: -18px;
+  font-size: 13px;
+}

@@ -1,4 +1,5 @@
 import { IUserDto } from './IUser';
+import IProduct from './IProduct';
 
 interface AuthState {
   isFirstLoad: boolean;
@@ -34,6 +35,12 @@ interface ICurrentPage {
 
 type ThemeType = { [key: string]: string };
 
+interface ProductState {
+  productData: IProduct,
+  isLoading: boolean,
+  errorProduct: null | string,
+}
+
 export type {
   AuthState,
   ThemeState,
@@ -41,4 +48,5 @@ export type {
   ThemeType,
   IsFirstLoadInt,
   ICurrentPage,
+  ProductState,
 };
