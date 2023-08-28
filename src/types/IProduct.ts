@@ -10,7 +10,6 @@ interface IProduct {
   releaseDate: string;
   devCompany: string;
   descriptionShort: string;
-  descriptionLong: string;
   category: string[];
   sysRequirementsMinimum: {
     OS?: string;
@@ -42,6 +41,7 @@ interface IProduct {
     Storage?: string;
     'VR Support'?: string;
   };
+  descriptionLong: string[];
 }
 
 export default IProduct;

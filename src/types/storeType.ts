@@ -36,9 +36,12 @@ interface ICurrentPage {
 type ThemeType = { [key: string]: string };
 
 interface ProductState {
-  productData: IProduct,
-  isLoading: boolean,
-  errorProduct: null | string,
+  productData: IProduct;
+  randomProductsData: IProduct[];
+  isLoading: boolean;
+  isLoadingRandom: boolean;
+  errorProduct: null | string;
+  errorRandomProducts: null | string;
 }
 
 export type {

@@ -1,14 +1,17 @@
 import { AxiosError } from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import ProductService from '../../models/Users/ProductService';
+import ProductService from '../../models/Product/ProductService';
 
 import { ProductState } from '../../types/storeType';
 import IProduct from '../../types/IProduct';
 
 const initialState: ProductState = {
   productData: {} as IProduct,
+  randomProductsData: [],
   isLoading: false,
+  isLoadingRandom: false,
   errorProduct: null,
+  errorRandomProducts: null,
 };
 
 export const fetchProductData = createAsyncThunk(
@@ -16,6 +19,21 @@ export const fetchProductData = createAsyncThunk(
   async (productTitle: string, thunkAPI) => {
     try {
       const response = await ProductService.fetchProductByTitle(productTitle);
+      return response.data;
+    } catch (error) {
+      if (error instanceof AxiosError && error.response?.data?.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      }
+      return thunkAPI.rejectWithValue('An unknown error occurred');
+    }
+  },
+);
+
+export const fetchRandProducts = createAsyncThunk(
+  'product/fetchRandProducts',
+  async (num: number, thunkAPI) => {
+    try {
+      const response = await ProductService.getRandProducts(num);
       return response.data;
     } catch (error) {
       if (error instanceof AxiosError && error.response?.data?.message) {
@@ -50,6 +68,19 @@ const productSlice = createSlice({
       .addCase(fetchProductData.rejected, (state, action) => {
         state.isLoading = false;
         state.errorProduct = `${action.payload}`;
+      })
+      .addCase(fetchRandProducts.pending, (state) => {
+        state.randomProductsData = [];
+        state.isLoadingRandom = true;
+        state.errorRandomProducts = null;
+      })
+      .addCase(fetchRandProducts.fulfilled, (state, action) => {
+        state.isLoadingRandom = false;
+        state.randomProductsData = action.payload;
+      })
+      .addCase(fetchRandProducts.rejected, (state, action) => {
+        state.isLoadingRandom = false;
+        state.errorRandomProducts = `${action.payload}`;
       });
   },
 });

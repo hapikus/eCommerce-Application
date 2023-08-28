@@ -1,17 +1,21 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useLayoutEffect, useCallback, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentPage } from '../../redux/slice/themeSlice';
-import { fetchProductData } from '../../redux/slice/productSlice';
+import { fetchProductData, fetchRandProducts } from '../../redux/slice/productSlice';
 import store, { RootState } from '../../redux/store';
 
 import ImgCarousel from './components/imgCarousel';
 import HeaderRight from './components/headerRight';
 import MainLeft from './components/mainLeft';
+import MainRight from './components/mainRight';
+import RandomCards from './components/randomCarts';
 
 import styles from './product.module.css';
+
+const RANDOM_PRODUCTS_NUM = 4;
 
 function Product() {
   const { productTitle } = useParams();
@@ -31,9 +35,15 @@ function Product() {
   const productLoading = useSelector(
     (state: RootState) => state.product.isLoading,
   );
+  const productRandomLoading = useSelector(
+    (state: RootState) => state.product.isLoadingRandom,
+  );
 
   const productDataState = useSelector(
     (state: RootState) => state.product.productData,
+  );
+  const productsRandomState = useSelector(
+    (state: RootState) => state.product.randomProductsData,
   );
 
   const productErrorState = useSelector(
@@ -45,21 +55,25 @@ function Product() {
       const fetchProduct = async () => {
         await store.dispatch(fetchProductData(productTitle || ''));
       };
+
+      const fetchProducts = async () => {
+        await store.dispatch(fetchRandProducts(RANDOM_PRODUCTS_NUM));
+      };
+
       fetchProduct();
+      fetchProducts();
       setTitleForRequest(productTitle || '');
     }
   }, [dispatch, productTitle, titleForRequest]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (productErrorState) {
       message.error(productErrorState);
-      setTimeout(() => {
-        navigate('/notFound');
-      }, 1500);
+      navigate('/notFound');
     }
   }, [productErrorState, navigate]);
 
-  return productLoading ? (
+  return (productLoading || productRandomLoading) ? (
     <h1>Loading...</h1>
   ) : (
     <div className={styles.productCont}>
@@ -76,8 +90,15 @@ function Product() {
           HeaderRight(productDataState)}
       </div>
       <div className={styles.mainCont}>
-        {productDataState.price && MainLeft(productDataState)}
-        <div className={styles.mainRight}>{productDataState.price}</div>
+        {productDataState.price &&
+          productDataState.descriptionLong &&
+          (productDataState.sysRequirementsMinimum ||
+            productDataState.sysRequirementsMinimumFill) &&
+          MainLeft(productDataState)}
+        {productDataState.category && MainRight(productDataState)}
+      </div>
+      <div className={styles.randProductsCont}>
+        {productsRandomState.length !== 0 && RandomCards(productsRandomState)}
       </div>
     </div>
   );

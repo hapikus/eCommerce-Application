@@ -8,7 +8,7 @@ function ImgCarousel(productDataState: IProduct) {
   return (
     <div className={styles.headerBlockContLeft}>
       <Carousel className={styles.imgCarousel} autoplay>
-        {screenshotList.map((imageUrl) => (
+        {screenshotList.slice(0, 7).map((imageUrl) => (
           <div className={styles.imgCarouselCont} key={imageUrl}>
             <div className={styles.centerVertically}>
               <Image
