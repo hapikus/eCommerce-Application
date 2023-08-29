@@ -14,7 +14,9 @@ const getReview = (reviewArr: UserReviewRow[]) => {
       <div className={styles.allReview}>
         <p className={styles.reviewText}>ALL REVIEWS:</p>
         <p>
-          <span className={styles.reviewTextResult}>{reviewArr[0].ReviewSummary}</span>
+          <span className={styles.reviewTextResult}>
+            {reviewArr[0].ReviewSummary}
+          </span>
           <span>{reviewArr[0].ResponsiveHidden}</span>
         </p>
       </div>
@@ -26,14 +28,18 @@ const getReview = (reviewArr: UserReviewRow[]) => {
         <div className={styles.recentReview}>
           <p className={styles.reviewText}>RECENT REVIEWS:</p>
           <p>
-            <span className={styles.reviewTextResult}>{reviewArr[0].ReviewSummary}</span>
+            <span className={styles.reviewTextResult}>
+              {reviewArr[0].ReviewSummary}
+            </span>
             <span>{reviewArr[0].ResponsiveHidden}</span>
           </p>
         </div>
         <div className={styles.allReview}>
           <p className={styles.reviewText}>ALL REVIEWS:</p>
           <p>
-            <span className={styles.reviewTextResult}>{reviewArr[1].ReviewSummary}</span>
+            <span className={styles.reviewTextResult}>
+              {reviewArr[1].ReviewSummary}
+            </span>
             <span>{reviewArr[1].ResponsiveHidden}</span>
           </p>
         </div>
@@ -63,9 +69,7 @@ function HeaderRight(productDataState: IProduct) {
         </div>
       </div>
       <div className={styles.headerTextdapt}>
-        <div className={styles.shortDescCont}>
-          {descriptionShort}
-        </div>
+        <div className={styles.shortDescCont}>{descriptionShort}</div>
         <div className={styles.detailsData}>
           {getReview(userReviewRows)}
           <div className={styles.releaseDate}>

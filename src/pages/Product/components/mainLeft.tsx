@@ -17,7 +17,11 @@ function MainLeft(productDataState: IProduct) {
 
   const paragraphs = descriptionLong.map((paragraph, index) => {
     const paragraphKey = `paragraph_${index}`;
-    return <p className={styles.aboutText} key={paragraphKey}>{paragraph}</p>;
+    return (
+      <p className={styles.aboutText} key={paragraphKey}>
+        {paragraph}
+      </p>
+    );
   });
 
   const reqTable: React.FC<ReqTableProps> = ({
@@ -32,7 +36,9 @@ function MainLeft(productDataState: IProduct) {
           {Object.entries(sysRequirementsMinimumFill).map(([key, value]) => (
             <div key={key} className={styles.reqRow}>
               <p className={styles.reqText}>
-                <span className={styles.reqName}>{ value === 'undefined' ? `${key}` : `${key}:`}</span>
+                <span className={styles.reqName}>
+                  {value === 'undefined' ? `${key}` : `${key}:`}
+                </span>
                 {value === 'undefined' ? '' : value}
               </p>
             </div>
@@ -48,7 +54,9 @@ function MainLeft(productDataState: IProduct) {
             {Object.entries(sysRequirementsMinimum).map(([key, value]) => (
               <div key={key} className={styles.reqRow}>
                 <p className={styles.reqText}>
-                  <span className={styles.reqName}>{ value === 'undefined' ? `${key}` : `${key}:`}</span>
+                  <span className={styles.reqName}>
+                    {value === 'undefined' ? `${key}` : `${key}:`}
+                  </span>
                   {value === 'undefined' ? '' : value}
                 </p>
               </div>
@@ -59,7 +67,9 @@ function MainLeft(productDataState: IProduct) {
             {Object.entries(sysRequirementsRecommended).map(([key, value]) => (
               <div key={key} className={styles.reqRow}>
                 <p className={styles.reqText}>
-                  <span className={styles.reqName}>{ value === 'undefined' ? `${key}` : `${key}:`}</span>
+                  <span className={styles.reqName}>
+                    {value === 'undefined' ? `${key}` : `${key}:`}
+                  </span>
                   {value === 'undefined' ? '' : value}
                 </p>
               </div>
@@ -75,9 +85,7 @@ function MainLeft(productDataState: IProduct) {
     <div className={styles.mainLeft}>
       <div className={styles.priceCont}>
         {`Buy ${gameTitle}`}
-        <Button className={styles.priceButton}>
-          {price}
-        </Button>
+        <Button className={styles.priceButton}>{price}</Button>
       </div>
       <div className={styles.aboutGame}>
         <p className={styles.aboutGameTitle}>ABOUT THIS GAME</p>

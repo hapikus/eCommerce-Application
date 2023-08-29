@@ -4,7 +4,10 @@ import { message } from 'antd';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentPage } from '../../redux/slice/themeSlice';
-import { fetchProductData, fetchRandProducts } from '../../redux/slice/productSlice';
+import {
+  fetchProductData,
+  fetchRandProducts,
+} from '../../redux/slice/productSlice';
 import store, { RootState } from '../../redux/store';
 
 import ImgCarousel from './components/imgCarousel';
@@ -73,7 +76,7 @@ function Product() {
     }
   }, [productErrorState, navigate]);
 
-  return (productLoading || productRandomLoading) ? (
+  return productLoading || productRandomLoading ? (
     <h1>Loading...</h1>
   ) : (
     <div className={styles.productCont}>

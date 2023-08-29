@@ -10,19 +10,11 @@ function ImgCarousel(productDataState: IProduct) {
   return (
     <div className={styles.headerBlockContLeft}>
       <Image.PreviewGroup>
-        <Carousel
-          className={styles.imgCarousel}
-          infinite={false}
-          autoplay
-        >
+        <Carousel className={styles.imgCarousel} infinite={false} autoplay>
           {slicedScreenshotList.map((imageUrl) => (
             <div className={styles.imgCarouselCont} key={imageUrl}>
               <div className={styles.centerVertically}>
-                <Image
-                  src={imageUrl}
-                  alt=""
-                  style={{ objectFit: 'cover' }}
-                />
+                <Image src={imageUrl} alt="" style={{ objectFit: 'cover' }} />
               </div>
             </div>
           ))}
