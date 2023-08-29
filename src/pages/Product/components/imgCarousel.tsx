@@ -5,22 +5,29 @@ import styles from '../product.module.css';
 
 function ImgCarousel(productDataState: IProduct) {
   const { screenshotList } = productDataState;
+  const slicedScreenshotList = screenshotList.slice(0, 7);
+
   return (
     <div className={styles.headerBlockContLeft}>
-      <Carousel className={styles.imgCarousel} autoplay>
-        {screenshotList.slice(0, 7).map((imageUrl) => (
-          <div className={styles.imgCarouselCont} key={imageUrl}>
-            <div className={styles.centerVertically}>
-              <Image
-                src={imageUrl}
-                alt=""
-                style={{ objectFit: 'cover' }}
-                preview={false}
-              />
+      <Image.PreviewGroup>
+        <Carousel
+          className={styles.imgCarousel}
+          infinite={false}
+          autoplay
+        >
+          {slicedScreenshotList.map((imageUrl) => (
+            <div className={styles.imgCarouselCont} key={imageUrl}>
+              <div className={styles.centerVertically}>
+                <Image
+                  src={imageUrl}
+                  alt=""
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </Carousel>
+          ))}
+        </Carousel>
+      </Image.PreviewGroup>
     </div>
   );
 }

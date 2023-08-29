@@ -7,7 +7,7 @@ function RandomCards(products: IProduct[]) {
     const { gameTitle, screenshotList, price } = product;
     const randomIndex = Math.floor(Math.random() * screenshotList.length);
     return (
-      <Link to={`/product/${gameTitle}`}>
+      <Link to={`/product/${gameTitle}`} key={gameTitle}>
         <Card
           hoverable
           style={{ width: 200 }}
