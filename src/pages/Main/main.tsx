@@ -1,13 +1,11 @@
-import { useEffect, useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+// import { message } from 'antd';
 import { useParams } from 'react-router-dom';
+import { fetchRandProducts } from '../../redux/slice/productSlice';
 import { setCurrentPage } from '../../redux/slice/themeSlice';
-import store from '../../redux/store';
 
-import {
-  fetchProductData,
-  fetchRandProducts,
-} from '../../redux/slice/productSlice';
+import store, { RootState } from '../../redux/store';
 
 import styles from './main.module.css';
 import BannerCarousel from './components/bannerCarousel';
@@ -17,38 +15,38 @@ import CategoryCarousel from './components/categoryCarousel';
 const RANDOM_PRODUCTS_NUM = 4;
 
 function SideBar() {
+  const { productTitle } = useParams();
+  const dispatch = useDispatch();
   // const navigate = useNavigate();
-  // const onMenuClick = (item: { key: string }) => navigate(`/${item.key}`);
+
+  const [titleForRequest, setTitleForRequest] = useState('');
+
+  const memoizedDispatch = useCallback(() => {
+    dispatch(setCurrentPage('product'));
+  }, [dispatch]);
+
+  useEffect(() => {
+    memoizedDispatch();
+  }, [memoizedDispatch]);
+
+  const productsRandom = useSelector(
+    (state: RootState) => state.product.randomProductsData,
+  );
+  useEffect(() => {
+    if (titleForRequest !== productTitle) {
+      const fetchProducts = async () => {
+        await store.dispatch(fetchRandProducts(RANDOM_PRODUCTS_NUM));
+      };
+      fetchProducts();
+      setTitleForRequest(productTitle || '');
+    }
+  }, [dispatch, productTitle, titleForRequest]);
 
   return (
     <div className={styles.mainCont}>
       <SearchMenu />
       <div className={styles.headerBlockCont}>
-        {/* <Menu
-          className={styles.menu_items_line}
-          onClick={onMenuClick}
-          theme="light"
-          mode="vertical"
-          items={[
-            {
-              label: 'Information',
-              key: 'info',
-            },
-            {
-              label: 'Support',
-              key: 'support',
-            },
-            {
-              label: 'Sign up',
-              key: 'signup',
-            },
-            {
-              label: 'Sign in',
-              key: 'login',
-            },
-          ]}
-        /> */}
-        {BannerCarousel()}
+        {productsRandom.length !== 0 && BannerCarousel(productsRandom)}
       </div>
       <CategoryCarousel />
     </div>
@@ -56,52 +54,6 @@ function SideBar() {
 }
 
 function MainPage() {
-  const dispatch = useDispatch();
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage(''));
-  }, [dispatch]);
-
-  useEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
-
-  const { productTitle } = useParams();
-  // const navigate = useNavigate();
-
-  const [titleForRequest, setTitleForRequest] = useState('');
-
-  useEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
-
-  // const productErrorState = useSelector(
-  //   (state: RootState) => state.product.errorProduct,
-  // );
-
-  useEffect(() => {
-    if (titleForRequest !== productTitle) {
-      const fetchProduct = async () => {
-        await store.dispatch(fetchProductData(productTitle || ''));
-      };
-
-      const fetchProducts = async () => {
-        await store.dispatch(fetchRandProducts(RANDOM_PRODUCTS_NUM));
-      };
-
-      fetchProduct();
-      fetchProducts();
-      setTitleForRequest(productTitle || '');
-    }
-  }, [dispatch, productTitle, titleForRequest]);
-
-  // useLayoutEffect(() => {
-  //   if (productErrorState) {
-  //     message.error(productErrorState);
-  //     navigate('/notFound');
-  //   }
-  // }, [productErrorState, navigate]);
-
   return (
     <div className={styles.container}>
       <SideBar />

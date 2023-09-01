@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
-export const API_URL = 'http://localhost:5000/api';
-// export const API_URL = 'https://codefrondlers.store/api';
+// export const API_URL = 'http://localhost:5000/api';
+export const API_URL = 'https://codefrondlers.store/api';
 
 const $api: AxiosInstance = axios.create({
   withCredentials: true,

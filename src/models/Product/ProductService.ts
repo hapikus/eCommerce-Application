@@ -12,7 +12,7 @@ export default class ProductService {
   static async getRandProducts(
     num: number,
   ): Promise<AxiosResponse<IProduct[]>> {
-    return $api.get<IProduct[]>('/random-products', {
+    return $api.get<IProduct[]>('/product/random', {
       params: { num },
     });
   }

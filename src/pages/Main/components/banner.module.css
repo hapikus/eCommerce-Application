@@ -1,14 +1,8 @@
-.headerBlockCont {
-  display: flex;
-  flex-direction: row;
-  column-gap: 16px;
-  padding: 10px;
-  margin-right: 10px;
-}
-
-
 .headerBlockContLeft {
   height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .categoryContainer {
@@ -60,8 +54,8 @@
 }
 
 .imgCarousel {
-  width: 600px;
-  height: 338px;
+  width: 980px;
+  height: auto;
 }
 
 .categoryCarousel {
@@ -71,8 +65,8 @@
 .searchMenu {
   display: flex;
   width: 100%;
-  justify-content: center;
-  background: var(--gpStoreDarkGrey);
+  justify-content: space-between;
+  /* background: var(--gpStoreDarkGrey); */
 }
 
 .menu_main {
@@ -88,21 +82,25 @@
 .carouselItemCont {
   position: relative;
   overflow: hidden;
-  height: 100%;
   width: 100%;
+  height: 500px;
   flex: 1;
-  flex-basis: calc(100% - (160px + 16px));
   border-radius: 16px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  align-content: center;
+
 }
 
 .carouselItemIMG {
   width: 100%;
+  object-fit: cover;
   height: 100%;
-  position: relative;
 }
 
 .carouselItemDesc {
-  width: 320px;
+  width: 240px;
   position: absolute;
   bottom: 80px;
   left: 20px;
@@ -113,12 +111,13 @@
   background-color: transparent;
   color: #FFF;
   z-index: 2;
+  font-size: 12px;
 }
 
 .btn {
   position: absolute;
-  top: 83%;
-  left: 80px;
+  bottom: 40px;
+  left: 140px;
   transform: translate(-50%, -50%);
   outline: none;
   display: inline-block;
@@ -141,8 +140,8 @@
 
 .mask {
   position: absolute;
-  width: 80%;
-  height: 98%;
+  width: 100%;
+  height: 100%;
   z-index: 1;
   opacity: 0.6;
   background: linear-gradient(270deg, rgba(11, 11, 11, 0) 0%, #0B0B0B 100%, #0B0B0B 100%);

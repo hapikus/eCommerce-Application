@@ -1,24 +1,25 @@
 .container {
-  background: var(--gpStoreDarkGrey);
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  /* height: 100%; */
-  /* position: relative; */
+    /* background: var(--gpStoreDarkGrey); */
+    display: flex;
+    /* flex: 1; */
+    justify-content: center;
+    /* height: 100%; */
+    /* position: relative; */
+    width: 75%;
 }
 
 .mainCont {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  /* flex: 1; */
   justify-content: center;
   row-gap: 20px;
-
-  /* width: 700px;
-  height: auto; */
   margin-top: 40px;
   z-index: 1;
   margin-bottom: 40px;
+  align-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .headerBlockCont {
@@ -28,6 +29,7 @@
   padding: 10px;
   margin-right: 10px;
   justify-content: center;
+  width: 100%;
 }
 
 .headerBlockSearch {
