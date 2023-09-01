@@ -139,12 +139,58 @@
   font-size: 21px;
 }
 
-.priceButton {
+.mainPriceCont {
   position: absolute;
   height: 36px;
   right: 18px;
   bottom: -18px;
   font-size: 13px;
+}
+
+.regPriceCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+  background-color: var(--bg-color-accent);
+  color: var(--color-text-accent);
+  padding: 4px 8px;
+}
+
+.regPriceText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.discountCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  background-color: var(--bg-color-accent);
+  color: var(--color-text-accent);
+  padding: 4px 8px;
+}
+
+.discountSize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0px 5px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.doublePriceCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.regularPriceCont {
+  font-size: 11px;
+  text-decoration: line-through;
 }
 
 .aboutGame {
@@ -180,6 +226,7 @@
 .sysReqTitle {
   position: relative;
   font-size: 16px;
+  text-align: left;
 }
 
 .sysReqTitle::after {
@@ -213,7 +260,15 @@
 .reqMinAndRec {
   display: flex;
   flex-direction: row;
-  column-gap: 10px;
+  justify-content: space-between;
+}
+
+.reqMin,
+.reqRec {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+  width: 49%;
 }
 
 .mainRight {
@@ -250,8 +305,25 @@
   padding: 16px;
   background: linear-gradient(to right, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%);
   margin: 0 auto;
-  width: 940px;
+  width: 892px;
   margin-bottom: 20px;
+}
+
+.discCardTwoPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.discCardRegPrice {
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.discCardDiscPrice,
+.discCardNormalPrice {
+  font-weight: 500;
 }
 
 @media (max-width: 945px) {
@@ -308,5 +380,56 @@
 
   .mainRight {
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 756px) {
+  .headerBlockContRight {
+    flex-direction: column;
+  }
+
+  .headerImgAdapt,
+  .headerTextdapt {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .reqMinAndRec {
+    flex-direction: column;
+    row-gap: 15px;
+  }
+  .reqMin,
+  .reqRec {
+    width: 100%;
+  }
+
+  .reqNameForCont {
+    text-align: center;
+  }
+}
+
+@media (max-width: 338px) {
+  .tagsCont {
+    width: 300px;
+  }
+}
+
+@media (max-width: 912px) {
+  .randProductsCont {
+    width: 672px;
+  }
+}
+
+@media (max-width: 692px) {
+  .randProductsCont {
+    width: 452px;
+  }
+}
+
+@media (max-width: 472px) {
+  .randProductsCont {
+    width: 242px;
   }
 }

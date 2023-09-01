@@ -2,9 +2,11 @@ html,
 html[data-theme="light"] {
   --bg-color-main: #eae7ea;
   --bg-color-menu: #eae7ea;
+  --bg-color-accent: #96A451;
   --color-main: #e6f4ff;
   --color-accent: #000;
   --color-text: #000;
+  --color-text-accent: #eae7ea;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
   --gpStoreDarkGrey: #d4d4d4d6;
   --gpStoreDarkerGrey: #a4b9d3f2;
@@ -13,9 +15,11 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --bg-color-main: #171a21;
   --bg-color-menu: #171a21;
+  --bg-color-accent: #988B72;
   --color-main: #fafafa;
   --color-accent: #69b1ff;
   --color-text: #fff;
+  --color-text-accent: #171a21;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
   --gpStoreDarkGrey: rgba(42, 71, 94, 0.9);
   --gpStoreDarkerGrey: rgba(27, 40, 56, 0.8);
@@ -24,9 +28,11 @@ html[data-theme="dark"] {
 html[data-theme="barbie"] {
   --bg-color-main: #ffe6f9;
   --bg-color-menu: #ffe6f9;
+  --bg-color-accent: #8FA64B;
   --color-main: #fafafa;
   --color-accent: #000;
   --color-text: #000;
+  --color-text-accent: #ffe6f9;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
   --gpStoreDarkGrey: #fbc2f7d6;
   --gpStoreDarkerGrey: #ffd6e7f2;

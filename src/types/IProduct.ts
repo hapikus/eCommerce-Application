@@ -6,7 +6,8 @@ interface IProduct {
     ReviewSummary: string;
     ResponsiveHidden: string;
   }[];
-  price: string;
+  price: number;
+  discountPrice: number | null;
   releaseDate: string;
   devCompany: string;
   descriptionShort: string;
