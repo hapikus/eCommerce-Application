@@ -24,6 +24,11 @@
   height: 338px;
 }
 
+.carouselDots button {
+  height: 6px !important;
+  background-color: var(--color-main) !important;
+}
+
 .imgCarouselCont {
   width: 600px;
   height: 338px;

@@ -1,0 +1,222 @@
+.skeleton {
+  background: linear-gradient(to right,
+      var(--loadingStart) 25%,
+      var(--loadingMiddle) 50%,
+      var(--loadingStart) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 940px;
+  padding: 20px 0;
+}
+
+.title {
+  width: 100%;
+  height: 67px;
+}
+
+.headerCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  width: 100%;
+  height: 350px;
+}
+
+.carousel {
+  width: 600px;
+  height: 350px;
+}
+
+.headerBlockContRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
+}
+
+.headerImg {
+  width: 325px;
+  height: 151px;
+}
+
+.headerTextAdapt {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.shortDescCont {
+  width: 325px;
+  height: 75px;
+}
+
+.detailsData {
+  width: 325px;
+  height: 92px;
+}
+
+.mainInfoCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mainLeftCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 600px;
+}
+
+.aboutGameCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  width: 100%;
+}
+
+.aboutGameTitle {
+  height: 26px;
+  width: 100%;
+}
+
+.aboutGameText {
+  height: 300px;
+  width: 100%;
+}
+
+.reqCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.reqTitle {
+  height: 26px;
+  width: 100%;
+}
+
+.reqTableCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.reqMin,
+.reqRec {
+  height: 180px;
+  width: 49%;
+}
+
+.tagCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  width: 325px;
+  height: 150px;
+}
+
+.tagLine {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+.tagImg {
+  width: 26px;
+  height: 26px;
+}
+
+.tagText {
+  width: 100%;
+  height: 26px;
+}
+
+.randomCartsCont {
+  width: 100%;
+  height: 200px;
+}
+
+@media (max-width: 945px) {
+  .mainCont {
+    width: 90%;
+  }
+
+  .headerBlockContLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .headerCont {
+    flex-direction: column;
+    row-gap: 16px;
+    height: auto;
+  }
+
+  .headerTextAdapt {
+    width: 48%;
+  }
+
+  .shortDescCont,
+  .detailsData {
+    width: 100%;
+  }
+
+  .headerBlockContRight {
+    flex-direction: row;
+    width: 100%;
+    column-gap: 10px;
+    order: -1;
+  }
+
+  .headerImgAdapt {
+    width: 48%;
+  }
+
+  .headerBlockContRight_ImgCont {
+    width: 100%;
+  }
+
+  .headerImg {
+    width: 100%;
+    height: 177px;
+  }
+
+  .carousel {
+    width: 100%;
+  }
+
+  .mainInfoCont {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .mainLeftCont {
+    width: 100%;
+  }
+
+  .tagCont {
+    margin: 0 auto;
+  }
+}

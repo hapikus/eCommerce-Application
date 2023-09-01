@@ -10,7 +10,12 @@ function ImgCarousel(productDataState: IProduct) {
   return (
     <div className={styles.headerBlockContLeft}>
       <Image.PreviewGroup>
-        <Carousel className={styles.imgCarousel} infinite={false} autoplay>
+        <Carousel
+          className={styles.imgCarousel}
+          infinite={false}
+          dots={{ className: styles.carouselDots }}
+          autoplay
+        >
           {slicedScreenshotList.map((imageUrl) => (
             <div className={styles.imgCarouselCont} key={imageUrl}>
               <div className={styles.centerVertically}>

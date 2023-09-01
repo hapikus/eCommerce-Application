@@ -10,6 +10,9 @@ html[data-theme="light"] {
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
   --gpStoreDarkGrey: #d4d4d4d6;
   --gpStoreDarkerGrey: #a4b9d3f2;
+
+  --loadingStart: #C2D4E9;
+  --loadingMiddle: #A4B9D3;
 }
 
 html[data-theme="dark"] {
@@ -22,7 +25,10 @@ html[data-theme="dark"] {
   --color-text-accent: #171a21;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
   --gpStoreDarkGrey: rgba(42, 71, 94, 0.9);
-  --gpStoreDarkerGrey: rgba(27, 40, 56, 0.8);
+  --gpStoreDarkerGrey: #1b2838cc;
+
+  --loadingStart: #6F839C;
+  --loadingMiddle: #5F7B9C;
 }
 
 html[data-theme="barbie"] {
@@ -36,6 +42,9 @@ html[data-theme="barbie"] {
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
   --gpStoreDarkGrey: #fbc2f7d6;
   --gpStoreDarkerGrey: #ffd6e7f2;
+
+  --loadingStart: #FFE0ED;
+  --loadingMiddle: #FFD6E7;
 }
 
 

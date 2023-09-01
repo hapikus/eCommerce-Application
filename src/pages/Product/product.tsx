@@ -10,6 +10,7 @@ import {
 } from '../../redux/slice/productSlice';
 import store, { RootState } from '../../redux/store';
 
+import SkeletonLoading from './components/skeletonLoading';
 import ImgCarousel from './components/imgCarousel';
 import HeaderRight from './components/headerRight';
 import MainLeft from './components/mainLeft';
@@ -52,10 +53,10 @@ function Product() {
   }, [randomProductsNum]);
 
   const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage('product'));
+    dispatch(setCurrentPage(''));
   }, [dispatch]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     memoizedDispatch();
   }, [memoizedDispatch]);
 
@@ -100,9 +101,13 @@ function Product() {
     }
   }, [productErrorState, navigate]);
 
-  return productLoading || productRandomLoading ? (
-    <h1>Loading...</h1>
-  ) : (
+  if (productLoading || productRandomLoading) {
+    return (
+      SkeletonLoading()
+    );
+  }
+
+  return (
     <div className={styles.productCont}>
       <div>
         <h1 className={styles.productTitle}>{productDataState.gameTitle}</h1>

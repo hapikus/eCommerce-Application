@@ -26,6 +26,12 @@ function App() {
     (state: RootState) => state.auth.isFirstLoad,
   );
 
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme) {
+    dispatch(setTheme(savedTheme));
+  }
+
   const refreshToken = async () => {
     await store.dispatch(checkAuth());
   };
