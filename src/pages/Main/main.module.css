@@ -1,12 +1,42 @@
 .container {
+  background: var(--gpStoreDarkGrey);
   display: flex;
   flex: 1;
-  justify-content: space-between;
+  justify-content: center;
   /* height: 100%; */
   /* position: relative; */
-  background-size: cover;
-  background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
-  align-items: center;
+}
+
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  row-gap: 20px;
+
+  /* width: 700px;
+  height: auto; */
+  margin-top: 40px;
+  z-index: 1;
+  margin-bottom: 40px;
+}
+
+.headerBlockCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  padding: 10px;
+  margin-right: 10px;
+  justify-content: center;
+}
+
+.headerBlockSearch {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: var(--bg-color-main);
 }
 
 .menuContainer {
