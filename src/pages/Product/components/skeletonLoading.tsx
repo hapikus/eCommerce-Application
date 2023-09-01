@@ -70,17 +70,13 @@ function mainRightSkeleton() {
 }
 
 function randomCartsSkeleton() {
-  return (
-    <div className={`${styles.skeleton} ${styles.randomCartsCont}`} />
-  );
+  return <div className={`${styles.skeleton} ${styles.randomCartsCont}`} />;
 }
 
 function SkeletonLoading() {
   return (
     <div className={styles.mainCont}>
-      <div className={`${styles.skeleton} ${styles.title}`}>
-        {}
-      </div>
+      <div className={`${styles.skeleton} ${styles.title}`} />
       <div className={styles.headerCont}>
         {ImgCarouselSkeleton()}
         {HeaderRightSkeleton()}
@@ -89,9 +85,7 @@ function SkeletonLoading() {
         {mainLeftSkeleton()}
         {mainRightSkeleton()}
       </div>
-      <div className={styles.randomCartCont}>
-        {randomCartsSkeleton()}
-      </div>
+      <div className={styles.randomCartCont}>{randomCartsSkeleton()}</div>
     </div>
   );
 }

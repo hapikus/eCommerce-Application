@@ -15,12 +15,17 @@ interface ReqTableProps {
 function MainLeft(productDataState: IProduct) {
   const { gameTitle, price, discountPrice, descriptionLong } = productDataState;
 
-  const priceButton = (priceForBlock: number, discountPriceForBlock: number | null) => {
+  const priceButton = (
+    priceForBlock: number,
+    discountPriceForBlock: number | null,
+  ) => {
     if (discountPriceForBlock) {
       return (
         <div className={styles.discountCont}>
           <div className={styles.discountSize}>
-            {`-${((1 - discountPriceForBlock / priceForBlock) * 100).toFixed(0)}%`}
+            {`-${((1 - discountPriceForBlock / priceForBlock) * 100).toFixed(
+              0,
+            )}%`}
           </div>
           <div className={styles.doublePriceCont}>
             <div className={styles.regularPriceCont}>
@@ -30,9 +35,7 @@ function MainLeft(productDataState: IProduct) {
               {`${Number(discountPriceForBlock).toFixed(2)} €`}
             </div>
           </div>
-          <Button className={styles.priceButton}>
-            Add to Cart
-          </Button>
+          <Button className={styles.priceButton}>Add to Cart</Button>
         </div>
       );
     }
@@ -41,9 +44,7 @@ function MainLeft(productDataState: IProduct) {
         <div className={styles.regPriceText}>
           {`${Number(priceForBlock).toFixed(2)} €`}
         </div>
-        <Button className={styles.addToCartText}>
-          Add to Cart
-        </Button>
+        <Button className={styles.addToCartText}>Add to Cart</Button>
       </div>
     );
   };

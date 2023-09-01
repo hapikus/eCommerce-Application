@@ -40,7 +40,9 @@ function Product() {
   const navigate = useNavigate();
 
   const [titleForRequest, setTitleForRequest] = useState('');
-  const [randomProductsNum, setRandomProductsNum] = useState(calculateNewRandomProductsNum());
+  const [randomProductsNum, setRandomProductsNum] = useState(
+    calculateNewRandomProductsNum(),
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -102,9 +104,7 @@ function Product() {
   }, [productErrorState, navigate]);
 
   if (productLoading || productRandomLoading) {
-    return (
-      SkeletonLoading()
-    );
+    return SkeletonLoading();
   }
 
   return (
