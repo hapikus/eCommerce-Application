@@ -1,84 +1,20 @@
-import { Carousel, Card, Image } from 'antd';
+import { Carousel } from 'antd';
 
 import styles from './banner.module.css';
+import CategoryCards from './categoryCards';
 
-function CategoryCarousel() {
+function CategoryCarousel(props : { categorys: string[], categoryShow: number }) {
+  const { categorys, categoryShow } = props;
+  console.log('carusel', categoryShow);
   return (
     <div className={styles.categoryContainer}>
       <Carousel
         className={styles.containerCarousel}
         infinite={false}
         autoplay
-        slidesToShow={2}
+        slidesToShow={categoryShow}
       >
-        <div className={styles.categoryCardContainer}>
-          <Card
-            hoverable
-            className={styles.categoryCard}
-            cover={(
-              <Image
-                preview={false}
-                src="https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=russian"
-                alt=""
-                style={{ objectFit: 'cover' }}
-              />
-            )}
-          >
-            <div className={styles.gradient} />
-            <Card.Meta title="CATEGORY" className={styles.categoryTitle} />
-          </Card>
-        </div>
-        <div className={styles.categoryCardContainer}>
-          <Card
-            hoverable
-            className={styles.categoryCard}
-            cover={(
-              <Image
-                preview={false}
-                src="https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=russian"
-                alt=""
-                style={{ objectFit: 'cover' }}
-              />
-            )}
-          >
-            <div className={styles.gradient} />
-            <Card.Meta title="CATEGORY" className={styles.categoryTitle} />
-          </Card>
-        </div>
-        <div className={styles.categoryCardContainer}>
-          <Card
-            hoverable
-            className={styles.categoryCard}
-            cover={(
-              <Image
-                preview={false}
-                src="https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=russian"
-                alt=""
-                style={{ objectFit: 'cover' }}
-              />
-            )}
-          >
-            <div className={styles.gradient} />
-            <Card.Meta title="CATEGORY" className={styles.categoryTitle} />
-          </Card>
-        </div>
-        <div className={styles.categoryCardContainer}>
-          <Card
-            hoverable
-            className={styles.categoryCard}
-            cover={(
-              <Image
-                preview={false}
-                src="https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=russian"
-                alt=""
-                style={{ objectFit: 'cover' }}
-              />
-            )}
-          >
-            <div className={styles.gradient} />
-            <Card.Meta title="CATEGORY" className={styles.categoryTitle} />
-          </Card>
-        </div>
+        {CategoryCards(categorys)}
       </Carousel>
     </div>
   );

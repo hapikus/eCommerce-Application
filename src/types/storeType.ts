@@ -38,10 +38,13 @@ type ThemeType = { [key: string]: string };
 interface ProductState {
   productData: IProduct;
   randomProductsData: IProduct[];
+  isAllCategoryData: string[],
   isLoading: boolean;
   isLoadingRandom: boolean;
+  isAllCategoryLoading: boolean;
   errorProduct: null | string;
   errorRandomProducts: null | string;
+  errorAllCategory: null | string;
 }
 
 export type {

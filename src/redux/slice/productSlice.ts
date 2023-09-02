@@ -8,10 +8,13 @@ import IProduct from '../../types/IProduct';
 const initialState: ProductState = {
   productData: {} as IProduct,
   randomProductsData: [],
+  isAllCategoryData: [],
   isLoading: false,
   isLoadingRandom: false,
+  isAllCategoryLoading: false,
   errorProduct: null,
   errorRandomProducts: null,
+  errorAllCategory: null,
 };
 
 export const fetchProductData = createAsyncThunk(
@@ -34,6 +37,21 @@ export const fetchRandProducts = createAsyncThunk(
   async (num: number, thunkAPI) => {
     try {
       const response = await ProductService.getRandProducts(num);
+      return response.data;
+    } catch (error) {
+      if (error instanceof AxiosError && error.response?.data?.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      }
+      return thunkAPI.rejectWithValue('An unknown error occurred');
+    }
+  },
+);
+
+export const fetchAllCategory = createAsyncThunk(
+  'product/fetchAllCat',
+  async (_, thunkAPI) => {
+    try {
+      const response = await ProductService.getAllCategories();
       return response.data;
     } catch (error) {
       if (error instanceof AxiosError && error.response?.data?.message) {
@@ -81,6 +99,19 @@ const productSlice = createSlice({
       .addCase(fetchRandProducts.rejected, (state, action) => {
         state.isLoadingRandom = false;
         state.errorRandomProducts = `${action.payload}`;
+      })
+      .addCase(fetchAllCategory.pending, (state) => {
+        state.isAllCategoryData = [];
+        state.isAllCategoryLoading = true;
+        state.errorAllCategory = null;
+      })
+      .addCase(fetchAllCategory.fulfilled, (state, action) => {
+        state.isAllCategoryLoading = false;
+        state.isAllCategoryData = action.payload;
+      })
+      .addCase(fetchAllCategory.rejected, (state, action) => {
+        state.isAllCategoryLoading = false;
+        state.errorAllCategory = `${action.payload}`;
       });
   },
 });

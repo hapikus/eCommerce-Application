@@ -8,7 +8,10 @@ import IProduct from '../../../types/IProduct';
 function BannerCarousel(products: IProduct[]) {
   return (
     <div className={styles.headerBlockContLeft}>
-      <Carousel className={styles.imgCarousel} infinite={false}>
+      <Carousel
+        className={styles.imgCarousel}
+        infinite={false}
+      >
         {BannerCards(products)}
       </Carousel>
     </div>

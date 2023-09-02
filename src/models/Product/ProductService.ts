@@ -16,4 +16,8 @@ export default class ProductService {
       params: { num },
     });
   }
+
+  static async getAllCategories(): Promise<AxiosResponse<string[]>> {
+    return $api.get<string[]>('/product/all-categories');
+  }
 }

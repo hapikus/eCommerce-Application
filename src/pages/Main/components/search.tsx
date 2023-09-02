@@ -18,7 +18,7 @@ function SearchMenu() {
         style={{ width: 200 }}
       />
       <Menu
-        className={styles.menu_main}
+        className={styles.menu_search}
         onClick={onMenuClick}
         theme="light"
         mode="horizontal"
