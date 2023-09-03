@@ -1,12 +1,10 @@
-import { Card, Image, Button } from 'antd';
+import { Card, Tag } from 'antd';
 import { Link } from 'react-router-dom';
 
 import styles from './component.module.css';
 import IProduct from '../../../types/IProduct';
 
-function CatalogCards(props: {
-  products: IProduct[];
-}) {
+function CatalogCards(props: { products: IProduct[] }) {
   const { products } = props;
   const getDescription = (
     priceDesc: number,
@@ -41,27 +39,19 @@ function CatalogCards(props: {
     const header = `${baseURL}/${gameID}/${headerSuffix}`;
     return (
       <Link to={`/product/${gameTitle}`} key={gameTitle}>
-        <div className={styles.catalogtCardContainer}>
+        <div className={styles.catalogCardContainer}>
           <Card
             hoverable
-            bodyStyle={{ background: 'transperant' }}
-            style={{ background: 'transperant', boxShadow: 'none' }}
-            bordered={false}
-            key={gameTitle}
+            bodyStyle={{ padding: '9px' }}
             className={styles.catalogCard}
-            cover={(
-              <Image
-                preview={false}
-                src={header}
-                alt=""
-                style={{ objectFit: 'cover' }}
-              />
-            )}
+            cover={<img alt={gameTitle} src={header} />}
           >
-            <div className={styles.catalogPrice}>
-              <Button type="primary" className={styles.catalogBtn}>
+            <p className={styles.titleCard}>{gameTitle}</p>
+            <div className={styles.catalogCardDesc}>
+              {/* <Card.Meta description={gameTitle} /> */}
+              <Tag>
                 {getDescription(price, discountPrice)}
-              </Button>
+              </Tag>
             </div>
           </Card>
         </div>

@@ -17,7 +17,7 @@ const MAX_PRICE = 60;
 
 const calculateCardsNum = () => {
   const windowInnerWidth = window.innerWidth;
-  let cardNumber = 1;
+  let cardNumber = 4;
   if (windowInnerWidth > 912) {
     cardNumber = 12;
   } else if (windowInnerWidth > 692) {
@@ -99,28 +99,40 @@ function CatalogPage() {
     return <h1>Loading...</h1>;
   }
   return (
-    <div className={styles.catalog}>
-      <div className={styles.catalogMainContainer}>
-        {catalogProducts?.length ? (
-          <CatalogCards products={catalogProducts} />
-        ) : null}
-        <Pagination
-          total={catalogTotalProducts}
-          pageSize={cardsNum}
-          onChange={paginationOnChange}
-          current={catalogCurrPage}
-        />
-      </div>
-      <div className={styles.sliderContainer}>
-        <Slider
-          range
-          step={1}
-          defaultValue={[minPrice, maxPrice]}
-          min={MIN_PRICE}
-          max={MAX_PRICE}
-          onAfterChange={setPrice}
-        />
-        <CheckBoxCategory />
+    <div className={styles.pageContainer}>
+      <h1>Catalog</h1>
+      <div className={styles.catalog}>
+        <div className={styles.catalogMainContainer}>
+          <div className={styles.catalogGridCards}>
+            {catalogProducts?.length ? (
+              <CatalogCards products={catalogProducts} />
+            ) : null}
+          </div>
+          <Pagination
+            total={catalogTotalProducts}
+            pageSize={cardsNum}
+            onChange={paginationOnChange}
+            current={catalogCurrPage}
+          />
+        </div>
+        <div className={styles.menuContainer}>
+          <div className={styles.catalogMenuSlider}>
+            <h3 className={styles.menuCompTitle}>Narrow by price</h3>
+            <Slider
+              range
+              step={1}
+              defaultValue={[minPrice, maxPrice]}
+              min={MIN_PRICE}
+              max={MAX_PRICE}
+              onAfterChange={setPrice}
+              tooltip={{ open: true, placement: 'bottom' }}
+            />
+          </div>
+          <div className={styles.catalogMenuCheckBox}>
+            <h3 className={styles.menuCompTitle}>Narrow by tag</h3>
+            <CheckBoxCategory />
+          </div>
+        </div>
       </div>
     </div>
   );

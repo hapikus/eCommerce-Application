@@ -11,7 +11,7 @@ function RandomCards(products: IProduct[]) {
         <Card
           hoverable
           style={{ width: 200 }}
-          cover={
+          cover={(
             <Image
               alt="example"
               src={screenshotList[randomIndex]}
@@ -19,7 +19,7 @@ function RandomCards(products: IProduct[]) {
               style={{ objectFit: 'cover' }}
               preview={false}
             />
-          }
+          )}
         >
           <Card.Meta title={gameTitle} description={`Price: ${price}`} />
         </Card>

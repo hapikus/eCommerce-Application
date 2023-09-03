@@ -9,6 +9,8 @@ import {
 } from '../../../redux/slice/productSlice';
 import store, { RootState } from '../../../redux/store';
 
+import styles from './component.module.css';
+
 function CheckBoxCategory() {
   const dispatch = useDispatch();
 
@@ -38,7 +40,12 @@ function CheckBoxCategory() {
   const options = categoryAll.map((tag) => ({ label: tag, value: tag }));
   return (
     <div>
-      <Checkbox.Group options={options} onChange={setTag} value={selectedTag} />
+      <Checkbox.Group
+        options={options}
+        onChange={setTag}
+        value={selectedTag}
+        className={styles.checkBoxGroup}
+      />
     </div>
   );
 }

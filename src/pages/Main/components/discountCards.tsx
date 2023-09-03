@@ -1,4 +1,4 @@
-import { Card, Image, Button } from 'antd';
+import { Card, Image, Button, Tag } from 'antd';
 import { Link } from 'react-router-dom';
 
 import styles from './banner.module.css';
@@ -56,11 +56,13 @@ function DiscountCards(products: IProduct[]) {
             )}
           >
             <div className={styles.discountPrice}>
-              <div className={styles.discCardDiscPrice}>
-                {`-${Number(
-                  Math.ceil((1 - (discountPrice || 0) / price) * 100),
-                )}%`}
-              </div>
+              <Tag color="green">
+                <div className={styles.discCardDiscPrice}>
+                  {`-${Number(
+                    Math.ceil((1 - (discountPrice || 0) / price) * 100),
+                  )}%`}
+                </div>
+              </Tag>
               <Button type="primary" className={styles.btnDisc}>
                 {getDescription(price, discountPrice)}
               </Button>
