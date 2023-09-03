@@ -20,6 +20,7 @@ const themeSlice = createSlice({
     setTheme: (state, action: PayloadAction<SetThemeSuper['payload']>) => {
       state.theme = action.payload;
       document.documentElement.setAttribute('data-theme', action.payload);
+      localStorage.setItem('theme', action.payload);
     },
     setCurrentPage: (state, action: PayloadAction<ICurrentPage['payload']>) => {
       state.currentPage = action.payload;
