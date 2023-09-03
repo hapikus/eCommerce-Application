@@ -5,8 +5,33 @@ import IProduct from '../../../types/IProduct';
 import styles from './banner.module.css';
 
 function BannerCards(products: IProduct[]) {
+  const getDescription = (
+    priceDesc: number,
+    discountPriceDesc: number | null,
+  ) => {
+    if (discountPriceDesc) {
+      return (
+        <div className={styles.discCardTwoPrice}>
+          <div className={styles.discCardRegPrice}>
+            {`${Number(priceDesc).toFixed(2)} €`}
+          </div>
+          <div className={styles.discCardDiscPrice}>
+            {`${Number(discountPriceDesc).toFixed(2)} €`}
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className={styles.discCardOnePrice}>
+        <div className={styles.discCardNormalPrice}>
+          {`${Number(priceDesc).toFixed(2)} €`}
+        </div>
+      </div>
+    );
+  };
   return products.map((product: IProduct) => {
-    const { gameTitle, price, headerImg, descriptionShort } = product;
+    const { gameTitle, price, headerImg, descriptionShort, discountPrice } =
+      product;
     const url = `${headerImg}`.split('/');
     const suffix = url.pop();
     const gameID = url.pop();
@@ -14,17 +39,19 @@ function BannerCards(products: IProduct[]) {
     const capsuleSuffix = 'capsule_616x353.jpg';
     const headerSuffix = 'header.jpg';
     const capsule = `${baseURL}/${gameID}/${capsuleSuffix}`;
-    const header = `${baseURL}/${gameID}/${headerSuffix}`;
+    const header = `${suffix}/${gameID}/${headerSuffix}`;
     return (
       <Link to={`/product/${gameTitle}`} key={gameTitle}>
         <div className={styles.carouselItemCont}>
           <div className={styles.mask} />
           <Image
-            preview={false}
             src={capsule}
             alt="CAPSULE"
             width="100%"
             style={{ height: '100%' }}
+            preview={{
+              src: `${header}`,
+            }}
             className={styles.carouselItemImg}
           />
           <Card
@@ -34,7 +61,7 @@ function BannerCards(products: IProduct[]) {
             <p>{descriptionShort}</p>
           </Card>
           <Button type="primary" className={styles.btn}>
-            {`Add to cart: ${price}`}
+            {getDescription(price, discountPrice)}
           </Button>
         </div>
       </Link>

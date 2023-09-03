@@ -1,20 +1,28 @@
 import { AxiosError } from 'axios';
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import ProductService from '../../models/Product/ProductService';
 
-import { ProductState } from '../../types/storeType';
+import { ProductState, ICatalog, SetSelectedTag } from '../../types/storeType';
 import IProduct from '../../types/IProduct';
+import { CatalogOptionsType } from '../../types/types';
 
 const initialState: ProductState = {
   productData: {} as IProduct,
   randomProductsData: [],
   isAllCategoryData: [],
+  randDiscProductsData: [],
+  catalogProducts: {} as ICatalog,
+  selectedTag: [],
   isLoading: false,
   isLoadingRandom: false,
   isAllCategoryLoading: false,
+  isLoadingDiscRandom: false,
+  isLoadingCatalogProducts: false,
   errorProduct: null,
   errorRandomProducts: null,
   errorAllCategory: null,
+  errorRandDiscProducts: null,
+  errorCatalogProducts: null,
 };
 
 export const fetchProductData = createAsyncThunk(
@@ -62,6 +70,56 @@ export const fetchAllCategory = createAsyncThunk(
   },
 );
 
+export const fetchDiscountProducts = createAsyncThunk(
+  'product/fetchDiscountProducts',
+  async (num: number, thunkAPI) => {
+    try {
+      const response = await ProductService.getRandProductsWithDiscount(num);
+      return response.data;
+    } catch (error) {
+      if (error instanceof AxiosError && error.response?.data?.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      }
+      return thunkAPI.rejectWithValue('An unknown error occurred');
+    }
+  },
+);
+
+export const fetchCatalogProducts = createAsyncThunk(
+  'product/fetchCatalogProducts',
+  async (
+    options: CatalogOptionsType,
+    thunkAPI,
+  ) => {
+    try {
+      const {
+        pageNumber,
+        pageLimit,
+        sortColumn,
+        sortDirection,
+        tags,
+        minPrice,
+        maxPrice,
+      } = options;
+      const response = await ProductService.getProductsForCatalog(
+        pageNumber,
+        pageLimit,
+        sortColumn,
+        sortDirection,
+        tags,
+        minPrice,
+        maxPrice,
+      );
+      return response.data;
+    } catch (error) {
+      if (error instanceof AxiosError && error.response?.data?.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      }
+      return thunkAPI.rejectWithValue('An unknown error occurred');
+    }
+  },
+);
+
 const productSlice = createSlice({
   name: 'product',
   initialState,
@@ -70,6 +128,12 @@ const productSlice = createSlice({
       state.productData = {} as IProduct;
       state.isLoading = false;
       state.errorProduct = null;
+    },
+    setSelectedTag: (
+      state,
+      action: PayloadAction<SetSelectedTag['payload']>,
+    ) => {
+      state.selectedTag = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -112,9 +176,35 @@ const productSlice = createSlice({
       .addCase(fetchAllCategory.rejected, (state, action) => {
         state.isAllCategoryLoading = false;
         state.errorAllCategory = `${action.payload}`;
+      })
+      .addCase(fetchDiscountProducts.pending, (state) => {
+        state.randDiscProductsData = [];
+        state.isLoadingDiscRandom = true;
+        state.errorRandDiscProducts = null;
+      })
+      .addCase(fetchDiscountProducts.fulfilled, (state, action) => {
+        state.isLoadingDiscRandom = false;
+        state.randDiscProductsData = action.payload;
+      })
+      .addCase(fetchDiscountProducts.rejected, (state, action) => {
+        state.isLoadingDiscRandom = false;
+        state.errorRandDiscProducts = `${action.payload}`;
+      })
+      .addCase(fetchCatalogProducts.pending, (state) => {
+        state.catalogProducts = {} as ICatalog;
+        state.isLoadingCatalogProducts = true;
+        state.errorCatalogProducts = null;
+      })
+      .addCase(fetchCatalogProducts.fulfilled, (state, action) => {
+        state.isLoadingCatalogProducts = false;
+        state.catalogProducts = action.payload;
+      })
+      .addCase(fetchCatalogProducts.rejected, (state, action) => {
+        state.isLoadingCatalogProducts = false;
+        state.errorCatalogProducts = `${action.payload}`;
       });
   },
 });
 
-export const { resetProductData } = productSlice.actions;
+export const { resetProductData, setSelectedTag } = productSlice.actions;
 export default productSlice.reducer;

@@ -38,13 +38,32 @@ type ThemeType = { [key: string]: string };
 interface ProductState {
   productData: IProduct;
   randomProductsData: IProduct[];
-  isAllCategoryData: string[],
+  isAllCategoryData: string[];
+  randDiscProductsData: IProduct[];
+  catalogProducts: ICatalog;
+  selectedTag: CheckBoxType[];
   isLoading: boolean;
   isLoadingRandom: boolean;
   isAllCategoryLoading: boolean;
+  isLoadingDiscRandom: boolean;
+  isLoadingCatalogProducts: boolean;
   errorProduct: null | string;
   errorRandomProducts: null | string;
   errorAllCategory: null | string;
+  errorRandDiscProducts: null | string;
+  errorCatalogProducts: null | string;
+}
+
+interface ICatalog {
+  products: IProduct[];
+  totalProducts: number;
+}
+
+type CheckBoxType = string | number | boolean;
+
+interface SetSelectedTag {
+  type: string[];
+  payload: CheckBoxType[];
 }
 
 export type {
@@ -55,4 +74,7 @@ export type {
   IsFirstLoadInt,
   ICurrentPage,
   ProductState,
+  ICatalog,
+  CheckBoxType,
+  SetSelectedTag,
 };

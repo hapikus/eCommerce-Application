@@ -1,0 +1,13 @@
+.catalog {
+  display: flex;
+  flex-direction: row;
+  column-gap: 40px;
+}
+
+.catalogMainComtainer {
+  width: 300px;
+}
+
+.sliderContainer {
+  width: 300px;
+}

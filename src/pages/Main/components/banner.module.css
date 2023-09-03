@@ -28,6 +28,77 @@
   border-radius: 0;
 }
 
+/* .categoryCard {
+  height: 183px;
+  margin: 0 5px -10px 5px;
+  border-radius: 0;
+  padding: 10px;
+  background-color: #dbdbdb;
+} */
+
+.discountCard {
+  height: 190px;
+  margin: 0 5px -10px 5px;
+  border-radius: 0;
+  padding: 10px;
+  background-color: transparent;
+  box-shadow: none;
+  transition: 0.5s;
+}
+
+.discountCard:hover {
+  background-color: #eae7ea;
+  transition: 0.5s;
+}
+
+.discountPrice {
+  display: flex;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(0%, -50%);
+  justify-content: center;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.discCardTwoPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.discCardRegPrice {
+  font-weight: 500;
+}
+
+.discCardDiscPrice,
+.discCardNormalPrice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-right: 10px;
+}
+
+.btnDisc {
+  outline: none;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  touch-action: manipulation;
+  line-height: 1.5714285714285714;
+  color: #fff;
+  background-color: #1677ff;
+  box-shadow: 0 2px 0 rgba(230, 244, 255, 0.98);
+  z-index: 2;
+}
+
 .centerVertically {
   display: flex;
   align-items: center;
@@ -179,7 +250,6 @@
   opacity: 0.6;
   background: linear-gradient(270deg, rgba(11, 11, 11, 0) 0%, #0B0B0B 100%, #0B0B0B 100%);
 }
-
 
 @media (max-width: 945px) {
   .headerBlockContLeft {
