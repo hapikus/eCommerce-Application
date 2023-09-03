@@ -87,10 +87,7 @@ export const fetchDiscountProducts = createAsyncThunk(
 
 export const fetchCatalogProducts = createAsyncThunk(
   'product/fetchCatalogProducts',
-  async (
-    options: CatalogOptionsType,
-    thunkAPI,
-  ) => {
+  async (options: CatalogOptionsType, thunkAPI) => {
     try {
       const {
         pageNumber,

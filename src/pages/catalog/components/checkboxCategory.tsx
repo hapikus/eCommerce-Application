@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Checkbox } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
 
-import { fetchAllCategory, setSelectedTag } from '../../../redux/slice/productSlice';
+import {
+  fetchAllCategory,
+  setSelectedTag,
+} from '../../../redux/slice/productSlice';
 import store, { RootState } from '../../../redux/store';
 
 function CheckBoxCategory() {
@@ -29,17 +32,13 @@ function CheckBoxCategory() {
 
   useEffect(() => {
     fetchAllCat();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const options = categoryAll.map((tag) => ({ label: tag, value: tag }));
   return (
     <div>
-      <Checkbox.Group
-        options={options}
-        onChange={setTag}
-        value={selectedTag}
-      />
+      <Checkbox.Group options={options} onChange={setTag} value={selectedTag} />
     </div>
   );
 }

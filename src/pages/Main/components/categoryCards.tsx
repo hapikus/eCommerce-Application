@@ -12,14 +12,14 @@ function CategoryCards(categorys: string[]) {
           hoverable
           key={category}
           className={styles.categoryCard}
-          cover={(
+          cover={
             <Image
               preview={false}
               src="https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=russian"
               alt=""
               style={{ objectFit: 'cover' }}
             />
-          )}
+          }
         >
           <span className={styles.categoryTitle}>{category}</span>
           <div className={styles.gradient} />

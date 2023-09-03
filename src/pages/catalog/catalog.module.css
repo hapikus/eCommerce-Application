@@ -2,12 +2,18 @@
   display: flex;
   flex-direction: row;
   column-gap: 40px;
+  width: 100%;
 }
 
-.catalogMainComtainer {
-  width: 300px;
+.catalogMainContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  width: 70%;
+  min-width: 680px;
 }
 
 .sliderContainer {
-  width: 300px;
+  width: 20%;
+  min-width: 200px;
 }

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Slider } from 'antd';
+import { Slider, Pagination } from 'antd';
+import type { PaginationProps } from 'antd';
 
-import DiscountCards from '../Main/components/discountCards';
+import CatalogCards from './components/catalogCard';
 import { fetchCatalogProducts } from '../../redux/slice/productSlice';
 
 import store, { RootState } from '../../redux/store';
@@ -12,11 +13,26 @@ import CheckBoxCategory from './components/checkboxCategory';
 import styles from './catalog.module.css';
 
 const MIN_PRICE = 0;
-const MAX_PRICE = 171.69;
+const MAX_PRICE = 60;
+
+const calculateCardsNum = () => {
+  const windowInnerWidth = window.innerWidth;
+  let cardNumber = 1;
+  if (windowInnerWidth > 912) {
+    cardNumber = 12;
+  } else if (windowInnerWidth > 692) {
+    cardNumber = 8;
+  } else if (windowInnerWidth > 472) {
+    cardNumber = 6;
+  }
+  return cardNumber;
+};
 
 function CatalogPage() {
   const [minPrice, setMinPrice] = useState(MIN_PRICE);
   const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
+  const [catalogCurrPage, setCatalogCurrPage] = useState(1);
+  const [cardsNum, setCardsNum] = useState(calculateCardsNum());
 
   const catalogProducts = useSelector(
     (state: RootState) => state.product.catalogProducts.products,
@@ -26,9 +42,9 @@ function CatalogPage() {
     (state: RootState) => state.product.selectedTag,
   );
 
-  // const catalogTotalProducts = useSelector(
-  //   (state: RootState) => state.product.catalogProducts.totalProducts,
-  // );
+  const catalogTotalProducts = useSelector(
+    (state: RootState) => state.product.catalogProducts.totalProducts,
+  );
 
   // const errorCatalogProducts = useSelector(
   //   (state: RootState) => state.product.errorCatalogProducts,
@@ -39,11 +55,21 @@ function CatalogPage() {
   );
 
   useEffect(() => {
+    const handleResize = () => {
+      const newCardsNum = calculateCardsNum();
+      if (newCardsNum !== cardsNum) {
+        setCardsNum(newCardsNum);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+  }, [cardsNum]);
+
+  useEffect(() => {
     const fetchCatalog = async () => {
       await store.dispatch(
         fetchCatalogProducts({
-          pageNumber: 1,
-          pageLimit: 12,
+          pageNumber: catalogCurrPage,
+          pageLimit: cardsNum,
           sortColumn: 'gameTitle',
           sortDirection: 'up',
           tags: selectedTag,
@@ -53,7 +79,7 @@ function CatalogPage() {
       );
     };
     fetchCatalog();
-  }, [minPrice, maxPrice, selectedTag]);
+  }, [minPrice, maxPrice, selectedTag, cardsNum, catalogCurrPage]);
 
   const setPrice = (value: [number, number]) => {
     const [minPriceSlider, maxPriceSlider] = value;
@@ -65,13 +91,25 @@ function CatalogPage() {
     }
   };
 
+  const paginationOnChange: PaginationProps['onChange'] = (page: number) => {
+    setCatalogCurrPage(page);
+  };
+
   if (loadingCatalogProducts) {
     return <h1>Loading...</h1>;
   }
   return (
     <div className={styles.catalog}>
       <div className={styles.catalogMainContainer}>
-        {catalogProducts?.length ? DiscountCards(catalogProducts) : null}
+        {catalogProducts?.length ? (
+          <CatalogCards products={catalogProducts} />
+        ) : null}
+        <Pagination
+          total={catalogTotalProducts}
+          pageSize={cardsNum}
+          onChange={paginationOnChange}
+          current={catalogCurrPage}
+        />
       </div>
       <div className={styles.sliderContainer}>
         <Slider
