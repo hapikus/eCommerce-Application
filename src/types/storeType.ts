@@ -42,16 +42,19 @@ interface ProductState {
   randDiscProductsData: IProduct[];
   catalogProducts: ICatalog;
   selectedTag: CheckBoxType[];
+  searchProducts: IProduct[];
   isLoading: boolean;
   isLoadingRandom: boolean;
   isAllCategoryLoading: boolean;
   isLoadingDiscRandom: boolean;
   isLoadingCatalogProducts: boolean;
+  isLoadingSearchProducts: boolean;
   errorProduct: null | string;
   errorRandomProducts: null | string;
   errorAllCategory: null | string;
   errorRandDiscProducts: null | string;
   errorCatalogProducts: null | string;
+  errorSearchProducts: null | string;
 }
 
 interface ICatalog {

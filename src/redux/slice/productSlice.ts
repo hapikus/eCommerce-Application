@@ -13,16 +13,19 @@ const initialState: ProductState = {
   randDiscProductsData: [],
   catalogProducts: {} as ICatalog,
   selectedTag: [],
+  searchProducts: [],
   isLoading: false,
   isLoadingRandom: false,
   isAllCategoryLoading: false,
   isLoadingDiscRandom: false,
   isLoadingCatalogProducts: false,
+  isLoadingSearchProducts: false,
   errorProduct: null,
   errorRandomProducts: null,
   errorAllCategory: null,
   errorRandDiscProducts: null,
   errorCatalogProducts: null,
+  errorSearchProducts: null,
 };
 
 export const fetchProductData = createAsyncThunk(
@@ -117,6 +120,21 @@ export const fetchCatalogProducts = createAsyncThunk(
   },
 );
 
+export const fetchSearchProducts = createAsyncThunk(
+  'product/fetchSearchProducts',
+  async (query: string, thunkAPI) => {
+    try {
+      const response = await ProductService.searchProducts(query);
+      return response.data;
+    } catch (error) {
+      if (error instanceof AxiosError && error.response?.data?.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      }
+      return thunkAPI.rejectWithValue('An unknown error occurred');
+    }
+  },
+);
+
 const productSlice = createSlice({
   name: 'product',
   initialState,
@@ -199,6 +217,19 @@ const productSlice = createSlice({
       .addCase(fetchCatalogProducts.rejected, (state, action) => {
         state.isLoadingCatalogProducts = false;
         state.errorCatalogProducts = `${action.payload}`;
+      })
+      .addCase(fetchSearchProducts.pending, (state) => {
+        state.searchProducts = [];
+        state.isLoadingSearchProducts = true;
+        state.errorSearchProducts = null;
+      })
+      .addCase(fetchSearchProducts.fulfilled, (state, action) => {
+        state.isLoadingSearchProducts = false;
+        state.searchProducts = action.payload;
+      })
+      .addCase(fetchSearchProducts.rejected, (state, action) => {
+        state.isLoadingSearchProducts = false;
+        state.errorSearchProducts = `${action.payload}`;
       });
   },
 });

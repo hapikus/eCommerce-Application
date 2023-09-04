@@ -2,9 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Card, Image } from 'antd';
 import { Link } from 'react-router-dom';
 
-import {
-  setSelectedTag,
-} from '../../../redux/slice/productSlice';
+import { setSelectedTag } from '../../../redux/slice/productSlice';
 
 import styles from './banner.module.css';
 

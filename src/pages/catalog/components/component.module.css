@@ -87,6 +87,18 @@
   flex-direction: column;
   width: 100%;
 }
+.popoverContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.popoverCardContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background: var(--bg-color-main);
+}
 
 @media (max-width: 913px) {
   .catalogCard {

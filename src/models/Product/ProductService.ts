@@ -49,4 +49,12 @@ export default class ProductService {
       maxPrice,
     });
   }
+
+  static async searchProducts(
+    query: string,
+  ): Promise<AxiosResponse<IProduct[]>> {
+    return $api.get<IProduct[]>('/product/search', {
+      params: { query },
+    });
+  }
 }

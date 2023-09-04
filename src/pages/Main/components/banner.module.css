@@ -251,6 +251,16 @@
   background: linear-gradient(270deg, rgba(11, 11, 11, 0) 0%, #0B0B0B 100%, #0B0B0B 100%);
 }
 
+.popoverContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: space-between;
+  position: absolute;
+  top: 84%;
+  left: 2%;
+}
+
 @media (max-width: 945px) {
   .headerBlockContLeft {
     width: 100%;

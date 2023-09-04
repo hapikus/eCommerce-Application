@@ -49,9 +49,7 @@ function CatalogCards(props: { products: IProduct[] }) {
             <p className={styles.titleCard}>{gameTitle}</p>
             <div className={styles.catalogCardDesc}>
               {/* <Card.Meta description={gameTitle} /> */}
-              <Tag>
-                {getDescription(price, discountPrice)}
-              </Tag>
+              <Tag>{getDescription(price, discountPrice)}</Tag>
             </div>
           </Card>
         </div>

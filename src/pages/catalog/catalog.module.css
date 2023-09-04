@@ -50,6 +50,12 @@
   text-align: start;
 }
 
+.popoverContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 
 @media (max-width: 913px) {
   .catalogGridCards {
