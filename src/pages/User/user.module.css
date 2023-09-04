@@ -1,0 +1,67 @@
+.userMainCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.menuCont {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.mainContantCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  width: 900px;
+}
+
+.userProfCont,
+.userPersCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.UserProfTitle {
+  text-align: center;
+}
+
+.userPersFormCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 15px;
+}
+
+.userPersDatFormCont,
+.userPersPassFormCont {
+  width: 300px;
+}
+
+.personalDataFormEmailCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.emailTitleCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.personalDataFormNameCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}

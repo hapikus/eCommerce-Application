@@ -15,6 +15,7 @@ interface IUserDb {
   billingAddress: string[];
   shippingAddress: string[];
   orders: string[];
+  birthday: string;
 }
 
 export type { IUserDto, IUserDb };

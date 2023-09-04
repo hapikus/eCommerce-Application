@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react';
+import { useLayoutEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -47,7 +47,7 @@ function MainPage() {
     dispatch(setCurrentPage(''));
   }, [dispatch]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     memoizedDispatch();
   }, [memoizedDispatch]);
 

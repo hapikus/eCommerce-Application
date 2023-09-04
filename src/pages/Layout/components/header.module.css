@@ -69,6 +69,10 @@
   font-size: 30px;
 }
 
+.avatarPointer {
+  cursor: pointer;
+}
+
 @media (max-width: 710px) {
   .headerMenu {
     display: none;

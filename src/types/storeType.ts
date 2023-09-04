@@ -44,6 +44,39 @@ interface ProductState {
   errorRandomProducts: null | string;
 }
 
+interface UserState {
+  isFirstLoad: boolean;
+  userFull: IUserFull;
+  isLoading: boolean;
+  fullUserError: null | string;
+
+  currentUserMenu: string;
+}
+
+interface IUserFull {
+  _id: string;
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  isActivated: boolean;
+  billingAddress: string[];
+  shippingAddress: string[];
+  orders: string[];
+  activationLink: string;
+  birthday: string;
+}
+
+interface IsFirstLoadUser {
+  type: boolean;
+  payload: boolean;
+}
+
+interface CurrentUserMenu {
+  type: string;
+  payload: string;
+}
+
 export type {
   AuthState,
   ThemeState,
@@ -52,4 +85,8 @@ export type {
   IsFirstLoadInt,
   ICurrentPage,
   ProductState,
+  UserState,
+  IUserFull,
+  IsFirstLoadUser,
+  CurrentUserMenu,
 };

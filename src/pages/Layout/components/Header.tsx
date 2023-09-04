@@ -37,6 +37,10 @@ function MainMenu({
     await store.dispatch(logoutAsync());
   };
 
+  const toUserPage = () => {
+    navigate('/user');
+  };
+
   const renderLoginMenu = (currentPageProp: string) => (
     <Menu
       className={isInLine ? styles.menu_items_line : styles.menu_items}
@@ -60,7 +64,14 @@ function MainMenu({
   const renderAuthMenu = () => (
     <>
       <Button onClick={logOut}>Logout</Button>
-      <Avatar size="large">{userInfo[0]}</Avatar>
+      <Avatar
+        style={{ backgroundColor: '#28784D' }}
+        className={styles.avatarPointer}
+        size="large"
+        onClick={toUserPage}
+      >
+        {userInfo[0]}
+      </Avatar>
     </>
   );
 
