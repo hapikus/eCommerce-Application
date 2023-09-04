@@ -65,3 +65,13 @@
   flex-direction: column;
   row-gap: 5px;
 }
+
+.addressFormCard {
+  width: 420px;
+  margin-bottom: 50px;
+}
+
+.addBtn {
+  background-color: none;
+  margin-top: 10px;
+}

@@ -3,7 +3,7 @@ import $api from '../Base/http';
 
 import { IUserDb } from '../../types/IUser';
 import { IUserFull } from '../../types/storeType';
-import { IUpdateData, UpdateResp, IPassword } from '../../types/UserResponse';
+import { IUpdateData, UpdateResp, IPassword, IUpdateShipAddress, IAddress } from '../../types/UserResponse';
 
 export default class UserService {
   static async fetchUsers(): Promise<AxiosResponse<IUserDb[]>> {
@@ -24,5 +24,21 @@ export default class UserService {
     password: string,
   ): Promise<AxiosResponse<IPassword>> {
     return $api.post<IPassword>('/user/check-password', { password });
+  }
+
+  static async getShippingAddress(
+    shippingAddressIds: string[],
+  ): Promise<AxiosResponse<IAddress[]>> {
+    const requestBody = { shippingAddressIds };
+    return $api.post('/user/address/shipping', requestBody);
+  }
+
+  static async updateShippingAddress(
+    updateShippingAddressBody: IUpdateShipAddress,
+  ): Promise<AxiosResponse<IUpdateShipAddress>> {
+    return $api.put<IUpdateShipAddress>(
+      '/user/address/shipping',
+      updateShippingAddressBody,
+    );
   }
 }

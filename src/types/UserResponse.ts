@@ -5,7 +5,7 @@ interface IUpdateData {
   email?: string;
   firstName?: string;
   lastName?: string;
-  dob?: Date;
+  dob?: string;
   password?: string;
 }
 
@@ -20,5 +20,24 @@ interface UpdateResp {
 interface IPassword {
   password: string;
 }
+interface IAddress {
+  _id: '';
+  country: '';
+  city: '';
+  street: '';
+  postalCode: '';
+  isDefault: false;
+}
 
-export type { IUpdateData, IUpdateUser, UpdateResp, IPassword };
+type IUpdateShipAddress = {
+  shippingAddresses: Array<{
+    city: string;
+    country: string;
+    id?: number;
+    isDefault: boolean;
+    postalcode?: string;
+    street: string;
+  }>;
+};
+
+export type { IUpdateData, IUpdateUser, UpdateResp, IPassword, IAddress, IUpdateShipAddress };

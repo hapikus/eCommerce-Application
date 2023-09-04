@@ -1,7 +1,9 @@
-import { Tooltip, Form, Input, Button } from 'antd';
+import { Tooltip, Form, Input, Button, DatePicker } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 
+import dayjs from 'dayjs';
+import { useState } from 'react';
 import store, { RootState } from '../../../redux/store';
 import { IUpdateData } from '../../../types/UserResponse';
 import { clearUserData, getFullUserDataAsync } from '../../../redux/slice/userSlice';
@@ -12,11 +14,13 @@ import { logoutAsync } from '../../../redux/slice/authSlice';
 import passwordValidationRules from '../../../utils/passValid';
 
 import styles from '../user.module.css';
+import dobValidation from '../../../utils/dobValid';
 
 function UserPersonal() {
   const dispatch = useDispatch();
   const [PersonalDataChangeForm] = Form.useForm();
   const [PasswordChangFOrm] = Form.useForm();
+  const [isEditMode, setIsEditMode] = useState(false);
 
   const userFullData = useSelector((state: RootState) => state.user.userFull);
 
@@ -31,6 +35,7 @@ function UserPersonal() {
         dispatch(clearUserData());
         return;
       }
+      setIsEditMode(false);
       await store.dispatch(getFullUserDataAsync());
     } catch {
       // The catch block is omitted, so the error will be muted
@@ -62,7 +67,7 @@ function UserPersonal() {
                 name="email"
                 initialValue={userFullData.email}
               >
-                <Input className={styles.personalDataFormNameContInput} />
+                <Input disabled={!isEditMode} className={styles.personalDataFormNameContInput} />
               </Form.Item>
             </div>
             <div className={styles.personalDataFormNameCont}>
@@ -81,7 +86,7 @@ function UserPersonal() {
                 name="firstName"
                 initialValue={userFullData.firstName}
               >
-                <Input className={styles.personalDataFormNameContInput} />
+                <Input disabled={!isEditMode} className={styles.personalDataFormNameContInput} />
               </Form.Item>
             </div>
             <div className={styles.personalDataFormNameCont}>
@@ -100,17 +105,38 @@ function UserPersonal() {
                 name="lastName"
                 initialValue={userFullData.lastName}
               >
-                <Input className={styles.personalDataFormNameContInput} />
+                <Input disabled={!isEditMode} className={styles.personalDataFormNameContInput} />
+              </Form.Item>
+            </div>
+            <div className={styles.personalDataFormNameCont}>
+              <p className={styles.personalDataFormNameContText}>Day of birth</p>
+              <Form.Item
+                name="birthday"
+                rules={[...dobValidation]}
+                initialValue={dayjs(userFullData.birthday.split('T')[0])}
+              >
+                <DatePicker
+                  style={{ width: 300 }}
+                  className={styles.personalDataFormNameContInput}
+                  placeholder=""
+                  disabled={!isEditMode}
+                />
               </Form.Item>
             </div>
             <div className={styles.UserPersButtonCont}>
-              <Button
-                type="primary"
-                className={styles.submitButton}
-                onClick={handlePersonalDataChangeForm}
-              >
-                Change Personal Data
-              </Button>
+              {isEditMode ? (
+                <Button type="primary" onClick={handlePersonalDataChangeForm} className={styles.submitButton}>
+                  Save changes
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => setIsEditMode(true)}
+                  className={styles.submitButton}
+                  type="primary"
+                >
+                  Edit
+                </Button>
+              )}
             </div>
           </Form>
         </div>

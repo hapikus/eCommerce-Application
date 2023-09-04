@@ -28,7 +28,7 @@ function UserPage() {
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const isFirstLoading = useSelector((state: RootState) => state.user.isFirstLoad);
 
-  const userFullData = useSelector((state: RootState) => state.user.userFull);
+  // const userFullData = useSelector((state: RootState) => state.user.userFull);
   const currentUserMenu = useSelector((state: RootState) => state.user.currentUserMenu);
 
   const getUserData = async () => {
