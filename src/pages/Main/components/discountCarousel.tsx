@@ -16,6 +16,7 @@ function DiscountCarousel(props: {
         infinite={false}
         autoplay
         slidesToShow={productsNum}
+        dots={{ className: styles.carouselDots }}
       >
         {DiscountCards(products)}
       </Carousel>

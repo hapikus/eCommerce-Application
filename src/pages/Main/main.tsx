@@ -14,6 +14,7 @@ import BannerCarousel from './components/bannerCarousel';
 import SearchMenu from './components/search';
 import CategoryCarousel from './components/categoryCarousel';
 import DiscountCarousel from './components/discountCarousel';
+import ProductService from '../../models/Product/ProductService';
 
 const RANDOM_PRODUCT_REQUEST = 4;
 
@@ -48,6 +49,7 @@ function SideBar() {
 
   const [categoryNum, setCategoryNum] = useState(calculateCategoryNum());
   const [discountNum, setDiscountNum] = useState(calculateDiscNum());
+  const [topCategory, setTopCategory] = useState([] as string[]);
 
   const memoizedDispatch = useCallback(() => {
     dispatch(setCurrentPage('product'));
@@ -76,7 +78,12 @@ function SideBar() {
     const fetchCategory = async () => {
       await store.dispatch(fetchAllCategory());
     };
+    const fetchTopCategory = async () => {
+      const topCatData = await ProductService.getTopCategories();
+      setTopCategory(topCatData.data);
+    };
     fetchCategory();
+    fetchTopCategory();
     fetchProducts();
   }, []);
 
@@ -135,7 +142,7 @@ function SideBar() {
       <div className={styles.headerBlockCont}>
         {categoryAll?.length ? (
           <CategoryCarousel
-            categorys={categoryAll}
+            categorys={topCategory}
             categoryShow={categoryNum}
           />
         ) : null}

@@ -15,6 +15,7 @@ function CategoryCarousel(props: {
         infinite={false}
         autoplay
         slidesToShow={categoryShow}
+        dots={{ className: styles.carouselDots }}
       >
         {CategoryCards(categorys)}
       </Carousel>

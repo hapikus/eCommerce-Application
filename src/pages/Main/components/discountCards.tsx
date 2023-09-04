@@ -57,11 +57,9 @@ function DiscountCards(products: IProduct[]) {
           >
             <div className={styles.discountPrice}>
               <Tag color="green">
-                <div className={styles.discCardDiscPrice}>
-                  {`-${Number(
-                    Math.ceil((1 - (discountPrice || 0) / price) * 100),
-                  )}%`}
-                </div>
+                {`-${Number(
+                  Math.ceil((1 - (discountPrice || 0) / price) * 100),
+                )}%`}
               </Tag>
               <Button type="primary" className={styles.btnDisc}>
                 {getDescription(price, discountPrice)}

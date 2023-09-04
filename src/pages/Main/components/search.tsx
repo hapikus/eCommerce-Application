@@ -23,19 +23,6 @@ function SearchMenu() {
     (state: RootState) => state.product.searchProducts,
   );
 
-  // const onSearch = (value: string) => {
-  //   setSearchProd(value);
-  // };
-
-  // useEffect(() => {
-  //   if (searchProd.length !== 0) {
-  //     const fetchSearch = async () => {
-  //       await store.dispatch(fetchSearchProducts(searchProd));
-  //     };
-  //     fetchSearch();
-  //   }
-  // }, [searchProd]);
-
   const searchGame = async () => {
     await store.dispatch(fetchSearchProducts(searchText));
   };
@@ -46,9 +33,11 @@ function SearchMenu() {
   };
 
   const blurHandler = () => {
-    searchGame();
-    setIsFocus(false);
-    setIsBlur(true);
+    setTimeout(() => {
+      searchGame();
+      setIsFocus(false);
+      setIsBlur(true);
+    }, 100);
   };
 
   return (
@@ -78,7 +67,7 @@ function SearchMenu() {
           items={[
             {
               label: 'Main',
-              key: 'main',
+              key: '',
             },
             {
               label: 'Catalog',
