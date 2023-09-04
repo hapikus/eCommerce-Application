@@ -1,0 +1,101 @@
+.signupPageContainter {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  /* height: 100%; */
+  /* position: relative; */
+  background-size: cover;
+  background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey)),var(--image2);
+}
+
+.signupContentContainer {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: auto;
+  row-gap: 40px;
+  margin-top: 40px;
+  z-index: 1;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.signupTitle {
+  font-size: 31px;
+  font-weight: 500;
+  margin: 8px 16px 0;
+}
+
+.signupFormAndLogo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  column-gap: 40px;
+  padding: 24px 32px;
+  background-color: var(--bg-color-main);
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.imageContainerPersonal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 250px; /* Adjust the width to match your desired width */
+  height: 556px; /* Adjust the height to match your desired height */
+}
+
+.imageContainerAddress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 250px; /* Adjust the width to match your desired width */
+}
+
+.submitButton {
+  height: 40px;
+}
+
+@media (max-width: 709px) {
+  .signupPageContainter {
+    background: var(--bg-color-main);
+  }
+
+  .signupContentContainer {
+    width: 310px;
+    margin: 30px 0 10px 0;
+  }
+
+  .signupFormAndLogo {
+    padding: 5px 5px;
+    background-color: transparent;
+  }
+
+  .signupForm {
+    width: 300px;
+  }
+
+  .signupTitle {
+    font-size: 34px;
+  }
+
+  .signupLogo {
+    display: none;
+  }
+
+  .signupAnswerCont {
+    margin-bottom: 17px;
+  }
+  .imageContainerPersonal {
+    display: none;
+  }
+  .imageContainerAddress {
+    display: none;
+  }
+}

@@ -1,0 +1,31 @@
+.footer {
+    width: 100%;
+    background-color: var(--bg-color-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    flex-direction: column;
+}
+
+.rule {
+  height: 8px;
+  border-top: 1px solid var(--gpStoreDarkerGrey);
+  width: 100%;
+}
+
+.footer_logo {
+    width: 100%;
+    display: flex;
+    padding-top: 2px;
+    justify-content: space-between;
+}
+
+.footer_text {
+    float: left;
+    margin-left: 12px;
+    color: var(--color-text);
+    font-size: 12px;
+    line-height: 16px;
+}

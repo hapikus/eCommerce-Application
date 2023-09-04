@@ -1,0 +1,43 @@
+html,
+html[data-theme="light"] {
+  --bg-color-main: #eae7ea;
+  --bg-color-menu: #eae7ea;
+  --color-main: #e6f4ff;
+  --color-accent: #000;
+  --color-text: #000;
+  --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
+  --gpStoreDarkGrey: #d4d4d4d6;
+  --gpStoreDarkerGrey: #a4b9d3f2;
+}
+
+html[data-theme="dark"] {
+  --bg-color-main: #171a21;
+  --bg-color-menu: #171a21;
+  --color-main: #fafafa;
+  --color-accent: #69b1ff;
+  --color-text: #fff;
+  --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
+  --gpStoreDarkGrey: rgba(42, 71, 94, 0.9);
+  --gpStoreDarkerGrey: rgba(27, 40, 56, 0.8);
+}
+
+html[data-theme="barbie"] {
+  --bg-color-main: #ffe6f9;
+  --bg-color-menu: #ffe6f9;
+  --color-main: #fafafa;
+  --color-accent: #000;
+  --color-text: #000;
+  --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
+  --gpStoreDarkGrey: #fbc2f7d6;
+  --gpStoreDarkerGrey: #ffd6e7f2;
+}
+
+
+html * {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+body {
+  background-color: var(--bg-color-main);
+  color: var(--color-main);
+}

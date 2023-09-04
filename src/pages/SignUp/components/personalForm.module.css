@@ -1,0 +1,26 @@
+.personalDataFormNameContInput {
+  height: 40px;
+}
+
+.personalDataFormPasswordContInput {
+  height: 40px;
+}
+
+.personalDataFormDatePicker {
+  height: 40px;
+  width: 100%;
+}
+
+@media (max-width: 709px) {
+  .personalDataFormPasswordCont {
+    height: 106px;
+  }
+
+  .personalDataLogo {
+    display: none;
+  }
+
+  .personalDataAnswerCont {
+    margin-bottom: 17px;
+  }
+}
