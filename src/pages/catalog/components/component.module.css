@@ -111,18 +111,40 @@
   .catalogCard {
     max-width: 200px;
   }
+  .catalogGridCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-columns: 100px;
+  }
 }
 
 @media (max-width: 692px) {
   .catalogCard {
     max-width: 200px;
   }
+  .catalogGridCards {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-auto-rows: 200px;
+  }
 
 }
 
 @media (max-width: 472px) {
   .catalogCard {
-    max-width: 120px;
+    max-width: 220px;
   }
+  .catalogGridCards {
+    display: flex;
+    flex-direction: column;
+    }
 
+    .menu_search {
+      justify-content: space-around;
+      line-height: 30px;
+      min-width: 100%;
+      background: transparent;
+      border-bottom: none;
+    }
 }

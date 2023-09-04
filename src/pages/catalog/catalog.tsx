@@ -66,14 +66,6 @@ function CatalogPage() {
     (state: RootState) => state.product.catalogProducts.totalProducts,
   );
 
-  // const sortedCat = useSelector(
-  //   (state: RootState) => state.product.catalogProducts.
-  // )
-
-  // const errorCatalogProducts = useSelector(
-  //   (state: RootState) => state.product.errorCatalogProducts,
-  // );
-
   useEffect(() => {
     const handleResize = () => {
       const newCardsNum = calculateCardsNum();
@@ -148,7 +140,7 @@ function CatalogPage() {
   };
 
   const sortDirection = (checked: boolean) => {
-    setSortDir(checked ? 'up' : 'down');
+    setSortDir(checked ? 'down' : 'up');
   };
 
   return (
@@ -157,19 +149,23 @@ function CatalogPage() {
       <h1>Catalog</h1>
       <div className={styles.catalog}>
         <div className={styles.catalogMainContainer}>
-          <Dropdown menu={menuProps}>
-            <Button>
-              <Space>
-                {`Sort by ${sortValue === 'gameTitle' ? 'Game Title' : 'Price'}`}
-                <DownOutlined />
-              </Space>
-            </Button>
-          </Dropdown>
-          <Switch
-            checkedChildren={<UpSquareOutlined />}
-            unCheckedChildren={<DownSquareOutlined />}
-            onChange={sortDirection}
-          />
+          <div className={styles.filterComponent}>
+            <Dropdown menu={menuProps}>
+              <Button>
+                <Space>
+                  {`Sort by ${
+                    sortValue === 'gameTitle' ? 'Game Title' : 'Price'
+                  }`}
+                  <DownOutlined />
+                </Space>
+              </Button>
+            </Dropdown>
+            <Switch
+              unCheckedChildren={<UpSquareOutlined />}
+              checkedChildren={<DownSquareOutlined />}
+              onChange={sortDirection}
+            />
+          </div>
           <CatalogCards products={catalogProducts} />
           <Pagination
             total={catalogTotalProducts}
