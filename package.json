@@ -11,7 +11,8 @@
     "preview": "vite build && vite preview",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "test-coverage": "jest --coverage --collectCoverageFrom='src/**/*.ts'"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.5",

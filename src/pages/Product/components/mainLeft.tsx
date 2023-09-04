@@ -13,13 +13,47 @@ interface ReqTableProps {
 }
 
 function MainLeft(productDataState: IProduct) {
-  const { gameTitle, price, descriptionLong } = productDataState;
+  const { gameTitle, price, discountPrice, descriptionLong } = productDataState;
+
+  const priceButton = (
+    priceForBlock: number,
+    discountPriceForBlock: number | null,
+  ) => {
+    if (discountPriceForBlock) {
+      return (
+        <div className={styles.discountCont}>
+          <div className={styles.discountSize}>
+            {`-${((1 - discountPriceForBlock / priceForBlock) * 100).toFixed(
+              0,
+            )}%`}
+          </div>
+          <div className={styles.doublePriceCont}>
+            <div className={styles.regularPriceCont}>
+              {`${Number(priceForBlock).toFixed(2)} €`}
+            </div>
+            <div className={styles.discountPriceCont}>
+              {`${Number(discountPriceForBlock).toFixed(2)} €`}
+            </div>
+          </div>
+          <Button className={styles.priceButton}>Add to Cart</Button>
+        </div>
+      );
+    }
+    return (
+      <div className={styles.regPriceCont}>
+        <div className={styles.regPriceText}>
+          {`${Number(priceForBlock).toFixed(2)} €`}
+        </div>
+        <Button className={styles.addToCartText}>Add to Cart</Button>
+      </div>
+    );
+  };
 
   const paragraphs = descriptionLong.map((paragraph, index) => {
     const paragraphKey = `paragraph_${index}`;
     return (
       <p className={styles.aboutText} key={paragraphKey}>
-        {paragraph}
+        {paragraph.trim()}
       </p>
     );
   });
@@ -85,7 +119,10 @@ function MainLeft(productDataState: IProduct) {
     <div className={styles.mainLeft}>
       <div className={styles.priceCont}>
         {`Buy ${gameTitle}`}
-        <Button className={styles.priceButton}>{price}</Button>
+        {}
+        <div className={styles.mainPriceCont}>
+          {priceButton(price, discountPrice)}
+        </div>
       </div>
       <div className={styles.aboutGame}>
         <p className={styles.aboutGameTitle}>ABOUT THIS GAME</p>

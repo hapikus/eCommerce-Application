@@ -10,6 +10,7 @@ import {
 } from '../../redux/slice/productSlice';
 import store, { RootState } from '../../redux/store';
 
+import SkeletonLoading from './components/skeletonLoading';
 import ImgCarousel from './components/imgCarousel';
 import HeaderRight from './components/headerRight';
 import MainLeft from './components/mainLeft';
@@ -18,7 +19,20 @@ import RandomCards from './components/randomCarts';
 
 import styles from './product.module.css';
 
-const RANDOM_PRODUCTS_NUM = 4;
+const RANDOM_PRODUCT_REQUEST = 5;
+
+const calculateNewRandomProductsNum = () => {
+  const windowInnerWidth = window.innerWidth;
+  let cardNumber = 1;
+  if (windowInnerWidth > 912) {
+    cardNumber = 4;
+  } else if (windowInnerWidth > 692) {
+    cardNumber = 3;
+  } else if (windowInnerWidth > 472) {
+    cardNumber = 2;
+  }
+  return cardNumber;
+};
 
 function Product() {
   const { productTitle } = useParams();
@@ -26,12 +40,25 @@ function Product() {
   const navigate = useNavigate();
 
   const [titleForRequest, setTitleForRequest] = useState('');
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage('product'));
-  }, [dispatch]);
+  const [randomProductsNum, setRandomProductsNum] = useState(
+    calculateNewRandomProductsNum(),
+  );
 
   useEffect(() => {
+    const handleResize = () => {
+      const newRandomProductsNum = calculateNewRandomProductsNum();
+      if (newRandomProductsNum !== randomProductsNum) {
+        setRandomProductsNum(newRandomProductsNum);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+  }, [randomProductsNum]);
+
+  const memoizedDispatch = useCallback(() => {
+    dispatch(setCurrentPage(''));
+  }, [dispatch]);
+
+  useLayoutEffect(() => {
     memoizedDispatch();
   }, [memoizedDispatch]);
 
@@ -60,7 +87,7 @@ function Product() {
       };
 
       const fetchProducts = async () => {
-        await store.dispatch(fetchRandProducts(RANDOM_PRODUCTS_NUM));
+        await store.dispatch(fetchRandProducts(RANDOM_PRODUCT_REQUEST));
       };
 
       fetchProduct();
@@ -76,9 +103,11 @@ function Product() {
     }
   }, [productErrorState, navigate]);
 
-  return productLoading || productRandomLoading ? (
-    <h1>Loading...</h1>
-  ) : (
+  if (productLoading || productRandomLoading) {
+    return SkeletonLoading();
+  }
+
+  return (
     <div className={styles.productCont}>
       <div>
         <h1 className={styles.productTitle}>{productDataState.gameTitle}</h1>
@@ -101,7 +130,12 @@ function Product() {
         {productDataState.category && MainRight(productDataState)}
       </div>
       <div className={styles.randProductsCont}>
-        {productsRandomState.length !== 0 && RandomCards(productsRandomState)}
+        {productsRandomState?.length ? (
+          <RandomCards
+            products={productsRandomState}
+            randomCards={randomProductsNum}
+          />
+        ) : null}
       </div>
     </div>
   );
