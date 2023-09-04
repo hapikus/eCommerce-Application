@@ -22,10 +22,11 @@ module.exports = {
     'object-curly-newline': 'off',
     'react/react-in-jsx-scope': 'off',
     'operator-linebreak': 'off',
+    'no-underscore-dangle': 'off',
     'no-param-reassign': ['error', { props: false }],
     'import/no-extraneous-dependencies': [
       'error', {
-         'devDependencies': false, 
+         'devDependencies': true, 
          'optionalDependencies': false, 
          'peerDependencies': false, 
          'packageDir': "./",

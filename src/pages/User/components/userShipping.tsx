@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button, Card, Checkbox, Form, Input, Select, message } from 'antd';
-import { CloseOutlined, PlusOutlined } from '@ant-design/icons';
+import { CloseOutlined } from '@ant-design/icons';
 
 import { useSelector } from 'react-redux';
 import styles from '../user.module.css';
@@ -58,7 +58,6 @@ function UserShipping() {
       const updateAddressBody = {
         ...shipUpdateAddress,
         isDefault: false,
-        // eslint-disable-next-line no-underscore-dangle
         _id: address._id,
       };
       const data:IUpdateShipAddress = { shippingAddresses: [updateAddressBody] };
@@ -81,7 +80,6 @@ function UserShipping() {
             <Card
               size="default"
               title="Shipping address"
-          // eslint-disable-next-line no-underscore-dangle
               key={address._id}
               extra={
                 <CloseOutlined />
@@ -90,7 +88,6 @@ function UserShipping() {
             >
               <Form
                 form={shippingDataForm}
-             // eslint-disable-next-line no-underscore-dangle
                 key={address._id}
                 className={styles.personalDataForm}
               >
@@ -230,15 +227,14 @@ function UserShipping() {
               </Form>
             </Card>
           ))}
-          <Button
+          {/* <Button
             className={styles.addBtn}
             type="dashed"
-                    // onClick={() => add()}
             block
             icon={<PlusOutlined />}
           >
             Add field
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>

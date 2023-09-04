@@ -31,12 +31,12 @@ interface IAddress {
 
 type IUpdateShipAddress = {
   shippingAddresses: Array<{
-    city: string;
-    country: string;
-    id?: number;
-    isDefault: boolean;
+    city?: string;
+    country?: string;
+    _id: string;
+    isDefault?: boolean;
     postalcode?: string;
-    street: string;
+    street?: string;
   }>;
 };
 

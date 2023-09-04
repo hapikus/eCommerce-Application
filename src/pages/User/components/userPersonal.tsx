@@ -27,7 +27,6 @@ function UserPersonal() {
   const handlePersonalDataChangeForm = async () => {
     try {
       const personValues: IUpdateData = await PersonalDataChangeForm.validateFields();
-      // eslint-disable-next-line no-underscore-dangle
       personValues.id = userFullData._id;
       const updateData = await UserService.updateUser(personValues);
       if (updateData.data.user.email !== userFullData.email) {
@@ -42,6 +41,9 @@ function UserPersonal() {
     }
   };
 
+  if (!userFullData.birthday) {
+    return null;
+  }
   return (
     <div className={styles.userPersCont}>
       <div className={styles.userPersFormCont}>
