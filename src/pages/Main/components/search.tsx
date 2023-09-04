@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Input, Menu } from 'antd';
@@ -14,26 +14,31 @@ const { Search } = Input;
 function SearchMenu() {
   const navigate = useNavigate();
   const onMenuClick = (item: { key: string }) => navigate(`/${item.key}`);
-  const [searchProd, setSearchProd] = useState('');
+  // const [searchProd, setSearchProd] = useState('');
   const [isFocus, setIsFocus] = useState(false);
   const [isBlur, setIsBlur] = useState(false);
+  const [searchText, setSearchText] = useState('');
 
   const searchedProducts = useSelector(
     (state: RootState) => state.product.searchProducts,
   );
 
-  const onSearch = (value: string) => {
-    setSearchProd(value);
-  };
+  // const onSearch = (value: string) => {
+  //   setSearchProd(value);
+  // };
 
-  useEffect(() => {
-    if (searchProd.length !== 0) {
-      const fetchSearch = async () => {
-        await store.dispatch(fetchSearchProducts(searchProd));
-      };
-      fetchSearch();
-    }
-  }, [searchProd]);
+  // useEffect(() => {
+  //   if (searchProd.length !== 0) {
+  //     const fetchSearch = async () => {
+  //       await store.dispatch(fetchSearchProducts(searchProd));
+  //     };
+  //     fetchSearch();
+  //   }
+  // }, [searchProd]);
+
+  const searchGame = async () => {
+    await store.dispatch(fetchSearchProducts(searchText));
+  };
 
   const focusHandler = () => {
     setIsFocus(true);
@@ -41,6 +46,7 @@ function SearchMenu() {
   };
 
   const blurHandler = () => {
+    searchGame();
     setIsFocus(false);
     setIsBlur(true);
   };
@@ -50,7 +56,9 @@ function SearchMenu() {
       <Search
         placeholder="input search text"
         allowClear
-        onSearch={onSearch}
+        onSearch={searchGame}
+        onChange={(e) => setSearchText(e.target.value)}
+        value={searchText}
         style={{ width: 200 }}
         onFocus={focusHandler}
         onBlur={blurHandler}
@@ -60,9 +68,7 @@ function SearchMenu() {
           <PopoverCards products={searchedProducts} />
         </div>
       )}
-      {isBlur && (
-        <div className={styles.popoverContainer} />
-      )}
+      {isBlur && <div className={styles.popoverContainer} />}
       <Menu
         className={styles.menu_search}
         onClick={onMenuClick}

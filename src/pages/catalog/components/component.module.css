@@ -100,6 +100,13 @@
   background: var(--bg-color-main);
 }
 
+.catalogGridCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 240px;
+  width: 100%;
+}
+
 @media (max-width: 913px) {
   .catalogCard {
     max-width: 200px;

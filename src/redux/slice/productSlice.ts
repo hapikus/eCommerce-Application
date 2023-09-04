@@ -206,7 +206,6 @@ const productSlice = createSlice({
         state.errorRandDiscProducts = `${action.payload}`;
       })
       .addCase(fetchCatalogProducts.pending, (state) => {
-        state.catalogProducts = {} as ICatalog;
         state.isLoadingCatalogProducts = true;
         state.errorCatalogProducts = null;
       })
@@ -215,6 +214,7 @@ const productSlice = createSlice({
         state.catalogProducts = action.payload;
       })
       .addCase(fetchCatalogProducts.rejected, (state, action) => {
+        state.catalogProducts = {} as ICatalog;
         state.isLoadingCatalogProducts = false;
         state.errorCatalogProducts = `${action.payload}`;
       })

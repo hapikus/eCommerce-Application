@@ -7,6 +7,7 @@ import {
   Dropdown,
   Button,
   Space,
+  Switch,
 } from 'antd';
 import {
   DownOutlined,
@@ -51,7 +52,6 @@ function CatalogPage() {
   const [catalogCurrPage, setCatalogCurrPage] = useState(1);
   const [cardsNum, setCardsNum] = useState(calculateCardsNum());
   const [sortValue, setSortValue] = useState(SORT_DEFAULT);
-  const [isClicked, setIsClicked] = useState(false);
   const [sortDir, setSortDir] = useState(SORT_DIR_DEFAUL);
 
   const catalogProducts = useSelector(
@@ -73,10 +73,6 @@ function CatalogPage() {
   // const errorCatalogProducts = useSelector(
   //   (state: RootState) => state.product.errorCatalogProducts,
   // );
-
-  const loadingCatalogProducts = useSelector(
-    (state: RootState) => state.product.isLoadingCatalogProducts,
-  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -151,14 +147,10 @@ function CatalogPage() {
     onClick: onClickMenu,
   };
 
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-    setSortDir(isClicked ? 'up' : 'down');
+  const sortDirection = (checked: boolean) => {
+    setSortDir(checked ? 'up' : 'down');
   };
 
-  if (loadingCatalogProducts) {
-    return <h1>Loading...</h1>;
-  }
   return (
     <div className={styles.pageContainer}>
       <SearchMenu />
@@ -168,31 +160,17 @@ function CatalogPage() {
           <Dropdown menu={menuProps}>
             <Button>
               <Space>
-                Sort by...
+                {`Sort by ${sortValue === 'gameTitle' ? 'Game Title' : 'Price'}`}
                 <DownOutlined />
               </Space>
             </Button>
           </Dropdown>
-          {/* <Select
-            className={styles.theme_switcher}
-            defaultValue="Sort by..."
-            autoFocus={false}
-            onChange={(value) => {
-              dispatch(setTheme(value));
-            }}
-            options={Object.values(themesState).map((themeMap) => ({
-              value: themeMap,
-              label: themeMap,
-            }))}
-          /> */}
-          <Button onClick={handleClick}>
-            {isClicked ? <UpSquareOutlined /> : <DownSquareOutlined />}
-          </Button>
-          <div className={styles.catalogGridCards}>
-            {catalogProducts?.length ? (
-              <CatalogCards products={catalogProducts} />
-            ) : null}
-          </div>
+          <Switch
+            checkedChildren={<UpSquareOutlined />}
+            unCheckedChildren={<DownSquareOutlined />}
+            onChange={sortDirection}
+          />
+          <CatalogCards products={catalogProducts} />
           <Pagination
             total={catalogTotalProducts}
             pageSize={cardsNum}
