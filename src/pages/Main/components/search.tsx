@@ -61,9 +61,7 @@ function SearchMenu() {
         </div>
       )}
       {isBlur && (
-        <div className={styles.popoverContainer}>
-          <PopoverCards products={searchedProducts} />
-        </div>
+        <div className={styles.popoverContainer} />
       )}
       <Menu
         className={styles.menu_search}

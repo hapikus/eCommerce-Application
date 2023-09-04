@@ -104,7 +104,15 @@ function CatalogPage() {
       );
     };
     fetchCatalog();
-  }, [minPrice, maxPrice, selectedTag, cardsNum, catalogCurrPage, sortValue, sortDir]);
+  }, [
+    minPrice,
+    maxPrice,
+    selectedTag,
+    cardsNum,
+    catalogCurrPage,
+    sortValue,
+    sortDir,
+  ]);
 
   const setPrice = (value: [number, number]) => {
     const [minPriceSlider, maxPriceSlider] = value;
