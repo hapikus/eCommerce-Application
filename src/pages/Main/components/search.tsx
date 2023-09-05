@@ -37,7 +37,7 @@ function SearchMenu() {
       searchGame();
       setIsFocus(false);
       setIsBlur(true);
-    }, 100);
+    }, 250);
   };
 
   return (
