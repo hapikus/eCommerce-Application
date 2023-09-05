@@ -19,7 +19,7 @@
 }
 
 .content {
-  background-image: linear-gradient(var(--gpStoreDarkGrey), var(--gpStoreDarkerGrey));
+  background: var(--gpStoreDarkGrey);
   height: 100%;
   min-height: 120px;
   color: var(--color-text);

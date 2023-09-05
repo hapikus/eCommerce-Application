@@ -99,10 +99,10 @@
     overflow: hidden;
     padding: 19px 8px;
     background-color: var(--bg-color-main);
-}
+  }
 }
 
-@media (min-width: 710px) {
+@media (min-width: 692px) {
   .burgerMenu {
     display: none;
   }

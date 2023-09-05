@@ -36,17 +36,15 @@ function RandomCards(props: { products: IProduct[]; randomCards: number }) {
         <Card
           hoverable
           style={{ width: 200 }}
-          cover={
-            (
-              <Image
-                alt="example"
-                src={screenshotList[randomIndex]}
-                height={200}
-                style={{ objectFit: 'cover' }}
-                preview={false}
-              />
-            )
-          }
+          cover={(
+            <Image
+              alt="example"
+              src={screenshotList[randomIndex]}
+              height={200}
+              style={{ objectFit: 'cover' }}
+              preview={false}
+            />
+          )}
         >
           <Card.Meta
             className={styles.cardBottom}

@@ -8,9 +8,11 @@ html[data-theme="light"] {
   --color-text: #000;
   --color-text-accent: #eae7ea;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
-  --gpStoreDarkGrey: #d4d4d4d6;
+  --gpStoreDarkGrey: #dbdbdb;
   --gpStoreDarkerGrey: #a4b9d3f2;
-
+  --bg-color-main-invert: #171a21;
+  --bg-color-menu-invert: #171a21;
+  --color-text-invert: #fff;
   --loadingStart: #C2D4E9;
   --loadingMiddle: #A4B9D3;
 }
@@ -24,9 +26,11 @@ html[data-theme="dark"] {
   --color-text: #fff;
   --color-text-accent: #171a21;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
-  --gpStoreDarkGrey: rgba(42, 71, 94, 0.9);
-  --gpStoreDarkerGrey: #1b2838cc;
-
+  --gpStoreDarkGrey: #2e4c63;
+  --gpStoreDarkerGrey: rgba(27, 40, 56, 0.8);
+  --bg-color-main-invert: #eae7ea;
+  --bg-color-menu-invert: #eae7ea;
+  --color-text-invert: #000;
   --loadingStart: #6F839C;
   --loadingMiddle: #5F7B9C;
 }
