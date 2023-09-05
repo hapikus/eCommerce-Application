@@ -40,13 +40,22 @@ const items: MenuProps['items'] = [
 
 function UserMenu() {
   const dispatch = useDispatch();
-  const currentUserMenu = useSelector((state: RootState) => state.user.currentUserMenu);
+  const currentUserMenu = useSelector(
+    (state: RootState) => state.user.currentUserMenu,
+  );
 
   const onClick: MenuProps['onClick'] = (e) => {
     dispatch(setCurrentUserMenu(e.key));
   };
 
-  return <Menu onClick={onClick} selectedKeys={[currentUserMenu]} mode="horizontal" items={items} />;
+  return (
+    <Menu
+      onClick={onClick}
+      selectedKeys={[currentUserMenu]}
+      mode="horizontal"
+      items={items}
+    />
+  );
 }
 
 export default UserMenu;

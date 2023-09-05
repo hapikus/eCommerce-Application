@@ -3,7 +3,12 @@ import authReducer from './slice/authSlice';
 import themeReducer from './slice/themeSlice';
 import productReducer from './slice/productSlice';
 import userReducer from './slice/userSlice';
-import { AuthState, ThemeState, ProductState, UserState } from '../types/storeType';
+import {
+  AuthState,
+  ThemeState,
+  ProductState,
+  UserState,
+} from '../types/storeType';
 
 const store = configureStore({
   reducer: {

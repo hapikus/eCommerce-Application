@@ -6,7 +6,10 @@ import dayjs from 'dayjs';
 import { useState } from 'react';
 import store, { RootState } from '../../../redux/store';
 import { IUpdateData } from '../../../types/UserResponse';
-import { clearUserData, getFullUserDataAsync } from '../../../redux/slice/userSlice';
+import {
+  clearUserData,
+  getFullUserDataAsync,
+} from '../../../redux/slice/userSlice';
 
 import UserService from '../../../models/Users/UserService';
 import { logoutAsync } from '../../../redux/slice/authSlice';
@@ -26,7 +29,8 @@ function UserPersonal() {
 
   const handlePersonalDataChangeForm = async () => {
     try {
-      const personValues: IUpdateData = await PersonalDataChangeForm.validateFields();
+      const personValues: IUpdateData =
+        await PersonalDataChangeForm.validateFields();
       personValues.id = userFullData._id;
       const updateData = await UserService.updateUser(personValues);
       if (updateData.data.user.email !== userFullData.email) {
@@ -69,7 +73,10 @@ function UserPersonal() {
                 name="email"
                 initialValue={userFullData.email}
               >
-                <Input disabled={!isEditMode} className={styles.personalDataFormNameContInput} />
+                <Input
+                  disabled={!isEditMode}
+                  className={styles.personalDataFormNameContInput}
+                />
               </Form.Item>
             </div>
             <div className={styles.personalDataFormNameCont}>
@@ -88,7 +95,10 @@ function UserPersonal() {
                 name="firstName"
                 initialValue={userFullData.firstName}
               >
-                <Input disabled={!isEditMode} className={styles.personalDataFormNameContInput} />
+                <Input
+                  disabled={!isEditMode}
+                  className={styles.personalDataFormNameContInput}
+                />
               </Form.Item>
             </div>
             <div className={styles.personalDataFormNameCont}>
@@ -107,11 +117,16 @@ function UserPersonal() {
                 name="lastName"
                 initialValue={userFullData.lastName}
               >
-                <Input disabled={!isEditMode} className={styles.personalDataFormNameContInput} />
+                <Input
+                  disabled={!isEditMode}
+                  className={styles.personalDataFormNameContInput}
+                />
               </Form.Item>
             </div>
             <div className={styles.personalDataFormNameCont}>
-              <p className={styles.personalDataFormNameContText}>Day of birth</p>
+              <p className={styles.personalDataFormNameContText}>
+                Day of birth
+              </p>
               <Form.Item
                 name="birthday"
                 rules={[...dobValidation]}
@@ -127,7 +142,11 @@ function UserPersonal() {
             </div>
             <div className={styles.UserPersButtonCont}>
               {isEditMode ? (
-                <Button type="primary" onClick={handlePersonalDataChangeForm} className={styles.submitButton}>
+                <Button
+                  type="primary"
+                  onClick={handlePersonalDataChangeForm}
+                  className={styles.submitButton}
+                >
                   Save changes
                 </Button>
               ) : (
@@ -204,10 +223,7 @@ function UserPersonal() {
               </Form.Item>
             </div>
             <div className={styles.UserPersButtonCont}>
-              <Button
-                type="primary"
-                className={styles.submitButton}
-              >
+              <Button type="primary" className={styles.submitButton}>
                 Change Personal Data
               </Button>
             </div>

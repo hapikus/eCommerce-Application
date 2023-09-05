@@ -2,7 +2,12 @@ import { AxiosError } from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import UserService from '../../models/Users/UserService';
 
-import { UserState, IUserFull, IsFirstLoadUser, CurrentUserMenu } from '../../types/storeType';
+import {
+  UserState,
+  IUserFull,
+  IsFirstLoadUser,
+  CurrentUserMenu,
+} from '../../types/storeType';
 
 const initialState: UserState = {
   isFirstLoad: true,
@@ -70,6 +75,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { setIsFirstLoadUser, setCurrentUserMenu, clearUserData } = userSlice.actions;
+export const { setIsFirstLoadUser, setCurrentUserMenu, clearUserData } =
+  userSlice.actions;
 
 export default userSlice.reducer;
