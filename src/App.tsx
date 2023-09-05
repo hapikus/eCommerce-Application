@@ -16,6 +16,7 @@ import NotFound from './pages/404/notFound';
 
 import styles from './pages/Layout/layout.module.css';
 import { checkAuth, setIsFirstLoad } from './redux/slice/authSlice';
+import CatalogPage from './pages/catalog/catalog';
 
 function App() {
   const dispatch = useDispatch();
@@ -66,6 +67,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LayoutPage />}>
               <Route index element={<MainPage />} />
+              <Route path="/catalog" element={<CatalogPage />} />
               <Route path="/info" element={<InfoPage />} />
               <Route path="/support" element={<Support />} />
               <Route path="/login" element={<LoginPage />} />

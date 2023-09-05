@@ -1,0 +1,126 @@
+.pageContainer {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.catalog {
+  display: flex;
+  flex-direction: row;
+  column-gap: 40px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.catalogMainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  row-gap: 30px;
+}
+
+.filterComponent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin: auto; */
+  justify-content: space-evenly;
+}
+
+.catalogGridCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 240px;
+  width: 100%;
+}
+
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  min-width: 200px;
+  justify-content: flex-start;
+  row-gap: 19px;
+}
+
+.catalogMenuSlider {
+  max-width: 85%;
+}
+
+.catalogMenuCheckBox {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.menuCompTitle {
+  text-align: start;
+}
+
+.popoverContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+@media (max-width: 913px) {
+  .catalogGridCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-columns: 100px;
+  }
+
+}
+
+@media (max-width: 692px) {
+  .catalogGridCards {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-auto-rows: 200px;
+  }
+
+}
+
+@media (max-width: 472px) {
+  .catalogGridCards {
+    display: flex;
+    flex-direction: column;
+    }
+    .catalog {
+      display: flex;
+      flex-direction: column;
+      column-gap: 40px;
+      width: 100%;
+      justify-content: space-around;
+    }
+    .menuContainer {
+      width: 100%;
+      justify-content: center;
+      row-gap: 20px;
+      align-items: center;
+  }
+  .catalogMenuCheckBox {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.catalogMainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 10px;
+}
+
+.menu_search {
+  justify-content: space-around;
+  line-height: 30px;
+  min-width: 100%;
+  background: transparent;
+  border-bottom: none;
+}
+}
