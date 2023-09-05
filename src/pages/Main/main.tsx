@@ -1,5 +1,7 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useLayoutEffect, useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Menu } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import {
   fetchRandProducts,
   fetchAllCategory,
@@ -55,7 +57,7 @@ function SideBar() {
     dispatch(setCurrentPage('product'));
   }, [dispatch]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     memoizedDispatch();
   }, [memoizedDispatch]);
 

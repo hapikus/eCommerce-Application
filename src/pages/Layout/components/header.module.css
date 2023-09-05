@@ -69,7 +69,11 @@
   font-size: 30px;
 }
 
-@media (max-width: 692px) {
+.avatarPointer {
+  cursor: pointer;
+}
+
+@media (max-width: 710px) {
   .headerMenu {
     display: none;
   }
@@ -95,7 +99,7 @@
     overflow: hidden;
     padding: 19px 8px;
     background-color: var(--bg-color-main);
-}
+  }
 }
 
 @media (min-width: 692px) {

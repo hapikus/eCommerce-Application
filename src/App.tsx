@@ -12,6 +12,7 @@ import Support from './pages/Support/support';
 import LoginPage from './pages/Login/login';
 import SignUp from './pages/SignUp/signup';
 import Product from './pages/Product/product';
+import UserPage from './pages/User/user';
 import NotFound from './pages/404/notFound';
 
 import styles from './pages/Layout/layout.module.css';
@@ -73,6 +74,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/product/:productTitle" element={<Product />} />
+              <Route path="/user" element={<UserPage />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
