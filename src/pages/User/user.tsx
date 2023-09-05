@@ -7,7 +7,10 @@ import UserPersonal from './components/userPersonal';
 import UserShipping from './components/userShipping';
 import UserBilling from './components/userBilling';
 
-import { setIsFirstLoadUser, getFullUserDataAsync } from '../../redux/slice/userSlice';
+import {
+  setIsFirstLoadUser,
+  getFullUserDataAsync,
+} from '../../redux/slice/userSlice';
 import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import store, { RootState } from '../../redux/store';
@@ -26,10 +29,14 @@ function UserPage() {
   }, [memoizedDispatch]);
 
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
-  const isFirstLoading = useSelector((state: RootState) => state.user.isFirstLoad);
+  const isFirstLoading = useSelector(
+    (state: RootState) => state.user.isFirstLoad,
+  );
 
   // const userFullData = useSelector((state: RootState) => state.user.userFull);
-  const currentUserMenu = useSelector((state: RootState) => state.user.currentUserMenu);
+  const currentUserMenu = useSelector(
+    (state: RootState) => state.user.currentUserMenu,
+  );
 
   const getUserData = async () => {
     await store.dispatch(getFullUserDataAsync());

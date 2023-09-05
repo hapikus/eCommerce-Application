@@ -3,7 +3,13 @@ import $api from '../Base/http';
 
 import { IUserDb } from '../../types/IUser';
 import { IUserFull } from '../../types/storeType';
-import { IUpdateData, UpdateResp, IPassword, IUpdateShipAddress, IAddress } from '../../types/UserResponse';
+import {
+  IUpdateData,
+  UpdateResp,
+  IPassword,
+  IUpdateShipAddress,
+  IAddress,
+} from '../../types/UserResponse';
 
 export default class UserService {
   static async fetchUsers(): Promise<AxiosResponse<IUserDb[]>> {

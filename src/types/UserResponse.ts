@@ -40,4 +40,11 @@ type IUpdateShipAddress = {
   }>;
 };
 
-export type { IUpdateData, IUpdateUser, UpdateResp, IPassword, IAddress, IUpdateShipAddress };
+export type {
+  IUpdateData,
+  IUpdateUser,
+  UpdateResp,
+  IPassword,
+  IAddress,
+  IUpdateShipAddress,
+};

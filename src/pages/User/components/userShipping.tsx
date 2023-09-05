@@ -49,18 +49,21 @@ function UserShipping() {
       setLoading(false);
     }
     getUserData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleUpdateSave = (address: IAddress) => async () => {
     try {
-      const shipUpdateAddress: IAddress = await shippingDataForm.validateFields();
+      const shipUpdateAddress: IAddress =
+        await shippingDataForm.validateFields();
       const updateAddressBody = {
         ...shipUpdateAddress,
         isDefault: false,
         _id: address._id,
       };
-      const data:IUpdateShipAddress = { shippingAddresses: [updateAddressBody] };
+      const data: IUpdateShipAddress = {
+        shippingAddresses: [updateAddressBody],
+      };
       setIsEditMode(false);
       await UserService.updateShippingAddress(data);
       message.success('Changes saved successful!');
@@ -81,9 +84,7 @@ function UserShipping() {
               size="default"
               title="Shipping address"
               key={address._id}
-              extra={
-                <CloseOutlined />
-          }
+              extra={<CloseOutlined />}
               className={styles.personalDataFormEmailCont}
             >
               <Form
@@ -100,7 +101,9 @@ function UserShipping() {
                     <Checkbox />
                   </Form.Item>
                   <div className={styles.personalDataFormNameCont}>
-                    <p className={styles.personalDataFormNameContText}>Country</p>
+                    <p className={styles.personalDataFormNameContText}>
+                      Country
+                    </p>
                     <Form.Item
                       name="country"
                       initialValue={address.country}
@@ -155,7 +158,8 @@ function UserShipping() {
                         },
                         {
                           pattern: /^[a-zA-Z\s]+$/,
-                          message: 'City must contain only alphabets and spaces!',
+                          message:
+                            'City must contain only alphabets and spaces!',
                         },
                       ]}
                       initialValue={address.city}
@@ -179,7 +183,8 @@ function UserShipping() {
                       },
                       {
                         pattern: /^[a-zA-Z\s]+$/,
-                        message: 'Street must contain only alphabets and spaces!',
+                        message:
+                          'Street must contain only alphabets and spaces!',
                       },
                     ]}
                   >
@@ -190,7 +195,9 @@ function UserShipping() {
                   </Form.Item>
                 </div>
                 <div className={styles.personalDataFormNameCont}>
-                  <p className={styles.personalDataFormNameContText}>Postal code</p>
+                  <p className={styles.personalDataFormNameContText}>
+                    Postal code
+                  </p>
                   <Form.Item
                     name="postalcode"
                     initialValue={address.postalCode}
@@ -212,7 +219,11 @@ function UserShipping() {
                   </Form.Item>
                 </div>
                 {isEditMode ? (
-                  <Button type="primary" onClick={handleUpdateSave(address)} className={styles.submitButton}>
+                  <Button
+                    type="primary"
+                    onClick={handleUpdateSave(address)}
+                    className={styles.submitButton}
+                  >
                     Save changes
                   </Button>
                 ) : (

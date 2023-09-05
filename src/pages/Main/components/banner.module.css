@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   padding: 10px;
-  height: 240px;
+  height: auto;
   width: 920px;
 }
 
@@ -29,7 +29,6 @@
 
 
 .discountCard {
-  height: 190px;
   margin: 0 5px -10px 5px;
   border-radius: 0;
   padding: 10px;
@@ -166,11 +165,12 @@
 .menu_search {
   display: flex;
   width: auto;
-  justify-content: space-around;
+  justify-content: flex-end;
   min-width: 360px;
   line-height: 30px;
   background: transparent;
   border-bottom: none;
+  padding-right: 10px;
 }
 
 .carouselItemCont {
@@ -275,9 +275,14 @@
   background: #ff4ef6;
 }
 
+.carouselDots {
+  bottom: -5px !important;
+}
+
 .carouselDots button {
   height: 6px !important;
   background-color: var(--bg-color-main-invert) !important;
+  bottom: -16px !important;
 }
 
 @media (max-width: 945px) {
@@ -288,7 +293,7 @@
 
   .imgCarousel {
     width: 100%;
-    height: 540px;
+    height: auto;
   }
 
   .categoryContainer {
@@ -298,7 +303,7 @@
 
   .containerCarousel {
     width: 100%;
-    height: 320px;
+    height: auto;
   }
   .searchMenu {
     justify-content: flex-start;
@@ -347,8 +352,9 @@
 
   .containerCarousel {
     width: 100%;
-    height: 420px;
+    height: auto;
   }
+
   .searchController {
     justify-content: center;
   }
@@ -373,6 +379,5 @@
   .containerCarousel {
     width: 100%;
     height: auto;
-    min-height: 280px;
   }
 }

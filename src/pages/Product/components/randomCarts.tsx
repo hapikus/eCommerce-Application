@@ -6,7 +6,10 @@ import styles from '../product.module.css';
 
 function RandomCards(props: { products: IProduct[]; randomCards: number }) {
   const { products, randomCards } = props;
-  const getDescription = (priceDesc: number, discountPriceDesc: number | null) => {
+  const getDescription = (
+    priceDesc: number,
+    discountPriceDesc: number | null,
+  ) => {
     if (discountPriceDesc) {
       return (
         <div className={styles.discCardTwoPrice}>
@@ -44,7 +47,7 @@ function RandomCards(props: { products: IProduct[]; randomCards: number }) {
               style={{ objectFit: 'cover' }}
               preview={false}
             />
-          )}
+      )}
         >
           <Card.Meta
             className={styles.cardBottom}
