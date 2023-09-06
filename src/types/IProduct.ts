@@ -1,7 +1,7 @@
 interface IProduct {
   gameTitle: string;
-  gameGenre: string[],
-  gameTheme: string[],
+  gameGenre: string[];
+  gameTheme: string[];
   headerImg: string;
   screenshotList: string[];
   userReviewRows: {
