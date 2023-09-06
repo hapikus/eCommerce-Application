@@ -1,0 +1,374 @@
+/* .headerBlockContLeft {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} */
+
+/* .categoryContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  height: 240px;
+} */
+
+.containerCarousel {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  height: 240px;
+  width: 960px;
+}
+
+.categoryCard {
+  height: 183px;
+  margin: 0 5px -10px 5px;
+  border-radius: 0;
+}
+
+/* .categoryCard {
+  height: 183px;
+  margin: 0 5px -10px 5px;
+  border-radius: 0;
+  padding: 10px;
+  background-color: #dbdbdb;
+} */
+
+.discountCard {
+  height: 190px;
+  margin: 0 5px -10px 5px;
+  border-radius: 0;
+  padding: 10px;
+  background-color: transparent;
+  box-shadow: none;
+  transition: 0.5s;
+}
+
+.discountCard:hover {
+  background-color: #eae7ea;
+  transition: 0.5s;
+}
+
+.discountPrice {
+  display: flex;
+  transform: translate(0%, -43%);
+  justify-content: center;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.discCardTwoPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.discCardRegPrice {
+  font-weight: 500;
+}
+
+.discCardDiscPrice,
+.discCardNormalPrice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-right: 10px;
+}
+
+.btnDisc {
+  outline: none;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  touch-action: manipulation;
+  line-height: 1.5714285714285714;
+  color: #fff;
+  background-color: #1677ff;
+  box-shadow: 0 2px 0 rgba(230, 244, 255, 0.98);
+  z-index: 2;
+}
+
+.centerVertically {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  height: 102%;
+  width: 102%;
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bg-color-main));
+  margin: -1px -13px 11px -25px;
+}
+
+.bannerCardTitle {
+  z-index: 999;
+  font-size: 30px;
+  color: #fff;
+}
+
+.categoryTitle {
+  z-index: 999;
+  font-size: 30px;
+  /* color: var(--color-text-invert); */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imgCarousel {
+  width: 980px;
+  height: auto;
+}
+
+.categoryCarousel {
+  width: 200px;
+}
+
+.searchMenu {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background: var(--gpStoreDarkGrey);
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  z-index: 9999;
+}
+
+.searchController {
+  display: flex;
+  width: 90%;
+  margin-left: 2%;
+}
+
+.menu_main {
+  display: flex;
+  width: auto;
+  justify-content: space-around;
+  min-width: 360px;
+  line-height: 30px;
+  background: var(--gpStoreDarkGrey);
+  border-bottom: none;
+}
+
+.menu_search {
+  display: flex;
+  width: auto;
+  justify-content: space-around;
+  min-width: 360px;
+  line-height: 30px;
+  background: transparent;
+  border-bottom: none;
+}
+
+.carouselItemCont {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 500px;
+  flex: 1;
+  border-radius: 16px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.carouselItemImg {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.carouselItemDesc {
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  pointer-events: none;
+  background-color: transparent;
+  color: #fff;
+  z-index: 2;
+  font-size: 12px;
+  max-width: 240px;
+}
+
+.carouselItemDesc div[class~='ant-card-head-title'] {
+  white-space: pre-wrap;
+}
+
+.categoryTitle div[class~='ant-card-meta-title'] {
+  white-space: pre-wrap;
+  font-size: 30px;
+}
+
+.btn {
+  position: absolute;
+  bottom: 40px;
+  left: 140px;
+  transform: translate(-50%, -50%);
+  outline: none;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  touch-action: manipulation;
+  line-height: 1.5714285714285714;
+  color: #fff;
+  background-color: #1677ff;
+  box-shadow: 0 2px 0 rgba(230, 244, 255, 0.98);
+  z-index: 2;
+}
+
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.6;
+  background: linear-gradient(
+    270deg,
+    rgba(11, 11, 11, 0) 0%,
+    #0b0b0b 100%,
+    #0b0b0b 100%
+  );
+}
+
+.popoverContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: space-between;
+  position: absolute;
+  top: 84%;
+  left: 2%;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+.categoryContainer .slick-dots li button {
+  background: #ff4ef6;
+  opacity: 0.4;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  opacity: 1;
+  background: #ff4ef6;
+}
+
+.carouselDots button {
+  height: 6px !important;
+  background-color: var(--bg-color-main-invert) !important;
+}
+
+@media (max-width: 945px) {
+  .headerBlockContLeft {
+    width: 100%;
+    height: auto;
+  }
+
+  .imgCarousel {
+    width: 100%;
+    height: 540px;
+  }
+
+  .categoryContainer {
+    width: 100%;
+    height: auto;
+  }
+
+  .containerCarousel {
+    width: 100%;
+    height: 320px;
+  }
+  .searchMenu {
+    justify-content: flex-start;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    z-index: 999;
+    max-width: auto;
+  }
+  .menu_search {
+    width: auto;
+    justify-content: flex-start;
+    min-width: 360px;
+    line-height: 30px;
+    background: transparent;
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 692px) {
+  .menu_search {
+    width: auto;
+    justify-content: flex-start;
+    min-width: 220px;
+    line-height: 30px;
+    background: transparent;
+    border-bottom: none;
+  }
+  .searchMenu {
+    justify-content: flex-start;
+    position: sticky;
+    top: 100px;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    z-index: 999;
+    max-width: auto;
+  }
+
+  .containerCarousel {
+    width: 100%;
+    height: 420px;
+  }
+}
+
+@media (max-width: 472px) {
+  .menu_search {
+    justify-content: space-around;
+    line-height: 30px;
+    min-width: auto;
+    background: transparent;
+    border-bottom: none;
+  }
+
+  .searchMenu {
+    top: 100px;
+    width: 100%;
+    z-index: 999;
+    justify-content: center;
+  }
+
+  .containerCarousel {
+    width: 100%;
+    height: auto;
+    min-height: 280px;
+  }
+}

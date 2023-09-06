@@ -51,7 +51,7 @@ function UserShipping() {
     return addresss.reduce(
       (acc, current) => ({
         ...acc,
-        // eslint-disable-next-line no-underscore-dangle
+
         [current._id as string]: current,
       }),
       {} as InitValue,
@@ -112,9 +112,7 @@ function UserShipping() {
       >
         {billingAddress.map((address) => (
           <AddressFormPart
-            // eslint-disable-next-line no-underscore-dangle
             key={address._id}
-            // eslint-disable-next-line no-underscore-dangle
             prefix={address._id}
             type="old"
           />

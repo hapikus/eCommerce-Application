@@ -29,9 +29,8 @@ function UserPersonal() {
 
   const handlePersonalDataChangeForm = async () => {
     try {
-      const personValues: IUpdateData =
-        await PersonalDataChangeForm.validateFields();
-      // eslint-disable-next-line no-underscore-dangle
+      const personValues: IUpdateData = await PersonalDataChangeForm.validateFields();
+
       personValues.id = userFullData._id;
       const updateData = await UserService.updateUser(personValues);
       if (updateData.data.user.email !== userFullData.email) {
@@ -56,7 +55,7 @@ function UserPersonal() {
       await UserService.checkPassword(passwordData.currentPassword);
       const updateUserBody = {
         password: passwordData.confirm,
-        // eslint-disable-next-line no-underscore-dangle
+
         id: userFullData._id,
       };
       await UserService.updateUser(updateUserBody);
@@ -68,6 +67,9 @@ function UserPersonal() {
     }
   };
 
+  if (!userFullData.birthday) {
+    return null;
+  }
   return (
     <div className={styles.userPersCont}>
       <div className={styles.userPersFormCont}>
