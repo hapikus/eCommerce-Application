@@ -12,8 +12,12 @@ interface ReqTableProps {
   sysRequirementsRecommended?: SystemRequirements;
 }
 
-function MainLeft(productDataState: IProduct) {
-  const { gameTitle, price, discountPrice, descriptionLong } = productDataState;
+interface MainLeftProps {
+  productData: IProduct;
+}
+
+function MainLeft({ productData }: MainLeftProps) {
+  const { gameTitle, price, discountPrice, descriptionLong } = productData;
 
   const priceButton = (
     priceForBlock: number,
@@ -130,7 +134,7 @@ function MainLeft(productDataState: IProduct) {
       </div>
       <div className={styles.sysReq}>
         <p className={styles.sysReqTitle}>SYSTEM REQUIREMENTS</p>
-        {reqTable(productDataState)}
+        {reqTable(productData)}
       </div>
     </div>
   );

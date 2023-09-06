@@ -7,6 +7,7 @@ import { setCurrentPage } from '../../redux/slice/themeSlice';
 import {
   fetchProductData,
   fetchRandProducts,
+  setSelectedFilters,
 } from '../../redux/slice/productSlice';
 import store, { RootState } from '../../redux/store';
 
@@ -20,6 +21,7 @@ import RandomCards from './components/randomCarts';
 import IProduct from '../../types/IProduct';
 
 import styles from './product.module.css';
+import { IFilters } from '../../types/storeType';
 
 const RANDOM_PRODUCT_REQUEST = 5;
 
@@ -34,34 +36,6 @@ const calculateNewRandomProductsNum = () => {
     cardNumber = 2;
   }
   return cardNumber;
-};
-
-const createPath = (productDataState: IProduct) => {
-  const { gameTheme, gameGenre, gameTitle } = productDataState;
-  return (
-    <div className={styles.pathCont}>
-      <p className={styles.pathAllGames}>
-        <Link className={styles.pathLink} to="/catalog">
-          All Games &gt;
-        </Link>
-      </p>
-      <p className={styles.pathGenre}>
-        <Link className={styles.pathLink} to="/catalog">
-          {`${gameGenre[0]} >`}
-        </Link>
-      </p>
-      <p className={styles.pathTheme}>
-        <Link className={styles.pathLink} to="/catalog">
-          {`${gameTheme[0]} >`}
-        </Link>
-      </p>
-      <p className={styles.pathGameTitle}>
-        <Link className={styles.pathLink} to="/catalog">
-          {gameTitle}
-        </Link>
-      </p>
-    </div>
-  );
 };
 
 function Product() {
@@ -110,6 +84,82 @@ function Product() {
     (state: RootState) => state.product.errorProduct,
   );
 
+  const createPath = (productDataStatePath: IProduct) => {
+    const { gameTheme, gameGenre, gameTitle } = productDataStatePath;
+    return (
+      <div className={styles.pathCont}>
+        <p className={styles.pathAllGames}>
+          <Link
+            className={styles.pathLink}
+            to="/catalog"
+            onClick={() => {
+              dispatch(
+                setSelectedFilters({
+                  genres: [],
+                  themes: [],
+                  tags: [],
+                } as IFilters),
+              );
+            }}
+          >
+            All Games &gt;
+          </Link>
+        </p>
+        <p className={styles.pathGenre}>
+          <Link
+            className={styles.pathLink}
+            to="/catalog"
+            onClick={() => {
+              dispatch(
+                setSelectedFilters({
+                  genres: [gameGenre[0]],
+                  themes: [],
+                  tags: [],
+                } as IFilters),
+              );
+            }}
+          >
+            {`${gameGenre[0]} >`}
+          </Link>
+        </p>
+        <p className={styles.pathTheme}>
+          <Link
+            className={styles.pathLink}
+            to="/catalog"
+            onClick={() => {
+              dispatch(
+                setSelectedFilters({
+                  genres: [gameGenre[0]],
+                  themes: [gameTheme[0]],
+                  tags: [],
+                } as IFilters),
+              );
+            }}
+          >
+            {`${gameTheme[0]} >`}
+          </Link>
+        </p>
+        <p className={styles.pathGameTitle}>
+          <Link
+            className={styles.pathLink}
+            to="/catalog"
+            onClick={() => {
+              dispatch(
+                setSelectedFilters({
+                  genres: gameGenre,
+                  themes: gameTheme,
+                  tags: [],
+                } as IFilters),
+              );
+            }}
+          >
+            {gameTitle}
+          </Link>
+        </p>
+      </div>
+    );
+  };
+
   useEffect(() => {
     if (titleForRequest !== productTitle) {
       const fetchProduct = async () => {
@@ -149,26 +199,27 @@ function Product() {
         <h1 className={styles.productTitle}>{productDataState.gameTitle}</h1>
       </div>
       <div className={styles.headerBlockCont}>
-        {productDataState.screenshotList && ImgCarousel(productDataState)}
+        {productDataState.screenshotList &&
+          <ImgCarousel productData={productDataState} />}
         {productDataState.headerImg &&
           productDataState.descriptionShort &&
           productDataState.userReviewRows &&
           productDataState.releaseDate &&
           productDataState.devCompany &&
-          HeaderRight(productDataState)}
+          <HeaderRight productData={productDataState} />}
       </div>
       <div className={styles.mainCont}>
         {productDataState.price &&
           productDataState.descriptionLong &&
           (productDataState.sysRequirementsMinimum ||
             productDataState.sysRequirementsMinimumFill) &&
-          MainLeft(productDataState)}
+            <MainLeft productData={productDataState} />}
         {productDataState.category &&
           productDataState.gameTitle &&
           productDataState.gameGenre &&
           productDataState.gameTheme &&
           productDataState.devCompany &&
-          MainRight(productDataState)}
+          <MainRight productData={productDataState} />}
       </div>
       <div className={styles.randProductsCont}>
         {productsRandomState?.length ? (

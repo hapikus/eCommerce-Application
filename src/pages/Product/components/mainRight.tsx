@@ -1,9 +1,16 @@
 import { Image } from 'antd';
 import { Link } from 'react-router-dom';
-
-import IProduct from '../../../types/IProduct';
+import { useDispatch } from 'react-redux';
 
 import styles from '../product.module.css';
+import { setSelectedFilters } from '../../../redux/slice/productSlice';
+
+import { IFilters } from '../../../types/storeType';
+import IProduct from '../../../types/IProduct';
+
+interface MainRightProps {
+  productData: IProduct;
+}
 
 const iconLing = {
   Universal:
@@ -46,12 +53,15 @@ const getTagLine = (tag: string) => {
   );
 };
 
-function MainRight(productDataState: IProduct) {
-  const { category, gameTitle, gameGenre, gameTheme, devCompany } = productDataState;
+function MainRight({ productData }: MainRightProps) {
+  const { category, gameTitle, gameGenre, gameTheme, devCompany } = productData;
+  const dispatch = useDispatch();
   return (
     <div className={styles.mainRight}>
       <div className={styles.tagsCont}>
-        {category.map((value) => getTagLine(value))}
+        {category.map((value) => (
+          <div key={value}>{getTagLine(value)}</div>
+        ))}
       </div>
       <div className={styles.additInfoMainCont}>
         <div className={styles.additInfoGameTitle}>
@@ -60,35 +70,57 @@ function MainRight(productDataState: IProduct) {
         </div>
         <div className={styles.additInfoGameTheme}>
           <p className={styles.additInfoTitle}>THEME:</p>
-          <p className={styles.additInfoLinks}>
+          <div className={styles.additInfoLinks}>
             {gameTheme.map((theme, index) => (
-              <p>
-                <Link className={styles.genreLink} to="/catalog">
+              <p key={theme}>
+                <Link
+                  className={styles.genreLink}
+                  to="/catalog"
+                  onClick={() => {
+                    dispatch(
+                      setSelectedFilters({
+                        genres: [],
+                        themes: [theme],
+                        tags: [],
+                      } as IFilters),
+                    );
+                  }}
+                >
                   {theme}
                 </Link>
                 {index === gameTheme.length - 1 ? '' : ','}
               </p>
             ))}
-          </p>
+          </div>
         </div>
         <div className={styles.additInfoGameGenre}>
           <p className={styles.additInfoTitle}>GENRE:</p>
-          <p className={styles.additInfoLinks}>
+          <div className={styles.additInfoLinks}>
             {gameGenre.map((genre, index) => (
-              <p>
-                <Link className={styles.themeLink} to="/catalog">
+              <p key={genre}>
+                <Link
+                  className={styles.themeLink}
+                  to="/catalog"
+                  onClick={() => {
+                    dispatch(
+                      setSelectedFilters({
+                        genres: [genre],
+                        themes: [],
+                        tags: [],
+                      } as IFilters),
+                    );
+                  }}
+                >
                   {genre}
                 </Link>
                 {index === gameGenre.length - 1 ? '' : ','}
               </p>
             ))}
-          </p>
+          </div>
         </div>
         <div className={styles.additInfoGameDev}>
           <p className={styles.additInfoTitle}>DEVELOPER:</p>
-          <p className={styles.additInfoLinks}>
-            {devCompany}
-          </p>
+          <p className={styles.additInfoLinks}>{devCompany}</p>
         </div>
       </div>
     </div>
