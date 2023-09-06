@@ -97,6 +97,10 @@ function MainMenu({
               label: 'Support',
               key: 'support',
             },
+            {
+              label: 'Catalog',
+              key: 'catalog',
+            },
           ]}
         />
       </div>

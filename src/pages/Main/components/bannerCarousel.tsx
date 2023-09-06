@@ -10,7 +10,6 @@ function BannerCarousel(products: IProduct[]) {
     <div className={styles.headerBlockContLeft}>
       <Carousel
         className={styles.imgCarousel}
-        infinite={false}
         dots={{ className: styles.carouselDots }}
       >
         {BannerCards(products)}

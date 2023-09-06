@@ -16,7 +16,7 @@ import CategoryCarousel from './components/categoryCarousel';
 import DiscountCarousel from './components/discountCarousel';
 import ProductService from '../../models/Product/ProductService';
 
-const RANDOM_PRODUCT_REQUEST = 4;
+const RANDOM_PRODUCT_REQUEST = 1;
 
 const calculateCategoryNum = () => {
   const windowInnerWidth = window.innerWidth;

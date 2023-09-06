@@ -47,7 +47,7 @@ function RandomCards(props: { products: IProduct[]; randomCards: number }) {
               style={{ objectFit: 'cover' }}
               preview={false}
             />
-      )}
+          )}
         >
           <Card.Meta
             className={styles.cardBottom}

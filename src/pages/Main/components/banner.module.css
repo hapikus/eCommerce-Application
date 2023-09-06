@@ -27,7 +27,6 @@
   border-radius: 0;
 }
 
-
 .discountCard {
   margin: 0 5px -10px 5px;
   border-radius: 0;
@@ -133,23 +132,25 @@
 
 .searchMenu {
   display: flex;
-  width: 100%;
   justify-content: center;
   background: var(--gpStoreDarkGrey);
   position: sticky;
-  top: 0px;
+  top: 0;
   width: 100%;
   height: 60px;
   align-items: center;
   z-index: 9999;
+  /* min-width: 920px; */
+  /* padding-left: 30px; */
 }
 
 .searchController {
   display: flex;
-  width: 950px;
+  min-width: 935px;
   align-items: center;
   justify-content: space-between;
-  padding-left: 10px;
+  /* width: 100%; */
+  padding-left: 5px;
 }
 
 .menu_main {
@@ -260,9 +261,12 @@
   flex-direction: column;
   align-content: space-between;
   position: absolute;
-  top: 84%;
-  left: 2%;
-  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+  top: calc(0.5em + 70%);
+  left: calc(0.5rem+50%);
+  transform: translateX(0%);
+  box-shadow:
+    0 10px 16px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 .categoryContainer .slick-dots li button {
@@ -314,6 +318,7 @@
     align-items: center;
     z-index: 999;
     max-width: auto;
+    padding-left: 0px;
   }
   .menu_search {
     display: flex;
@@ -327,13 +332,14 @@
 
   .searchController {
     width: 100%;
+    min-width: 0;
   }
 }
 
 @media (max-width: 692px) {
   .menu_search {
     width: auto;
-    justify-content: flex-start;
+    justify-content: flex-end;
     min-width: 220px;
     line-height: 30px;
     background: transparent;
@@ -356,7 +362,8 @@
   }
 
   .searchController {
-    justify-content: center;
+    justify-content: space-between;
+    min-width: 0;
   }
 }
 
@@ -364,7 +371,7 @@
   .menu_search {
     justify-content: space-around;
     line-height: 30px;
-    min-width: auto;
+    min-width: 0;
     background: transparent;
     border-bottom: none;
   }
@@ -379,5 +386,43 @@
   .containerCarousel {
     width: 100%;
     height: auto;
+  }
+
+  .searchController {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    /* padding-left: 30px; */
+    flex-direction: row;
+  }
+
+  .carouselItemDesc {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    pointer-events: none;
+    background-color: transparent;
+    color: #fff;
+    z-index: 2;
+    font-size: 12px;
+    max-width: 75%;
+    width: 100%;
+    /* margin: 10px; */
+  }
+  .btn {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, -0%);
+  }
+
+  .bannerCardTitle {
+    z-index: 999;
+    font-size: 18px;
+    color: #fff;
   }
 }

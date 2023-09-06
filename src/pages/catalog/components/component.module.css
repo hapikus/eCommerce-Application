@@ -1,13 +1,18 @@
+.cardLinkContainer {
+  width: 100%;
+}
+
 .catalogCardContainer {
   display: flex;
+  width: 100%;
   justify-content: center;
+  padding-right: 30px;
 }
 
 .catalogCard {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 300px;
   border-radius: 0;
   background-color: transparent;
   box-shadow: none;
@@ -82,6 +87,16 @@
   z-index: 2;
 }
 
+.descCard {
+  padding: 2px;
+  width: 100%;
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+  opacity: 0.5;
+  font-size: 10px;
+}
+
 .titleCard {
   width: 100%;
   text-align: start;
@@ -102,7 +117,6 @@
   width: 100%;
 }
 
-
 .popoverContainer {
   display: flex;
   justify-content: center;
@@ -113,7 +127,9 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+  box-shadow:
+    0 10px 16px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 .popoverCardContainer {
@@ -128,6 +144,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-auto-rows: 240px;
   width: 100%;
+  justify-items: start;
 }
 
 .discountCard {
@@ -211,7 +228,6 @@
     max-width: 200px;
   }
   .catalogGridCards {
-    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 200px;
     grid-auto-columns: 100px;
@@ -223,11 +239,9 @@
     max-width: 200px;
   }
   .catalogGridCards {
-    display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    grid-auto-rows: 200px;
+    justify-items: center;
   }
-
 }
 
 @media (max-width: 472px) {
@@ -237,13 +251,13 @@
   .catalogGridCards {
     display: flex;
     flex-direction: column;
-    }
+  }
 
-    .menu_search {
-      justify-content: space-around;
-      line-height: 30px;
-      min-width: 100%;
-      background: transparent;
-      border-bottom: none;
-    }
+  .menu_search {
+    justify-content: space-around;
+    line-height: 30px;
+    min-width: 100%;
+    background: transparent;
+    border-bottom: none;
+  }
 }

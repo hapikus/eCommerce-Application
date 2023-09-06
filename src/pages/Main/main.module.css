@@ -1,11 +1,11 @@
 .container {
-    /* background: var(--gpStoreDarkGrey); */
-    display: flex;
-    /* flex: 1; */
-    justify-content: center;
-    /* height: 100%; */
-    /* position: relative; */
-    width: 100%;
+  /* background: var(--gpStoreDarkGrey); */
+  display: flex;
+  /* flex: 1; */
+  justify-content: center;
+  /* height: 100%; */
+  /* position: relative; */
+  width: 100%;
 }
 
 .mainCont {
@@ -31,7 +31,7 @@
   margin-right: 10px;
   justify-content: center;
   width: 100%;
-  padding:  0 10px 10px;
+  padding: 0 10px 10px;
 }
 
 .headerBlockSearch {

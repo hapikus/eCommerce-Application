@@ -46,14 +46,14 @@ function CatalogCards(props: { products: IProduct[] }) {
     <Spin spinning={loadingCatalogProducts}>
       <div className={styles.catalogGridCards}>
         {products.map((product: IProduct) => {
-          const { gameTitle, price, headerImg, discountPrice } = product;
+          const { gameTitle, price, headerImg, discountPrice, descriptionShort } = product;
           const url = `${headerImg}`.split('/');
           const gameID = url.pop();
           const baseURL = url.join('/');
           const headerSuffix = 'header.jpg';
           const header = `${baseURL}/${gameID}/${headerSuffix}`;
           return (
-            <Link to={`/product/${gameTitle}`} key={gameTitle}>
+            <Link to={`/product/${gameTitle}`} key={gameTitle} className={styles.cardLinkContainer}>
               <div className={styles.catalogCardContainer}>
                 <Card
                   hoverable
@@ -62,6 +62,7 @@ function CatalogCards(props: { products: IProduct[] }) {
                   cover={<img alt={gameTitle} src={header} />}
                 >
                   <p className={styles.titleCard}>{gameTitle}</p>
+                  <p className={styles.descCard}>{descriptionShort}</p>
                   <div className={styles.catalogCardDesc}>
                     <Tag>{getDescription(price, discountPrice)}</Tag>
                   </div>
