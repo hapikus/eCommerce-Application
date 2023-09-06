@@ -7,7 +7,11 @@ import { useSelector } from 'react-redux';
 import styles from '../user.module.css';
 import UserService from '../../../models/Users/UserService';
 import { RootState } from '../../../redux/store';
-import { IAddress, INewAddress, IUpdateShipAddress } from '../../../types/UserResponse';
+import {
+  IAddress,
+  INewAddress,
+  IUpdateShipAddress,
+} from '../../../types/UserResponse';
 import AddressFormPart from './AddressFormPart';
 
 function UserShipping() {
@@ -40,15 +44,18 @@ function UserShipping() {
   }, []);
 
   interface InitValue {
-    [key:string]: IAddress
+    [key: string]: IAddress;
   }
 
   function mapInitialValues(addresss: IAddress[] = []): InitValue {
-    return addresss.reduce((acc, current) => ({
-      ...acc,
-      // eslint-disable-next-line no-underscore-dangle
-      [current._id as string]: current,
-    }), {} as InitValue);
+    return addresss.reduce(
+      (acc, current) => ({
+        ...acc,
+        // eslint-disable-next-line no-underscore-dangle
+        [current._id as string]: current,
+      }),
+      {} as InitValue,
+    );
   }
 
   function aggregatePayload(formData: FormDataType) {
@@ -64,11 +71,11 @@ function UserShipping() {
     form.resetFields();
   }, [form, shippingAddress]);
   interface FormDataType {
-    newItems: IAddress[]
+    newItems: IAddress[];
   }
   interface ReturnDataType {
-    payload: IUpdateShipAddress,
-    new: INewAddress,
+    payload: IUpdateShipAddress;
+    new: INewAddress;
   }
 
   const onSubmit = async () => {
@@ -78,7 +85,9 @@ function UserShipping() {
       const aggregateData: ReturnDataType = aggregatePayload(formData);
       setIsLoading(true);
       await UserService.updateShippingAddress(aggregateData.payload);
-      const allAddresses = await UserService.createShippingAddress(aggregateData.new);
+      const allAddresses = await UserService.createShippingAddress(
+        aggregateData.new,
+      );
       setShippingAddress(allAddresses.data);
     } catch (error) {
       if (error instanceof AxiosError && error.response?.data?.message) {
@@ -103,17 +112,14 @@ function UserShipping() {
       >
         {shippingAddress.map((address) => (
           <AddressFormPart
-          // eslint-disable-next-line no-underscore-dangle
+            // eslint-disable-next-line no-underscore-dangle
             key={address._id}
-          // eslint-disable-next-line no-underscore-dangle
+            // eslint-disable-next-line no-underscore-dangle
             prefix={address._id}
             type="old"
           />
         ))}
-        <Form.List
-          name="newItems"
-          initialValue={[]}
-        >
+        <Form.List name="newItems" initialValue={[]}>
           {(fields, { add }, { errors }) => (
             <>
               {fields.map((field) => (

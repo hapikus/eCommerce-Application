@@ -2,8 +2,8 @@ import { Form, Input, Select } from 'antd';
 import styles from '../user.module.css';
 
 interface Props {
-  prefix: string,
-  type: string
+  prefix: string;
+  type: string;
 }
 
 const { Option } = Select;
@@ -74,7 +74,6 @@ function AddressFormPart({ prefix, type }: Props) {
                 </Option>
               ))}
             </Select>
-
           </Form.Item>
           <Form.Item
             name={[prefix, 'city']}
@@ -87,8 +86,7 @@ function AddressFormPart({ prefix, type }: Props) {
               },
               {
                 pattern: /^[a-zA-Z\s]+$/,
-                message:
-                  'City must contain only alphabets and spaces!',
+                message: 'City must contain only alphabets and spaces!',
               },
             ]}
           >
@@ -110,8 +108,7 @@ function AddressFormPart({ prefix, type }: Props) {
               },
               {
                 pattern: /^[a-zA-Z\s]+$/,
-                message:
-                  'Street must contain only alphabets and spaces!',
+                message: 'Street must contain only alphabets and spaces!',
               },
             ]}
           >
@@ -144,7 +141,6 @@ function AddressFormPart({ prefix, type }: Props) {
               }}
             />
           </Form.Item>
-
         </div>
       </div>
     </div>

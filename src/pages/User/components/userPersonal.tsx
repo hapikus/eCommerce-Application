@@ -33,9 +33,7 @@ function UserPersonal() {
         await PersonalDataChangeForm.validateFields();
       // eslint-disable-next-line no-underscore-dangle
       personValues.id = userFullData._id;
-      console.log(personValues);
       const updateData = await UserService.updateUser(personValues);
-      console.log(updateData);
       if (updateData.data.user.email !== userFullData.email) {
         await store.dispatch(logoutAsync());
         dispatch(clearUserData());
@@ -55,14 +53,12 @@ function UserPersonal() {
         currentPassword: string;
         password: string;
       } = await PasswordChangeForm.validateFields();
-      console.log(passwordData);
       await UserService.checkPassword(passwordData.currentPassword);
       const updateUserBody = {
         password: passwordData.confirm,
         // eslint-disable-next-line no-underscore-dangle
         id: userFullData._id,
       };
-      console.log(updateUserBody);
       await UserService.updateUser(updateUserBody);
       // console.log(await UserService.updateUser(updateUserBody));
       message.success('Password was changed successful!');
@@ -205,10 +201,7 @@ function UserPersonal() {
               <p className={styles.personalDataFormPasswordContText}>
                 New password
               </p>
-              <Form.Item
-                name="password"
-                rules={[...passwordValidationRules]}
-              >
+              <Form.Item name="password" rules={[...passwordValidationRules]}>
                 <Input.Password
                   className={styles.personalDataFormPasswordContInput}
                 />

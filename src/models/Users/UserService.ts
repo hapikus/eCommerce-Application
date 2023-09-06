@@ -50,8 +50,13 @@ export default class UserService {
     );
   }
 
-  static async createShippingAddress(createBody: INewAddress):Promise<AxiosResponse<IAddress[]>> {
-    return $api.post<IAddress[]>('/user/address/shipping/addAndGetAll', createBody);
+  static async createShippingAddress(
+    createBody: INewAddress,
+  ): Promise<AxiosResponse<IAddress[]>> {
+    return $api.post<IAddress[]>(
+      '/user/address/shipping/addAndGetAll',
+      createBody,
+    );
   }
 
   static async updateBillingAddress(
@@ -70,7 +75,12 @@ export default class UserService {
     return $api.post<IAddress[]>('/user/address/billing', requestBody);
   }
 
-  static async createBillingAddress(createBody: INewAddress):Promise<AxiosResponse<IAddress[]>> {
-    return $api.post<IAddress[]>('/user/address/billing/addAndGetAll', createBody);
+  static async createBillingAddress(
+    createBody: INewAddress,
+  ): Promise<AxiosResponse<IAddress[]>> {
+    return $api.post<IAddress[]>(
+      '/user/address/billing/addAndGetAll',
+      createBody,
+    );
   }
 }
