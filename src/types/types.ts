@@ -11,6 +11,8 @@ type CatalogOptionsType = {
   sortColumn: string;
   sortDirection: string;
   tags: CheckBoxType[];
+  themes: CheckBoxType[];
+  genres: CheckBoxType[];
   minPrice: number;
   maxPrice: number;
 };

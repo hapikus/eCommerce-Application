@@ -43,6 +43,8 @@ interface ProductState {
   catalogProducts: ICatalog;
   selectedTag: CheckBoxType[];
   searchProducts: IProduct[];
+  availableFilters: IFilters;
+  selectedFilters: IFilters;
   isLoading: boolean;
   isLoadingRandom: boolean;
   isAllCategoryLoading: boolean;
@@ -57,8 +59,15 @@ interface ProductState {
   errorSearchProducts: null | string;
 }
 
+interface IFilters {
+  themes: string[];
+  genres: string[];
+  tags: string[];
+}
+
 interface ICatalog {
   products: IProduct[];
+  filters: IFilters;
   totalProducts: number;
 }
 
@@ -67,6 +76,11 @@ type CheckBoxType = string | number | boolean;
 interface SetSelectedTag {
   type: string[];
   payload: CheckBoxType[];
+}
+
+interface SetSelectedFilters {
+  type: IFilters;
+  payload: IFilters;
 }
 
 interface UserState {
@@ -117,4 +131,6 @@ export type {
   ICatalog,
   CheckBoxType,
   SetSelectedTag,
+  IFilters,
+  SetSelectedFilters,
 };

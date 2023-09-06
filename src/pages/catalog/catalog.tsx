@@ -58,8 +58,8 @@ function CatalogPage() {
     (state: RootState) => state.product.catalogProducts.products,
   );
 
-  const selectedTag = useSelector(
-    (state: RootState) => state.product.selectedTag,
+  const selectedFilters = useSelector(
+    (state: RootState) => state.product.selectedFilters,
   );
 
   const catalogTotalProducts = useSelector(
@@ -85,7 +85,9 @@ function CatalogPage() {
           pageLimit: cardsNum,
           sortColumn: sortValue,
           sortDirection: sortDir,
-          tags: selectedTag,
+          tags: selectedFilters.tags,
+          themes: selectedFilters.themes,
+          genres: selectedFilters.genres,
           minPrice,
           maxPrice,
         }),
@@ -95,7 +97,9 @@ function CatalogPage() {
   }, [
     minPrice,
     maxPrice,
-    selectedTag,
+    selectedFilters.tags,
+    selectedFilters.themes,
+    selectedFilters.genres,
     cardsNum,
     catalogCurrPage,
     sortValue,
