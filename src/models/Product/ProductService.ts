@@ -40,6 +40,8 @@ export default class ProductService {
     sortColumn: string,
     sortDirection: string,
     tags: CheckBoxType[],
+    themes: CheckBoxType[],
+    genres: CheckBoxType[],
     minPrice: number,
     maxPrice: number,
   ): Promise<AxiosResponse<ICatalog>> {
@@ -49,6 +51,8 @@ export default class ProductService {
       sortColumn,
       sortDirection,
       tags,
+      themes,
+      genres,
       minPrice,
       maxPrice,
     });

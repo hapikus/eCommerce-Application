@@ -2,7 +2,7 @@ import { AxiosError } from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import ProductService from '../../models/Product/ProductService';
 
-import { ProductState, ICatalog, SetSelectedTag } from '../../types/storeType';
+import { ProductState, ICatalog, SetSelectedTag, IFilters, SetSelectedFilters } from '../../types/storeType';
 import IProduct from '../../types/IProduct';
 import { CatalogOptionsType } from '../../types/types';
 
@@ -14,6 +14,8 @@ const initialState: ProductState = {
   catalogProducts: {} as ICatalog,
   selectedTag: [],
   searchProducts: [],
+  availableFilters: {} as IFilters,
+  selectedFilters: {} as IFilters,
   isLoading: false,
   isLoadingRandom: false,
   isAllCategoryLoading: false,
@@ -98,6 +100,8 @@ export const fetchCatalogProducts = createAsyncThunk(
         sortColumn,
         sortDirection,
         tags,
+        themes,
+        genres,
         minPrice,
         maxPrice,
       } = options;
@@ -107,6 +111,8 @@ export const fetchCatalogProducts = createAsyncThunk(
         sortColumn,
         sortDirection,
         tags,
+        themes,
+        genres,
         minPrice,
         maxPrice,
       );
@@ -150,6 +156,13 @@ const productSlice = createSlice({
     ) => {
       state.selectedTag = action.payload;
     },
+    setSelectedFilters: (
+      state,
+      action: PayloadAction<SetSelectedFilters['payload']>,
+    ) => {
+      state.selectedFilters = action.payload;
+    },
+
   },
   extraReducers: (builder) => {
     builder
@@ -211,10 +224,13 @@ const productSlice = createSlice({
       })
       .addCase(fetchCatalogProducts.fulfilled, (state, action) => {
         state.isLoadingCatalogProducts = false;
-        state.catalogProducts = action.payload;
+        state.catalogProducts.products = action.payload.products;
+        state.catalogProducts.totalProducts = action.payload.totalProducts;
+        state.availableFilters = action.payload.filters;
       })
       .addCase(fetchCatalogProducts.rejected, (state, action) => {
         state.catalogProducts = {} as ICatalog;
+        state.availableFilters = {} as IFilters;
         state.isLoadingCatalogProducts = false;
         state.errorCatalogProducts = `${action.payload}`;
       })
@@ -234,5 +250,5 @@ const productSlice = createSlice({
   },
 });
 
-export const { resetProductData, setSelectedTag } = productSlice.actions;
+export const { resetProductData, setSelectedTag, setSelectedFilters } = productSlice.actions;
 export default productSlice.reducer;
