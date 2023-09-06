@@ -1,35 +1,11 @@
 import { Image, Tag } from 'antd';
 import { Link } from 'react-router-dom';
 
-import styles from './component.module.css';
+import getDiscount from '../../../components/shared/getDiscount';
+import styles from './popover.module.css';
 import IProduct from '../../../types/IProduct';
 
 function PopoverCards(props: { products: IProduct[] }) {
-  const getDescription = (
-    priceDesc: number,
-    discountPriceDesc: number | null,
-  ) => {
-    if (discountPriceDesc) {
-      return (
-        <div className={styles.catalogCardTwoPrice}>
-          <div className={styles.catalogCardRegPrice}>
-            {`${Number(priceDesc).toFixed(2)} €`}
-          </div>
-          <div className={styles.catalogCardDiscPrice}>
-            {`${Number(discountPriceDesc).toFixed(2)} €`}
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className={styles.catalogCardOnePrice}>
-        <div className={styles.catalogCardNormalPrice}>
-          {`${Number(priceDesc).toFixed(2)} €`}
-        </div>
-      </div>
-    );
-  };
-
   const { products } = props;
   return products.map((product: IProduct) => {
     const { gameTitle, price, headerImg, discountPrice } = product;
@@ -55,8 +31,8 @@ function PopoverCards(props: { products: IProduct[] }) {
           />
           <div className={styles.discountPricePop}>
             <p className={styles.titleCardPop}>{gameTitle}</p>
-            <div className={styles.catalogCardDesc}>
-              <Tag>{getDescription(price, discountPrice)}</Tag>
+            <div className={styles.popoverCardDesc}>
+              <Tag>{getDiscount(price, discountPrice)}</Tag>
             </div>
           </div>
         </Link>

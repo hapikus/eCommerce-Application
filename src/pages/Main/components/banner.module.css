@@ -163,7 +163,7 @@
   border-bottom: none;
 }
 
-.menu_search {
+.searchNavMenu {
   display: flex;
   width: auto;
   justify-content: flex-end;
@@ -320,7 +320,7 @@
     max-width: auto;
     padding-left: 0px;
   }
-  .menu_search {
+  .searchNavMenu {
     display: flex;
     justify-content: flex-end;
     min-width: 360px;
@@ -337,7 +337,7 @@
 }
 
 @media (max-width: 692px) {
-  .menu_search {
+  .searchNavMenu {
     width: auto;
     justify-content: flex-end;
     min-width: 220px;
@@ -368,7 +368,7 @@
 }
 
 @media (max-width: 472px) {
-  .menu_search {
+  .searchNavMenu {
     justify-content: space-around;
     line-height: 30px;
     min-width: 0;

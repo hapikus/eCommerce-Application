@@ -9,7 +9,7 @@ import {
 } from '../../../redux/slice/productSlice';
 import store, { RootState } from '../../../redux/store';
 
-import styles from './component.module.css';
+import styles from './checkBoxCategory.module.css';
 
 function CheckBoxCategory() {
   const dispatch = useDispatch();

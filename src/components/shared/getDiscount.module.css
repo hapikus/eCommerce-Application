@@ -1,0 +1,20 @@
+.catalogCardTwoPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.catalogCardRegPrice {
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+.catalogCardDiscPrice,
+.catalogCardNormalPrice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-right: 10px;
+}
