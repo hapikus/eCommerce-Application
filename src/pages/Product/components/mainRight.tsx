@@ -1,5 +1,8 @@
 import { Image } from 'antd';
+import { Link } from 'react-router-dom';
+
 import IProduct from '../../../types/IProduct';
+
 import styles from '../product.module.css';
 
 const iconLing = {
@@ -44,11 +47,49 @@ const getTagLine = (tag: string) => {
 };
 
 function MainRight(productDataState: IProduct) {
-  const { category } = productDataState;
+  const { category, gameTitle, gameGenre, gameTheme, devCompany } = productDataState;
   return (
     <div className={styles.mainRight}>
       <div className={styles.tagsCont}>
         {category.map((value) => getTagLine(value))}
+      </div>
+      <div className={styles.additInfoMainCont}>
+        <div className={styles.additInfoGameTitle}>
+          <p className={styles.additInfoTitle}>TITLE:</p>
+          <p className={styles.additInfoText}>{gameTitle}</p>
+        </div>
+        <div className={styles.additInfoGameTheme}>
+          <p className={styles.additInfoTitle}>THEME:</p>
+          <p className={styles.additInfoLinks}>
+            {gameTheme.map((theme, index) => (
+              <p>
+                <Link className={styles.genreLink} to="/catalog">
+                  {theme}
+                </Link>
+                {index === gameTheme.length - 1 ? '' : ','}
+              </p>
+            ))}
+          </p>
+        </div>
+        <div className={styles.additInfoGameGenre}>
+          <p className={styles.additInfoTitle}>GENRE:</p>
+          <p className={styles.additInfoLinks}>
+            {gameGenre.map((genre, index) => (
+              <p>
+                <Link className={styles.themeLink} to="/catalog">
+                  {genre}
+                </Link>
+                {index === gameGenre.length - 1 ? '' : ','}
+              </p>
+            ))}
+          </p>
+        </div>
+        <div className={styles.additInfoGameDev}>
+          <p className={styles.additInfoTitle}>DEVELOPER:</p>
+          <p className={styles.additInfoLinks}>
+            {devCompany}
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useCallback, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { message } from 'antd';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,6 +17,8 @@ import MainLeft from './components/mainLeft';
 import MainRight from './components/mainRight';
 import RandomCards from './components/randomCarts';
 
+import IProduct from '../../types/IProduct';
+
 import styles from './product.module.css';
 
 const RANDOM_PRODUCT_REQUEST = 5;
@@ -32,6 +34,34 @@ const calculateNewRandomProductsNum = () => {
     cardNumber = 2;
   }
   return cardNumber;
+};
+
+const createPath = (productDataState: IProduct) => {
+  const { gameTheme, gameGenre, gameTitle } = productDataState;
+  return (
+    <div className={styles.pathCont}>
+      <p className={styles.pathAllGames}>
+        <Link className={styles.pathLink} to="/catalog">
+          All Games &gt;
+        </Link>
+      </p>
+      <p className={styles.pathGenre}>
+        <Link className={styles.pathLink} to="/catalog">
+          {`${gameGenre[0]} >`}
+        </Link>
+      </p>
+      <p className={styles.pathTheme}>
+        <Link className={styles.pathLink} to="/catalog">
+          {`${gameTheme[0]} >`}
+        </Link>
+      </p>
+      <p className={styles.pathGameTitle}>
+        <Link className={styles.pathLink} to="/catalog">
+          {gameTitle}
+        </Link>
+      </p>
+    </div>
+  );
 };
 
 function Product() {
@@ -104,12 +134,18 @@ function Product() {
   }, [productErrorState, navigate]);
 
   if (productLoading || productRandomLoading) {
-    return SkeletonLoading();
+    return <SkeletonLoading />;
   }
 
   return (
     <div className={styles.productCont}>
-      <div>
+      <div className={styles.productTitleCont}>
+        <div className={styles.productPath}>
+          {productDataState.gameTitle &&
+            productDataState.gameGenre &&
+            productDataState.gameTheme &&
+            createPath(productDataState)}
+        </div>
         <h1 className={styles.productTitle}>{productDataState.gameTitle}</h1>
       </div>
       <div className={styles.headerBlockCont}>
@@ -127,7 +163,12 @@ function Product() {
           (productDataState.sysRequirementsMinimum ||
             productDataState.sysRequirementsMinimumFill) &&
           MainLeft(productDataState)}
-        {productDataState.category && MainRight(productDataState)}
+        {productDataState.category &&
+          productDataState.gameTitle &&
+          productDataState.gameGenre &&
+          productDataState.gameTheme &&
+          productDataState.devCompany &&
+          MainRight(productDataState)}
       </div>
       <div className={styles.randProductsCont}>
         {productsRandomState?.length ? (

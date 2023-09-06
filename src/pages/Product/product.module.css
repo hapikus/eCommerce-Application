@@ -5,9 +5,34 @@
   width: 940px;
 }
 
+.productTitleCont {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 5px;
+  padding: 30px 10px 0px;
+}
+
 .productTitle {
   font-size: 26px;
-  align-items: center;
+  margin: 0px;
+}
+
+.pathCont {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 3px;
+}
+
+.pathLink {
+  font-size: 14px;
+  color: var(--bg-color-accent);
+}
+
+.pathLink:hover {
+  color: var(--bg-color-accent);
+  opacity: 0.8;
 }
 
 .headerBlockCont {
@@ -333,6 +358,53 @@
   font-weight: 500;
 }
 
+.additInfoMainCont {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 308px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.additInfoGameTitle,
+.additInfoGameTheme,
+.additInfoGameGenre,
+.additInfoGameDev {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 5px;
+  height: 22px;
+}
+
+.additInfoTitle {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.additInfoText {
+  font-size: 13px;
+}
+
+.additInfoLinks {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+.genreLink,
+.themeLink,
+.devLink {
+  color: var(--bg-color-accent);
+}
+
+.genreLink:hover,
+.themeLink:hover,
+.devLink:hover {
+  color: var(--bg-color-accent);
+  opacity: 0.8;
+}
+
 @media (max-width: 945px) {
   .productCont {
     width: 100%;
@@ -439,5 +511,9 @@
 @media (max-width: 472px) {
   .randProductsCont {
     width: 242px;
+  }
+
+  .pathLink {
+    font-size: 11px;
   }
 }
