@@ -6,7 +6,10 @@ import styles from '../product.module.css';
 
 function RandomCards(props: { products: IProduct[]; randomCards: number }) {
   const { products, randomCards } = props;
-  const getDescription = (priceDesc: number, discountPriceDesc: number | null) => {
+  const getDescription = (
+    priceDesc: number,
+    discountPriceDesc: number | null,
+  ) => {
     if (discountPriceDesc) {
       return (
         <div className={styles.discCardTwoPrice}>
@@ -37,15 +40,13 @@ function RandomCards(props: { products: IProduct[]; randomCards: number }) {
           hoverable
           style={{ width: 200 }}
           cover={
-            (
-              <Image
-                alt="example"
-                src={screenshotList[randomIndex]}
-                height={200}
-                style={{ objectFit: 'cover' }}
-                preview={false}
-              />
-            )
+            <Image
+              alt="example"
+              src={screenshotList[randomIndex]}
+              height={200}
+              style={{ objectFit: 'cover' }}
+              preview={false}
+            />
           }
         >
           <Card.Meta

@@ -1,4 +1,4 @@
-import { Tooltip, Form, Input, Button, DatePicker } from 'antd';
+import { Tooltip, Form, Input, Button, DatePicker, message } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -6,7 +6,10 @@ import dayjs from 'dayjs';
 import { useState } from 'react';
 import store, { RootState } from '../../../redux/store';
 import { IUpdateData } from '../../../types/UserResponse';
-import { clearUserData, getFullUserDataAsync } from '../../../redux/slice/userSlice';
+import {
+  clearUserData,
+  getFullUserDataAsync,
+} from '../../../redux/slice/userSlice';
 
 import UserService from '../../../models/Users/UserService';
 import { logoutAsync } from '../../../redux/slice/authSlice';
@@ -19,17 +22,20 @@ import dobValidation from '../../../utils/dobValid';
 function UserPersonal() {
   const dispatch = useDispatch();
   const [PersonalDataChangeForm] = Form.useForm();
-  const [PasswordChangFOrm] = Form.useForm();
+  const [PasswordChangeForm] = Form.useForm();
   const [isEditMode, setIsEditMode] = useState(false);
 
   const userFullData = useSelector((state: RootState) => state.user.userFull);
 
   const handlePersonalDataChangeForm = async () => {
     try {
-      const personValues: IUpdateData = await PersonalDataChangeForm.validateFields();
+      const personValues: IUpdateData =
+        await PersonalDataChangeForm.validateFields();
       // eslint-disable-next-line no-underscore-dangle
       personValues.id = userFullData._id;
+      console.log(personValues);
       const updateData = await UserService.updateUser(personValues);
+      console.log(updateData);
       if (updateData.data.user.email !== userFullData.email) {
         await store.dispatch(logoutAsync());
         dispatch(clearUserData());
@@ -39,6 +45,30 @@ function UserPersonal() {
       await store.dispatch(getFullUserDataAsync());
     } catch {
       // The catch block is omitted, so the error will be muted
+    }
+  };
+
+  const handlePasswordSave = async () => {
+    try {
+      const passwordData: {
+        confirm: string;
+        currentPassword: string;
+        password: string;
+      } = await PasswordChangeForm.validateFields();
+      console.log(passwordData);
+      await UserService.checkPassword(passwordData.currentPassword);
+      const updateUserBody = {
+        password: passwordData.confirm,
+        // eslint-disable-next-line no-underscore-dangle
+        id: userFullData._id,
+      };
+      console.log(updateUserBody);
+      await UserService.updateUser(updateUserBody);
+      // console.log(await UserService.updateUser(updateUserBody));
+      message.success('Password was changed successful!');
+      PasswordChangeForm.resetFields();
+    } catch {
+      message.error('Invalid current password');
     }
   };
 
@@ -67,7 +97,10 @@ function UserPersonal() {
                 name="email"
                 initialValue={userFullData.email}
               >
-                <Input disabled={!isEditMode} className={styles.personalDataFormNameContInput} />
+                <Input
+                  disabled={!isEditMode}
+                  className={styles.personalDataFormNameContInput}
+                />
               </Form.Item>
             </div>
             <div className={styles.personalDataFormNameCont}>
@@ -86,7 +119,10 @@ function UserPersonal() {
                 name="firstName"
                 initialValue={userFullData.firstName}
               >
-                <Input disabled={!isEditMode} className={styles.personalDataFormNameContInput} />
+                <Input
+                  disabled={!isEditMode}
+                  className={styles.personalDataFormNameContInput}
+                />
               </Form.Item>
             </div>
             <div className={styles.personalDataFormNameCont}>
@@ -105,13 +141,18 @@ function UserPersonal() {
                 name="lastName"
                 initialValue={userFullData.lastName}
               >
-                <Input disabled={!isEditMode} className={styles.personalDataFormNameContInput} />
+                <Input
+                  disabled={!isEditMode}
+                  className={styles.personalDataFormNameContInput}
+                />
               </Form.Item>
             </div>
             <div className={styles.personalDataFormNameCont}>
-              <p className={styles.personalDataFormNameContText}>Day of birth</p>
+              <p className={styles.personalDataFormNameContText}>
+                Day of birth
+              </p>
               <Form.Item
-                name="birthday"
+                name="dob"
                 rules={[...dobValidation]}
                 initialValue={dayjs(userFullData.birthday.split('T')[0])}
               >
@@ -125,7 +166,11 @@ function UserPersonal() {
             </div>
             <div className={styles.UserPersButtonCont}>
               {isEditMode ? (
-                <Button type="primary" onClick={handlePersonalDataChangeForm} className={styles.submitButton}>
+                <Button
+                  type="primary"
+                  onClick={handlePersonalDataChangeForm}
+                  className={styles.submitButton}
+                >
                   Save changes
                 </Button>
               ) : (
@@ -142,13 +187,13 @@ function UserPersonal() {
         </div>
         <div className={styles.userPersPassFormCont}>
           <h3>Change Password</h3>
-          <Form form={PasswordChangFOrm} name="PasswordChangFOrm">
+          <Form form={PasswordChangeForm} name="PasswordChangeForm">
             <div className={styles.personalDataFormPasswordCont}>
               <p className={styles.personalDataFormPasswordContText}>
                 Old password
               </p>
               <Form.Item
-                name="oldPassword"
+                name="currentPassword"
                 rules={[...passwordValidationRules]}
               >
                 <Input.Password
@@ -161,7 +206,7 @@ function UserPersonal() {
                 New password
               </p>
               <Form.Item
-                name="newPassword"
+                name="password"
                 rules={[...passwordValidationRules]}
               >
                 <Input.Password
@@ -174,8 +219,8 @@ function UserPersonal() {
                 Confirm password
               </p>
               <Form.Item
-                name="confirmNewPassword"
-                dependencies={['newPassword']}
+                name="confirm"
+                dependencies={['password']}
                 hasFeedback
                 rules={[
                   {
@@ -184,7 +229,7 @@ function UserPersonal() {
                   },
                   ({ getFieldValue }) => ({
                     validator(_, value) {
-                      if (!value || getFieldValue('newPassword') === value) {
+                      if (!value || getFieldValue('password') === value) {
                         return Promise.resolve();
                       }
                       return Promise.reject(
@@ -205,8 +250,9 @@ function UserPersonal() {
               <Button
                 type="primary"
                 className={styles.submitButton}
+                onClick={handlePasswordSave}
               >
-                Change Personal Data
+                Change Password
               </Button>
             </div>
           </Form>
