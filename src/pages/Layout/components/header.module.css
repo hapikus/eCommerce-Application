@@ -52,7 +52,6 @@
   border-bottom: none;
 }
 
-
 .burgerMenu {
   display: flex;
   justify-content: center;
@@ -95,7 +94,7 @@
     right: 0;
     text-align: center;
     z-index: 20;
-    box-shadow: 0 0 7px 0 rgba( 0, 0, 0, 0.75 );
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75);
     overflow: hidden;
     padding: 19px 8px;
     background-color: var(--bg-color-main);
@@ -106,7 +105,7 @@
   .burgerMenu {
     display: none;
   }
-  .headerMenu{
+  .headerMenu {
     display: flex;
   }
 }

@@ -6,6 +6,10 @@ import App from './App';
 import './index.css';
 import './theme/theme.css';
 
+import registerInterceptors from './models/Users/UserRefreshService';
+
+registerInterceptors();
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>

@@ -93,35 +93,21 @@ function SideBar() {
       if (newCategoryNum !== categoryNum) {
         setCategoryNum(newCategoryNum);
       }
-    };
-    window.addEventListener('resize', handleResize);
-  }, [categoryNum]);
-
-  useEffect(() => {
-    const handleResize = () => {
       const newDiscountNum = calculateDiscNum();
       if (newDiscountNum !== discountNum) {
         setDiscountNum(newDiscountNum);
       }
     };
     window.addEventListener('resize', handleResize);
-  }, [discountNum]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const newDiscountNum = calculateDiscNum();
-      if (newDiscountNum !== discountNum) {
-        setDiscountNum(newDiscountNum);
-      }
+    return () => {
+      window.removeEventListener('resize', handleResize);
     };
-    window.addEventListener('resize', handleResize);
-  }, [discountNum]);
+  }, [categoryNum, discountNum]);
 
   useEffect(() => {
     const fetchDiscProducts = async () => {
       await store.dispatch(fetchDiscountProducts(RANDOM_PRODUCT_REQUEST));
     };
-
     fetchDiscProducts();
   }, [discountNum]);
 
