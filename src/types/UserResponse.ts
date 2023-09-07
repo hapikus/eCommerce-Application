@@ -28,15 +28,33 @@ interface IAddress {
   postalCode: '';
   isDefault: false;
 }
+interface INewAddress {
+  country: '';
+  city: '';
+  street: '';
+  postalCode: '';
+  isDefault: false;
+}
 
 type IUpdateShipAddress = {
   shippingAddresses: Array<{
-    city?: string;
-    country?: string;
-    _id: string;
+    city: string;
+    country: string;
+    id?: number;
     isDefault?: boolean;
     postalcode?: string;
-    street?: string;
+    street: string;
+  }>;
+};
+
+type IUpdateBillAddress = {
+  billingAddresses: Array<{
+    city: string;
+    country: string;
+    id?: string;
+    isDefault: boolean;
+    postalcode?: string;
+    street: string;
   }>;
 };
 
@@ -47,4 +65,6 @@ export type {
   IPassword,
   IAddress,
   IUpdateShipAddress,
+  INewAddress,
+  IUpdateBillAddress,
 };

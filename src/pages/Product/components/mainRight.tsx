@@ -119,8 +119,8 @@ function MainRight({ productData }: MainRightProps) {
           </div>
         </div>
         <div className={styles.additInfoGameDev}>
-          <p className={styles.additInfoTitle}>DEVELOPER:</p>
-          <p className={styles.additInfoLinks}>{devCompany}</p>
+          <p className={styles.additInfoDevTitle}>DEVELOPER:</p>
+          <p className={styles.additInfoDevText}>{devCompany}</p>
         </div>
       </div>
     </div>

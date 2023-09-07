@@ -368,13 +368,29 @@
 
 .additInfoGameTitle,
 .additInfoGameTheme,
-.additInfoGameGenre,
+.additInfoGameGenre {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 5px;
+  min-height: 22px;
+}
+
 .additInfoGameDev {
   display: flex;
   align-items: center;
   flex-direction: row;
   column-gap: 5px;
-  height: 22px;
+  min-height: 22px;
+}
+
+.additInfoDevTitle {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.additInfoDevText {
+  text-align: left;
 }
 
 .additInfoTitle {
