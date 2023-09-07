@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { Button, Form, Spin, message } from 'antd';
+import { Button, Form, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { AxiosError } from 'axios';
 
@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import styles from '../user.module.css';
 import UserService from '../../../models/Users/UserService';
 import { RootState } from '../../../redux/store';
+import TrollSpin from '../../../components/shared/TrollSpin';
 import {
   IAddress,
   INewAddress,
@@ -99,7 +100,7 @@ function UserShipping() {
   };
 
   return (
-    <Spin spinning={isLoading}>
+    <TrollSpin spinning={isLoading}>
       <h1>Shipping addresses</h1>
       <Form
         form={form}
@@ -145,7 +146,7 @@ function UserShipping() {
           Submit
         </Button>
       </Form>
-    </Spin>
+    </TrollSpin>
 
   );
 }

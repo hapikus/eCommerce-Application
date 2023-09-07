@@ -1,8 +1,9 @@
-import { Card, Tag, Spin } from 'antd';
+import { Card, Tag } from 'antd';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import getDisccount from '../../../components/shared/getDiscount';
+import TrollSpin from '../../../components/shared/TrollSpin';
 import { RootState } from '../../../redux/store';
 
 import styles from './catalogCard.module.css';
@@ -19,7 +20,7 @@ function CatalogCards(props: { products: IProduct[] }) {
     return null;
   }
   return (
-    <Spin spinning={loadingCatalogProducts}>
+    <TrollSpin spinning={loadingCatalogProducts}>
       <div className={styles.catalogGridCards}>
         {products.map((product: IProduct) => {
           const {
@@ -58,7 +59,7 @@ function CatalogCards(props: { products: IProduct[] }) {
           );
         })}
       </div>
-    </Spin>
+    </TrollSpin>
   );
 }
 
