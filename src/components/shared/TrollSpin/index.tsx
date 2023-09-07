@@ -1,5 +1,5 @@
 import { Spin } from 'antd';
-import styles from './TrollSpinner.module.css';
+import styles from './TrollSpin.module.css';
 
 const trollUrl = 'https://poestack.com/_next/image?url=%2FKEKW.png&w=96&q=75';
 
