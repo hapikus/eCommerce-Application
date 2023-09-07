@@ -30,7 +30,6 @@ function UserPersonal() {
   const handlePersonalDataChangeForm = async () => {
     try {
       const personValues: IUpdateData = await PersonalDataChangeForm.validateFields();
-
       personValues.id = userFullData._id;
       const updateData = await UserService.updateUser(personValues);
       if (updateData.data.user.email !== userFullData.email) {
@@ -248,6 +247,8 @@ function UserPersonal() {
                 onClick={handlePasswordSave}
               >
                 Change Password
+              <Button type="primary" className={styles.submitButton}>
+                Change Personal Data
               </Button>
             </div>
           </Form>

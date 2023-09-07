@@ -17,8 +17,8 @@
   display: flex;
   justify-content: center;
   padding: 10px;
-  height: 240px;
-  width: 960px;
+  height: auto;
+  width: 920px;
 }
 
 .categoryCard {
@@ -27,16 +27,7 @@
   border-radius: 0;
 }
 
-/* .categoryCard {
-  height: 183px;
-  margin: 0 5px -10px 5px;
-  border-radius: 0;
-  padding: 10px;
-  background-color: #dbdbdb;
-} */
-
 .discountCard {
-  height: 190px;
   margin: 0 5px -10px 5px;
   border-radius: 0;
   padding: 10px;
@@ -67,7 +58,8 @@
 }
 
 .discCardRegPrice {
-  font-weight: 500;
+  font-weight: 400;
+  text-decoration: line-through;
 }
 
 .discCardDiscPrice,
@@ -130,7 +122,7 @@
 }
 
 .imgCarousel {
-  width: 980px;
+  width: 920px;
   height: auto;
 }
 
@@ -140,21 +132,25 @@
 
 .searchMenu {
   display: flex;
-  width: 100%;
   justify-content: center;
   background: var(--gpStoreDarkGrey);
   position: sticky;
-  top: 0px;
+  top: 0;
   width: 100%;
   height: 60px;
   align-items: center;
   z-index: 9999;
+  /* min-width: 920px; */
+  /* padding-left: 30px; */
 }
 
 .searchController {
   display: flex;
-  width: 90%;
-  margin-left: 2%;
+  min-width: 935px;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 100%; */
+  padding-left: 5px;
 }
 
 .menu_main {
@@ -167,14 +163,15 @@
   border-bottom: none;
 }
 
-.menu_search {
+.searchNavMenu {
   display: flex;
   width: auto;
-  justify-content: space-around;
+  justify-content: flex-end;
   min-width: 360px;
   line-height: 30px;
   background: transparent;
   border-bottom: none;
+  padding-right: 10px;
 }
 
 .carouselItemCont {
@@ -264,9 +261,12 @@
   flex-direction: column;
   align-content: space-between;
   position: absolute;
-  top: 84%;
-  left: 2%;
-  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+  top: calc(0.5em + 70%);
+  left: calc(0.5rem+50%);
+  transform: translateX(0%);
+  box-shadow:
+    0 10px 16px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 .categoryContainer .slick-dots li button {
@@ -279,9 +279,14 @@
   background: #ff4ef6;
 }
 
+.carouselDots {
+  bottom: -5px !important;
+}
+
 .carouselDots button {
   height: 6px !important;
   background-color: var(--bg-color-main-invert) !important;
+  bottom: -16px !important;
 }
 
 @media (max-width: 945px) {
@@ -292,7 +297,7 @@
 
   .imgCarousel {
     width: 100%;
-    height: 540px;
+    height: auto;
   }
 
   .categoryContainer {
@@ -302,7 +307,7 @@
 
   .containerCarousel {
     width: 100%;
-    height: 320px;
+    height: auto;
   }
   .searchMenu {
     justify-content: flex-start;
@@ -313,21 +318,28 @@
     align-items: center;
     z-index: 999;
     max-width: auto;
+    padding-left: 0px;
   }
-  .menu_search {
-    width: auto;
-    justify-content: flex-start;
+  .searchNavMenu {
+    display: flex;
+    justify-content: flex-end;
     min-width: 360px;
     line-height: 30px;
     background: transparent;
     border-bottom: none;
+    padding-right: 10px;
+  }
+
+  .searchController {
+    width: 100%;
+    min-width: 0;
   }
 }
 
 @media (max-width: 692px) {
-  .menu_search {
+  .searchNavMenu {
     width: auto;
-    justify-content: flex-start;
+    justify-content: flex-end;
     min-width: 220px;
     line-height: 30px;
     background: transparent;
@@ -346,15 +358,20 @@
 
   .containerCarousel {
     width: 100%;
-    height: 420px;
+    height: auto;
+  }
+
+  .searchController {
+    justify-content: space-between;
+    min-width: 0;
   }
 }
 
 @media (max-width: 472px) {
-  .menu_search {
+  .searchNavMenu {
     justify-content: space-around;
     line-height: 30px;
-    min-width: auto;
+    min-width: 0;
     background: transparent;
     border-bottom: none;
   }
@@ -369,6 +386,43 @@
   .containerCarousel {
     width: 100%;
     height: auto;
-    min-height: 280px;
+  }
+
+  .searchController {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    /* padding-left: 30px; */
+    flex-direction: row;
+  }
+
+  .carouselItemDesc {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    pointer-events: none;
+    background-color: transparent;
+    color: #fff;
+    z-index: 2;
+    font-size: 12px;
+    max-width: 75%;
+    width: 100%;
+    /* margin: 10px; */
+  }
+  .btn {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, -0%);
+  }
+
+  .bannerCardTitle {
+    z-index: 999;
+    font-size: 18px;
+    color: #fff;
   }
 }

@@ -3,8 +3,12 @@ import { Carousel, Image } from 'antd';
 import IProduct from '../../../types/IProduct';
 import styles from '../product.module.css';
 
-function ImgCarousel(productDataState: IProduct) {
-  const { screenshotList } = productDataState;
+interface ImgCarouselProps {
+  productData: IProduct;
+}
+
+function ImgCarousel({ productData }: ImgCarouselProps) {
+  const { screenshotList } = productData;
   const slicedScreenshotList = screenshotList.slice(0, 7);
 
   return (

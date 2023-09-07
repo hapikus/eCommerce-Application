@@ -37,7 +37,7 @@ function SearchMenu() {
       searchGame();
       setIsFocus(false);
       setIsBlur(true);
-    }, 100);
+    }, 250);
   };
 
   return (
@@ -60,7 +60,7 @@ function SearchMenu() {
         )}
         {isBlur && <div className={styles.popoverContainer} />}
         <Menu
-          className={styles.menu_search}
+          className={styles.searchNavMenu}
           onClick={onMenuClick}
           theme="light"
           mode="horizontal"
