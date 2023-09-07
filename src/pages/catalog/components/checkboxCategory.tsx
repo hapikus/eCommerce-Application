@@ -71,32 +71,38 @@ function CheckBoxCategory() {
     {
       key: 'genres',
       label: 'Genres',
-      children: (<Checkbox.Group
-        options={optionsAvaGenres}
-        onChange={setFilters('genres')}
-        value={selectedFilters.genres}
-        className={styles.checkBoxGroup}
-      />),
+      children: (
+        <Checkbox.Group
+          options={optionsAvaGenres}
+          onChange={setFilters('genres')}
+          value={selectedFilters.genres}
+          className={styles.checkBoxGroup}
+        />
+      ),
     },
     {
       key: 'themes',
       label: 'Themes',
-      children: (<Checkbox.Group
-        options={optionsAvaThemes}
-        onChange={setFilters('themes')}
-        value={selectedFilters.themes}
-        className={styles.checkBoxGroup}
-      />),
+      children: (
+        <Checkbox.Group
+          options={optionsAvaThemes}
+          onChange={setFilters('themes')}
+          value={selectedFilters.themes}
+          className={styles.checkBoxGroup}
+        />
+      ),
     },
     {
       key: 'tags',
       label: 'Tags',
-      children: (<Checkbox.Group
-        options={optionsAvaTags}
-        onChange={setFilters('tags')}
-        value={selectedFilters.tags}
-        className={styles.checkBoxGroup}
-      />),
+      children: (
+        <Checkbox.Group
+          options={optionsAvaTags}
+          onChange={setFilters('tags')}
+          value={selectedFilters.tags}
+          className={styles.checkBoxGroup}
+        />
+      ),
     },
   ];
   return (
