@@ -47,6 +47,10 @@
   width: 300px;
 }
 
+.UserPersButtonCont {
+  margin-bottom: 20px;
+}
+
 .personalDataFormEmailCont {
   display: flex;
   flex-direction: column;

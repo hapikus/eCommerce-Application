@@ -247,8 +247,6 @@ function UserPersonal() {
                 onClick={handlePasswordSave}
               >
                 Change Password
-              <Button type="primary" className={styles.submitButton}>
-                Change Personal Data
               </Button>
             </div>
           </Form>
