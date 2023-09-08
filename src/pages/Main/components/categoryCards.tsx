@@ -27,14 +27,14 @@ function CategoryCards(categorys: string[]) {
           key={category}
           className={styles.categoryCard}
           onClick={() => dispatch(setSelectedTag([category]))}
-          cover={(
+          cover={
             <Image
               preview={false}
               src={topTagPic[index]}
               alt=""
               style={{ objectFit: 'cover' }}
             />
-          )}
+          }
         >
           <span className={styles.categoryTitle}>{category}</span>
           <div className={styles.gradient} />

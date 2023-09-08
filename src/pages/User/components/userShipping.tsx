@@ -111,11 +111,7 @@ function UserShipping() {
         className={styles.userPersCont}
       >
         {shippingAddress.map((address) => (
-          <AddressFormPart
-            key={address._id}
-            prefix={address._id}
-            type="old"
-          />
+          <AddressFormPart key={address._id} prefix={address._id} type="old" />
         ))}
         <Form.List name="newItems" initialValue={[]}>
           {(fields, { add }, { errors }) => (
@@ -146,7 +142,6 @@ function UserShipping() {
         </Button>
       </Form>
     </Spin>
-
   );
 }
 

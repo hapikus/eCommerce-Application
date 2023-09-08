@@ -46,14 +46,14 @@ function DiscountCards(products: IProduct[]) {
             bordered={false}
             key={gameTitle}
             className={styles.discountCard}
-            cover={(
+            cover={
               <Image
                 preview={false}
                 src={header}
                 alt=""
                 style={{ objectFit: 'cover' }}
               />
-            )}
+            }
           >
             <div className={styles.discountPrice}>
               <Tag color="green">
