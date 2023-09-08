@@ -1,19 +1,12 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import {
-  Slider,
-  Pagination,
-  PaginationProps,
-  Dropdown,
-  Space,
-} from 'antd';
-import {
-  DownOutlined,
-} from '@ant-design/icons';
+import { useLayoutEffect, useState, useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Slider, Pagination, PaginationProps, Dropdown, Space, InputNumber } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import CatalogCards from './components/catalogCard';
-import { fetchCatalogProducts } from '../../redux/slice/productSlice';
+import { fetchCatalogProducts, setSelectedFilters } from '../../redux/slice/productSlice';
 
 import store, { RootState } from '../../redux/store';
 
@@ -21,6 +14,7 @@ import CheckBoxCategory from './components/checkboxCategory';
 
 import styles from './catalog.module.css';
 import SearchMenu from '../Main/components/search';
+import { IFilters } from '../../types/storeType';
 
 type Filter = {
   label: string;
@@ -68,11 +62,20 @@ const calculateCardsNum = () => {
 };
 
 function CatalogPage() {
+  const dispatch = useDispatch();
   const [minPrice, setMinPrice] = useState(MIN_PRICE);
   const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
   const [catalogCurrPage, setCatalogCurrPage] = useState(1);
   const [cardsNum, setCardsNum] = useState(calculateCardsNum());
   const [activeFilter, setActiveFilter] = useState(FILTERS[0]);
+
+  const memoizedDispatch = useCallback(() => {
+    dispatch(setCurrentPage('catalog'));
+  }, [dispatch]);
+
+  useLayoutEffect(() => {
+    memoizedDispatch();
+  }, [memoizedDispatch]);
 
   const catalogProducts = useSelector(
     (state: RootState) => state.product.catalogProducts.products,
@@ -108,15 +111,15 @@ function CatalogPage() {
           tags: selectedFilters.tags,
           themes: selectedFilters.themes,
           genres: selectedFilters.genres,
-          minPrice,
-          maxPrice,
+          minPrice: MIN_PRICE,
+          maxPrice: MAX_PRICE,
         }),
       );
     };
     fetchCatalog();
   }, [
-    minPrice,
-    maxPrice,
+    selectedFilters.minPrice,
+    selectedFilters.maxPrice,
     selectedFilters.tags,
     selectedFilters.themes,
     selectedFilters.genres,
@@ -125,6 +128,24 @@ function CatalogPage() {
     activeFilter.type,
     activeFilter.direction,
   ]);
+
+  const setMinValue = (value: number | null) => {
+    if (value) {
+      const minPriceSlider = value;
+      if (minPriceSlider !== minPrice) {
+        setMinPrice(minPriceSlider);
+      }
+    }
+  };
+
+  const setMaxValue = (value: number | null) => {
+    if (value) {
+      const maxPriceSlider = value;
+      if (maxPriceSlider !== maxPrice) {
+        setMaxPrice(maxPriceSlider);
+      }
+    }
+  };
 
   const setPrice = (value: [number, number]) => {
     const [minPriceSlider, maxPriceSlider] = value;
@@ -135,6 +156,16 @@ function CatalogPage() {
       setMaxPrice(maxPriceSlider);
     }
     setCatalogCurrPage(1);
+  };
+
+  const setFilters = () => (value: [number, number]) => {
+    const [filterMax, filterMin] = value;
+    const newFilters: IFilters = {
+      ...selectedFilters,
+      minPrice: filterMin,
+      maxPrice: filterMax,
+    };
+    dispatch(setSelectedFilters(newFilters));
   };
 
   const paginationOnChange: PaginationProps['onChange'] = (page: number) => {
@@ -193,15 +224,38 @@ function CatalogPage() {
         <div className={styles.menuContainer}>
           <div className={styles.catalogMenuSlider}>
             <h3 className={styles.menuCompTitle}>Narrow by price</h3>
-            <Slider
-              range
-              step={1}
-              defaultValue={[minPrice, maxPrice]}
-              min={MIN_PRICE}
-              max={MAX_PRICE}
-              onAfterChange={setPrice}
-              tooltip={{ open: true, placement: 'bottom' }}
-            />
+            <div className={styles.gridContainer}>
+              <div className={styles.inputMin}>
+                <InputNumber
+                  min={1}
+                  max={60}
+                  style={{ margin: '0 16px' }}
+                  value={minPrice}
+                  onChange={setMinValue}
+                />
+              </div>
+              <div className={styles.inputMax}>
+                <InputNumber
+                  min={1}
+                  max={60}
+                  style={{ margin: '0 16px' }}
+                  value={maxPrice}
+                  onChange={setMaxValue}
+                />
+              </div>
+              <div className={styles.slider}>
+                <Slider
+                  range
+                  step={1}
+                  defaultValue={[minPrice, maxPrice]}
+                  min={MIN_PRICE}
+                  max={MAX_PRICE}
+                  onChange={setPrice}
+                  value={[maxPrice, minPrice]}
+                  onAfterChange={setFilters()}
+                />
+              </div>
+            </div>
           </div>
           <div className={styles.catalogMenuCheckBox}>
             <h3 className={styles.menuCompTitle}>Narrow by tag</h3>

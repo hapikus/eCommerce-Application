@@ -62,7 +62,12 @@ function DiscountCards(products: IProduct[]) {
                 Math.ceil((1 - (discountPrice || 0) / price) * 100),
               )}%`}
             </Tag>
-            <Button type="primary" onClick={(e) => e.stopPropagation()} className={styles.btnDisc} href="/super-store-s2/#/login">
+            <Button
+              type="primary"
+              onClick={(e) => e.stopPropagation()}
+              className={styles.btnDisc}
+              href="/super-store-s2/#/login"
+            >
               {getDescription(price, discountPrice)}
             </Button>
           </div>

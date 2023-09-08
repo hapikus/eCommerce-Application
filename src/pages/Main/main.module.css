@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center;
   width: 80%;
+  max-width: 1800px;
 }
 
 .mainCont {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   row-gap: 20px;
   margin-top: 40px;
   z-index: 1;
@@ -16,6 +16,7 @@
   align-items: center;
   width: 100%;
   margin-top: 20px;
+  justify-content: flex-start;
 }
 
 .headerBlockCont {

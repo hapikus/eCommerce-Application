@@ -52,7 +52,7 @@ function SideBar() {
   const [topCategory, setTopCategory] = useState([] as string[]);
 
   const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage('product'));
+    dispatch(setCurrentPage(''));
   }, [dispatch]);
 
   useLayoutEffect(() => {

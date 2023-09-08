@@ -61,7 +61,12 @@ function BannerCards(products: IProduct[]) {
           >
             <p>{descriptionShort}</p>
           </Card>
-          <Button type="primary" onClick={(e) => e.stopPropagation()} className={styles.btn} href="/super-store-s2/#/login">
+          <Button
+            type="primary"
+            onClick={(e) => e.stopPropagation()}
+            className={styles.btn}
+            href="/super-store-s2/#/login"
+          >
             {getDescription(price, discountPrice)}
           </Button>
         </div>
