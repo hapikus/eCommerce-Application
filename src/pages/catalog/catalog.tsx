@@ -5,16 +5,10 @@ import {
   Pagination,
   PaginationProps,
   Dropdown,
-  Button,
   Space,
-  Switch,
 } from 'antd';
 import {
   DownOutlined,
-  EuroOutlined,
-  MehOutlined,
-  UpSquareOutlined,
-  DownSquareOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 
@@ -28,10 +22,37 @@ import CheckBoxCategory from './components/checkboxCategory';
 import styles from './catalog.module.css';
 import SearchMenu from '../Main/components/search';
 
+type Filter = {
+  label: string;
+  direction: string;
+  type: string;
+};
+
+const FILTERS: Filter[] = [
+  {
+    label: 'Alphabetical',
+    direction: 'up',
+    type: 'gameTitle',
+  },
+  {
+    label: 'Alphabetical reverse',
+    direction: 'down',
+    type: 'gameTitle',
+  },
+  {
+    label: 'Low to high',
+    direction: 'up',
+    type: 'price',
+  },
+  {
+    label: 'High to low',
+    direction: 'down',
+    type: 'price',
+  },
+];
+
 const MIN_PRICE = 0;
 const MAX_PRICE = 60;
-const SORT_DEFAULT = 'gameTitle';
-const SORT_DIR_DEFAUL = 'up';
 
 const calculateCardsNum = () => {
   const windowInnerWidth = window.innerWidth;
@@ -51,8 +72,7 @@ function CatalogPage() {
   const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
   const [catalogCurrPage, setCatalogCurrPage] = useState(1);
   const [cardsNum, setCardsNum] = useState(calculateCardsNum());
-  const [sortValue, setSortValue] = useState(SORT_DEFAULT);
-  const [sortDir, setSortDir] = useState(SORT_DIR_DEFAUL);
+  const [activeFilter, setActiveFilter] = useState(FILTERS[0]);
 
   const catalogProducts = useSelector(
     (state: RootState) => state.product.catalogProducts.products,
@@ -83,8 +103,8 @@ function CatalogPage() {
         fetchCatalogProducts({
           pageNumber: catalogCurrPage,
           pageLimit: cardsNum,
-          sortColumn: sortValue,
-          sortDirection: sortDir,
+          sortColumn: activeFilter.type,
+          sortDirection: activeFilter.direction,
           tags: selectedFilters.tags,
           themes: selectedFilters.themes,
           genres: selectedFilters.genres,
@@ -102,8 +122,8 @@ function CatalogPage() {
     selectedFilters.genres,
     cardsNum,
     catalogCurrPage,
-    sortValue,
-    sortDir,
+    activeFilter.type,
+    activeFilter.direction,
   ]);
 
   const setPrice = (value: [number, number]) => {
@@ -121,54 +141,46 @@ function CatalogPage() {
     setCatalogCurrPage(page);
   };
 
-  const items: MenuProps['items'] = [
-    {
-      label: 'Game title',
-      key: 'gameTitle',
-      icon: <MehOutlined />,
-    },
-    {
-      label: 'Price',
-      key: 'price',
-      icon: <EuroOutlined />,
-    },
-  ];
-
-  const onClickMenu: MenuProps['onClick'] = ({ key }) => {
-    setSortValue(key);
+  const handleFilterChange: MenuProps['onClick'] = ({ key }) => {
+    const [direction, type] = key.split('_');
+    const filter: Filter | undefined = FILTERS.find(
+      (sort) => sort.type === type && sort.direction === direction,
+    );
+    if (filter !== undefined) {
+      setActiveFilter(filter);
+    }
   };
 
-  const menuProps = {
-    items,
-    onClick: onClickMenu,
-  };
+  const dropdownMenuitems = FILTERS.map((filter) => ({
+    label: filter.label,
+    key: `${filter.direction}_${filter.type}`,
+  }));
 
-  const sortDirection = (checked: boolean) => {
-    setSortDir(checked ? 'down' : 'up');
-  };
+  const selectedItemKey = `${activeFilter.direction}_${activeFilter.type}`;
 
   return (
     <div className={styles.pageContainer}>
       <SearchMenu />
-      <h1>Catalog</h1>
+      <h1 className={styles.catalogTitle}>ALL GAMES</h1>
       <div className={styles.catalog}>
         <div className={styles.catalogMainContainer}>
           <div className={styles.filterComponent}>
-            <Dropdown menu={menuProps}>
-              <Button>
-                <Space>
-                  {`Sort by ${
-                    sortValue === 'gameTitle' ? 'Game Title' : 'Price'
-                  }`}
-                  <DownOutlined />
-                </Space>
-              </Button>
+            <Dropdown
+              menu={{
+                items: dropdownMenuitems,
+                defaultSelectedKeys: ['1'],
+                onClick: handleFilterChange,
+                selectable: true,
+                selectedKeys: [selectedItemKey],
+              }}
+              trigger={['click']}
+            >
+              <Space>
+                Sort by:
+                {activeFilter.label}
+                <DownOutlined />
+              </Space>
             </Dropdown>
-            <Switch
-              unCheckedChildren={<UpSquareOutlined />}
-              checkedChildren={<DownSquareOutlined />}
-              onChange={sortDirection}
-            />
           </div>
           <CatalogCards products={catalogProducts} />
           <Pagination

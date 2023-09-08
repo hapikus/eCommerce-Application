@@ -1,25 +1,29 @@
 .pageContainer {
-  width: 100%;
+  width: 80%;
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
+.catalogTitle {
+  text-align: start;
+  padding-left: 10px;
+}
+
 .catalog {
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: space-evenly;
-  align-content: flex-end;
+  justify-content: space-between;
 }
 
 .catalogMainContainer {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 80%;
   row-gap: 30px;
-  padding-left: 30px;
+  padding-left: 10px;
 }
 
 .filterComponent {
@@ -40,7 +44,7 @@
 .menuContainer {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 20%;
   row-gap: 30px;
 }
 
@@ -66,6 +70,14 @@
     grid-auto-rows: 200px;
     grid-auto-columns: 100px;
   }
+
+  .pageContainer {
+    width: 100%;
+  }
+
+  .catalogMainContainer {
+    padding-left: 10px;
+}
 }
 
 @media (max-width: 692px) {

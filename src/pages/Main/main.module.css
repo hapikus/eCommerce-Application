@@ -1,7 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 80%;
 }
 
 .mainCont {
@@ -48,4 +48,20 @@
   z-index: 1;
   margin-bottom: 40px;
   justify-content: center;
+}
+
+
+@media (max-width: 945px) {
+  .container {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 692px) {
+
+}
+
+@media (max-width: 472px) {
+
 }

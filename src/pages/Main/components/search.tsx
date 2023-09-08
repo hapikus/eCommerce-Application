@@ -66,11 +66,11 @@ function SearchMenu() {
           mode="horizontal"
           items={[
             {
-              label: 'Main',
+              label: 'STORE',
               key: '',
             },
             {
-              label: 'Catalog',
+              label: 'ALL GAMES',
               key: 'catalog',
             },
           ]}

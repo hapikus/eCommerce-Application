@@ -37,37 +37,37 @@ function DiscountCards(products: IProduct[]) {
     const headerSuffix = 'header.jpg';
     const header = `${baseURL}/${gameID}/${headerSuffix}`;
     return (
-      <Link to={`/product/${gameTitle}`} key={gameTitle}>
-        <div className={styles.discountCardContainer}>
-          <Card
-            hoverable
-            bodyStyle={{ background: 'transperant' }}
-            style={{ background: 'transperant', boxShadow: 'none' }}
-            bordered={false}
-            key={gameTitle}
-            className={styles.discountCard}
-            cover={(
+      <div className={styles.discountCardContainer} key={gameTitle}>
+        <Card
+          hoverable
+          bodyStyle={{ background: 'transperant' }}
+          style={{ background: 'transperant', boxShadow: 'none' }}
+          bordered={false}
+          key={gameTitle}
+          className={styles.discountCard}
+          cover={(
+            <Link to={`/product/${gameTitle}`} key={gameTitle}>
               <Image
                 preview={false}
                 src={header}
                 alt=""
                 style={{ objectFit: 'cover' }}
               />
-            )}
-          >
-            <div className={styles.discountPrice}>
-              <Tag color="green">
-                {`-${Number(
-                  Math.ceil((1 - (discountPrice || 0) / price) * 100),
-                )}%`}
-              </Tag>
-              <Button type="primary" className={styles.btnDisc}>
-                {getDescription(price, discountPrice)}
-              </Button>
-            </div>
-          </Card>
-        </div>
-      </Link>
+            </Link>
+          )}
+        >
+          <div className={styles.discountPrice}>
+            <Tag color="green">
+              {`-${Number(
+                Math.ceil((1 - (discountPrice || 0) / price) * 100),
+              )}%`}
+            </Tag>
+            <Button type="primary" onClick={(e) => e.stopPropagation()} className={styles.btnDisc} href="/super-store-s2/#/login">
+              {getDescription(price, discountPrice)}
+            </Button>
+          </div>
+        </Card>
+      </div>
     );
   });
 }

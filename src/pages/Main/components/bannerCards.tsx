@@ -29,6 +29,7 @@ function BannerCards(products: IProduct[]) {
       </div>
     );
   };
+
   return products.map((product: IProduct) => {
     const { gameTitle, price, headerImg, descriptionShort, discountPrice } =
       product;
@@ -60,7 +61,7 @@ function BannerCards(products: IProduct[]) {
           >
             <p>{descriptionShort}</p>
           </Card>
-          <Button type="primary" className={styles.btn}>
+          <Button type="primary" onClick={(e) => e.stopPropagation()} className={styles.btn} href="/super-store-s2/#/login">
             {getDescription(price, discountPrice)}
           </Button>
         </div>

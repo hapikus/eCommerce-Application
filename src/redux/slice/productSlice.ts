@@ -2,7 +2,13 @@ import { AxiosError } from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import ProductService from '../../models/Product/ProductService';
 
-import { ProductState, ICatalog, SetSelectedTag, IFilters, SetSelectedFilters } from '../../types/storeType';
+import {
+  ProductState,
+  ICatalog,
+  SetSelectedTag,
+  IFilters,
+  SetSelectedFilters,
+} from '../../types/storeType';
 import IProduct from '../../types/IProduct';
 import { CatalogOptionsType } from '../../types/types';
 
@@ -162,7 +168,6 @@ const productSlice = createSlice({
     ) => {
       state.selectedFilters = action.payload;
     },
-
   },
   extraReducers: (builder) => {
     builder
@@ -250,5 +255,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { resetProductData, setSelectedTag, setSelectedFilters } = productSlice.actions;
+export const { resetProductData, setSelectedTag, setSelectedFilters } =
+  productSlice.actions;
 export default productSlice.reducer;
