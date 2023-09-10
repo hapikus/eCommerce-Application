@@ -83,4 +83,8 @@ export default class UserService {
       createBody,
     );
   }
+
+  static async deleteAddress(id: string) {
+    return $api.delete(`/user/address/${id}`);
+  }
 }

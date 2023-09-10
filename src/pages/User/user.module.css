@@ -73,10 +73,15 @@
 
 .addressFormCard {
   width: 420px;
-  margin-bottom: 50px;
 }
 
 .addBtn {
   background-color: none;
   margin-top: 10px;
+}
+
+.NameContInput {
+  height: 40px;
+  width: 85%;
+  justify-content:flex-start ;
 }
