@@ -106,11 +106,12 @@ function CheckBoxCategory() {
     },
   ];
   return (
-    <div>
+    <div className={styles.checkboxContainer}>
       <Collapse
         defaultActiveKey={['genres', 'themes']}
         bordered={false}
         items={getFilters()}
+        className={styles.catalogMenuCheckBox}
       />
     </div>
   );

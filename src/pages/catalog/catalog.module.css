@@ -48,11 +48,13 @@
   flex-direction: column;
   width: 20%;
   row-gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.catalogMenuSlider {
+/* .catalogMenuSlider {
   max-width: 85%;
-}
+} */
 
 .catalogMenuCheckBox {
   display: flex;
@@ -60,8 +62,45 @@
   flex-direction: column;
 }
 
+.slider {
+  grid-area: title;
+  width: 98%;
+}
+
+.inputMin {
+  grid-area: left;
+}
+
+.inputMax {
+  grid-area: right;
+}
+
+.gridContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.catalogMenuSlider {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .menuCompTitle {
   text-align: start;
+}
+
+.priceTag {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 
@@ -127,9 +166,11 @@
     justify-content: center;
     row-gap: 20px;
     align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   .catalogMenuCheckBox {
-    width: 100%;
+    width: 75%;
     flex-direction: column;
     align-items: center;
   }
@@ -139,6 +180,10 @@
     width: 100%;
     row-gap: 10px;
   }
+
+  .catalogMenuSlider {
+    width: 75%;
+}
 
   .filterComponent {
     display: flex;

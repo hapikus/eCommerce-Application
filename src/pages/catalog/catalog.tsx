@@ -1,12 +1,22 @@
 import { useLayoutEffect, useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Slider, Pagination, PaginationProps, Dropdown, Space, InputNumber } from 'antd';
+import {
+  Slider,
+  Pagination,
+  PaginationProps,
+  Dropdown,
+  Space,
+  Tag,
+} from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import CatalogCards from './components/catalogCard';
-import { fetchCatalogProducts, setSelectedFilters } from '../../redux/slice/productSlice';
+import {
+  fetchCatalogProducts,
+  setSelectedFilters,
+} from '../../redux/slice/productSlice';
 
 import store, { RootState } from '../../redux/store';
 
@@ -111,12 +121,13 @@ function CatalogPage() {
           tags: selectedFilters.tags,
           themes: selectedFilters.themes,
           genres: selectedFilters.genres,
-          minPrice: MIN_PRICE,
-          maxPrice: MAX_PRICE,
+          minPrice,
+          maxPrice,
         }),
       );
     };
     fetchCatalog();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     selectedFilters.minPrice,
     selectedFilters.maxPrice,
@@ -127,25 +138,9 @@ function CatalogPage() {
     catalogCurrPage,
     activeFilter.type,
     activeFilter.direction,
+    selectedFilters.minPrice,
+    selectedFilters.maxPrice,
   ]);
-
-  const setMinValue = (value: number | null) => {
-    if (value) {
-      const minPriceSlider = value;
-      if (minPriceSlider !== minPrice) {
-        setMinPrice(minPriceSlider);
-      }
-    }
-  };
-
-  const setMaxValue = (value: number | null) => {
-    if (value) {
-      const maxPriceSlider = value;
-      if (maxPriceSlider !== maxPrice) {
-        setMaxPrice(maxPriceSlider);
-      }
-    }
-  };
 
   const setPrice = (value: [number, number]) => {
     const [minPriceSlider, maxPriceSlider] = value;
@@ -223,25 +218,17 @@ function CatalogPage() {
         </div>
         <div className={styles.menuContainer}>
           <div className={styles.catalogMenuSlider}>
-            <h3 className={styles.menuCompTitle}>Narrow by price</h3>
+            <h3 className={styles.menuCompTitle}>
+              Narrow by price €
+            </h3>
             <div className={styles.gridContainer}>
-              <div className={styles.inputMin}>
-                <InputNumber
-                  min={1}
-                  max={60}
-                  style={{ margin: '0 16px' }}
-                  value={minPrice}
-                  onChange={setMinValue}
-                />
-              </div>
-              <div className={styles.inputMax}>
-                <InputNumber
-                  min={1}
-                  max={60}
-                  style={{ margin: '0 16px' }}
-                  value={maxPrice}
-                  onChange={setMaxValue}
-                />
+              <div className={styles.priceTag}>
+                <Tag className={styles.inputMin}>
+                  {minPrice}
+                </Tag>
+                <Tag className={styles.inputMax}>
+                  {maxPrice}
+                </Tag>
               </div>
               <div className={styles.slider}>
                 <Slider
