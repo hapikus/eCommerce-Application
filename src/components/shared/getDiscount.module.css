@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: center;
   column-gap: 10px;
+  flex-wrap: wrap;
 }
 
 .catalogCardRegPrice {
@@ -16,5 +17,4 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  margin-right: 10px;
 }

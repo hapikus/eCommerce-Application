@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, Drawer, Menu, Avatar } from 'antd';
 import { MenuOutlined, MehOutlined } from '@ant-design/icons';
@@ -15,7 +15,6 @@ function MainMenu({
   isInLine: boolean;
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const navigate = useNavigate();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
   const currentPage = useSelector(
@@ -28,17 +27,12 @@ function MainMenu({
     setCurrentPageState(currentPage);
   }, [currentPage]);
 
-  const onMenuClick = (item: { key: string }) => {
+  const onMenuClick = () => {
     setOpenMenu(false);
-    return navigate(`/${item.key}`);
   };
 
   const logOut = async () => {
     await store.dispatch(logoutAsync());
-  };
-
-  const toUserPage = () => {
-    navigate('/user');
   };
 
   const renderLoginMenu = (currentPageProp: string) => (
@@ -48,30 +42,47 @@ function MainMenu({
       theme="light"
       mode={isInLine ? 'inline' : 'horizontal'}
       selectedKeys={[currentPageProp]}
-      items={[
-        {
-          label: 'SIGN IN',
-          key: 'login',
-        },
-        {
-          label: 'SIGN UP',
-          key: 'signup',
-        },
-      ]}
-    />
+    >
+      <NavLink
+        to="login"
+        style={({ isActive }) => ({
+          color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
+        })}
+      >
+        <Menu.Item key="/">
+          <span>LOG IN</span>
+        </Menu.Item>
+      </NavLink>
+      <NavLink
+        to="signup"
+        style={({ isActive }) => ({
+          color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
+        })}
+      >
+        <Menu.Item key="/">
+          <span>SIGN UP</span>
+        </Menu.Item>
+      </NavLink>
+    </Menu>
   );
 
   const renderAuthMenu = () => (
     <>
       <Button onClick={logOut}>Logout</Button>
-      <Avatar
-        style={{ backgroundColor: '#28784D' }}
-        className={styles.avatarPointer}
-        size="large"
-        onClick={toUserPage}
+      <NavLink
+        to="user"
+        style={({ isActive }) => ({
+          color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
+        })}
       >
-        {userInfo[0]}
-      </Avatar>
+        <Avatar
+          style={{ backgroundColor: '#28784D' }}
+          className={styles.avatarPointer}
+          size="large"
+        >
+          {userInfo[0]}
+        </Avatar>
+      </NavLink>
     </>
   );
 

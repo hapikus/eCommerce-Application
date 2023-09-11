@@ -1,7 +1,8 @@
-import { Card, Tag, Spin, Image } from 'antd';
+import { Card, Tag, Spin, Image, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import { ShoppingCartOutlined } from '@ant-design/icons';
 import getDisccount from '../../../components/shared/getDiscount';
 import { RootState } from '../../../redux/store';
 
@@ -57,7 +58,12 @@ function CatalogCards(props: { products: IProduct[] }) {
                   <p className={styles.titleCard}>{gameTitle}</p>
                   <p className={styles.descCard}>{descriptionShort}</p>
                   <div className={styles.catalogCardDesc}>
-                    <Tag>{getDisccount(price, discountPrice)}</Tag>
+                    <Tag style={{ padding: '5px 15px' }}>{getDisccount(price, discountPrice)}</Tag>
+                    <Button
+                      type="primary"
+                    >
+                      <ShoppingCartOutlined />
+                    </Button>
                   </div>
                 </Card>
               </div>
