@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, Drawer, Menu, Avatar } from 'antd';
 import { MenuOutlined, MehOutlined } from '@ant-design/icons';
@@ -85,25 +85,48 @@ function MainMenu({
           disabledOverflow
           mode={isInLine ? 'inline' : 'horizontal'}
           selectedKeys={[currentPageState]}
-          items={[
-            {
-              label: 'STORE',
-              key: '',
-            },
-            {
-              label: 'ALL GAMES',
-              key: 'catalog',
-            },
-            {
-              label: 'INFORMATION',
-              key: 'info',
-            },
-            {
-              label: 'SUPPORT',
-              key: 'support',
-            },
-          ]}
-        />
+        >
+          <NavLink
+            to="/"
+            style={({ isActive }) => ({
+              color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
+            })}
+          >
+            <Menu.Item key="/">
+              <span>STORE</span>
+            </Menu.Item>
+          </NavLink>
+          <NavLink
+            to="catalog"
+            style={({ isActive }) => ({
+              color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
+            })}
+          >
+            <Menu.Item key="catalog">
+              <span>ALL GAMES</span>
+            </Menu.Item>
+          </NavLink>
+          <NavLink
+            to="info"
+            style={({ isActive }) => ({
+              color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
+            })}
+          >
+            <Menu.Item key="info">
+              <span>INFORMATION</span>
+            </Menu.Item>
+          </NavLink>
+          <NavLink
+            to="support"
+            style={({ isActive }) => ({
+              color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
+            })}
+          >
+            <Menu.Item key="support">
+              <span>SUPPORT</span>
+            </Menu.Item>
+          </NavLink>
+        </Menu>
       </div>
       <div className={styles.menu_reg}>
         {isAuthState ? renderAuthMenu() : renderLoginMenu(currentPageState)}

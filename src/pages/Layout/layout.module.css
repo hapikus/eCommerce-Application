@@ -38,3 +38,14 @@
   background-color: var(--bg-color-main);
   z-index: 999;
 }
+
+.andLink {
+  color: red !important;
+  position: relative;  
+}
+
+.andLink:hover {
+  color: red !important;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dfdfdf
+}

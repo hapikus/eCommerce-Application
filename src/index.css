@@ -15,3 +15,14 @@ body {
 p {
   margin: 0;
 }
+
+.andLink {
+  color: red !important;
+  box-sizing: border-box;
+}
+
+.andLink:hover {
+  color: red !important;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dfdfdf
+}
