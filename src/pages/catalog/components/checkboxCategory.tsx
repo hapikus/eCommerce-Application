@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Checkbox, Divider, Collapse } from 'antd';
+import { Checkbox, Collapse } from 'antd';
 import type { CollapseProps } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
 
@@ -71,41 +71,47 @@ function CheckBoxCategory() {
     {
       key: 'genres',
       label: 'Genres',
-      children: (<Checkbox.Group
-        options={optionsAvaGenres}
-        onChange={setFilters('genres')}
-        value={selectedFilters.genres}
-        className={styles.checkBoxGroup}
-      />),
+      children: (
+        <Checkbox.Group
+          options={optionsAvaGenres}
+          onChange={setFilters('genres')}
+          value={selectedFilters.genres}
+          className={styles.checkBoxGroup}
+        />
+      ),
     },
     {
       key: 'themes',
       label: 'Themes',
-      children: (<Checkbox.Group
-        options={optionsAvaThemes}
-        onChange={setFilters('themes')}
-        value={selectedFilters.themes}
-        className={styles.checkBoxGroup}
-      />),
+      children: (
+        <Checkbox.Group
+          options={optionsAvaThemes}
+          onChange={setFilters('themes')}
+          value={selectedFilters.themes}
+          className={styles.checkBoxGroup}
+        />
+      ),
     },
     {
       key: 'tags',
       label: 'Tags',
-      children: (<Checkbox.Group
-        options={optionsAvaTags}
-        onChange={setFilters('tags')}
-        value={selectedFilters.tags}
-        className={styles.checkBoxGroup}
-      />),
+      children: (
+        <Checkbox.Group
+          options={optionsAvaTags}
+          onChange={setFilters('tags')}
+          value={selectedFilters.tags}
+          className={styles.checkBoxGroup}
+        />
+      ),
     },
   ];
   return (
-    <div>
-      <Divider>Genres</Divider>
+    <div className={styles.checkboxContainer}>
       <Collapse
         defaultActiveKey={['genres', 'themes']}
         bordered={false}
         items={getFilters()}
+        className={styles.catalogMenuCheckBox}
       />
     </div>
   );

@@ -14,7 +14,6 @@ const { Search } = Input;
 function SearchMenu() {
   const navigate = useNavigate();
   const onMenuClick = (item: { key: string }) => navigate(`/${item.key}`);
-  // const [searchProd, setSearchProd] = useState('');
   const [isFocus, setIsFocus] = useState(false);
   const [isBlur, setIsBlur] = useState(false);
   const [searchText, setSearchText] = useState('');
@@ -66,11 +65,11 @@ function SearchMenu() {
           mode="horizontal"
           items={[
             {
-              label: 'Main',
+              label: 'STORE',
               key: '',
             },
             {
-              label: 'Catalog',
+              label: 'ALL GAMES',
               key: 'catalog',
             },
           ]}

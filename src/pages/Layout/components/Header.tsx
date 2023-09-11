@@ -50,11 +50,11 @@ function MainMenu({
       selectedKeys={[currentPageProp]}
       items={[
         {
-          label: 'Sign in',
+          label: 'SIGN IN',
           key: 'login',
         },
         {
-          label: 'Sign up',
+          label: 'SIGN UP',
           key: 'signup',
         },
       ]}
@@ -82,24 +82,25 @@ function MainMenu({
           className={isInLine ? styles.menu_items_line : styles.menu_items}
           onClick={onMenuClick}
           theme="light"
+          disabledOverflow
           mode={isInLine ? 'inline' : 'horizontal'}
           selectedKeys={[currentPageState]}
           items={[
             {
-              label: 'Store',
+              label: 'STORE',
               key: '',
             },
             {
-              label: 'Information',
+              label: 'ALL GAMES',
+              key: 'catalog',
+            },
+            {
+              label: 'INFORMATION',
               key: 'info',
             },
             {
-              label: 'Support',
+              label: 'SUPPORT',
               key: 'support',
-            },
-            {
-              label: 'Catalog',
-              key: 'catalog',
             },
           ]}
         />

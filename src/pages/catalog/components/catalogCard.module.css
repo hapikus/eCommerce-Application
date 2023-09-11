@@ -26,11 +26,17 @@
   box-shadow: none;
   transition: 0.5s;
   border: 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .catalogCard:hover {
   background-color: var(--bg-color-main);
   transition: 0.5s;
+}
+
+.catalogCardImg {
+  padding: 1px;
 }
 
 .descCard {

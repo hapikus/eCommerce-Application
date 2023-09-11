@@ -1,4 +1,4 @@
-import { Card, Tag, Spin } from 'antd';
+import { Card, Tag, Spin, Image } from 'antd';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -45,7 +45,14 @@ function CatalogCards(props: { products: IProduct[] }) {
                   hoverable
                   bodyStyle={{ padding: '9px' }}
                   className={styles.catalogCard}
-                  cover={<img alt={gameTitle} src={header} />}
+                  cover={(
+                    <Image
+                      preview={false}
+                      src={header}
+                      className={styles.catalogCardImg}
+                      style={{ objectFit: 'cover' }}
+                    />
+                  )}
                 >
                   <p className={styles.titleCard}>{gameTitle}</p>
                   <p className={styles.descCard}>{descriptionShort}</p>

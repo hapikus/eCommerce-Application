@@ -1,25 +1,22 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useLayoutEffect, useState, useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Slider,
   Pagination,
   PaginationProps,
   Dropdown,
-  Button,
   Space,
-  Switch,
+  Tag,
 } from 'antd';
-import {
-  DownOutlined,
-  EuroOutlined,
-  MehOutlined,
-  UpSquareOutlined,
-  DownSquareOutlined,
-} from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import CatalogCards from './components/catalogCard';
-import { fetchCatalogProducts } from '../../redux/slice/productSlice';
+import {
+  fetchCatalogProducts,
+  setSelectedFilters,
+} from '../../redux/slice/productSlice';
 
 import store, { RootState } from '../../redux/store';
 
@@ -27,11 +24,39 @@ import CheckBoxCategory from './components/checkboxCategory';
 
 import styles from './catalog.module.css';
 import SearchMenu from '../Main/components/search';
+import { IFilters } from '../../types/storeType';
+
+type Filter = {
+  label: string;
+  direction: string;
+  type: string;
+};
+
+const FILTERS: Filter[] = [
+  {
+    label: 'Alphabetical',
+    direction: 'up',
+    type: 'gameTitle',
+  },
+  {
+    label: 'Alphabetical reverse',
+    direction: 'down',
+    type: 'gameTitle',
+  },
+  {
+    label: 'Low to high',
+    direction: 'up',
+    type: 'price',
+  },
+  {
+    label: 'High to low',
+    direction: 'down',
+    type: 'price',
+  },
+];
 
 const MIN_PRICE = 0;
 const MAX_PRICE = 60;
-const SORT_DEFAULT = 'gameTitle';
-const SORT_DIR_DEFAUL = 'up';
 
 const calculateCardsNum = () => {
   const windowInnerWidth = window.innerWidth;
@@ -47,12 +72,20 @@ const calculateCardsNum = () => {
 };
 
 function CatalogPage() {
+  const dispatch = useDispatch();
   const [minPrice, setMinPrice] = useState(MIN_PRICE);
   const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
   const [catalogCurrPage, setCatalogCurrPage] = useState(1);
   const [cardsNum, setCardsNum] = useState(calculateCardsNum());
-  const [sortValue, setSortValue] = useState(SORT_DEFAULT);
-  const [sortDir, setSortDir] = useState(SORT_DIR_DEFAUL);
+  const [activeFilter, setActiveFilter] = useState(FILTERS[0]);
+
+  const memoizedDispatch = useCallback(() => {
+    dispatch(setCurrentPage('catalog'));
+  }, [dispatch]);
+
+  useLayoutEffect(() => {
+    memoizedDispatch();
+  }, [memoizedDispatch]);
 
   const catalogProducts = useSelector(
     (state: RootState) => state.product.catalogProducts.products,
@@ -83,8 +116,8 @@ function CatalogPage() {
         fetchCatalogProducts({
           pageNumber: catalogCurrPage,
           pageLimit: cardsNum,
-          sortColumn: sortValue,
-          sortDirection: sortDir,
+          sortColumn: activeFilter.type,
+          sortDirection: activeFilter.direction,
           tags: selectedFilters.tags,
           themes: selectedFilters.themes,
           genres: selectedFilters.genres,
@@ -94,16 +127,19 @@ function CatalogPage() {
       );
     };
     fetchCatalog();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
-    minPrice,
-    maxPrice,
+    selectedFilters.minPrice,
+    selectedFilters.maxPrice,
     selectedFilters.tags,
     selectedFilters.themes,
     selectedFilters.genres,
     cardsNum,
     catalogCurrPage,
-    sortValue,
-    sortDir,
+    activeFilter.type,
+    activeFilter.direction,
+    selectedFilters.minPrice,
+    selectedFilters.maxPrice,
   ]);
 
   const setPrice = (value: [number, number]) => {
@@ -117,58 +153,60 @@ function CatalogPage() {
     setCatalogCurrPage(1);
   };
 
+  const setFilters = () => (value: [number, number]) => {
+    const [filterMax, filterMin] = value;
+    const newFilters: IFilters = {
+      ...selectedFilters,
+      minPrice: filterMin,
+      maxPrice: filterMax,
+    };
+    dispatch(setSelectedFilters(newFilters));
+  };
+
   const paginationOnChange: PaginationProps['onChange'] = (page: number) => {
     setCatalogCurrPage(page);
   };
 
-  const items: MenuProps['items'] = [
-    {
-      label: 'Game title',
-      key: 'gameTitle',
-      icon: <MehOutlined />,
-    },
-    {
-      label: 'Price',
-      key: 'price',
-      icon: <EuroOutlined />,
-    },
-  ];
-
-  const onClickMenu: MenuProps['onClick'] = ({ key }) => {
-    setSortValue(key);
+  const handleFilterChange: MenuProps['onClick'] = ({ key }) => {
+    const [direction, type] = key.split('_');
+    const filter: Filter | undefined = FILTERS.find(
+      (sort) => sort.type === type && sort.direction === direction,
+    );
+    if (filter !== undefined) {
+      setActiveFilter(filter);
+    }
   };
 
-  const menuProps = {
-    items,
-    onClick: onClickMenu,
-  };
+  const dropdownMenuitems = FILTERS.map((filter) => ({
+    label: filter.label,
+    key: `${filter.direction}_${filter.type}`,
+  }));
 
-  const sortDirection = (checked: boolean) => {
-    setSortDir(checked ? 'down' : 'up');
-  };
+  const selectedItemKey = `${activeFilter.direction}_${activeFilter.type}`;
 
   return (
     <div className={styles.pageContainer}>
       <SearchMenu />
-      <h1>Catalog</h1>
+      <h1 className={styles.catalogTitle}>ALL GAMES</h1>
       <div className={styles.catalog}>
         <div className={styles.catalogMainContainer}>
           <div className={styles.filterComponent}>
-            <Dropdown menu={menuProps}>
-              <Button>
-                <Space>
-                  {`Sort by ${
-                    sortValue === 'gameTitle' ? 'Game Title' : 'Price'
-                  }`}
-                  <DownOutlined />
-                </Space>
-              </Button>
+            <Dropdown
+              menu={{
+                items: dropdownMenuitems,
+                defaultSelectedKeys: ['1'],
+                onClick: handleFilterChange,
+                selectable: true,
+                selectedKeys: [selectedItemKey],
+              }}
+              trigger={['click']}
+            >
+              <Space>
+                Sort by:
+                {activeFilter.label}
+                <DownOutlined />
+              </Space>
             </Dropdown>
-            <Switch
-              unCheckedChildren={<UpSquareOutlined />}
-              checkedChildren={<DownSquareOutlined />}
-              onChange={sortDirection}
-            />
           </div>
           <CatalogCards products={catalogProducts} />
           <Pagination
@@ -180,16 +218,31 @@ function CatalogPage() {
         </div>
         <div className={styles.menuContainer}>
           <div className={styles.catalogMenuSlider}>
-            <h3 className={styles.menuCompTitle}>Narrow by price</h3>
-            <Slider
-              range
-              step={1}
-              defaultValue={[minPrice, maxPrice]}
-              min={MIN_PRICE}
-              max={MAX_PRICE}
-              onAfterChange={setPrice}
-              tooltip={{ open: true, placement: 'bottom' }}
-            />
+            <h3 className={styles.menuCompTitle}>
+              Narrow by price €
+            </h3>
+            <div className={styles.gridContainer}>
+              <div className={styles.priceTag}>
+                <Tag className={styles.inputMin}>
+                  {minPrice}
+                </Tag>
+                <Tag className={styles.inputMax}>
+                  {maxPrice}
+                </Tag>
+              </div>
+              <div className={styles.slider}>
+                <Slider
+                  range
+                  step={1}
+                  defaultValue={[minPrice, maxPrice]}
+                  min={MIN_PRICE}
+                  max={MAX_PRICE}
+                  onChange={setPrice}
+                  value={[maxPrice, minPrice]}
+                  onAfterChange={setFilters()}
+                />
+              </div>
+            </div>
           </div>
           <div className={styles.catalogMenuCheckBox}>
             <h3 className={styles.menuCompTitle}>Narrow by tag</h3>

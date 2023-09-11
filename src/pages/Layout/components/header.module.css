@@ -18,7 +18,6 @@
   display: flex;
   width: auto;
   justify-content: space-around;
-  min-width: 260px;
 }
 
 .menu_reg {
