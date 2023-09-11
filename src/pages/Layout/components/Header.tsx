@@ -37,6 +37,10 @@ function MainMenu({
     await store.dispatch(logoutAsync());
   };
 
+  const toUserPage = () => {
+    navigate('/user');
+  };
+
   const renderLoginMenu = (currentPageProp: string) => (
     <Menu
       className={isInLine ? styles.menu_items_line : styles.menu_items}
@@ -46,11 +50,11 @@ function MainMenu({
       selectedKeys={[currentPageProp]}
       items={[
         {
-          label: 'Sign in',
+          label: 'SIGN IN',
           key: 'login',
         },
         {
-          label: 'Sign up',
+          label: 'SIGN UP',
           key: 'signup',
         },
       ]}
@@ -60,7 +64,14 @@ function MainMenu({
   const renderAuthMenu = () => (
     <>
       <Button onClick={logOut}>Logout</Button>
-      <Avatar size="large">{userInfo[0]}</Avatar>
+      <Avatar
+        style={{ backgroundColor: '#28784D' }}
+        className={styles.avatarPointer}
+        size="large"
+        onClick={toUserPage}
+      >
+        {userInfo[0]}
+      </Avatar>
     </>
   );
 
@@ -71,19 +82,24 @@ function MainMenu({
           className={isInLine ? styles.menu_items_line : styles.menu_items}
           onClick={onMenuClick}
           theme="light"
+          disabledOverflow
           mode={isInLine ? 'inline' : 'horizontal'}
           selectedKeys={[currentPageState]}
           items={[
             {
-              label: 'Store',
+              label: 'STORE',
               key: '',
             },
             {
-              label: 'Information',
+              label: 'ALL GAMES',
+              key: 'catalog',
+            },
+            {
+              label: 'INFORMATION',
               key: 'info',
             },
             {
-              label: 'Support',
+              label: 'SUPPORT',
               key: 'support',
             },
           ]}

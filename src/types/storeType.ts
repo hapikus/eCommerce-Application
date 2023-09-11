@@ -1,4 +1,5 @@
 import { IUserDto } from './IUser';
+import IProduct from './IProduct';
 
 interface AuthState {
   isFirstLoad: boolean;
@@ -34,6 +35,89 @@ interface ICurrentPage {
 
 type ThemeType = { [key: string]: string };
 
+interface ProductState {
+  productData: IProduct;
+  randomProductsData: IProduct[];
+  isAllCategoryData: string[];
+  randDiscProductsData: IProduct[];
+  catalogProducts: ICatalog;
+  selectedTag: CheckBoxType[];
+  searchProducts: IProduct[];
+  availableFilters: IFilters;
+  selectedFilters: IFilters;
+  isLoading: boolean;
+  isLoadingRandom: boolean;
+  isAllCategoryLoading: boolean;
+  isLoadingDiscRandom: boolean;
+  isLoadingCatalogProducts: boolean;
+  isLoadingSearchProducts: boolean;
+  errorProduct: null | string;
+  errorRandomProducts: null | string;
+  errorAllCategory: null | string;
+  errorRandDiscProducts: null | string;
+  errorCatalogProducts: null | string;
+  errorSearchProducts: null | string;
+}
+
+interface IFilters {
+  themes: string[];
+  genres: string[];
+  tags: string[];
+  minPrice: number;
+  maxPrice: number;
+}
+
+interface ICatalog {
+  products: IProduct[];
+  filters: IFilters;
+  totalProducts: number;
+}
+
+type CheckBoxType = string | number | boolean;
+
+interface SetSelectedTag {
+  type: string[];
+  payload: CheckBoxType[];
+}
+
+interface SetSelectedFilters {
+  type: IFilters;
+  payload: IFilters;
+}
+
+interface UserState {
+  isFirstLoad: boolean;
+  userFull: IUserFull;
+  isLoading: boolean;
+  fullUserError: null | string;
+
+  currentUserMenu: string;
+}
+
+interface IUserFull {
+  _id: string;
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  isActivated: boolean;
+  billingAddress: string[];
+  shippingAddress: string[];
+  orders: string[];
+  activationLink: string;
+  birthday: string;
+}
+
+interface IsFirstLoadUser {
+  type: boolean;
+  payload: boolean;
+}
+
+interface CurrentUserMenu {
+  type: string;
+  payload: string;
+}
+
 export type {
   AuthState,
   ThemeState,
@@ -41,4 +125,14 @@ export type {
   ThemeType,
   IsFirstLoadInt,
   ICurrentPage,
+  ProductState,
+  UserState,
+  IUserFull,
+  IsFirstLoadUser,
+  CurrentUserMenu,
+  ICatalog,
+  CheckBoxType,
+  SetSelectedTag,
+  IFilters,
+  SetSelectedFilters,
 };

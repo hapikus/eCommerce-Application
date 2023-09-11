@@ -18,7 +18,6 @@
   display: flex;
   width: auto;
   justify-content: space-around;
-  min-width: 260px;
 }
 
 .menu_reg {
@@ -52,7 +51,6 @@
   border-bottom: none;
 }
 
-
 .burgerMenu {
   display: flex;
   justify-content: center;
@@ -67,6 +65,10 @@
   width: 36px;
   height: 31px;
   font-size: 30px;
+}
+
+.avatarPointer {
+  cursor: pointer;
 }
 
 @media (max-width: 710px) {
@@ -91,18 +93,18 @@
     right: 0;
     text-align: center;
     z-index: 20;
-    box-shadow: 0 0 7px 0 rgba( 0, 0, 0, 0.75 );
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75);
     overflow: hidden;
     padding: 19px 8px;
     background-color: var(--bg-color-main);
-}
+  }
 }
 
-@media (min-width: 710px) {
+@media (min-width: 692px) {
   .burgerMenu {
     display: none;
   }
-  .headerMenu{
+  .headerMenu {
     display: flex;
   }
 }

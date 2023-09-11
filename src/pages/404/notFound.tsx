@@ -1,14 +1,20 @@
 import { useEffect, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import MarkupSVGTaro from './components/card';
 import { setCurrentPage } from '../../redux/slice/themeSlice';
+import { resetProductData } from '../../redux/slice/productSlice';
+
+import { RootState } from '../../redux/store';
 
 import styles from './notFound.module.css';
 
 function NotFound() {
   const dispatch = useDispatch();
+  const productErrorState = useSelector(
+    (state: RootState) => state.product.errorProduct,
+  );
 
   const memoizedDispatch = useCallback(() => {
     dispatch(setCurrentPage('not found'));
@@ -17,6 +23,10 @@ function NotFound() {
   useEffect(() => {
     memoizedDispatch();
   }, [memoizedDispatch]);
+
+  if (productErrorState) {
+    dispatch(resetProductData());
+  }
 
   return (
     <div className={styles.notFoundPage}>

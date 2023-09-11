@@ -1,0 +1,194 @@
+.pageContainer {
+  width: 80%;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  max-width: 1800px;
+  margin-top: 20px;
+}
+
+.catalogTitle {
+  text-align: start;
+  padding-left: 10px;
+}
+
+.catalog {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.catalogMainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  row-gap: 30px;
+  padding-left: 10px;
+}
+
+.filterComponent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.catalogGridCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  justify-items: start;
+  row-gap: 10px;
+}
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  row-gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* .catalogMenuSlider {
+  max-width: 85%;
+} */
+
+.catalogMenuCheckBox {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.slider {
+  grid-area: title;
+  width: 98%;
+}
+
+.inputMin {
+  grid-area: left;
+}
+
+.inputMax {
+  grid-area: right;
+}
+
+.gridContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.catalogMenuSlider {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.menuCompTitle {
+  text-align: start;
+}
+
+.priceTag {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+@media (max-width: 913px) {
+  .catalogGridCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-columns: 100px;
+  }
+
+  .pageContainer {
+    width: 100%;
+  }
+
+  .catalogMainContainer {
+    padding-left: 10px;
+}
+}
+
+@media (max-width: 692px) {
+  .catalog {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .catalogMainContainer {
+    width: 70%;
+  }
+
+  .menuContainer {
+    width: 40%;
+  }
+
+  .catalogGridCards {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-auto-rows: 200px;
+  }
+
+  .filterComponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 472px) {
+  .catalogGridCards {
+    display: flex;
+    flex-direction: column;
+  }
+  .catalog {
+    display: flex;
+    flex-direction: column;
+    column-gap: 40px;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .menuContainer {
+    width: 100%;
+    justify-content: center;
+    row-gap: 20px;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .catalogMenuCheckBox {
+    width: 75%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .catalogMainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 10px;
+  }
+
+  .catalogMenuSlider {
+    width: 75%;
+}
+
+  .filterComponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}

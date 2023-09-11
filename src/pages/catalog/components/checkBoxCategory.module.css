@@ -1,0 +1,13 @@
+.checkBoxGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.checkboxContainer {
+  width: 100%;
+}
+
+.checkboxCollapse {
+  width: 100%;
+}
