@@ -45,14 +45,14 @@ function CatalogCards(props: { products: IProduct[] }) {
                   hoverable
                   bodyStyle={{ padding: '9px' }}
                   className={styles.catalogCard}
-                  cover={(
+                  cover={
                     <Image
                       preview={false}
                       src={header}
                       className={styles.catalogCardImg}
                       style={{ objectFit: 'cover' }}
                     />
-                  )}
+                  }
                 >
                   <p className={styles.titleCard}>{gameTitle}</p>
                   <p className={styles.descCard}>{descriptionShort}</p>

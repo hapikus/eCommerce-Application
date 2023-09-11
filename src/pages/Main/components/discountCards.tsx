@@ -45,7 +45,7 @@ function DiscountCards(products: IProduct[]) {
           bordered={false}
           key={gameTitle}
           className={styles.discountCard}
-          cover={(
+          cover={
             <Link to={`/product/${gameTitle}`} key={gameTitle}>
               <Image
                 preview={false}
@@ -54,7 +54,7 @@ function DiscountCards(products: IProduct[]) {
                 style={{ objectFit: 'cover' }}
               />
             </Link>
-          )}
+          }
         >
           <div className={styles.discountPrice}>
             <Tag color="green">

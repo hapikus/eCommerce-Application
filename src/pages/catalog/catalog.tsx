@@ -127,7 +127,7 @@ function CatalogPage() {
       );
     };
     fetchCatalog();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     selectedFilters.minPrice,
     selectedFilters.maxPrice,
@@ -218,17 +218,11 @@ function CatalogPage() {
         </div>
         <div className={styles.menuContainer}>
           <div className={styles.catalogMenuSlider}>
-            <h3 className={styles.menuCompTitle}>
-              Narrow by price €
-            </h3>
+            <h3 className={styles.menuCompTitle}>Narrow by price €</h3>
             <div className={styles.gridContainer}>
               <div className={styles.priceTag}>
-                <Tag className={styles.inputMin}>
-                  {minPrice}
-                </Tag>
-                <Tag className={styles.inputMax}>
-                  {maxPrice}
-                </Tag>
+                <Tag className={styles.inputMin}>{minPrice}</Tag>
+                <Tag className={styles.inputMax}>{maxPrice}</Tag>
               </div>
               <div className={styles.slider}>
                 <Slider
