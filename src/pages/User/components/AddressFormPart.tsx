@@ -4,6 +4,7 @@ import styles from '../user.module.css';
 interface Props {
   prefix: string;
   type: string;
+  isDisabled: boolean;
 }
 
 const { Option } = Select;
@@ -18,15 +19,15 @@ const countries = [
   { value: 'Uzbekistan', label: 'Uzbekistan' },
 ];
 
-function AddressFormPart({ prefix, type }: Props) {
+function AddressFormPart({ prefix, type, isDisabled }: Props) {
   return (
     <div className={styles.userPersCont}>
       <div className={styles.userPersFormCont}>
         <div
           style={{
-            border: '1px dashed #dfdfdf',
+            // border: '1px dashed #dfdfdf',
             padding: '5px',
-            background: type === 'new' ? '#dfdfdf' : '',
+            // background: type === 'new' ? '#dfdfdf' : '',
           }}
           className={styles.addressFormCard}
         >
@@ -36,7 +37,7 @@ function AddressFormPart({ prefix, type }: Props) {
           <Form.Item
             className={styles.personalDataFormNameCont}
             name={[prefix, 'country']}
-            label="country"
+            label="Country"
             rules={[
               {
                 required: true,
@@ -44,40 +45,45 @@ function AddressFormPart({ prefix, type }: Props) {
               },
             ]}
           >
-            <Select
-              size="large"
-              placeholder="Select your country"
-              optionFilterProp="children"
-              // filterOption={(input: string, option: { children: string; }) => {
-              //   if (
-              //     option &&
-              //               option.children &&
-              //               option.children instanceof String
-              //   ) {
-              //     return (
-              //       option.children
-              //         .toLowerCase()
-              //         .indexOf(input.toLowerCase()) >= 0
-              //     );
-              //   }
-              //   return false;
-              // }}
-              // disabled={!isEditMode}
-            >
-              {countries.map((country) => (
-                <Option
-                  key={country.value}
-                  value={country.value}
-                  className={styles.personalDataFormNameContInput}
-                >
-                  {country.label}
-                </Option>
-              ))}
-            </Select>
+            {type !== 'new' ? (
+              <Select
+                size="large"
+                placeholder="Select your country"
+                optionFilterProp="children"
+                disabled={isDisabled}
+              >
+                {countries.map((country) => (
+                  <Option
+                    key={country.value}
+                    value={country.value}
+                    className={styles.NameContInput}
+                  >
+                    {country.label}
+                  </Option>
+                ))}
+              </Select>
+            ) : (
+              <Select
+                size="large"
+                placeholder="Select your country"
+                optionFilterProp="children"
+              >
+                {countries.map((country) => (
+                  <Option
+                    key={country.value}
+                    value={country.value}
+                    className={styles.NameContInput}
+                  >
+                    {country.label}
+                  </Option>
+                ))}
+              </Select>
+            )}
+
           </Form.Item>
           <Form.Item
             name={[prefix, 'city']}
-            label="city"
+            label="City"
             className={styles.personalDataFormNameCont}
             rules={[
               {
@@ -90,16 +96,28 @@ function AddressFormPart({ prefix, type }: Props) {
               },
             ]}
           >
-            <Input
-              className={styles.personalDataFormNameContInput}
-              style={{
-                width: '60%',
-              }}
-            />
+            {type !== 'new' ? (
+              <Input
+                style={{
+                  width: '94%',
+                  height: '40px',
+                  marginLeft: '20px',
+                }}
+                disabled={isDisabled}
+              />
+            ) : (
+              <Input
+                style={{
+                  width: '94%',
+                  height: '40px',
+                  marginLeft: '20px',
+                }}
+              />
+            )}
           </Form.Item>
           <Form.Item
             name={[prefix, 'street']}
-            label="street"
+            label="Street"
             className={styles.personalDataFormNameCont}
             rules={[
               {
@@ -112,16 +130,28 @@ function AddressFormPart({ prefix, type }: Props) {
               },
             ]}
           >
-            <Input
-              className={styles.personalDataFormNameContInput}
-              style={{
-                width: '60%',
-              }}
-            />
+            {type !== 'new' ? (
+              <Input
+                disabled={isDisabled}
+                style={{
+                  width: '97%',
+                  height: '40px',
+                  marginLeft: '5px',
+                }}
+              />
+            ) : (
+              <Input
+                style={{
+                  width: '97%',
+                  height: '40px',
+                  marginLeft: '5px',
+                }}
+              />
+            )}
           </Form.Item>
           <Form.Item
             name={[prefix, 'postalCode']}
-            label="postal"
+            label="Postal Code"
             className={styles.personalDataFormNameCont}
             rules={[
               {
@@ -134,12 +164,22 @@ function AddressFormPart({ prefix, type }: Props) {
               },
             ]}
           >
-            <Input
-              className={styles.personalDataFormNameContInput}
-              style={{
-                width: '60%',
-              }}
-            />
+            {type !== 'new' ? (
+              <Input
+                disabled={isDisabled}
+                style={{
+                  width: '97%',
+                  height: '40px',
+                }}
+              />
+            ) : (
+              <Input
+                style={{
+                  width: '97%',
+                  height: '40px',
+                }}
+              />
+            )}
           </Form.Item>
         </div>
       </div>
