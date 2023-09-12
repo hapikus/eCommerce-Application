@@ -4,6 +4,7 @@
   width: 100%;
   justify-items: start;
   row-gap: 10px;
+  column-gap: 10px;
 }
 
 .cardLinkContainer {
@@ -14,7 +15,6 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  padding-right: 30px;
 }
 
 .catalogCard {
@@ -53,6 +53,14 @@
   width: 100%;
   text-align: start;
   padding-left: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;    width: 100%;
+  text-align: start;
+  padding-left: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .catalogCardDesc {

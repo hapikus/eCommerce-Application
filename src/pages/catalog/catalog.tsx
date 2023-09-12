@@ -184,62 +184,64 @@ function CatalogPage() {
   const selectedItemKey = `${activeFilter.direction}_${activeFilter.type}`;
 
   return (
-    <div className={styles.pageContainer}>
+    <div className={styles.mainCont}>
       <SearchMenu />
-      <h1 className={styles.catalogTitle}>ALL GAMES</h1>
-      <div className={styles.catalog}>
-        <div className={styles.catalogMainContainer}>
-          <div className={styles.filterComponent}>
-            <Dropdown
-              menu={{
-                items: dropdownMenuitems,
-                defaultSelectedKeys: ['1'],
-                onClick: handleFilterChange,
-                selectable: true,
-                selectedKeys: [selectedItemKey],
-              }}
-              trigger={['click']}
-            >
-              <Space>
-                Sort by:
-                {activeFilter.label}
-                <DownOutlined />
-              </Space>
-            </Dropdown>
+      <div className={styles.headerBlockCont}>
+        <h1 className={styles.catalogTitle}>ALL GAMES</h1>
+        <div className={styles.catalog}>
+          <div className={styles.catalogMainContainer}>
+            <div className={styles.filterComponent}>
+              <Dropdown
+                menu={{
+                  items: dropdownMenuitems,
+                  defaultSelectedKeys: ['1'],
+                  onClick: handleFilterChange,
+                  selectable: true,
+                  selectedKeys: [selectedItemKey],
+                }}
+                trigger={['click']}
+              >
+                <Space>
+                  Sort by:
+                  {activeFilter.label}
+                  <DownOutlined />
+                </Space>
+              </Dropdown>
+            </div>
+            <CatalogCards products={catalogProducts} />
+            <Pagination
+              total={catalogTotalProducts}
+              pageSize={cardsNum}
+              onChange={paginationOnChange}
+              current={catalogCurrPage}
+            />
           </div>
-          <CatalogCards products={catalogProducts} />
-          <Pagination
-            total={catalogTotalProducts}
-            pageSize={cardsNum}
-            onChange={paginationOnChange}
-            current={catalogCurrPage}
-          />
-        </div>
-        <div className={styles.menuContainer}>
-          <div className={styles.catalogMenuSlider}>
-            <h3 className={styles.menuCompTitle}>Narrow by price €</h3>
-            <div className={styles.gridContainer}>
-              <div className={styles.priceTag}>
-                <Tag className={styles.inputMin}>{minPrice}</Tag>
-                <Tag className={styles.inputMax}>{maxPrice}</Tag>
-              </div>
-              <div className={styles.slider}>
-                <Slider
-                  range
-                  step={1}
-                  defaultValue={[minPrice, maxPrice]}
-                  min={MIN_PRICE}
-                  max={MAX_PRICE}
-                  onChange={setPrice}
-                  value={[maxPrice, minPrice]}
-                  onAfterChange={setFilters()}
-                />
+          <div className={styles.menuContainer}>
+            <div className={styles.catalogMenuSlider}>
+              <h3 className={styles.menuCompTitle}>Narrow by price €</h3>
+              <div className={styles.gridContainer}>
+                <div className={styles.priceTag}>
+                  <Tag className={styles.inputMin}>{minPrice}</Tag>
+                  <Tag className={styles.inputMax}>{maxPrice}</Tag>
+                </div>
+                <div className={styles.slider}>
+                  <Slider
+                    range
+                    step={1}
+                    defaultValue={[minPrice, maxPrice]}
+                    min={MIN_PRICE}
+                    max={MAX_PRICE}
+                    onChange={setPrice}
+                    value={[maxPrice, minPrice]}
+                    onAfterChange={setFilters()}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className={styles.catalogMenuCheckBox}>
-            <h3 className={styles.menuCompTitle}>Narrow by tag</h3>
-            <CheckBoxCategory />
+            <div className={styles.catalogMenuCheckBox}>
+              <h3 className={styles.menuCompTitle}>Narrow by tag</h3>
+              <CheckBoxCategory />
+            </div>
           </div>
         </div>
       </div>

@@ -41,39 +41,41 @@ function SearchMenu() {
 
   return (
     <div className={styles.searchMenu}>
-      <div className={styles.searchController}>
-        <Search
-          placeholder="input search text"
-          allowClear
-          onSearch={searchGame}
-          onChange={(e) => setSearchText(e.target.value)}
-          value={searchText}
-          style={{ width: 200 }}
-          onFocus={focusHandler}
-          onBlur={blurHandler}
-        />
-        {isFocus && (
-          <div className={styles.popoverContainer}>
-            <PopoverCards products={searchedProducts} />
-          </div>
-        )}
-        {isBlur && <div className={styles.popoverContainer} />}
-        <Menu
-          className={styles.searchNavMenu}
-          onClick={onMenuClick}
-          theme="light"
-          mode="horizontal"
-          items={[
-            {
-              label: 'STORE',
-              key: '',
-            },
-            {
-              label: 'ALL GAMES',
-              key: 'catalog',
-            },
-          ]}
-        />
+      <div className={styles.searchContainer}>
+        <div className={styles.searchController}>
+          <Search
+            placeholder="input search text"
+            allowClear
+            onSearch={searchGame}
+            onChange={(e) => setSearchText(e.target.value)}
+            value={searchText}
+            style={{ width: 200 }}
+            onFocus={focusHandler}
+            onBlur={blurHandler}
+          />
+          {isFocus && (
+            <div className={styles.popoverContainer}>
+              <PopoverCards products={searchedProducts} />
+            </div>
+          )}
+          {isBlur && <div className={styles.popoverContainer} />}
+          <Menu
+            className={styles.searchNavMenu}
+            onClick={onMenuClick}
+            theme="light"
+            mode="horizontal"
+            items={[
+              {
+                label: 'STORE',
+                key: '',
+              },
+              {
+                label: 'ALL GAMES',
+                key: 'catalog',
+              },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );

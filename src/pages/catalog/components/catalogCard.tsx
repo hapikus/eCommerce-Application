@@ -1,4 +1,4 @@
-import { Card, Tag, Spin, Image, Button } from 'antd';
+import { Card, Tag, Spin, Image, Button, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -44,7 +44,7 @@ function CatalogCards(props: { products: IProduct[] }) {
               <div className={styles.catalogCardContainer}>
                 <Card
                   hoverable
-                  bodyStyle={{ padding: '9px' }}
+                  bodyStyle={{ padding: '5px' }}
                   className={styles.catalogCard}
                   cover={(
                     <Image
@@ -55,13 +55,15 @@ function CatalogCards(props: { products: IProduct[] }) {
                     />
                   )}
                 >
-                  <p className={styles.titleCard}>{gameTitle}</p>
+                  <Tooltip placement="topRight" title={gameTitle}>
+                    <p className={styles.titleCard}>{gameTitle}</p>
+                  </Tooltip>
                   <p className={styles.descCard}>{descriptionShort}</p>
                   <div className={styles.catalogCardDesc}>
-                    <Tag style={{ padding: '5px 15px' }}>{getDisccount(price, discountPrice)}</Tag>
-                    <Button
-                      type="primary"
-                    >
+                    <Tag style={{ padding: '5px 15px' }}>
+                      {getDisccount(price, discountPrice)}
+                    </Tag>
+                    <Button type="primary">
                       <ShoppingCartOutlined />
                     </Button>
                   </div>

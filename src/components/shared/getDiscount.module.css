@@ -9,6 +9,7 @@
 .catalogCardRegPrice {
   font-weight: 500;
   text-decoration: line-through;
+  font-size: 0.5rem;
 }
 
 .catalogCardDiscPrice,

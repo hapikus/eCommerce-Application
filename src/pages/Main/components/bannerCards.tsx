@@ -56,6 +56,7 @@ function BannerCards(products: IProduct[]) {
             className={styles.carouselItemImg}
           />
           <Card
+            bordered={false}
             className={styles.carouselItemDesc}
             title={<span className={styles.bannerCardTitle}>{gameTitle}</span>}
           >
