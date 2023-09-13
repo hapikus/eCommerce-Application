@@ -199,27 +199,31 @@ function Product() {
         <h1 className={styles.productTitle}>{productDataState.gameTitle}</h1>
       </div>
       <div className={styles.headerBlockCont}>
-        {productDataState.screenshotList &&
-          <ImgCarousel productData={productDataState} />}
+        {productDataState.screenshotList && (
+          <ImgCarousel productData={productDataState} />
+        )}
         {productDataState.headerImg &&
           productDataState.descriptionShort &&
           productDataState.userReviewRows &&
           productDataState.releaseDate &&
-          productDataState.devCompany &&
-          <HeaderRight productData={productDataState} />}
+          productDataState.devCompany && (
+            <HeaderRight productData={productDataState} />
+          )}
       </div>
       <div className={styles.mainCont}>
         {productDataState.price &&
           productDataState.descriptionLong &&
           (productDataState.sysRequirementsMinimum ||
-            productDataState.sysRequirementsMinimumFill) &&
-            <MainLeft productData={productDataState} />}
+            productDataState.sysRequirementsMinimumFill) && (
+            <MainLeft productData={productDataState} />
+          )}
         {productDataState.category &&
           productDataState.gameTitle &&
           productDataState.gameGenre &&
           productDataState.gameTheme &&
-          productDataState.devCompany &&
-          <MainRight productData={productDataState} />}
+          productDataState.devCompany && (
+            <MainRight productData={productDataState} />
+          )}
       </div>
       <div className={styles.randProductsCont}>
         {productsRandomState?.length ? (

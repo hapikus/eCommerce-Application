@@ -79,7 +79,6 @@ function AddressFormPart({ prefix, type, isDisabled }: Props) {
                 ))}
               </Select>
             )}
-
           </Form.Item>
           <Form.Item
             name={[prefix, 'city']}
