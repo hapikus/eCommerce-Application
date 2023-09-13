@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, Drawer, Menu, Avatar } from 'antd';
 import { MenuOutlined, MehOutlined } from '@ant-design/icons';
@@ -15,7 +15,6 @@ function MainMenu({
   isInLine: boolean;
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const navigate = useNavigate();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
   const currentPage = useSelector(
@@ -28,17 +27,12 @@ function MainMenu({
     setCurrentPageState(currentPage);
   }, [currentPage]);
 
-  const onMenuClick = (item: { key: string }) => {
+  const onMenuClick = () => {
     setOpenMenu(false);
-    return navigate(`/${item.key}`);
   };
 
   const logOut = async () => {
     await store.dispatch(logoutAsync());
-  };
-
-  const toUserPage = () => {
-    navigate('/user');
   };
 
   const renderLoginMenu = (currentPageProp: string) => (
@@ -46,32 +40,44 @@ function MainMenu({
       className={isInLine ? styles.menu_items_line : styles.menu_items}
       onClick={onMenuClick}
       theme="light"
+      forceSubMenuRender
       mode={isInLine ? 'inline' : 'horizontal'}
       selectedKeys={[currentPageProp]}
-      items={[
-        {
-          label: 'SIGN IN',
-          key: 'login',
-        },
-        {
-          label: 'SIGN UP',
-          key: 'signup',
-        },
-      ]}
-    />
+    >
+      <NavLink
+        to="login"
+        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+      >
+        <Menu.Item key="/">
+          <span>LOG IN</span>
+        </Menu.Item>
+      </NavLink>
+      <NavLink
+        to="signup"
+        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+      >
+        <Menu.Item key="/">
+          <span>SIGN UP</span>
+        </Menu.Item>
+      </NavLink>
+    </Menu>
   );
 
   const renderAuthMenu = () => (
     <>
       <Button onClick={logOut}>Logout</Button>
-      <Avatar
-        style={{ backgroundColor: '#28784D' }}
-        className={styles.avatarPointer}
-        size="large"
-        onClick={toUserPage}
+      <NavLink
+        to="user"
+        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
       >
-        {userInfo[0]}
-      </Avatar>
+        <Avatar
+          style={{ backgroundColor: '#28784D' }}
+          className={styles.avatarPointer}
+          size="large"
+        >
+          {userInfo[0]}
+        </Avatar>
+      </NavLink>
     </>
   );
 
@@ -85,25 +91,40 @@ function MainMenu({
           disabledOverflow
           mode={isInLine ? 'inline' : 'horizontal'}
           selectedKeys={[currentPageState]}
-          items={[
-            {
-              label: 'STORE',
-              key: '',
-            },
-            {
-              label: 'ALL GAMES',
-              key: 'catalog',
-            },
-            {
-              label: 'INFORMATION',
-              key: 'info',
-            },
-            {
-              label: 'SUPPORT',
-              key: 'support',
-            },
-          ]}
-        />
+        >
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          >
+            <Menu.Item key="/">
+              <span>STORE</span>
+            </Menu.Item>
+          </NavLink>
+          <NavLink
+            to="catalog"
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          >
+            <Menu.Item key="catalog">
+              <span>ALL GAMES</span>
+            </Menu.Item>
+          </NavLink>
+          <NavLink
+            to="info"
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          >
+            <Menu.Item key="info">
+              <span>INFORMATION</span>
+            </Menu.Item>
+          </NavLink>
+          <NavLink
+            to="support"
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          >
+            <Menu.Item key="support">
+              <span>SUPPORT</span>
+            </Menu.Item>
+          </NavLink>
+        </Menu>
       </div>
       <div className={styles.menu_reg}>
         {isAuthState ? renderAuthMenu() : renderLoginMenu(currentPageState)}

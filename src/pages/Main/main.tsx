@@ -1,11 +1,10 @@
-import { useLayoutEffect, useCallback, useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
   fetchRandProducts,
   fetchAllCategory,
   fetchDiscountProducts,
 } from '../../redux/slice/productSlice';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import store, { RootState } from '../../redux/store';
 
@@ -45,19 +44,9 @@ const calculateDiscNum = () => {
 };
 
 function SideBar() {
-  const dispatch = useDispatch();
-
   const [categoryNum, setCategoryNum] = useState(calculateCategoryNum());
   const [discountNum, setDiscountNum] = useState(calculateDiscNum());
   const [topCategory, setTopCategory] = useState([] as string[]);
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage(''));
-  }, [dispatch]);
-
-  useLayoutEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
 
   const productsRandom = useSelector(
     (state: RootState) => state.product.randomProductsData,
