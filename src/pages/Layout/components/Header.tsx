@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, Drawer, Menu, Avatar } from 'antd';
 import { MenuOutlined, MehOutlined } from '@ant-design/icons';
@@ -15,17 +15,23 @@ function MainMenu({
   isInLine: boolean;
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const location = useLocation();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
-  const currentPage = useSelector(
-    (state: RootState) => state.theme.currentPage,
-  );
+  // const currentPage = useSelector(
+  //   (state: RootState) => state.theme.currentPage,
+  // );
 
-  const [currentPageState, setCurrentPageState] = useState('');
+  // const [currentPageState, setCurrentPageState] = useState('');
+  const [selectedItem, setSelectedItem] = useState(['']);
+
+  // useEffect(() => {
+  //   setCurrentPageState(currentPage);
+  // }, [currentPage]);
 
   useEffect(() => {
-    setCurrentPageState(currentPage);
-  }, [currentPage]);
+    setSelectedItem([location.pathname.replace('/', '')]);
+  }, [location])
 
   const onMenuClick = () => {
     setOpenMenu(false);
@@ -35,49 +41,49 @@ function MainMenu({
     await store.dispatch(logoutAsync());
   };
 
-  const renderLoginMenu = (currentPageProp: string) => (
+  const renderLoginMenu = () => (
     <Menu
       className={isInLine ? styles.menu_items_line : styles.menu_items}
       onClick={onMenuClick}
       theme="light"
       forceSubMenuRender
       mode={isInLine ? 'inline' : 'horizontal'}
-      selectedKeys={[currentPageProp]}
+      selectedKeys={selectedItem}
     >
-      <NavLink
-        to="login"
-        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-      >
-        <Menu.Item key="/">
+      <Menu.Item key="login">
+        <NavLink
+          to="login"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+        >
           <span>LOG IN</span>
-        </Menu.Item>
-      </NavLink>
-      <NavLink
-        to="signup"
-        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-      >
-        <Menu.Item key="/">
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item key="signup">
+        <NavLink
+          to="signup"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+        >
           <span>SIGN UP</span>
-        </Menu.Item>
-      </NavLink>
+        </NavLink>
+      </Menu.Item>
     </Menu>
   );
 
   const renderAuthMenu = () => (
     <>
       <Button onClick={logOut}>Logout</Button>
-      <NavLink
-        to="user"
-        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+      <Avatar
+        style={{ backgroundColor: '#28784D' }}
+        className={styles.avatarPointer}
+        size="large"
       >
-        <Avatar
-          style={{ backgroundColor: '#28784D' }}
-          className={styles.avatarPointer}
-          size="large"
+        <NavLink
+          to="user"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
           {userInfo[0]}
-        </Avatar>
-      </NavLink>
+        </NavLink>
+      </Avatar>
     </>
   );
 
@@ -90,44 +96,44 @@ function MainMenu({
           theme="light"
           disabledOverflow
           mode={isInLine ? 'inline' : 'horizontal'}
-          selectedKeys={[currentPageState]}
+          selectedKeys={selectedItem}
         >
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-          >
-            <Menu.Item key="/">
+          <Menu.Item key="">
+            <NavLink
+              to=""
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
               <span>STORE</span>
-            </Menu.Item>
-          </NavLink>
-          <NavLink
-            to="catalog"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-          >
-            <Menu.Item key="catalog">
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item key="catalog">
+            <NavLink
+              to="catalog"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
               <span>ALL GAMES</span>
-            </Menu.Item>
-          </NavLink>
-          <NavLink
-            to="info"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-          >
-            <Menu.Item key="info">
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item key="info">
+            <NavLink
+              to="info"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
               <span>INFORMATION</span>
-            </Menu.Item>
-          </NavLink>
-          <NavLink
-            to="support"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-          >
-            <Menu.Item key="support">
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item key="support">
+            <NavLink
+              to="support"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
               <span>SUPPORT</span>
-            </Menu.Item>
-          </NavLink>
+            </NavLink>
+          </Menu.Item>
         </Menu>
       </div>
       <div className={styles.menu_reg}>
-        {isAuthState ? renderAuthMenu() : renderLoginMenu(currentPageState)}
+        {isAuthState ? renderAuthMenu() : renderLoginMenu()}
       </div>
     </>
   );

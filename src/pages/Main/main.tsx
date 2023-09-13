@@ -15,6 +15,7 @@ import CategoryCarousel from './components/categoryCarousel';
 import DiscountCarousel from './components/discountCarousel';
 import ProductService from '../../models/Product/ProductService';
 import PromoBanner from './components/promo';
+import Test from './components/swiperJS';
 
 const RANDOM_PRODUCT_REQUEST = 4;
 
@@ -106,6 +107,12 @@ function SideBar() {
       <SearchMenu />
       <div className={styles.headerBlockCont}>
         {productsRandom.length !== 0 && BannerCarousel(productsRandom)}
+      </div>
+      {/* <div className={styles.headerBlockCont}>
+        <SwiperGallery />
+      </div> */}
+      <div className={styles.headerBlockCont}>
+        <Test />
       </div>
       <div className={styles.headerBlockCont}>
         <PromoBanner />
