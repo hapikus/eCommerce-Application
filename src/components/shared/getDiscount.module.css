@@ -3,11 +3,13 @@
   flex-direction: row;
   justify-content: center;
   column-gap: 10px;
+  flex-wrap: wrap;
 }
 
 .catalogCardRegPrice {
   font-weight: 500;
   text-decoration: line-through;
+  font-size: 0.5rem;
 }
 
 .catalogCardDiscPrice,
@@ -16,5 +18,4 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  margin-right: 10px;
 }

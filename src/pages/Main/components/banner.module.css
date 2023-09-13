@@ -133,10 +133,17 @@
   z-index: 9999;
 }
 
+.searchContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 .searchController {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 80%;
   padding-left: 10px;
   justify-content: space-between;
 }
@@ -276,7 +283,7 @@
   bottom: -16px !important;
 }
 
-@media (max-width: 945px) {
+@media (max-width: 913px) {
   .headerBlockContLeft {
     width: 100%;
     height: auto;

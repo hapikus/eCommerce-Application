@@ -15,3 +15,13 @@ body {
 p {
   margin: 0;
 }
+
+a {
+  color: var(--color-text)
+}
+
+a.active {
+  color: var(--color-text);
+  border-bottom: solid;
+  transition: border-color 0.3s,background 0.3s,padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
