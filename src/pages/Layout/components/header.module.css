@@ -71,11 +71,6 @@
   cursor: pointer;
 }
 
-
-.andLink:hover {
-  border-bottom: 1px solid red
-}
-
 @media (max-width: 710px) {
   .headerMenu {
     display: none;

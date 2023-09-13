@@ -16,13 +16,12 @@ p {
   margin: 0;
 }
 
-.andLink {
-  color: red !important;
-  box-sizing: border-box;
+a {
+  color: var(--color-text)
 }
 
-.andLink:hover {
-  color: red !important;
-  box-sizing: border-box;
-  border-bottom: 1px solid #dfdfdf
+a.active {
+  color: var(--color-text);
+  border-bottom: solid;
+  transition: border-color 0.3s,background 0.3s,padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }

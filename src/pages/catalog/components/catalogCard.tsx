@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Card, Tag, Spin, Image, Button, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -10,6 +11,24 @@ import styles from './catalogCard.module.css';
 import IProduct from '../../../types/IProduct';
 
 function CatalogCards(props: { products: IProduct[] }) {
+  const [loadings, setLoadings] = useState<boolean[]>([]);
+
+  const enterLoading = (index: number) => {
+    setLoadings((prevLoadings) => {
+      const newLoadings = [...prevLoadings];
+      newLoadings[index] = true;
+      return newLoadings;
+    });
+
+    setTimeout(() => {
+      setLoadings((prevLoadings) => {
+        const newLoadings = [...prevLoadings];
+        newLoadings[index] = false;
+        return newLoadings;
+      });
+    }, 18000);
+  };
+
   const { products } = props;
 
   const loadingCatalogProducts = useSelector(
@@ -63,9 +82,16 @@ function CatalogCards(props: { products: IProduct[] }) {
                     <Tag style={{ padding: '5px 15px' }}>
                       {getDisccount(price, discountPrice)}
                     </Tag>
-                    <Button type="primary">
-                      <ShoppingCartOutlined />
-                    </Button>
+                    <Button
+                      type="primary"
+                      icon={<ShoppingCartOutlined />}
+                      loading={loadings[2]}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        enterLoading(2);
+                      }}
+                    />
                   </div>
                 </Card>
               </div>

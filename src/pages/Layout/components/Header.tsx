@@ -40,14 +40,13 @@ function MainMenu({
       className={isInLine ? styles.menu_items_line : styles.menu_items}
       onClick={onMenuClick}
       theme="light"
+      forceSubMenuRender
       mode={isInLine ? 'inline' : 'horizontal'}
       selectedKeys={[currentPageProp]}
     >
       <NavLink
         to="login"
-        style={({ isActive }) => ({
-          color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
-        })}
+        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
       >
         <Menu.Item key="/">
           <span>LOG IN</span>
@@ -55,9 +54,7 @@ function MainMenu({
       </NavLink>
       <NavLink
         to="signup"
-        style={({ isActive }) => ({
-          color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
-        })}
+        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
       >
         <Menu.Item key="/">
           <span>SIGN UP</span>
@@ -71,9 +68,7 @@ function MainMenu({
       <Button onClick={logOut}>Logout</Button>
       <NavLink
         to="user"
-        style={({ isActive }) => ({
-          color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
-        })}
+        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
       >
         <Avatar
           style={{ backgroundColor: '#28784D' }}
@@ -99,9 +94,7 @@ function MainMenu({
         >
           <NavLink
             to="/"
-            style={({ isActive }) => ({
-              color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
-            })}
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
             <Menu.Item key="/">
               <span>STORE</span>
@@ -109,9 +102,7 @@ function MainMenu({
           </NavLink>
           <NavLink
             to="catalog"
-            style={({ isActive }) => ({
-              color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
-            })}
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
             <Menu.Item key="catalog">
               <span>ALL GAMES</span>
@@ -119,9 +110,7 @@ function MainMenu({
           </NavLink>
           <NavLink
             to="info"
-            style={({ isActive }) => ({
-              color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
-            })}
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
             <Menu.Item key="info">
               <span>INFORMATION</span>
@@ -129,9 +118,7 @@ function MainMenu({
           </NavLink>
           <NavLink
             to="support"
-            style={({ isActive }) => ({
-              color: isActive ? 'var(--bg-color-accent)' : 'var(--text-color)',
-            })}
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           >
             <Menu.Item key="support">
               <span>SUPPORT</span>
