@@ -65,14 +65,14 @@ function CatalogCards(props: { products: IProduct[] }) {
                   hoverable
                   bodyStyle={{ padding: '5px' }}
                   className={styles.catalogCard}
-                  cover={(
+                  cover={
                     <Image
                       preview={false}
                       src={header}
                       className={styles.catalogCardImg}
                       style={{ objectFit: 'cover' }}
                     />
-                  )}
+                  }
                 >
                   <Tooltip placement="topRight" title={gameTitle}>
                     <p className={styles.titleCard}>{gameTitle}</p>

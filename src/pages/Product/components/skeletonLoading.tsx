@@ -44,26 +44,42 @@ function mainLeftSkeleton() {
 
 function mainRightSkeleton() {
   return (
-    <div className={styles.tagCont}>
-      <div className={styles.tagLine}>
-        <div className={`${styles.skeleton} ${styles.tagImg}`} />
-        <div className={`${styles.skeleton} ${styles.tagText}`} />
+    <div className={styles.mainRightMainCont}>
+      <div className={styles.tagCont}>
+        <div className={styles.tagLine}>
+          <div className={`${styles.skeleton} ${styles.tagImg}`} />
+          <div className={`${styles.skeleton} ${styles.tagText}`} />
+        </div>
+        <div className={styles.tagLine}>
+          <div className={`${styles.skeleton} ${styles.tagImg}`} />
+          <div className={`${styles.skeleton} ${styles.tagText}`} />
+        </div>
+        <div className={styles.tagLine}>
+          <div className={`${styles.skeleton} ${styles.tagImg}`} />
+          <div className={`${styles.skeleton} ${styles.tagText}`} />
+        </div>
+        <div className={styles.tagLine}>
+          <div className={`${styles.skeleton} ${styles.tagImg}`} />
+          <div className={`${styles.skeleton} ${styles.tagText}`} />
+        </div>
+        <div className={styles.tagLine}>
+          <div className={`${styles.skeleton} ${styles.tagImg}`} />
+          <div className={`${styles.skeleton} ${styles.tagText}`} />
+        </div>
       </div>
-      <div className={styles.tagLine}>
-        <div className={`${styles.skeleton} ${styles.tagImg}`} />
-        <div className={`${styles.skeleton} ${styles.tagText}`} />
-      </div>
-      <div className={styles.tagLine}>
-        <div className={`${styles.skeleton} ${styles.tagImg}`} />
-        <div className={`${styles.skeleton} ${styles.tagText}`} />
-      </div>
-      <div className={styles.tagLine}>
-        <div className={`${styles.skeleton} ${styles.tagImg}`} />
-        <div className={`${styles.skeleton} ${styles.tagText}`} />
-      </div>
-      <div className={styles.tagLine}>
-        <div className={`${styles.skeleton} ${styles.tagImg}`} />
-        <div className={`${styles.skeleton} ${styles.tagText}`} />
+      <div className={styles.additInfoCont}>
+        <div className={styles.additInfoLine}>
+          <div className={`${styles.skeleton} ${styles.additInfoTitle}`} />
+          <div className={`${styles.skeleton} ${styles.additInfoText}`} />
+        </div>
+        <div className={styles.additInfoLine}>
+          <div className={`${styles.skeleton} ${styles.additInfoTitle}`} />
+          <div className={`${styles.skeleton} ${styles.additInfoText}`} />
+        </div>
+        <div className={styles.additInfoLine}>
+          <div className={`${styles.skeleton} ${styles.additInfoTitle}`} />
+          <div className={`${styles.skeleton} ${styles.additInfoText}`} />
+        </div>
       </div>
     </div>
   );

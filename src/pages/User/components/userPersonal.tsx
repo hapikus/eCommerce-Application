@@ -1,4 +1,4 @@
-import { Tooltip, Form, Input, Button, DatePicker } from 'antd';
+import { Tooltip, Form, Input, Button, DatePicker, message } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -22,7 +22,7 @@ import dobValidation from '../../../utils/dobValid';
 function UserPersonal() {
   const dispatch = useDispatch();
   const [PersonalDataChangeForm] = Form.useForm();
-  const [PasswordChangFOrm] = Form.useForm();
+  const [PasswordChangeForm] = Form.useForm();
   const [isEditMode, setIsEditMode] = useState(false);
 
   const userFullData = useSelector((state: RootState) => state.user.userFull);
@@ -31,6 +31,7 @@ function UserPersonal() {
     try {
       const personValues: IUpdateData =
         await PersonalDataChangeForm.validateFields();
+
       personValues.id = userFullData._id;
       const updateData = await UserService.updateUser(personValues);
       if (updateData.data.user.email !== userFullData.email) {
@@ -42,6 +43,28 @@ function UserPersonal() {
       await store.dispatch(getFullUserDataAsync());
     } catch {
       // The catch block is omitted, so the error will be muted
+    }
+  };
+
+  const handlePasswordSave = async () => {
+    try {
+      const passwordData: {
+        confirm: string;
+        currentPassword: string;
+        password: string;
+      } = await PasswordChangeForm.validateFields();
+      await UserService.checkPassword(passwordData.currentPassword);
+      const updateUserBody = {
+        password: passwordData.confirm,
+
+        id: userFullData._id,
+      };
+      await UserService.updateUser(updateUserBody);
+      // console.log(await UserService.updateUser(updateUserBody));
+      message.success('Password was changed successful!');
+      PasswordChangeForm.resetFields();
+    } catch {
+      message.error('Invalid current password');
     }
   };
 
@@ -128,7 +151,7 @@ function UserPersonal() {
                 Day of birth
               </p>
               <Form.Item
-                name="birthday"
+                name="dob"
                 rules={[...dobValidation]}
                 initialValue={dayjs(userFullData.birthday.split('T')[0])}
               >
@@ -163,13 +186,13 @@ function UserPersonal() {
         </div>
         <div className={styles.userPersPassFormCont}>
           <h3>Change Password</h3>
-          <Form form={PasswordChangFOrm} name="PasswordChangFOrm">
+          <Form form={PasswordChangeForm} name="PasswordChangeForm">
             <div className={styles.personalDataFormPasswordCont}>
               <p className={styles.personalDataFormPasswordContText}>
                 Old password
               </p>
               <Form.Item
-                name="oldPassword"
+                name="currentPassword"
                 rules={[...passwordValidationRules]}
               >
                 <Input.Password
@@ -181,10 +204,7 @@ function UserPersonal() {
               <p className={styles.personalDataFormPasswordContText}>
                 New password
               </p>
-              <Form.Item
-                name="newPassword"
-                rules={[...passwordValidationRules]}
-              >
+              <Form.Item name="password" rules={[...passwordValidationRules]}>
                 <Input.Password
                   className={styles.personalDataFormPasswordContInput}
                 />
@@ -195,8 +215,8 @@ function UserPersonal() {
                 Confirm password
               </p>
               <Form.Item
-                name="confirmNewPassword"
-                dependencies={['newPassword']}
+                name="confirm"
+                dependencies={['password']}
                 hasFeedback
                 rules={[
                   {
@@ -205,7 +225,7 @@ function UserPersonal() {
                   },
                   ({ getFieldValue }) => ({
                     validator(_, value) {
-                      if (!value || getFieldValue('newPassword') === value) {
+                      if (!value || getFieldValue('password') === value) {
                         return Promise.resolve();
                       }
                       return Promise.reject(
@@ -223,8 +243,12 @@ function UserPersonal() {
               </Form.Item>
             </div>
             <div className={styles.UserPersButtonCont}>
-              <Button type="primary" className={styles.submitButton}>
-                Change Personal Data
+              <Button
+                type="primary"
+                className={styles.submitButton}
+                onClick={handlePasswordSave}
+              >
+                Change Password
               </Button>
             </div>
           </Form>

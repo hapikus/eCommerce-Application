@@ -8,6 +8,10 @@ interface UserReviewRow {
   ResponsiveHidden: string;
 }
 
+interface HeaderRightProps {
+  productData: IProduct;
+}
+
 const getReview = (reviewArr: UserReviewRow[]) => {
   if (reviewArr.length === 1) {
     return (
@@ -49,14 +53,14 @@ const getReview = (reviewArr: UserReviewRow[]) => {
   return null;
 };
 
-function HeaderRight(productDataState: IProduct) {
+function HeaderRight({ productData }: HeaderRightProps) {
   const {
     headerImg,
     descriptionShort,
     userReviewRows,
     releaseDate,
     devCompany,
-  } = productDataState;
+  } = productData;
   return (
     <div className={styles.headerBlockContRight}>
       <div className={styles.headerImgAdapt}>

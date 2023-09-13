@@ -8,14 +8,14 @@ import getRandomColor from '../../../utils/getRandomColor';
 
 function UserProfile() {
   const userFullData = useSelector((state: RootState) => state.user.userFull);
-  const { email } = userFullData;
+  const { firstName } = userFullData;
 
   const randomColor = getRandomColor();
 
   return (
     <div className={styles.userProfCont}>
       <div className={styles.UserProfTitle}>
-        <h1>{`Welcome ${email}!`}</h1>
+        <h1>{`Welcome ${firstName}!`}</h1>
       </div>
       <div className={styles.userProfAvatarCont}>
         <Avatar
