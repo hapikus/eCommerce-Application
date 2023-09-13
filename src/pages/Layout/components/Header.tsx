@@ -31,7 +31,7 @@ function MainMenu({
 
   useEffect(() => {
     setSelectedItem([location.pathname.replace('/', '')]);
-  }, [location])
+  }, [location]);
 
   const onMenuClick = () => {
     setOpenMenu(false);
