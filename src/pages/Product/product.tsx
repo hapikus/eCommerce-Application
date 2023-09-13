@@ -98,6 +98,8 @@ function Product() {
                   genres: [],
                   themes: [],
                   tags: [],
+                  minPrice: 0,
+                  maxPrice: 60,
                 } as IFilters),
               );
             }}
@@ -115,6 +117,8 @@ function Product() {
                   genres: [gameGenre[0]],
                   themes: [],
                   tags: [],
+                  minPrice: 0,
+                  maxPrice: 60,
                 } as IFilters),
               );
             }}
@@ -132,6 +136,8 @@ function Product() {
                   genres: [gameGenre[0]],
                   themes: [gameTheme[0]],
                   tags: [],
+                  minPrice: 0,
+                  maxPrice: 60,
                 } as IFilters),
               );
             }}
@@ -140,21 +146,7 @@ function Product() {
           </Link>
         </p>
         <p className={styles.pathGameTitle}>
-          <Link
-            className={styles.pathLink}
-            to="/catalog"
-            onClick={() => {
-              dispatch(
-                setSelectedFilters({
-                  genres: gameGenre,
-                  themes: gameTheme,
-                  tags: [],
-                } as IFilters),
-              );
-            }}
-          >
-            {gameTitle}
-          </Link>
+          {gameTitle}
         </p>
       </div>
     );
