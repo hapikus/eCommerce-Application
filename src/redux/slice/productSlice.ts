@@ -185,7 +185,6 @@ const productSlice = createSlice({
         state.errorProduct = `${action.payload}`;
       })
       .addCase(fetchRandProducts.pending, (state) => {
-        state.randomProductsData = [];
         state.isLoadingRandom = true;
         state.errorRandomProducts = null;
       })

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Spin } from 'antd';
 import {
   fetchRandProducts,
   fetchAllCategory,
@@ -9,13 +10,12 @@ import {
 import store, { RootState } from '../../redux/store';
 
 import styles from './main.module.css';
-import BannerCarousel from './components/bannerCarousel';
 import SearchMenu from './components/search';
 import CategoryCarousel from './components/categoryCarousel';
 import DiscountCarousel from './components/discountCarousel';
 import ProductService from '../../models/Product/ProductService';
 import PromoBanner from './components/promo';
-import Test from './components/swiperJS';
+import SwiperMain from './components/swiper';
 
 const RANDOM_PRODUCT_REQUEST = 4;
 
@@ -52,6 +52,10 @@ function SideBar() {
 
   const productsRandom = useSelector(
     (state: RootState) => state.product.randomProductsData,
+  );
+
+  const loadingRabd = useSelector(
+    (state: RootState) => state.product.isLoadingRandom,
   );
 
   const categoryAll = useSelector(
@@ -105,14 +109,11 @@ function SideBar() {
   return (
     <div className={styles.mainCont}>
       <SearchMenu />
-      <div className={styles.headerBlockCont}>
-        {productsRandom.length !== 0 && BannerCarousel(productsRandom)}
-      </div>
       {/* <div className={styles.headerBlockCont}>
-        <SwiperGallery />
+        {productsRandom.length !== 0 && BannerCarousel(productsRandom)}
       </div> */}
       <div className={styles.headerBlockCont}>
-        <Test />
+      {loadingRabd ? <Spin /> : <SwiperMain products={productsRandom}/>}
       </div>
       <div className={styles.headerBlockCont}>
         <PromoBanner />
