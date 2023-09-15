@@ -16,6 +16,7 @@ import Product from './pages/Product/product';
 import UserPage from './pages/User/user';
 import NotFound from './pages/404/notFound';
 import CatalogPage from './pages/catalog/catalog';
+import CartPage from './pages/Cart/cart';
 
 import BasketService from './models/Basket/BasketService';
 import { checkAuth, setIsFirstLoad } from './redux/slice/authSlice';
@@ -162,6 +163,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/product/:productTitle" element={<Product />} />
               <Route path="/user" element={<UserPage />} />
+              <Route path="/cart" element={<CartPage />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

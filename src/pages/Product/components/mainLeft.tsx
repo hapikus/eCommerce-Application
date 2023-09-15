@@ -6,7 +6,7 @@ import store, { RootState } from '../../../redux/store';
 import {
   addItemToBasket,
   removeItemFromBasket,
-  getBasket,
+  getBasketItems,
 } from '../../../redux/slice/basketSlice';
 import IProduct from '../../../types/IProduct';
 
@@ -50,7 +50,7 @@ function MainLeft({ productData }: MainLeftProps) {
         await store.dispatch(
           removeItemFromBasket({ basketId: basketIdState, gameTitle }),
         );
-        await store.dispatch(getBasket(basketIdState));
+        await store.dispatch(getBasketItems(basketIdState));
       };
       deleteRequest();
       setNeedToDelete(false);
@@ -63,18 +63,12 @@ function MainLeft({ productData }: MainLeftProps) {
         await store.dispatch(
           addItemToBasket({ basketId: basketIdState, gameTitle }),
         );
-        await store.dispatch(getBasket(basketIdState));
+        await store.dispatch(getBasketItems(basketIdState));
       };
       addRequest();
       setNeedToAdd(false);
     }
   }, [basketIdState, needToAdd, gameTitle]);
-
-  useEffect(() => {
-    if (basketIdState) {
-      store.dispatch(getBasket(basketIdState));
-    }
-  }, [basketIdState]);
 
   const cartButton = () => {
     if (itemsGameNameState.includes(gameTitle)) {

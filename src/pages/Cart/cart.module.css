@@ -1,0 +1,22 @@
+.baskContMain {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  margin: 20px 5px;
+
+  width: 75%;
+}
+
+.baskOptionsCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+
+.mainInfoCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}

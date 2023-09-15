@@ -1,0 +1,12 @@
+.sumMainCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+
+  width: 300px;
+}
+
+.sumTitle {
+  font-size: 16px;
+  text-align: center;
+}

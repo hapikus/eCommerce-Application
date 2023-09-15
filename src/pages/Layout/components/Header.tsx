@@ -6,7 +6,7 @@ import { MenuOutlined, MehOutlined } from '@ant-design/icons';
 import store, { RootState } from '../../../redux/store';
 
 import { logoutAsync } from '../../../redux/slice/authSlice';
-import { setBasketId } from '../../../redux/slice/basketSlice';
+import { getBasketItems, setBasketId } from '../../../redux/slice/basketSlice';
 
 import styles from './header.module.css';
 
@@ -24,6 +24,10 @@ function MainMenu({
     (state: RootState) => state.theme.currentPage,
   );
 
+  const basketIdState = useSelector(
+    (state: RootState) => state.basket.basketId,
+  );
+
   const [currentPageState, setCurrentPageState] = useState('');
 
   useEffect(() => {
@@ -33,6 +37,12 @@ function MainMenu({
   const onMenuClick = () => {
     setOpenMenu(false);
   };
+
+  useEffect(() => {
+    if (basketIdState) {
+      store.dispatch(getBasketItems(basketIdState));
+    }
+  }, [basketIdState]);
 
   const logOut = async () => {
     await store.dispatch(logoutAsync());

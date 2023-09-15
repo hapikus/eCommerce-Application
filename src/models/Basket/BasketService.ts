@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 import $api from '../Base/http';
 
-import { BasketResponse } from '../../types/storeType';
+import { BasketItemsResponse, BasketFullResponse } from '../../types/storeType';
 import { ChangeQuantity } from '../../types/types';
 
 export default class BasketService {
@@ -23,10 +23,16 @@ export default class BasketService {
     });
   }
 
-  static async getBasket(
+  static async getBasketItems(
     basketId: string,
-  ): Promise<AxiosResponse<BasketResponse>> {
-    return $api.get<BasketResponse>(`/basket/${basketId}/get-basket-items`);
+  ): Promise<AxiosResponse<BasketItemsResponse>> {
+    return $api.get<BasketItemsResponse>(`/basket/${basketId}/get-basket-items`);
+  }
+
+  static async getBasketFull(
+    basketId: string,
+  ): Promise<AxiosResponse<BasketFullResponse>> {
+    return $api.get<BasketFullResponse>(`/basket/${basketId}/get-basket-full`);
   }
 
   static async deleteBasket(basketId: string): Promise<AxiosResponse<string>> {
