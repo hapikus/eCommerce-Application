@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Drawer, Menu, Avatar } from 'antd';
 import { MenuOutlined, MehOutlined } from '@ant-design/icons';
 import store, { RootState } from '../../../redux/store';
 
-import styles from './header.module.css';
 import { logoutAsync } from '../../../redux/slice/authSlice';
+import { setBasketId } from '../../../redux/slice/basketSlice';
+
+import styles from './header.module.css';
 
 function MainMenu({
   isInLine = false,
@@ -15,6 +17,7 @@ function MainMenu({
   isInLine: boolean;
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const dispatch = useDispatch();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
   const currentPage = useSelector(
@@ -33,6 +36,8 @@ function MainMenu({
 
   const logOut = async () => {
     await store.dispatch(logoutAsync());
+    window.localStorage.removeItem('basketId');
+    dispatch(setBasketId(''));
   };
 
   const renderLoginMenu = (currentPageProp: string) => (

@@ -17,5 +17,13 @@ type CatalogOptionsType = {
   maxPrice: number;
 };
 
-export type { CatalogOptionsType };
+interface ChangeQuantityItem {
+  [key: string]: number;
+}
+
+interface ChangeQuantity {
+  itemUpdates: ChangeQuantityItem[];
+}
+
+export type { CatalogOptionsType, ChangeQuantity };
 export default LoginFormValues;

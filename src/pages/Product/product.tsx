@@ -1,9 +1,8 @@
-import { useEffect, useLayoutEffect, useCallback, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { message } from 'antd';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 import {
   fetchProductData,
   fetchRandProducts,
@@ -57,14 +56,6 @@ function Product() {
     };
     window.addEventListener('resize', handleResize);
   }, [randomProductsNum]);
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage(''));
-  }, [dispatch]);
-
-  useLayoutEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
 
   const productLoading = useSelector(
     (state: RootState) => state.product.isLoading,
