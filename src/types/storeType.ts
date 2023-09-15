@@ -164,6 +164,7 @@ interface BasketFullInfo {
   sortPrice: number;
   promoPrice: number;
   basketQantity: number;
+  headerImg: string;
 }
 
 export type {

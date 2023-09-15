@@ -20,3 +20,7 @@
   flex-direction: row;
   column-gap: 20px;
 }
+
+.mainLeftCont {
+  width: 100%;
+}
