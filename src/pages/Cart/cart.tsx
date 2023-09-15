@@ -4,26 +4,19 @@ import { useSelector } from 'react-redux';
 import store, { RootState } from '../../redux/store';
 import { getBasketFull } from '../../redux/slice/basketSlice';
 
-import SkeletonLoading from './components/skeletonLoading';
 import CartSummary from './components/cartSummary';
 import CartGameList from './components/cartGameList';
-
 
 import styles from './cart.module.css';
 
 function CartPage() {
   const basketIdState = useSelector((state: RootState) => state.basket.basketId);
-  const isFullLoading = useSelector((state: RootState) => state.basket.isGettingItemFull);
 
   useLayoutEffect(() => {
     if (basketIdState !== '') {
       store.dispatch(getBasketFull(basketIdState));
     }
   }, [basketIdState])
-
-  if (isFullLoading) {
-    return <SkeletonLoading />;
-  }
 
   return (
     <div className={styles.baskContMain}>

@@ -157,6 +157,7 @@ interface BasketFullResponse {
 
 interface BasketFullInfo {
   gameTitle: string;
+  headerImg: string;
   descriptionShort: string;
   price: number;
   discountPrice: number;

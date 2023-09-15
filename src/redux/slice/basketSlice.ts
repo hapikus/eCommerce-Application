@@ -147,6 +147,7 @@ const basketSlice = createSlice({
         state.isLoading = false;
         state.isGettingItem = false;
         state.itemsFromServer = action.payload;
+        state.promo = action.payload.promo;
 
         const gameNames: string[] = Object.keys(action.payload.items || {});
         state.itemsGameName = gameNames;
