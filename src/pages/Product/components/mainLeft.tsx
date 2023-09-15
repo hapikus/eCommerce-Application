@@ -31,8 +31,12 @@ function MainLeft({ productData }: MainLeftProps) {
   const [needToAdd, setNeedToAdd] = useState(false);
   const [needToDelete, setNeedToDelete] = useState(false);
 
-  const isLoadingBasketState = useSelector((state: RootState) => state.basket.isLoading);
-  const isAuthLoadingState = useSelector((state: RootState) => state.auth.isLoading);
+  const isLoadingBasketState = useSelector(
+    (state: RootState) => state.basket.isLoading,
+  );
+  const isAuthLoadingState = useSelector(
+    (state: RootState) => state.auth.isLoading,
+  );
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
   );

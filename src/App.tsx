@@ -31,7 +31,7 @@ function App() {
   const isFirstLoadState = useSelector(
     (state: RootState) => state.auth.isFirstLoad,
   );
-  const isAuthLoading = useSelector((state: RootState) => state.auth.isLoading)
+  const isAuthLoading = useSelector((state: RootState) => state.auth.isLoading);
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
   );
@@ -48,8 +48,8 @@ function App() {
 
   const updateAnonBasketId = async () => {
     if (basketIdState !== '') {
-      return
-    };
+      return;
+    }
 
     const localStorageBasket = window.localStorage.getItem('basketId');
     if (!localStorageBasket) {
@@ -61,8 +61,8 @@ function App() {
     if (anonBasket) {
       dispatch(setBasketId(anonBasket));
     }
-  }
-  
+  };
+
   const updateUserBasketId = async () => {
     const basketUserId = await BasketService.getBasketIdFromUser();
     const localStorageBasket = window.localStorage.getItem('basketId');
@@ -75,7 +75,10 @@ function App() {
     }
 
     if (localStorageBasket && basketUserId.data !== '') {
-      const newUserId = await BasketService.mergeBaskets(localStorageBasket, basketUserId.data);
+      const newUserId = await BasketService.mergeBaskets(
+        localStorageBasket,
+        basketUserId.data,
+      );
       window.localStorage.setItem('basketId', newUserId.data);
       if (basketIdState !== newUserId.data) {
         dispatch(setBasketId(newUserId.data));
@@ -105,11 +108,11 @@ function App() {
     if (basketIdState !== newBasketId.data) {
       dispatch(setBasketId(newBasketId.data));
     }
-  }
+  };
 
   if (isFirstLoadState && !isAuthState) {
     dispatch(setIsFirstLoad(false));
-    refreshToken()
+    refreshToken();
   }
 
   useEffect(() => {
@@ -124,8 +127,8 @@ function App() {
     if (!isAuthState) {
       updateAnonBasketId();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [basketIdState, isAuthState])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [basketIdState, isAuthState]);
 
   return (
     <ConfigProvider

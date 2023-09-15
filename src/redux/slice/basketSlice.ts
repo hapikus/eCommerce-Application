@@ -33,7 +33,10 @@ const initialState: BasketState = {
 
 export const addItemToBasket = createAsyncThunk(
   'basket/addItem',
-  async ({ basketId, gameTitle }: { basketId: string; gameTitle: string }, thunkAPI) => {
+  async (
+    { basketId, gameTitle }: { basketId: string; gameTitle: string },
+    thunkAPI,
+  ) => {
     try {
       const response = await BasketService.addItem(basketId, gameTitle);
       return response.data;
@@ -43,12 +46,15 @@ export const addItemToBasket = createAsyncThunk(
       }
       return thunkAPI.rejectWithValue('An unknown error occurred');
     }
-  }
+  },
 );
 
 export const removeItemFromBasket = createAsyncThunk(
   'basket/removeItem',
-  async ({ basketId, gameTitle }: { basketId: string; gameTitle: string }, thunkAPI) => {
+  async (
+    { basketId, gameTitle }: { basketId: string; gameTitle: string },
+    thunkAPI,
+  ) => {
     try {
       const response = await BasketService.removeItem(basketId, gameTitle);
       return response.data;
@@ -58,7 +64,7 @@ export const removeItemFromBasket = createAsyncThunk(
       }
       return thunkAPI.rejectWithValue('An unknown error occurred');
     }
-  }
+  },
 );
 
 export const getBasket = createAsyncThunk(
@@ -73,7 +79,7 @@ export const getBasket = createAsyncThunk(
       }
       return thunkAPI.rejectWithValue('An unknown error occurred');
     }
-  }
+  },
 );
 
 const basketSlice = createSlice({

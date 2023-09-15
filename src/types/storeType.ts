@@ -127,7 +127,7 @@ interface BasketState {
   itemsRegularPrice: number;
   itemsDiscountPrice: number;
   itemsPromoPrice: number;
-  
+
   isLoading: boolean;
 
   isCreating: boolean;
@@ -143,7 +143,7 @@ interface BasketState {
   addingError: null | string;
   deletingError: null | string;
   changingQuantityError: null | string;
-};
+}
 
 interface BasketResponse {
   basketId: string;
@@ -168,7 +168,6 @@ export type {
   SetSelectedTag,
   IFilters,
   SetSelectedFilters,
-
   BasketState,
   BasketResponse,
 };

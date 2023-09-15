@@ -136,9 +136,7 @@ function Product() {
             {`${gameTheme[0]} >`}
           </Link>
         </p>
-        <p className={styles.pathGameTitle}>
-          {gameTitle}
-        </p>
+        <p className={styles.pathGameTitle}>{gameTitle}</p>
       </div>
     );
   };

@@ -9,7 +9,7 @@ import {
   ThemeState,
   ProductState,
   UserState,
-  BasketState
+  BasketState,
 } from '../types/storeType';
 
 const store = configureStore({
