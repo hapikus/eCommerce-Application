@@ -10,27 +10,22 @@
 .sectionContaier {
   margin: 50px auto;
   width: 80%;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between; */
 }
 
 /* section 1 About */
 .infoMainContaier {
   display: flex;
   flex-direction: row;
-  /* max-width: 1100px; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   height: 600px;
   justify-content: space-between;
-  width: 80%;
+  /* width: 80%; */
 }
 
 
 /* section 2 How we work */
 .aboutTeamContainer {
   background: white;
-  /* padding-bottom: 5%; */
 }
 
 .sectionTitle {
@@ -114,4 +109,62 @@
   padding-left: 10%;
   padding-right: 10%;
   font-size: 18px;
+}
+
+
+
+/* section about project */
+/* .productConatiner {
+  margin: 0 auto;
+  width: 80%;
+} */
+
+.aboutProductBlock {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  color: white;
+}
+
+.productSlader {
+  width: 600px;
+  padding: 13px;
+  border: 5px solid #d5cdcd;
+  border-radius: 10%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-right: 10%;
+}
+
+.productInfo {
+  width: 600px;
+  padding-left: 10px;
+}
+
+.productInfoTitle h3 {
+  color: white;
+  text-align: center;
+  margin-top: 8%;
+  letter-spacing: .08em;
+  font-family: 'Archivo', sans-serif;
+  font-weight: bold;
+  padding-bottom: 20px;
+  font-size: 40px;
+}
+
+
+.progectDiscription {
+  text-align: justify;
+  padding-left: 10px;
+  margin-bottom: 10%;
+  font-size: 18px;
+  line-height: 101%;
+  color: black;
+}
+
+.progectName {
+  font-size: 30px;
+  color: orange;
+  padding: 10px;
+  text-align: left;
 }

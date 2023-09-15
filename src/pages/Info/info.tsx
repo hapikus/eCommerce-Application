@@ -5,6 +5,14 @@ import {
   SoundOutlined,
 } from '@ant-design/icons';
 
+import { Button, Carousel, Image } from 'antd';
+import { Link } from 'react-router-dom';
+
+import Screen_1 from '../../assets/images/pagesScreens/screen1_light.png';
+import Screen_2 from '../../assets/images/pagesScreens/screen2.png';
+import Screen_3 from '../../assets/images/pagesScreens/screen3.png';
+import Screen_4 from '../../assets/images/pagesScreens/screen4.png';
+
 import styles from './info.module.css';
 
 function InfoPage() {
@@ -41,8 +49,8 @@ function InfoPage() {
               </div>
               <h3> Synchronized work </h3>
               <p>
-                Collaborate effectively, sharing ideas and knowledge to achieve a
-                common goal. Delegate tasks. Achieve success together.
+                Collaborate effectively, sharing ideas and knowledge to achieve
+                a common goal. Delegate tasks. Achieve success together.
               </p>
             </div>
             <div className={styles.columnCapabilitis}>
@@ -68,13 +76,78 @@ function InfoPage() {
           </div>
         </div>
       </section>
-      <section className={styles.sectionContaier}>
-        <div className={styles.infoMainContaier}>
-          <h2>dgf</h2>
+      <section className={styles.productConatiner}>
+        <div className={styles.sectionContaier}>
+          <div className={styles.aboutProductBlock}>
+            <div className={styles.productSlader}>
+              <Carousel
+                className={styles.imgCarousel}
+                dots={{ className: styles.carouselDots }}
+                autoplay
+              >
+                <div>
+                  <Image
+                    src={Screen_1}
+                    alt="CAPSULE"
+                    width="100%"
+                    style={{ height: '100%', borderRadius: '5%' }}
+                    className={styles.carouselItemImg}
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={Screen_2}
+                    alt="CAPSULE"
+                    width="100%"
+                    style={{ height: '100%', borderRadius: '5%' }}
+                    className={styles.carouselItemImg}
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={Screen_3}
+                    alt="CAPSULE"
+                    width="100%"
+                    style={{ height: '100%', borderRadius: '5%' }}
+                    className={styles.carouselItemImg}
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={Screen_4}
+                    alt="CAPSULE"
+                    width="100%"
+                    style={{ height: '100%', borderRadius: '5%' }}
+                    className={styles.carouselItemImg}
+                  />
+                </div>
+              </Carousel>
+            </div>
+            <div className={styles.productInfo}>
+              <div className={styles.productInfoTitle}>
+                <h3>Our case</h3>
+              </div>
+              <div>
+                <p className={styles.progectName}> Super Store</p>
+                <p className={styles.progectDiscription}>
+                  {' '}
+                  is more than just an online retailer. its a gaming haven where
+                  passion, affordability, and community come together. Join us
+                  today and experience the convenience, variety, and excitement of
+                  shopping for video games without leaving the comfort of your
+                  home. Get ready to embark on countless virtual adventures and
+                  immerse yourself in the world of gaming like never before!
+                </p>
+                <Link to="/project">
+                  <Button size='large'>Learn more</Button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 export default InfoPage;
