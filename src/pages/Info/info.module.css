@@ -22,6 +22,13 @@
   /* width: 80%; */
 }
 
+.containerBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+  margin: 0 auto;
+}
 
 /* section 2 How we work */
 .aboutTeamContainer {
@@ -111,14 +118,7 @@
   font-size: 18px;
 }
 
-
-
 /* section about project */
-/* .productConatiner {
-  margin: 0 auto;
-  width: 80%;
-} */
-
 .aboutProductBlock {
   display: flex;
   flex-direction: row;
@@ -152,7 +152,6 @@
   font-size: 40px;
 }
 
-
 .progectDiscription {
   text-align: justify;
   padding-left: 10px;
@@ -167,4 +166,91 @@
   color: orange;
   padding: 10px;
   text-align: left;
+}
+
+/* about Team Member */
+.teamMemberContainer {
+  /* height: 600px; */
+  background-color: #83d56d38;
+}
+
+.teamMemberInfo {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* margin: 0 auto; */
+  /* width: 70%; */
+}
+
+.textAboutLearning {
+  font-size: 50px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 20px 0;
+}
+
+.textAboutLearning p {
+  margin-top: 10px;
+}
+
+.quotes {
+  padding: 0 20px;
+  color: orange;
+}
+
+.personPhoto {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+.personPhotoContainer {
+  height: 400px;
+  width: 400px;
+  background: white;
+  border-radius: 50%;
+}
+
+.img {
+  pointer-events: none;
+  position: relative;
+  transition: 1s;
+  height: 400px;
+  width: 300px;
+}
+
+.personPhotoContainer:hover .img {
+  transform: translateY(0) scale(1.2);
+}
+
+.img1 {
+  left: 22px;
+  top: 164px;
+  width: 340px;
+}
+
+.divider {
+  background-color: #ca6060;
+  height: 1px;
+  width: 160px;
+  margin-top: 20px;
+}
+
+.name {
+  color: #dee2e9;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 16px;
+  text-align: center;
+  padding-left: 10px;
+}
+
+.title {
+  color: #6e6e6e;
+  font-family: arial;
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 4px;
 }

@@ -1,5 +1,6 @@
 import {
   CommentOutlined,
+  GithubOutlined,
   LaptopOutlined,
   ScheduleOutlined,
   SoundOutlined,
@@ -12,6 +13,7 @@ import Screen_1 from '../../assets/images/pagesScreens/screen1_light.png';
 import Screen_2 from '../../assets/images/pagesScreens/screen2.png';
 import Screen_3 from '../../assets/images/pagesScreens/screen3.png';
 import Screen_4 from '../../assets/images/pagesScreens/screen4.png';
+import LeftQuote from '../../assets/images/logo/left-quote (1).png';
 
 import styles from './info.module.css';
 
@@ -26,6 +28,13 @@ function InfoPage() {
             </h3>
           </div>
         </div>
+        <div className={styles.containerBtn}>
+          <Link to="/project">
+            <Button size="large" style={{ width: '170px', height: '50px' }}>Read about us</Button>
+          </Link>
+          <Button size="large" style={{ width: '170px', height: '50px' }}>Read about project</Button>
+        </div>
+
       </section>
       <section className={styles.aboutTeamContainer}>
         <div className={styles.sectionContaier}>
@@ -72,6 +81,39 @@ function InfoPage() {
                 Ready to adapt to changes and fix errors on the go. Quickly
                 respond to feedback and offer alternative solutions.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={styles.teamMemberContainer}>
+        <div className={styles.sectionContaier}>
+          <div className={styles.teamMemberInfo}>
+            <div className={styles.photoBlock}>
+              <div className={styles.personPhoto}>
+                <div className={styles.personPhotoContainer}>
+                  <div className={styles.personPhotoContainerInner}>
+                    <img
+                      className={styles.img}
+                      alt="personal-img"
+                    // src={LukshaOlga}
+                    />
+                  </div>
+                </div>
+                <div className={styles.divider} />
+                <div className={styles.name}>OLYA LUKSHA
+                  <Link to="https://github.com/Lukshaolya">
+                     <GithubOutlined />
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className={styles.infoBlock}>
+              <div className={styles.textAboutLearning}>
+                <span className={styles.quotes}><img src={LeftQuote} alt="quote" /></span>{' '}
+                <p>Programing is a big love</p>{' '}
+                <span className={styles.quotes}><img src={LeftQuote} alt="quote" /></span>
+              </div>
+
             </div>
           </div>
         </div>
@@ -125,6 +167,7 @@ function InfoPage() {
             </div>
             <div className={styles.productInfo}>
               <div className={styles.productInfoTitle}>
+
                 <h3>Our case</h3>
               </div>
               <div>
@@ -133,13 +176,13 @@ function InfoPage() {
                   {' '}
                   is more than just an online retailer. its a gaming haven where
                   passion, affordability, and community come together. Join us
-                  today and experience the convenience, variety, and excitement of
-                  shopping for video games without leaving the comfort of your
-                  home. Get ready to embark on countless virtual adventures and
-                  immerse yourself in the world of gaming like never before!
+                  today and experience the convenience, variety, and excitement
+                  of shopping for video games without leaving the comfort of
+                  your home. Get ready to embark on countless virtual adventures
+                  and immerse yourself in the world of gaming like never before!
                 </p>
                 <Link to="/project">
-                  <Button size='large'>Learn more</Button>
+                  <Button size="large">Learn more</Button>
                 </Link>
               </div>
             </div>
