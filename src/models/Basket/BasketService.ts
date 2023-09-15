@@ -26,7 +26,9 @@ export default class BasketService {
   static async getBasketItems(
     basketId: string,
   ): Promise<AxiosResponse<BasketItemsResponse>> {
-    return $api.get<BasketItemsResponse>(`/basket/${basketId}/get-basket-items`);
+    return $api.get<BasketItemsResponse>(
+      `/basket/${basketId}/get-basket-items`,
+    );
   }
 
   static async getBasketFull(

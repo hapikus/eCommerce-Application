@@ -10,13 +10,15 @@ import CartGameList from './components/cartGameList';
 import styles from './cart.module.css';
 
 function CartPage() {
-  const basketIdState = useSelector((state: RootState) => state.basket.basketId);
+  const basketIdState = useSelector(
+    (state: RootState) => state.basket.basketId,
+  );
 
   useLayoutEffect(() => {
     if (basketIdState !== '') {
       store.dispatch(getBasketFull(basketIdState));
     }
-  }, [basketIdState])
+  }, [basketIdState]);
 
   return (
     <div className={styles.baskContMain}>

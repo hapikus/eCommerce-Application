@@ -2,7 +2,11 @@ import { AxiosError } from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import BasketService from '../../models/Basket/BasketService';
 
-import { BasketState, BasketItemsResponse, BasketFullResponse } from '../../types/storeType';
+import {
+  BasketState,
+  BasketItemsResponse,
+  BasketFullResponse,
+} from '../../types/storeType';
 
 const initialState: BasketState = {
   itemsFromServer: {} as BasketItemsResponse,
