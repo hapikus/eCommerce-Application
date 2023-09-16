@@ -24,7 +24,9 @@ function MainMenu({
   const dispatch = useDispatch();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
-  const itemsBasket = useSelector((state: RootState) => state.basket.itemsFromServer.items);
+  const itemsBasket = useSelector(
+    (state: RootState) => state.basket.itemsFromServer.items,
+  );
   const themeState = useSelector((state: RootState) => state.theme.theme);
   const currentPage = useSelector(
     (state: RootState) => state.theme.currentPage,

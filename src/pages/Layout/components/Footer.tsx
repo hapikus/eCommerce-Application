@@ -69,6 +69,7 @@ function Footer() {
             mode={currentSize.width > 630 ? 'vertical' : 'horizontal'}
             selectable={false}
             disabledOverflow
+            style={{ borderInlineEnd: 'none' }}
           >
             <Menu.Item key="login" icon={<LoginOutlined />}>
               <Link to="/login">Sign in</Link>
@@ -86,6 +87,7 @@ function Footer() {
             mode={currentSize.width > 630 ? 'vertical' : 'horizontal'}
             selectable={false}
             disabledOverflow
+            style={{ borderInlineEnd: 'none' }}
           >
             <Menu.Item key="home" icon={<HomeOutlined />}>
               <Link to="/">Main</Link>
@@ -108,6 +110,7 @@ function Footer() {
             mode={currentSize.width > 630 ? 'vertical' : 'horizontal'}
             selectable={false}
             disabledOverflow
+            style={{ borderInlineEnd: 'none' }}
           >
             <Menu.Item key="info" icon={<HomeOutlined />}>
               <Link to="/info">Info</Link>
@@ -123,6 +126,7 @@ function Footer() {
               mode={currentSize.width > 630 ? 'vertical' : 'horizontal'}
               selectable={false}
               disabledOverflow
+              style={{ borderInlineEnd: 'none' }}
             >
               <Menu.Item key="1">
                 <a
