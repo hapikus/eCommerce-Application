@@ -19,6 +19,9 @@ const antPattern = {
         colorBgHeader: '#eae7ea',
         colorBgBody: '#fff',
       },
+      Timeline: {
+        tailColor: 'black',
+      }
     },
   },
   [themes.dark]: {
@@ -31,6 +34,12 @@ const antPattern = {
         colorBgHeader: '#171a21',
         colorBgBody: '#417a9b',
       },
+      Timeline: {
+        tailColor: 'rgb(80,80,80)',
+        tailWidth: 6,
+        dotBorderWidth: 6,
+        itemPaddingBottom: 50,
+      }
     },
   },
   [themes.barbie]: {
@@ -44,6 +53,9 @@ const antPattern = {
         colorBgHeader: '#ffe6f9',
         colorBgBody: '#417a9b',
       },
+      Timeline: {
+        tailColor: 'black',
+      }
     },
   },
 };

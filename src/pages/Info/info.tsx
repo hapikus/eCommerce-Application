@@ -14,27 +14,66 @@ import Screen_2 from '../../assets/images/pagesScreens/screen2.png';
 import Screen_3 from '../../assets/images/pagesScreens/screen3.png';
 import Screen_4 from '../../assets/images/pagesScreens/screen4.png';
 import LeftQuote from '../../assets/images/logo/left-quote (1).png';
+import LukshaOlyaImg from '../../assets/images/teamPhoto/olkaLuksha.png';
+import Logo1 from '../../assets/images/logo/download (1).png';
 
 import styles from './info.module.css';
+import greetingStyles from './greeting.module.css';
 
 function InfoPage() {
   return (
     <div className={styles.pageContainer}>
       <section className={styles.sectionContaier}>
         <div className={styles.infoMainContaier}>
-          <div className={styles.teamGreet}>
-            <h3>
-              Its code<span>Frondlers</span>Team
-            </h3>
+          <div className={styles.textAbout}>
+            <div className={greetingStyles.content}>
+              <div className={greetingStyles.content__container}>
+                <p className={greetingStyles.content__container__text}>Hello</p>
+                <ul className={greetingStyles.content__container__list}>
+                  <li className={greetingStyles.content__container__list__item}>
+                    world !
+                  </li>
+                  <li className={greetingStyles.content__container__list__item}>
+                    team !
+                  </li>
+                  <li className={greetingStyles.content__container__list__item}>
+                    everybody!
+                  </li>
+                  <li className={greetingStyles.content__container__list__item}>
+                    users !
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className={styles.teamGreet}>
+              <h3>
+                Hello and welcome to CodeFrondlers Team,
+                a group of three young frontend developers who have come together to
+                create an online store website. We are thrilled to have you here and hope you
+                enjoy your experience browsing our carefully crafted website. Feel free to explore
+                our products and dont hesitate to reach out if you have any questions or need assistance.
+                <hr />
+                Happy shopping!
+              </h3>
+            </div>
+          </div>
+          <div className={styles.logo}>
+            {/* <img src={Logo} alt="logo" /> */}
+            <img src={Logo1} alt="logo" />
           </div>
         </div>
         <div className={styles.containerBtn}>
-          <Link to="/project">
-            <Button size="large" style={{ width: '170px', height: '50px' }}>Read about us</Button>
+          <Link to="/">
+            <Button size="large" style={{ width: '170px', height: '50px' }}>
+              Start Shopping
+            </Button>
           </Link>
-          <Button size="large" style={{ width: '170px', height: '50px' }}>Read about project</Button>
+          <Link to="/project">
+          <Button size="large" style={{ width: '170px', height: '50px' }}>
+            Read about project
+          </Button>
+          </Link>
         </div>
-
       </section>
       <section className={styles.aboutTeamContainer}>
         <div className={styles.sectionContaier}>
@@ -95,25 +134,29 @@ function InfoPage() {
                     <img
                       className={styles.img}
                       alt="personal-img"
-                    // src={LukshaOlga}
+                      src={LukshaOlyaImg}
                     />
                   </div>
                 </div>
                 <div className={styles.divider} />
-                <div className={styles.name}>OLYA LUKSHA
+                <div className={styles.name}>
+                  OLYA LUKSHA
                   <Link to="https://github.com/Lukshaolya">
-                     <GithubOutlined />
+                    <GithubOutlined />
                   </Link>
                 </div>
               </div>
             </div>
             <div className={styles.infoBlock}>
               <div className={styles.textAboutLearning}>
-                <span className={styles.quotes}><img src={LeftQuote} alt="quote" /></span>{' '}
+                <span className={styles.quotes}>
+                  <img src={LeftQuote} alt="quote" />
+                </span>{' '}
                 <p>Programing is a big love</p>{' '}
-                <span className={styles.quotes}><img src={LeftQuote} alt="quote" /></span>
+                <span className={styles.quotes}>
+                  <img src={LeftQuote} alt="quote" />
+                </span>
               </div>
-
             </div>
           </div>
         </div>
@@ -167,7 +210,6 @@ function InfoPage() {
             </div>
             <div className={styles.productInfo}>
               <div className={styles.productInfoTitle}>
-
                 <h3>Our case</h3>
               </div>
               <div>

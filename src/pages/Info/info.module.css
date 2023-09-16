@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Croissant+One&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Press+Start+2P&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap');
+
 .pageContainer {
   display: flex;
   justify-content: center;
@@ -30,6 +33,24 @@
   margin: 0 auto;
 }
 
+.logo img {
+  width: 600px;
+}
+
+.textAbout {
+  padding-top: 150px;
+  width: 40%;
+}
+
+.teamGreet {
+  color: #ecf0f1;
+  text-align: justify;
+}
+
+.teamGreet h3 {
+
+}
+
 /* section 2 How we work */
 .aboutTeamContainer {
   background: white;
@@ -40,7 +61,8 @@
   text-align: center;
   margin-top: 5%;
   letter-spacing: .08em;
-  /* font-family: 'Archivo', sans-serif; */
+  /* font-family: 'Roboto', sans-serif; */
+
   font-weight: bold;
   padding-bottom: 10px;
   font-size: 35px;
@@ -116,6 +138,8 @@
   padding-left: 10%;
   padding-right: 10%;
   font-size: 18px;
+  font-family: 'EB Garamond', serif;
+
 }
 
 /* section about project */
@@ -152,20 +176,31 @@
   font-size: 40px;
 }
 
+/* 
+font-family: 'EB Garamond', serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Rubik Mono One', sans-serif; */
+
+
+
+
 .progectDiscription {
   text-align: justify;
   padding-left: 10px;
   margin-bottom: 10%;
   font-size: 18px;
   line-height: 101%;
-  color: black;
+  color: rgb(230, 230, 230);
+  font-family: 'EB Garamond', serif;
 }
 
 .progectName {
   font-size: 30px;
-  color: orange;
+  color: #e7bd71;
   padding: 10px;
   text-align: left;
+  font-family: 'Black Ops One';
+  /* font-family: 'Rubik Mono One', sans-serif; */
 }
 
 /* about Team Member */
@@ -244,6 +279,9 @@
   font-weight: 600;
   margin-top: 16px;
   text-align: center;
+  /* padding-left: 10px; */
+}
+.name a {
   padding-left: 10px;
 }
 
