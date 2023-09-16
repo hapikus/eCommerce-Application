@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { message } from 'antd';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -41,6 +41,7 @@ function Product() {
   const { productTitle } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const [titleForRequest, setTitleForRequest] = useState('');
   const [randomProductsNum, setRandomProductsNum] = useState(
@@ -140,6 +141,10 @@ function Product() {
       </div>
     );
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     if (titleForRequest !== productTitle) {
