@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { ShoppingCartOutlined } from '@ant-design/icons';
-import getDisccount from '../../../components/shared/getDiscount';
+import GetDisccount from '../../../components/shared/getDiscount';
 import { RootState } from '../../../redux/store';
 
-import styles from './catalogCard.module.css';
 import IProduct from '../../../types/IProduct';
+import styles from './catalogCard.module.css';
 
 function CatalogCards(props: { products: IProduct[] }) {
   const [loadings, setLoadings] = useState<boolean[]>([]);
@@ -80,7 +80,10 @@ function CatalogCards(props: { products: IProduct[] }) {
                   <p className={styles.descCard}>{descriptionShort}</p>
                   <div className={styles.catalogCardDesc}>
                     <Tag style={{ padding: '5px 15px' }}>
-                      {getDisccount(price, discountPrice)}
+                      <GetDisccount
+                        priceDesc={price}
+                        discountPriceDesc={discountPrice}
+                      />
                     </Tag>
                     <Button
                       type="primary"

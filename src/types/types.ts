@@ -22,8 +22,8 @@ interface ChangeQuantityItem {
 }
 
 interface ChangeQuantity {
-  itemUpdates: ChangeQuantityItem[];
+  itemUpdates: ChangeQuantityItem;
 }
 
-export type { CatalogOptionsType, ChangeQuantity };
+export type { CatalogOptionsType, ChangeQuantity, ChangeQuantityItem };
 export default LoginFormValues;

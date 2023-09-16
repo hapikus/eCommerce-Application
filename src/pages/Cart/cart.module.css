@@ -24,3 +24,30 @@
 .mainLeftCont {
   width: 100%;
 }
+
+@media (max-width: 1130px) {
+  .mainInfoCont {
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .baskContMain {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .baskContMain {
+    width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .baskContMain {
+    width: 100%;
+  }
+}

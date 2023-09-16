@@ -137,7 +137,11 @@ function CartSummary() {
           <div className={styles.orderPrice}>
             <p className={styles.sumOrderPriceTitle}>Subtotal</p>
             <p className={styles.sumOrderPriceValue}>
-              {priceObj.discountPrice.toFixed(2)}
+              {Math.min(
+                priceObj.price,
+                priceObj.discountPrice || Infinity,
+                priceObj.promoPrice || Infinity,
+              ).toFixed(2)}
             </p>
           </div>
         </div>

@@ -52,7 +52,7 @@ export default class BasketService {
     basketId: string,
     changeQuantity: ChangeQuantity,
   ): Promise<AxiosResponse<string>> {
-    return $api.post<string>(
+    return $api.patch<string>(
       `/basket/${basketId}/change-quantity`,
       changeQuantity,
     );
