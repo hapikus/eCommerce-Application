@@ -16,6 +16,14 @@ import BasketService from '../../../models/Basket/BasketService';
 import styles from './cartGameList.module.css';
 import SadRobot from '../../../assets/images/sadRobot.png';
 
+const EMPTY_CART_PHRASES = [
+  "Empty cart? Don't talk to me about empty carts!",
+  "Here I am, with a cart as empty as the vastness of space. Call that a satisfying shopping experience? 'Cause I don't.",
+  "I've calculated your chances of finding something in this empty cart, but I don't think you'll like it.",
+  'I have a million shopping ideas, and they all point to filling up this cart.',
+  'I have a million ideas. They all point to buy something here.',
+];
+
 function CartGameList() {
   const [changeQuantFlag, setChangeQuantFlag] = useState(false);
   const [delBasketState, setDelBasketState] = useState(false);
@@ -130,6 +138,8 @@ function CartGameList() {
     Object.values(fullBasketData).length === 0 &&
     !fullLoading
   ) {
+    const randomIndex = Math.floor(Math.random() * EMPTY_CART_PHRASES.length);
+    const randomPhrase = EMPTY_CART_PHRASES[randomIndex];
     return (
       <div className={styles.emptyCont}>
         <div className={styles.emptyCartCont}>
@@ -139,12 +149,10 @@ function CartGameList() {
             className={styles.emptyCartImg}
             style={{ objectFit: 'cover' }}
           />
-          <h2>
-            I have a million ideas. They all point to buy something &nbsp;
-            <Link to="/catalog" style={{ color: 'var(--color-accent)' }}>
-              here.
-            </Link>
-          </h2>
+          <h2>{randomPhrase}</h2>
+          <Button>
+            <Link to="/catalog">Catalog</Link>
+          </Button>
         </div>
       </div>
     );
@@ -247,15 +255,16 @@ function CartGameList() {
             );
           })}
         </div>
-
-        <div className={styles.clearCartCont}>
-          <Button
-            className={styles.clearCartButton}
-            onClick={handleClearCartClick}
-          >
-            Clear Cart
-          </Button>
-        </div>
+        {Object.values(fullBasketData).length !== 0 ? (
+          <div className={styles.clearCartCont}>
+            <Button
+              className={styles.clearCartButton}
+              onClick={handleClearCartClick}
+            >
+              Clear Cart
+            </Button>
+          </div>
+        ) : null}
       </div>
     </Spin>
   );
