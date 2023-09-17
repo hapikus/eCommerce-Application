@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  GithubOutlined,
-} from '@ant-design/icons';
+import { GithubOutlined } from '@ant-design/icons';
 import { Menu, message, Button } from 'antd';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -59,9 +57,15 @@ function Footer() {
       <div className={styles.rule} />
       <div className={styles.footerFirstLine}>
         <div className={styles.userCont}>
-        <Button type="link"><Link to="/login">Sign in</Link></Button>
-        <Button type="link"><Link to="/signup">Sign up</Link></Button>
-        <Button type="link"><Link to="/user">User</Link></Button>
+          <Button type="link">
+            <Link to="/login">Sign in</Link>
+          </Button>
+          <Button type="link">
+            <Link to="/signup">Sign up</Link>
+          </Button>
+          <Button type="link">
+            <Link to="/user">User</Link>
+          </Button>
         </div>
         <div className={styles.productCont}>
           <Menu
@@ -70,10 +74,10 @@ function Footer() {
             disabledOverflow
             style={{ borderInlineEnd: 'none' }}
           >
-            <Menu.Item key="home" >
+            <Menu.Item key="home">
               <Link to="/">Main</Link>
             </Menu.Item>
-            <Menu.Item key="catalog" >
+            <Menu.Item key="catalog">
               <Link to="/catalog">Catalog</Link>
             </Menu.Item>
             <Menu.Item
@@ -92,10 +96,10 @@ function Footer() {
             disabledOverflow
             style={{ borderInlineEnd: 'none' }}
           >
-            <Menu.Item key="info" >
+            <Menu.Item key="info">
               <Link to="/info">Info</Link>
             </Menu.Item>
-            <Menu.Item key="cart" >
+            <Menu.Item key="cart">
               <Link to="/cart">Cart</Link>
             </Menu.Item>
           </Menu>
@@ -103,7 +107,7 @@ function Footer() {
         {currentSize.width < 420 ? null : (
           <div className={styles.githubLinks}>
             <Menu
-              mode={currentSize.width > 630 ? 'horizontal': 'horizontal'}
+              mode={currentSize.width > 630 ? 'horizontal' : 'horizontal'}
               selectable={false}
               disabledOverflow
               style={{ borderInlineEnd: 'none' }}

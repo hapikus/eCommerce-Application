@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Drawer, Menu, Avatar, Badge } from 'antd';
+import { Button, Drawer, Menu, Avatar, Badge, Select } from 'antd';
 import {
   MenuOutlined,
   MehOutlined,
   ShoppingCartOutlined,
+  BulbOutlined,
+  CloudOutlined,
+  HeartOutlined,
 } from '@ant-design/icons';
 import store, { RootState } from '../../../redux/store';
 
+import { setTheme } from '../../../redux/slice/themeSlice';
 import { logoutAsync } from '../../../redux/slice/authSlice';
 import { getBasketItems, setBasketId } from '../../../redux/slice/basketSlice';
 
@@ -28,7 +32,6 @@ function MainMenu({
   const itemsBasket = useSelector(
     (state: RootState) => state.basket.itemsFromServer.items,
   );
-  const themeState = useSelector((state: RootState) => state.theme.theme);
 
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
@@ -36,10 +39,7 @@ function MainMenu({
 
   // const [currentPageState, setCurrentPageState] = useState('');
   const [selectedItem, setSelectedItem] = useState(['']);
-
-  // useEffect(() => {
-  //   setCurrentPageState(currentPage);
-  // }, [currentPage]);
+  const themeState = useSelector((state: RootState) => state.theme.theme);
 
   useEffect(() => {
     setSelectedItem([location.pathname.replace('/', '')]);
@@ -183,6 +183,9 @@ function MainMenu({
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
+  const themeState = useSelector((state: RootState) => state.theme.theme);
+  const themesState = useSelector((state: RootState) => state.theme.themes);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -213,6 +216,27 @@ function Header() {
       >
         <MainMenu setOpenMenu={setOpenMenu} isInLine />
       </Drawer>
+      <Select
+        className={styles.themeSwitcher}
+        defaultValue={themeState}
+        autoFocus={false}
+        onChange={(value) => {
+          dispatch(setTheme(value));
+        }}
+        options={Object.values(themesState).map((themeMap: string) => {
+          let iconName = (<BulbOutlined />);
+          if (themeMap === 'dark') {
+            iconName = (<CloudOutlined />);
+          }
+          if (themeMap === 'barbie') {
+            iconName = (<HeartOutlined />);
+          }
+          return {
+            value: themeMap,
+            label: ( <div>{ iconName }</div>),
+          };
+        })}
+      />
     </>
   );
 }

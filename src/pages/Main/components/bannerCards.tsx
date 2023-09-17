@@ -6,10 +6,8 @@ import IProduct from '../../../types/IProduct';
 import styles from './banner.module.css';
 
 function BannerCards(products: IProduct[]) {
-
   return products.map((product: IProduct) => {
-    const { gameTitle, headerImg, descriptionShort } =
-      product;
+    const { gameTitle, headerImg, descriptionShort } = product;
     const url = `${headerImg}`.split('/');
     const suffix = url.pop();
     const gameID = url.pop();

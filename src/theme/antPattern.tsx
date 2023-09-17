@@ -23,8 +23,8 @@ const antPattern = {
         colorBgBody: '#fff',
       },
       Button: {
-        borderColorDisabled:'#52c41a'
-      }
+        borderColorDisabled: '#52c41a',
+      },
     },
   },
   [themes.dark]: {

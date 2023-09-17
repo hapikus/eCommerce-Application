@@ -114,12 +114,12 @@ function CatalogCards(props: { products: IProduct[] }) {
                       }
                     >
                       <Spin spinning={isItemLoading || isAdding}>
-                      {(itemsGameNameState || []).includes(gameTitle) ? (
-                        <CheckOutlined />
-                      ) : (
-                        <ShoppingCartOutlined />
-                      )}
-                    </Spin>
+                        {(itemsGameNameState || []).includes(gameTitle) ? (
+                          <CheckOutlined />
+                        ) : (
+                          <ShoppingCartOutlined />
+                        )}
+                      </Spin>
                     </Button>
                   </div>
                 </Card>

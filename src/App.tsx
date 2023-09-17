@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { ConfigProvider, Select } from 'antd';
+import { ConfigProvider } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import store, { RootState } from './redux/store';
-import { setTheme } from './redux/slice/themeSlice';
 import antPattern, { getThemeAlgorithm } from './theme/antPattern';
 
 import LayoutPage from './pages/Layout/layout';
@@ -22,12 +21,10 @@ import BasketService from './models/Basket/BasketService';
 import { checkAuth, setIsFirstLoad } from './redux/slice/authSlice';
 import { setBasketId } from './redux/slice/basketSlice';
 
-import styles from './pages/Layout/layout.module.css';
 
 function App() {
   const dispatch = useDispatch();
   const themeState = useSelector((state: RootState) => state.theme.theme);
-  const themesState = useSelector((state: RootState) => state.theme.themes);
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const isFirstLoadState = useSelector(
     (state: RootState) => state.auth.isFirstLoad,
@@ -140,18 +137,6 @@ function App() {
       }}
     >
       <div className="App">
-        <Select
-          className={styles.theme_switcher}
-          defaultValue={themeState}
-          autoFocus={false}
-          onChange={(value) => {
-            dispatch(setTheme(value));
-          }}
-          options={Object.values(themesState).map((themeMap) => ({
-            value: themeMap,
-            label: themeMap,
-          }))}
-        />
         <HashRouter>
           <Routes>
             <Route path="/" element={<LayoutPage />}>

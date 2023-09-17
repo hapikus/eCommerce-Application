@@ -74,7 +74,7 @@ function SideBar() {
     const fetchCategory = async () => {
       await store.dispatch(fetchAllCategory());
     };
-    const fetchTopGenres= async () => {
+    const fetchTopGenres = async () => {
       const todGenres = await ProductService.getTopGenres();
       setTopGenres(todGenres.data);
     };
@@ -135,10 +135,7 @@ function SideBar() {
       </div>
       <div className={styles.headerBlockCont}>
         {categoryAll?.length ? (
-          <CategoryCarousel
-            genres={topGenres}
-            categoryShow={categoryNum}
-          />
+          <CategoryCarousel genres={topGenres} categoryShow={categoryNum} />
         ) : null}
       </div>
       <GridCard />

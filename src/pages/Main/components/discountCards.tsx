@@ -112,13 +112,12 @@ function DiscountCards(products: IProduct[]) {
                 isItemLoading || isAdding || itemsNameState.includes(gameTitle)
               }
             >
-              <Spin  spinning={isItemLoading || isAdding }>
-                {
-                  (itemsGameNameState || []).includes(gameTitle)
-                  ? <CheckOutlined />
-                  : getDescription(price, discountPrice)
-
-                }
+              <Spin spinning={isItemLoading || isAdding}>
+                {(itemsGameNameState || []).includes(gameTitle) ? (
+                  <CheckOutlined />
+                ) : (
+                  getDescription(price, discountPrice)
+                )}
               </Spin>
             </Button>
           </div>
