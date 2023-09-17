@@ -176,7 +176,16 @@
   z-index: 999;
 }
 
+.swiperButtn:disabled {
+  border-color: #52c41a !important;
+  color: #52c41a !important
+}
+
 @media (max-width: 692px) {
+  .mySwiper {
+    min-width: 90px;
+  }
+
   .swiperDiscCont {
     top: 50%;
     left: 50%;

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Card, Tag, Spin, Image, Button, Tooltip } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 
 import GetDisccount from '../../../components/shared/getDiscount';
 import store, { RootState } from '../../../redux/store';
@@ -29,6 +29,10 @@ function CatalogCards(props: { products: IProduct[] }) {
   );
   const loadingCatalogProducts = useSelector(
     (state: RootState) => state.product.isLoadingCatalogProducts,
+  );
+
+  const itemsGameNameState = useSelector(
+    (state: RootState) => state.basket.itemsGameName,
   );
 
   const addButtonHandle = async (gameTitleAdd: string) => {
@@ -99,8 +103,6 @@ function CatalogCards(props: { products: IProduct[] }) {
                     </Tag>
                     <Button
                       type="primary"
-                      icon={<ShoppingCartOutlined />}
-                      loading={isItemLoading || isAdding}
                       onClick={(event) => {
                         event.preventDefault();
                         addButtonHandle(gameTitle);
@@ -110,7 +112,15 @@ function CatalogCards(props: { products: IProduct[] }) {
                         isAdding ||
                         itemsNameState.includes(gameTitle)
                       }
-                    />
+                    >
+                      <Spin spinning={isItemLoading || isAdding}>
+                      {(itemsGameNameState || []).includes(gameTitle) ? (
+                        <CheckOutlined />
+                      ) : (
+                        <ShoppingCartOutlined />
+                      )}
+                    </Spin>
+                    </Button>
                   </div>
                 </Card>
               </div>

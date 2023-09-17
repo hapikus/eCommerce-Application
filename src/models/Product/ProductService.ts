@@ -26,6 +26,10 @@ export default class ProductService {
     return $api.get<string[]>('/product/top-categories');
   }
 
+  static async getTopGenres(): Promise<AxiosResponse<string[]>> {
+    return $api.get<string[]>('/product/top-first-genres');
+  }
+
   static async getRandProductsWithDiscount(
     num: number,
   ): Promise<AxiosResponse<IProduct[]>> {

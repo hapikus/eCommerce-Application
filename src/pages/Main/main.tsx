@@ -16,6 +16,7 @@ import DiscountCarousel from './components/discountCarousel';
 import ProductService from '../../models/Product/ProductService';
 import PromoBanner from './components/promo';
 import SwiperMain from './components/swiper';
+import GridCard from './components/gridCard';
 
 const RANDOM_PRODUCT_REQUEST = 4;
 
@@ -48,7 +49,7 @@ const calculateDiscNum = () => {
 function SideBar() {
   const [categoryNum, setCategoryNum] = useState(calculateCategoryNum());
   const [discountNum, setDiscountNum] = useState(calculateDiscNum());
-  const [topCategory, setTopCategory] = useState([] as string[]);
+  const [topGenres, setTopGenres] = useState([] as string[]);
 
   const productsRandom = useSelector(
     (state: RootState) => state.product.randomProductsData,
@@ -73,12 +74,12 @@ function SideBar() {
     const fetchCategory = async () => {
       await store.dispatch(fetchAllCategory());
     };
-    const fetchTopCategory = async () => {
-      const topCatData = await ProductService.getTopCategories();
-      setTopCategory(topCatData.data);
+    const fetchTopGenres= async () => {
+      const todGenres = await ProductService.getTopGenres();
+      setTopGenres(todGenres.data);
     };
     fetchCategory();
-    fetchTopCategory();
+    fetchTopGenres();
     fetchProducts();
   }, []);
 
@@ -106,12 +107,18 @@ function SideBar() {
     fetchDiscProducts();
   }, [discountNum]);
 
+  // dispatch(
+  //   setSelectedFilters({
+  //     genres: [gameGenre[0]],
+  //     themes: [],
+  //     tags: [],
+  //     minPrice: 0,
+  //     maxPrice: 60,
+  //   } as IFilters),
+
   return (
     <div className={styles.mainCont}>
       <SearchMenu />
-      {/* <div className={styles.headerBlockCont}>
-        {productsRandom.length !== 0 && BannerCarousel(productsRandom)}
-      </div> */}
       <div className={styles.headerBlockCont}>
         {loadingRabd ? <Spin /> : <SwiperMain products={productsRandom} />}
       </div>
@@ -129,11 +136,12 @@ function SideBar() {
       <div className={styles.headerBlockCont}>
         {categoryAll?.length ? (
           <CategoryCarousel
-            categorys={topCategory}
+            genres={topGenres}
             categoryShow={categoryNum}
           />
         ) : null}
       </div>
+      <GridCard />
     </div>
   );
 }

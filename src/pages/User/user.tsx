@@ -1,5 +1,5 @@
-import { useLayoutEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useLayoutEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import UserMenu from './components/userMenu';
 import UserProfile from './components/userProfile';
@@ -11,23 +11,12 @@ import {
   setIsFirstLoadUser,
   getFullUserDataAsync,
 } from '../../redux/slice/userSlice';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import store, { RootState } from '../../redux/store';
 
 import styles from './user.module.css';
 
 function UserPage() {
-  const dispatch = useDispatch();
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage('not found'));
-  }, [dispatch]);
-
-  useLayoutEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
-
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const isFirstLoading = useSelector(
     (state: RootState) => state.user.isFirstLoad,

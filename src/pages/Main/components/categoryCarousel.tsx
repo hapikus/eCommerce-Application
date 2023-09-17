@@ -4,10 +4,10 @@ import styles from './banner.module.css';
 import CategoryCards from './categoryCards';
 
 function CategoryCarousel(props: {
-  categorys: string[];
+  genres: string[];
   categoryShow: number;
 }) {
-  const { categorys, categoryShow } = props;
+  const { genres, categoryShow } = props;
   return (
     <div className={styles.categoryContainer}>
       <Carousel
@@ -17,7 +17,7 @@ function CategoryCarousel(props: {
         slidesToShow={categoryShow}
         dots={{ className: styles.carouselDots }}
       >
-        {CategoryCards(categorys)}
+        {CategoryCards(genres)}
       </Carousel>
     </div>
   );

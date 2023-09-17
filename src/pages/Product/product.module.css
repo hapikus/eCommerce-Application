@@ -27,12 +27,13 @@
 
 .pathLink {
   font-size: 14px;
-  color: var(--bg-color-accent);
+  color: var(--text-accent);
+  opacity: 0.6;
 }
 
 .pathLink:hover {
-  color: var(--bg-color-accent);
-  opacity: 0.8;
+  color: var(--color-text);
+  opacity: 0.9;
 }
 
 .headerBlockCont {
@@ -411,14 +412,15 @@
 .genreLink,
 .themeLink,
 .devLink {
-  color: var(--bg-color-accent);
+  color: var(--text-accent);
+  opacity: 0.6;
 }
 
 .genreLink:hover,
 .themeLink:hover,
 .devLink:hover {
-  color: var(--bg-color-accent);
-  opacity: 0.8;
+  color: var(--color-text);
+  opacity: 0.9;
 }
 
 @media (max-width: 945px) {

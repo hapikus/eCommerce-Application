@@ -191,7 +191,9 @@ function CartGameList() {
                     />
                   </div>
                 </Link>
-                <div className={styles.cartProdTitle}>{gameTitle}</div>
+                <div className={styles.cartProdTitle}>
+                    <p className={styles.cartTitle}>{gameTitle}</p>
+                  </div>
                 <div className={styles.cartProdQuant}>
                   <div className={styles.cartProdQuantDecrease}>
                     <Button

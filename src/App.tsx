@@ -37,11 +37,11 @@ function App() {
     (state: RootState) => state.basket.basketId,
   );
 
-  const savedTheme = localStorage.getItem('theme');
+  // const savedTheme = localStorage.getItem('theme');
 
-  if (savedTheme) {
-    dispatch(setTheme(savedTheme));
-  }
+  // if (savedTheme) {
+  //   dispatch(setTheme(savedTheme));
+  // }
 
   const refreshToken = async () => {
     await store.dispatch(checkAuth());

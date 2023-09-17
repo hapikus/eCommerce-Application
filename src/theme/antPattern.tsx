@@ -13,18 +13,27 @@ const antPattern = {
     token: {
       colorBgContainer: '#eae7ea',
       colorText: '#000',
+      colorLink: '#000',
+      colorLinkActive: '#91caff',
+      colorLinkHover: '#003eb3',
     },
     components: {
       Layout: {
         colorBgHeader: '#eae7ea',
         colorBgBody: '#fff',
       },
+      Button: {
+        borderColorDisabled:'#52c41a'
+      }
     },
   },
   [themes.dark]: {
     token: {
       colorBgContainer: '#171a21',
       colorText: '#fff',
+      colorLink: '#fff',
+      colorLinkActive: '#0958d9',
+      colorLinkHover: '#4096ff',
     },
     components: {
       Layout: {
