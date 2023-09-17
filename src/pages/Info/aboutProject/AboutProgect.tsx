@@ -1,8 +1,5 @@
-// import { Button, Carousel } from 'antd';
-// import { Link } from 'react-router-dom';
 import { CheckOutlined, GithubOutlined, MehOutlined } from '@ant-design/icons';
 import { Button, Carousel, Timeline, Image, List, } from 'antd';
-// import { Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styles from './aboutProject.module.css';
 
@@ -17,6 +14,9 @@ import RLogo from '../../../assets/images/logo/redux_logo.png';
 import JiraLogo from '../../../assets/images/logo/jira_logo.png';
 import Logo from '../../../assets/images/logo/download (1).png';
 import LoginImg from '../../../assets/images/pagesScreens/loginPage.png';
+import SelionesImg from '../../../assets/images/teamPhoto/selionis icon.png';
+import HapikusImg from '../../../assets/images/teamPhoto/hapikus icon.png';
+import LukshaOlgaImg from '../../../assets/images/teamPhoto/lukshaolga icon.png';
 
 function AboutProject() {
   const data = [
@@ -62,7 +62,7 @@ function AboutProject() {
                       <List.Item.Meta
                         avatar={<MehOutlined />}
                         title={item.title}
-                        style={{fontFamily: 'Poppins',fontWeight: '500'}}
+                        style={{ fontFamily: 'Poppins', fontWeight: '500' }}
                       />
                     </List.Item>
                   )}
@@ -149,7 +149,7 @@ function AboutProject() {
           </div>
         </div>
       </section>
-      
+
       <section className={styles.sprint_1}>
         <div className={styles.sectionContaier}>
           <div className={styles.sprint_1_title}>
@@ -160,7 +160,11 @@ function AboutProject() {
             <div className={styles.timeLine}>
               <Timeline
                 mode="left"
-                style={{ fontSize: '40px', color: 'black', backgroundColor: 'rgb(230, 230, 230)',    paddingBlock: '0' }}
+                style={{
+                  fontSize: '40px',
+                  color: 'black',
+                  paddingBlock: '0'
+                }}
                 items={[
                   {
                     children: (
@@ -176,7 +180,6 @@ function AboutProject() {
                           fontSize: '40px',
                           backgroundColor: 'rgb(230, 230, 230)',
                           color: 'black',
-                          marginBottom: '30px',
                         }}
                       />
                     ),
@@ -188,9 +191,6 @@ function AboutProject() {
                         <div className={styles.timePeriodTitleRight}>
                           <p>Task Board</p>
                         </div>
-                        <div className={styles.timePeroidText}>
-                          {/* <p>Every fhgfhgfh</p> */}
-                        </div>
                       </div>
                     ),
                     color: 'blue',
@@ -200,9 +200,9 @@ function AboutProject() {
                       <GithubOutlined
                         style={{
                           fontSize: '40px',
-                          backgroundColor: 'rgb(230, 230, 230)',
+                          // backgroundColor: 'rgb(230, 230, 230)',
                           color: 'black',
-                          padding: '30px',
+                          // padding: '30px',
                           borderRadius: '50%',
                         }}
                       />
@@ -291,8 +291,8 @@ function AboutProject() {
       <section className={styles.sprint_1}>
         <div className={styles.sectionContaier}>
           <div className={styles.sprint_1_title}>
-          <h2>Sprint 2</h2>
-        <h3>Login, Registration, and Main Pages Implementation</h3>
+            <h2>Sprint 2</h2>
+            <h3>Login, Registration, and Main Pages Implementation</h3>
           </div>
           <div className={styles.column_2}>
             <div className={styles.timeLine}>
@@ -304,12 +304,16 @@ function AboutProject() {
                     children: (
                       <div className={styles.period}>
                         <div className={styles.timePeriodTitleRight}>
+                          <img src={SelionesImg} alt="icon" />
                           <p>Seliones</p>
-                         
+
                         </div>
                         <div className={styles.timePeroidText}>
-                          <p>Implement client-side validation for all required fields in the registration form</p>
-                          <p>Implement routing for navigation</p>
+                          <p>creating themes,
+                            designing website pages,
+                            setting up a server for user-server interaction,
+                            and facilitating communication between the frontend
+                            and backend of the website.</p>
                         </div>
                       </div>
                     ),
@@ -319,12 +323,14 @@ function AboutProject() {
                     children: (
                       <div className={styles.period}>
                         <div className={styles.timePeriodTitleLeft}>
+                          <img src={HapikusImg} alt="icon" />
                           <p>Hapikus</p>
-                         
                         </div>
                         <div className={styles.timePeroidTextLeft}>
-                          <p>Implement client-side validation for all required fields in the registration form</p>
-                          <p>Implement routing for navigation</p>
+                          <p>Login page. Conducted discussions on the possibility of using
+                            MOBX instead of REDUX. Code reviews and requested implementations.
+                            discussed topics such as the vite.config.ts file,
+                            implementation and validation of dobValid.ts, and the database for products.</p>
                         </div>
                       </div>
                     ),
@@ -334,12 +340,13 @@ function AboutProject() {
                     children: (
                       <div className={styles.period}>
                         <div className={styles.timePeriodTitleRight}>
+                          <img src={LukshaOlgaImg} alt="icon" />
                           <p>Lukshaolya</p>
-                         
                         </div>
                         <div className={styles.timePeroidText}>
                           <p>Implement client-side validation for all required fields in the registration form</p>
                           <p>Implement routing for navigation</p>
+                          <p>404 page ideas</p>
                         </div>
                       </div>
                     ),
@@ -348,8 +355,11 @@ function AboutProject() {
                     color: 'red',
                     children: (
                       <div className={styles.period}>
-                        <div className={styles.timePeriodTitle}>
+                        <div className={styles.timePeriodTitleLeft}>
                           <p>Brain Storm</p>
+                        </div>
+                        <div className={styles.timePeroidTextLeft}>
+                          <p>Discussion about the main page design and the decision to take inspiration from the Steam website.</p>
                         </div>
                       </div>
                     ),
@@ -358,14 +368,81 @@ function AboutProject() {
               />
             </div>
             <div className={styles.appBlocks}>
-            <div className={styles.loginForm}>
+              <div className={styles.loginForm}>
                 <img src={LoginImg} alt="login" />
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </section>
+      <section className={styles.sprint_1}>
+        <div className={styles.sectionContaier}>
+          <div className={styles.sprint_1_title}>
+            <h2>Sprint 3</h2>
+            <h3> Catalog Product Page, Detailed Product Page & User Profile Page Implementation</h3>
+          </div>
+          <div className={styles.column_2}>
+            <div className={styles.timeLine}>
+              <Timeline
+                mode="right"
+                style={{ fontSize: '40px', color: 'black' }}
+                items={[
+                  {
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleLeft}>
+                          <img src={HapikusImg} alt="icon" />
+                          <p>Hapikus</p>
+                        </div>
+                        <div className={styles.timePeroidTextLeft}>
+                          <p>Detailed product page. Bright discription of each product on spesial page with images of a selected product. </p>
+                        </div>
+                      </div>
+                    ),
+                    color: 'blue',
+                  },
+                  {
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleLeft}>
+                          <img src={LukshaOlgaImg} alt="icon" />
+                          <p>Lukshaolya</p>
 
+                        </div>
+                        <div className={styles.timePeroidTextLeft}>
+                          <p>User page.</p>
+                          <p>Implement oppotunity to change personal data and dinamic adding of several addresses.</p>
+                        </div>
+                      </div>
+                    ),
+                  },
+                  {
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleLeft}>
+                          <img src={SelionesImg} alt="icon" />
+                          <p>Seliones</p>
+
+                        </div>
+                        <div className={styles.timePeroidTextLeft}>
+                          <p>Main and Catalog Page.Implement filtering options for users to refine the product list
+                            based on attributes such as price range, brand, name, category. Convenient slider on main page</p>
+                        </div>
+                      </div>
+                    ),
+                    color: 'white',
+                  },
+                ]}
+              />
+            </div>
+            <div className={styles.appBlocks}>
+              <div className={styles.loginForm}>
+                {/* <img src={LoginImg} alt="login" /> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

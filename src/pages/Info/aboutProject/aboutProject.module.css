@@ -4,9 +4,8 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 1800px;
+  max-width: 100%;
   flex-direction: column;
-  background-color: white;
 }
 
 .sectionContaier {
@@ -29,7 +28,6 @@
   width: 50;
   height: 50;
   font-size: 30px;
-  color: BLAck;
 }
 
 .block img {
@@ -66,14 +64,8 @@
   font-size: 26px;
 }
 
-
-/* .period {
-  width: 300px;
-} */
-
-.timePeriodTitleRight, .timePeriodTitleLeft {
+.timePeriodTitleRight {
   position: relative;
-  /* display: inline; */
   background: rgb(248, 248, 248);
   padding: 6px 10px;
   border-radius: 5px;
@@ -86,11 +78,20 @@
   width: fit-content;
   transition: 1s;
   transform: scale(1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timePeriodTitleRight img,
+.timePeriodTitleLeft img {
+  border-radius: 50%;
+  width: 60px;
+  padding: 0 10px;
 }
 
 .timePeriodTitleLeft {
   position: relative;
-  /* display: inline; */
   background: rgb(248, 248, 248);
   padding: 6px 10px;
   border-radius: 5px;
@@ -104,12 +105,17 @@
   transition: 1s;
   transform: scale(1);
   margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.timePeriodTitleRight:hover ,.timePeriodTitleLeft:hover {
-  transform: scale(1.1);
+.timePeriodTitleRight:hover,
+.timePeriodTitleLeft:hover {
+  transform: scale(1.2);
   color: #51176d;
   padding-left: 20px;
+  background-color: rgba(211, 195, 195, 0.897);
 }
 
 .timePeriodTitleRight:after {
@@ -124,7 +130,6 @@
   border-right-color: rgb(248, 248, 248);
   border-width: 8px;
   pointer-events: none;
-
 }
 
 .timePeroidText {
@@ -137,6 +142,7 @@
   transition: 1s;
   transform: scale(1);
 }
+
 .timePeriodTitleLeft:after {
   content: "";
   position: absolute;
@@ -153,13 +159,11 @@
 }
 
 .timePeroidTextLeft {
-  /* width: 200px; */
   font-style: italic;
   line-height: 1.5em;
   color: rgb(50, 50, 50);
   margin: 1em 0 0 0.75em;
   text-align: right;
-
 }
 
 .column_2 {
@@ -171,47 +175,8 @@
 
 .timeLine {
   margin-left: 50px;
-
 }
 
-/* .container {
-  background:rgb(230, 230, 230);
-}
-
-.containerWidth {
-  margin: 0 auto;
-  width: 80%;
-}
-
-.containerBlock {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 20px;
-}
-
-.block {
-width: 50;
-height: 50;
-font-size: 30px;
-color: BLAck;
-}
-
-.block img {
-  height: 150px;
-}
-
-.sprint1_logo {
-  width: 500px;
-  height: 500px;
-}
-
-.s1Container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-*/
 .appBlocks {
   display: flex;
   flex-direction: column;
@@ -233,10 +198,8 @@ color: BLAck;
 .jiraBlockHeader {
   border-bottom: 1px solid white;
   background-color: #0052b6;
-  /* height: 50px; */
   border-radius: 10px 10px 0 0;
   color: white;
-  /* padding: 10px; */
   font-size: 24px;
   display: flex;
   flex-direction: row;
@@ -250,10 +213,6 @@ color: BLAck;
   padding: 4px;
 }
 
-/* .jiraBlockBody p {
-   font-wight: 600; 
-} */
-
 .jiraBlockBody li {
   list-style: none;
   font-size: 16px;
@@ -263,7 +222,6 @@ color: BLAck;
 .jiraBlockBody ul {
   margin: 0;
 }
-
 
 /* git hub block */
 .gitBlock {
@@ -288,12 +246,9 @@ color: BLAck;
   padding: 10px;
 }
 
-
 /* Product main  */
-
 .productConatiner {
-
-  background-color: #2e4c63;
+  background-color: #1c4b6fa6;
 }
 
 .containerBtn {
@@ -310,14 +265,11 @@ color: BLAck;
   justify-content: space-between;
   margin-top: 10%;
   margin-bottom: 10%;
-  color: white;
 }
 
 .productSlader {
   width: 600px;
   padding: 13px;
-  /* border: 5px solid #d5cdcd;
-  border-radius: 10%; */
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
 
@@ -328,7 +280,6 @@ color: BLAck;
 }
 
 .productInfoTitle h3 {
-  color: white;
   text-align: center;
   margin-top: 8%;
   letter-spacing: .08em;
@@ -343,81 +294,24 @@ color: BLAck;
   font-family: 'Poppins', sans-serif;
 }
 
-/* 
-font-family: 'EB Garamond', serif;
-font-family: 'Press Start 2P', cursive;
-font-family: 'Rubik Mono One', sans-serif; */
-
-
-
-
 .progectDiscription {
   text-align: justify;
   padding-left: 10px;
   margin-bottom: 10%;
   font-size: 18px;
   line-height: 101%;
-  color: rgb(230, 230, 230);
-  /* font-family: 'EB Garamond', serif; */
   font-family: 'Poppins', sans-serif;
 }
 
 .progectName {
   font-size: 40px;
-  color: #e7bd71;
+  color: #d6a74f;
   padding: 20px;
   text-align: left;
   font-family: 'Black Ops One';
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-  /* font-family: 'Rubik Mono One', sans-serif; */
 }
 
-/* .aboutProductBlock {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 10%;
-    margin-bottom: 10%;
-  }
-  
-  .productSlader {
-    width: 600px;
-    padding: 13px;
-    border: 10px solid white;
-    border-radius: 10%;
-  }  */
-/*   
-  .productInfo {
-    width: 500px;
-    padding-left: 20px;
-  }
-  
-  .productInfoTitle h3 {
-    color: lightblue; 
-    text-align: center;
-    margin-top: 8%; 
-    letter-spacing: .08em; 
-    font-family: 'Archivo', sans-serif;
-    font-weight:bold;
-    padding-bottom: 20px; 
-    font-size: 40px;
-  }
-  
-  
-  .progectDiscription {
-    text-align: justify;
-    padding-left: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .progectName {
-  font-size: 30px;
-  color: orange;
-  padding: 10px;
-  text-align: left;
-  } */
-
-  .loginForm img {
-    width: 500px;
-    border-radius: 10px;
-  }
+.loginForm img {
+  width: 500px;
+  border-radius: 10px;
+}

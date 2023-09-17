@@ -7,7 +7,6 @@
   width: 100%;
   max-width: 100%;
   flex-direction: column;
-  color: black;
 }
 
 .sectionContaier {
@@ -19,10 +18,7 @@
 .infoMainContaier {
   display: flex;
   flex-direction: row;
-  /* margin: 0 auto; */
-  height: 600px;
   justify-content: space-between;
-  /* width: 80%; */
 }
 
 .containerBtn {
@@ -43,12 +39,7 @@
 }
 
 .teamGreet {
-  color: #ecf0f1;
   text-align: justify;
-}
-
-.teamGreet h3 {
-
 }
 
 /* section 2 How we work */
@@ -61,8 +52,6 @@
   text-align: center;
   margin-top: 5%;
   letter-spacing: .08em;
-  /* font-family: 'Roboto', sans-serif; */
-
   font-weight: bold;
   padding-bottom: 10px;
   font-size: 35px;
@@ -139,7 +128,6 @@
   padding-right: 10%;
   font-size: 18px;
   font-family: 'EB Garamond', serif;
-
 }
 
 /* section about project */
@@ -148,7 +136,6 @@
   flex-direction: row;
   margin-top: 10%;
   margin-bottom: 10%;
-  color: white;
 }
 
 .productSlader {
@@ -166,7 +153,6 @@
 }
 
 .productInfoTitle h3 {
-  color: white;
   text-align: center;
   margin-top: 8%;
   letter-spacing: .08em;
@@ -176,21 +162,12 @@
   font-size: 40px;
 }
 
-/* 
-font-family: 'EB Garamond', serif;
-font-family: 'Press Start 2P', cursive;
-font-family: 'Rubik Mono One', sans-serif; */
-
-
-
-
 .progectDiscription {
   text-align: justify;
   padding-left: 10px;
   margin-bottom: 10%;
   font-size: 18px;
   line-height: 101%;
-  color: rgb(230, 230, 230);
   font-family: 'EB Garamond', serif;
 }
 
@@ -200,12 +177,10 @@ font-family: 'Rubik Mono One', sans-serif; */
   padding: 10px;
   text-align: left;
   font-family: 'Black Ops One';
-  /* font-family: 'Rubik Mono One', sans-serif; */
 }
 
 /* about Team Member */
 .teamMemberContainer {
-  /* height: 600px; */
   background-color: #83d56d38;
 }
 
@@ -214,15 +189,17 @@ font-family: 'Rubik Mono One', sans-serif; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* margin: 0 auto; */
-  /* width: 70%; */
 }
 
 .textAboutLearning {
-  font-size: 50px;
+  font-size: 40px;
   display: flex;
   flex-direction: row;
   margin: 0 0 20px 0;
+}
+
+.infoBlock {
+  margin-left: 10%;
 }
 
 .textAboutLearning p {
@@ -232,6 +209,10 @@ font-family: 'Rubik Mono One', sans-serif; */
 .quotes {
   padding: 0 20px;
   color: orange;
+}
+
+.rightQuote {
+  margin-top: 30px;
 }
 
 .personPhoto {
@@ -267,28 +248,103 @@ font-family: 'Rubik Mono One', sans-serif; */
 }
 
 .divider {
-  background-color: #ca6060;
-  height: 1px;
-  width: 160px;
+  border-top: 1px solid #ca6060;
+  width: 360px;
   margin-top: 20px;
 }
 
 .name {
-  color: #dee2e9;
   font-size: 36px;
   font-weight: 600;
   margin-top: 16px;
   text-align: center;
-  /* padding-left: 10px; */
 }
 .name a {
   padding-left: 10px;
 }
 
 .title {
-  color: #6e6e6e;
   font-family: arial;
   font-size: 14px;
   font-style: italic;
   margin-top: 4px;
+}
+
+.textAboutTeamMember {
+  width: 75%;
+  margin-left: 15%;
+  margin-top: 5%;
+  text-align: justify;
+  line-height: 20px;
+}
+
+@media (max-width: 945px) {
+  .container {
+    width: 100%;
+  }
+
+  .sectionContaier {
+    margin: 20px auto;
+    width: 100%;
+  }
+  
+ .infoMainContaier {
+  flex-direction: column;
+  height: fit-content;
+ }
+
+ .logo img {
+  width: 400px;
+}
+
+.textAbout {
+  padding-top: 50px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.personPhoto{
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  align-items: baseline;
+  width: 200px;
+}
+
+.teamMemberInfo {
+  flex-direction: column;
+}
+.teamMemberContainer .sectionContaier {
+  width: 80%;
+}
+
+.textAboutLearning {
+  font-size: 35px;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.aboutProductBlock {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+
+}
+
+@media (max-width: 692px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+  }
+
+  .quotes  img {
+width: 50px;
+  }
+}
+
+@media (max-width: 472px) {
+
 }

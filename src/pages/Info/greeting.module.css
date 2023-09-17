@@ -5,7 +5,8 @@
   font-family: 'Lato', sans-serif;
   font-size: 50px;
   line-height: 55px;
-  color: #ecf0f1;
+  /* color: #ecf0f1; */
+  width: fit-content;
 }
 .content__container {
   font-weight: 600;
