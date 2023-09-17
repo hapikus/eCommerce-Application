@@ -18,6 +18,8 @@ import SelionesImg from '../../../assets/images/teamPhoto/selionis icon.png';
 import HapikusImg from '../../../assets/images/teamPhoto/hapikus icon.png';
 import LukshaOlgaImg from '../../../assets/images/teamPhoto/lukshaolga icon.png';
 import Card from '../../../assets/images/logo/superStore.png';
+import DataBase from '../../../assets/images/pagesScreens/DataBase.png';
+import Page from '../../../assets/images/logo/page.jpg';
 
 function AboutProject() {
   const data = [
@@ -389,6 +391,7 @@ function AboutProject() {
             <div className={styles.appBlocks}>
               <div className={styles.loginForm}>
                 <img src={LoginImg} alt="login" />
+                <img src={DataBase}  alt="data" />
               </div>
             </div>
           </div>
@@ -469,7 +472,7 @@ function AboutProject() {
             </div>
             <div className={styles.appBlocks}>
               <div className={styles.loginForm}>
-                {/* <img src={LoginImg} alt="login" /> */}
+                <img src={Page} alt="login" />
               </div>
             </div>
           </div>
@@ -481,7 +484,8 @@ function AboutProject() {
             <h2>Sprint 4</h2>
             <h3>
               {' '}
-              Basket Page, Catalog Page Enhancements, and About Us Page Implementation 
+              Basket Page, Catalog Page Enhancements, and About Us Page
+              Implementation
             </h3>
           </div>
           <div className={styles.column_2}>
@@ -500,7 +504,8 @@ function AboutProject() {
                         <div className={styles.timePeroidText}>
                           <p>About Project page.</p>
                           <p>
-                          Tried to reconstruct the events of the last two months and evaluate the results of the work done.
+                            Tried to reconstruct the events of the last two
+                            months and evaluate the results of the work done.
                           </p>
                         </div>
                       </div>
@@ -515,14 +520,15 @@ function AboutProject() {
                         </div>
                         <div className={styles.timePeroidText}>
                           <p>
-                          Basket Page. Implement oppotunity to clear, add, remove a list of products in basket.
+                            Basket Page. Implement oppotunity to clear, add,
+                            remove a list of products in basket.
                           </p>
                         </div>
                       </div>
                     ),
                     color: 'blue',
                   },
-                  
+
                   {
                     children: (
                       <div className={styles.period}>
@@ -532,7 +538,8 @@ function AboutProject() {
                         </div>
                         <div className={styles.timePeroidText}>
                           <p>
-                          Catalog Page integration with Basket Page. Paggination and some performance optimization tools.
+                            Catalog Page integration with Basket Page.
+                            Paggination and some performance optimization tools.
                           </p>
                         </div>
                       </div>

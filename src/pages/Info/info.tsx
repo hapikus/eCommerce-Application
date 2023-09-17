@@ -48,10 +48,11 @@ function InfoPage() {
             </div>
             <div className={styles.teamGreet}>
               <h3>
-                Hello and welcome to CodeFrondlers Team,
-                a group of <b>three young frontend developers</b> who have come together to
-                create an online store website. We are thrilled to have you here and hope you
-                enjoy your experience browsing our carefully crafted website.
+                Hello and welcome to CodeFrondlers Team, a group of{' '}
+                <b>three young frontend developers</b> who have come together to
+                create an online store website. We are thrilled to have you here
+                and hope you enjoy your experience browsing our carefully
+                crafted website.
                 <hr />
                 Happy shopping!
               </h3>
@@ -145,7 +146,6 @@ function InfoPage() {
                     </Link>
                   </div>
                 </div>
-
               </div>
             </div>
             <div className={styles.infoBlock}>
@@ -155,18 +155,24 @@ function InfoPage() {
                 </span>{' '}
                 <p>Programing is a big love, but ... is not so easy</p>{' '}
                 <span className={styles.quotes}>
-                  <img className={styles.rightQuote} src={RightQuote} alt="quote" />
+                  <img
+                    className={styles.rightQuote}
+                    src={RightQuote}
+                    alt="quote"
+                  />
                 </span>
               </div>
               <div className={styles.textAboutTeamMember}>
                 <h4>
-                  I have been working as an economist in the energy industry for three years.
-                  I enjoy solving problems and constantly striving for higher goals.
-                  I entered the field of programming without any technical experience
-                  and as it turned out, with limited computer skills.
+                  I have been working as an economist in the energy industry for
+                  three years. I enjoy solving problems and constantly striving
+                  for higher goals. I entered the field of programming without
+                  any technical experience and as it turned out, with limited
+                  computer skills.
                 </h4>
                 <h4>
-                  There is still a lot for me to learn. This project helped me identify my weaknesses and gain experience in teamwork.
+                  There is still a lot for me to learn. This project helped me
+                  identify my weaknesses and gain experience in teamwork.
                 </h4>
               </div>
               <div className={styles.textAboutTeamMember}>
@@ -191,17 +197,20 @@ function InfoPage() {
                 </span>{' '}
                 <p>Those how know.....know</p>{' '}
                 <span className={styles.quotes}>
-                  <img className={styles.rightQuote} src={RightQuote} alt="quote" />
+                  <img
+                    className={styles.rightQuote}
+                    src={RightQuote}
+                    alt="quote"
+                  />
                 </span>
               </div>
               <div className={styles.textAboutTeamMember}>
                 <h4>
                   More than 5 years of experience in the field of technology,
-                 
                 </h4>
                 <h4>
-                  More than 6 years of experience working with clients and users,
-                  
+                  More than 6 years of experience working with clients and
+                  users,
                 </h4>
               </div>
               <div className={styles.textAboutTeamMember}>
@@ -226,13 +235,12 @@ function InfoPage() {
                 </div>
                 <div className={styles.divider}>
                   <div className={styles.name}>
-                  ALEXANDER BUDKO
+                    ALEXANDER BUDKO
                     <Link to="https://github.com/swallowOnes">
                       <GithubOutlined />
                     </Link>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -254,13 +262,12 @@ function InfoPage() {
                 </div>
                 <div className={styles.divider}>
                   <div className={styles.name}>
-                  SERGEY CHIKUNOV
+                    SERGEY CHIKUNOV
                     <Link to="https://github.com/hapikus">
                       <GithubOutlined />
                     </Link>
                   </div>
                 </div>
-
               </div>
             </div>
             <div className={styles.infoBlock}>
@@ -270,23 +277,28 @@ function InfoPage() {
                 </span>{' '}
                 <p>Those how know.....know</p>{' '}
                 <span className={styles.quotes}>
-                  <img className={styles.rightQuote} src={RightQuote} alt="quote" />
+                  <img
+                    className={styles.rightQuote}
+                    src={RightQuote}
+                    alt="quote"
+                  />
                 </span>
               </div>
               <div className={styles.textAboutTeamMember}>
                 <h4>
                   More than 5 years of experience in the field of technology,
-                  including positions as a business analyst, technical support specialist,
-                  and working on a country-level optimization project.
-                  This experience has given me a deep understanding of technical
-                  concepts and the ability to analyze complex technical problems.
+                  including positions as a business analyst, technical support
+                  specialist, and working on a country-level optimization
+                  project. This experience has given me a deep understanding of
+                  technical concepts and the ability to analyze complex
+                  technical problems.
                 </h4>
                 <h4>
-                  More than 6 years of experience working with clients and users,
-                  solving their problems in positions such as a sales consultant,
-                  administrator, and technical support specialist. In these roles,
-                  I honed my communication skills, the ability to listen to users,
-                  and understand the essence of the problem.
+                  More than 6 years of experience working with clients and
+                  users, solving their problems in positions such as a sales
+                  consultant, administrator, and technical support specialist.
+                  In these roles, I honed my communication skills, the ability
+                  to listen to users, and understand the essence of the problem.
                 </h4>
               </div>
               <div className={styles.textAboutTeamMember}>
@@ -301,7 +313,7 @@ function InfoPage() {
           </div>
         </div>
       </section>
-     
+
       <section className={styles.productConatiner}>
         <div className={styles.sectionContaier}>
           <div className={styles.aboutProductBlock}>
