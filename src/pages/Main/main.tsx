@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Spin } from 'antd';
 import {
   fetchRandProducts,
   fetchAllCategory,
@@ -9,11 +10,13 @@ import {
 import store, { RootState } from '../../redux/store';
 
 import styles from './main.module.css';
-import BannerCarousel from './components/bannerCarousel';
 import SearchMenu from './components/search';
 import CategoryCarousel from './components/categoryCarousel';
 import DiscountCarousel from './components/discountCarousel';
 import ProductService from '../../models/Product/ProductService';
+import PromoBanner from './components/promo';
+import SwiperMain from './components/swiper';
+import GridCard from './components/gridCard';
 
 const RANDOM_PRODUCT_REQUEST = 4;
 
@@ -46,10 +49,14 @@ const calculateDiscNum = () => {
 function SideBar() {
   const [categoryNum, setCategoryNum] = useState(calculateCategoryNum());
   const [discountNum, setDiscountNum] = useState(calculateDiscNum());
-  const [topCategory, setTopCategory] = useState([] as string[]);
+  const [topGenres, setTopGenres] = useState([] as string[]);
 
   const productsRandom = useSelector(
     (state: RootState) => state.product.randomProductsData,
+  );
+
+  const loadingRabd = useSelector(
+    (state: RootState) => state.product.isLoadingRandom,
   );
 
   const categoryAll = useSelector(
@@ -67,12 +74,12 @@ function SideBar() {
     const fetchCategory = async () => {
       await store.dispatch(fetchAllCategory());
     };
-    const fetchTopCategory = async () => {
-      const topCatData = await ProductService.getTopCategories();
-      setTopCategory(topCatData.data);
+    const fetchTopGenres = async () => {
+      const todGenres = await ProductService.getTopGenres();
+      setTopGenres(todGenres.data);
     };
     fetchCategory();
-    fetchTopCategory();
+    fetchTopGenres();
     fetchProducts();
   }, []);
 
@@ -100,11 +107,23 @@ function SideBar() {
     fetchDiscProducts();
   }, [discountNum]);
 
+  // dispatch(
+  //   setSelectedFilters({
+  //     genres: [gameGenre[0]],
+  //     themes: [],
+  //     tags: [],
+  //     minPrice: 0,
+  //     maxPrice: 60,
+  //   } as IFilters),
+
   return (
     <div className={styles.mainCont}>
       <SearchMenu />
       <div className={styles.headerBlockCont}>
-        {productsRandom.length !== 0 && BannerCarousel(productsRandom)}
+        {loadingRabd ? <Spin /> : <SwiperMain products={productsRandom} />}
+      </div>
+      <div className={styles.headerBlockCont}>
+        <PromoBanner />
       </div>
       <div className={styles.headerBlockCont}>
         {discountRandom?.length ? (
@@ -116,12 +135,10 @@ function SideBar() {
       </div>
       <div className={styles.headerBlockCont}>
         {categoryAll?.length ? (
-          <CategoryCarousel
-            categorys={topCategory}
-            categoryShow={categoryNum}
-          />
+          <CategoryCarousel genres={topGenres} categoryShow={categoryNum} />
         ) : null}
       </div>
+      <GridCard />
     </div>
   );
 }

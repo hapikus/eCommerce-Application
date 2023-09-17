@@ -2,11 +2,10 @@
 .header {
   display: flex;
   justify-content: space-evenly;
-  height: 100px;
+  height: 64px;
   align-items: center;
   text-align: center;
-  line-height: 64px;
-  padding-top: 30px;
+  line-height: 54px;
 }
 
 .footer {

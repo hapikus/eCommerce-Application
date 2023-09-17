@@ -1,0 +1,9 @@
+.gridContainer {
+  display: grid;
+  padding: 8px 16px;
+  column-gap: 10px;
+  justify-items: normal;
+  grid-template-columns: auto 1;
+  grid-template-rows: repeat(2, 1fr) ;
+  grid-template-rows: repeat(4, 1fr) ;
+}

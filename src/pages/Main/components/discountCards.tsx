@@ -1,7 +1,15 @@
-import { Card, Image, Button, Tag } from 'antd';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Card, Image, Button, Tag, Spin } from 'antd';
 import { Link } from 'react-router-dom';
+import { CheckOutlined } from '@ant-design/icons';
 
 import styles from './banner.module.css';
+import store, { RootState } from '../../../redux/store';
+import {
+  addItemToBasket,
+  getBasketItems,
+} from '../../../redux/slice/basketSlice';
 import IProduct from '../../../types/IProduct';
 
 function DiscountCards(products: IProduct[]) {
@@ -29,6 +37,36 @@ function DiscountCards(products: IProduct[]) {
       </div>
     );
   };
+
+  const basketIdState = useSelector(
+    (state: RootState) => state.basket.basketId,
+  );
+  const isItemLoading = useSelector(
+    (state: RootState) => state.basket.isGettingItem,
+  );
+  const isAdding = useSelector((state: RootState) => state.basket.isAdding);
+  const itemsNameState = useSelector(
+    (state: RootState) => state.basket.itemsGameName,
+  );
+  const itemsGameNameState = useSelector(
+    (state: RootState) => state.basket.itemsGameName,
+  );
+
+  const addButtonHandle = async (gameTitleAdd: string) => {
+    store.dispatch(
+      addItemToBasket({
+        basketId: basketIdState,
+        gameTitle: gameTitleAdd,
+      }),
+    );
+  };
+
+  useEffect(() => {
+    if (!isAdding && basketIdState !== '') {
+      store.dispatch(getBasketItems(basketIdState));
+    }
+  }, [basketIdState, isAdding]);
+
   return products.map((product: IProduct) => {
     const { gameTitle, price, headerImg, discountPrice } = product;
     const url = `${headerImg}`.split('/');
@@ -63,12 +101,24 @@ function DiscountCards(products: IProduct[]) {
               )}%`}
             </Tag>
             <Button
+              className={styles.dicbtn}
               type="primary"
-              onClick={(e) => e.stopPropagation()}
-              className={styles.btnDisc}
-              href="/super-store-s2/#/login"
+              onClick={(event) => {
+                event.stopPropagation();
+                event.preventDefault();
+                addButtonHandle(gameTitle);
+              }}
+              disabled={
+                isItemLoading || isAdding || itemsNameState.includes(gameTitle)
+              }
             >
-              {getDescription(price, discountPrice)}
+              <Spin spinning={isItemLoading || isAdding}>
+                {(itemsGameNameState || []).includes(gameTitle) ? (
+                  <CheckOutlined />
+                ) : (
+                  getDescription(price, discountPrice)
+                )}
+              </Spin>
             </Button>
           </div>
         </Card>

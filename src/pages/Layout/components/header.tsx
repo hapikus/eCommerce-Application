@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Drawer, Menu, Avatar, Badge } from 'antd';
+import { Button, Drawer, Menu, Avatar, Badge, Select } from 'antd';
 import {
   MenuOutlined,
   MehOutlined,
   ShoppingCartOutlined,
+  BulbOutlined,
+  CloudOutlined,
+  HeartOutlined,
 } from '@ant-design/icons';
 import store, { RootState } from '../../../redux/store';
 
+import { setTheme } from '../../../redux/slice/themeSlice';
 import { logoutAsync } from '../../../redux/slice/authSlice';
 import { getBasketItems, setBasketId } from '../../../redux/slice/basketSlice';
 
@@ -22,25 +26,24 @@ function MainMenu({
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const dispatch = useDispatch();
+  const location = useLocation();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const userInfo = useSelector((state: RootState) => state.auth.user.email);
   const itemsBasket = useSelector(
     (state: RootState) => state.basket.itemsFromServer.items,
-  );
-  const themeState = useSelector((state: RootState) => state.theme.theme);
-  const currentPage = useSelector(
-    (state: RootState) => state.theme.currentPage,
   );
 
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
   );
 
-  const [currentPageState, setCurrentPageState] = useState('');
+  // const [currentPageState, setCurrentPageState] = useState('');
+  const [selectedItem, setSelectedItem] = useState(['']);
+  const themeState = useSelector((state: RootState) => state.theme.theme);
 
   useEffect(() => {
-    setCurrentPageState(currentPage);
-  }, [currentPage]);
+    setSelectedItem([location.pathname.replace('/', '')]);
+  }, [location]);
 
   const onMenuClick = () => {
     setOpenMenu(false);
@@ -58,49 +61,49 @@ function MainMenu({
     dispatch(setBasketId(''));
   };
 
-  const renderLoginMenu = (currentPageProp: string) => (
+  const renderLoginMenu = () => (
     <Menu
       className={isInLine ? styles.menu_items_line : styles.menu_items}
       onClick={onMenuClick}
       theme="light"
       forceSubMenuRender
       mode={isInLine ? 'inline' : 'horizontal'}
-      selectedKeys={[currentPageProp]}
+      selectedKeys={selectedItem}
     >
-      <NavLink
-        to="login"
-        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-      >
-        <Menu.Item key="/">
-          <span>SIGN IN</span>
-        </Menu.Item>
-      </NavLink>
-      <NavLink
-        to="signup"
-        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-      >
-        <Menu.Item key="/">
+      <Menu.Item key="login">
+        <NavLink
+          to="login"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+        >
+          <span>LOG IN</span>
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item key="signup">
+        <NavLink
+          to="signup"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+        >
           <span>SIGN UP</span>
-        </Menu.Item>
-      </NavLink>
+        </NavLink>
+      </Menu.Item>
     </Menu>
   );
 
   const renderAuthMenu = () => (
     <>
       <Button onClick={logOut}>Logout</Button>
-      <NavLink
-        to="user"
-        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+      <Avatar
+        style={{ backgroundColor: '#28784D' }}
+        className={styles.avatarPointer}
+        size="large"
       >
-        <Avatar
-          style={{ backgroundColor: '#28784D' }}
-          className={styles.avatarPointer}
-          size="large"
+        <NavLink
+          to="user"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
           {userInfo[0]}
-        </Avatar>
-      </NavLink>
+        </NavLink>
+      </Avatar>
     </>
   );
 
@@ -113,40 +116,40 @@ function MainMenu({
           theme="light"
           disabledOverflow
           mode={isInLine ? 'inline' : 'horizontal'}
-          selectedKeys={[currentPageState]}
+          selectedKeys={selectedItem}
         >
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-          >
-            <Menu.Item key="/">
+          <Menu.Item key="">
+            <NavLink
+              to=""
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
               <span>STORE</span>
-            </Menu.Item>
-          </NavLink>
-          <NavLink
-            to="catalog"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-          >
-            <Menu.Item key="catalog">
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item key="catalog">
+            <NavLink
+              to="catalog"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
               <span>ALL GAMES</span>
-            </Menu.Item>
-          </NavLink>
-          <NavLink
-            to="info"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-          >
-            <Menu.Item key="info">
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item key="info">
+            <NavLink
+              to="info"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
               <span>INFORMATION</span>
-            </Menu.Item>
-          </NavLink>
-          <NavLink
-            to="support"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-          >
-            <Menu.Item key="support">
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item key="support">
+            <NavLink
+              to="support"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
               <span>SUPPORT</span>
-            </Menu.Item>
-          </NavLink>
+            </NavLink>
+          </Menu.Item>
         </Menu>
       </div>
       <div className={styles.leftMenuCont}>
@@ -171,7 +174,7 @@ function MainMenu({
           </Badge>
         </Link>
         <div className={styles.menu_reg}>
-          {isAuthState ? renderAuthMenu() : renderLoginMenu(currentPageState)}
+          {isAuthState ? renderAuthMenu() : renderLoginMenu()}
         </div>
       </div>
     </>
@@ -180,6 +183,9 @@ function MainMenu({
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
+  const themeState = useSelector((state: RootState) => state.theme.theme);
+  const themesState = useSelector((state: RootState) => state.theme.themes);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -210,7 +216,29 @@ function Header() {
       >
         <MainMenu setOpenMenu={setOpenMenu} isInLine />
       </Drawer>
+      <Select
+        className={styles.themeSwitcher}
+        defaultValue={themeState}
+        autoFocus={false}
+        onChange={(value) => {
+          dispatch(setTheme(value));
+        }}
+        options={Object.values(themesState).map((themeMap: string) => {
+          let iconName = (<BulbOutlined />);
+          if (themeMap === 'dark') {
+            iconName = (<CloudOutlined />);
+          }
+          if (themeMap === 'barbie') {
+            iconName = (<HeartOutlined />);
+          }
+          return {
+            value: themeMap,
+            label: ( <div>{ iconName }</div>),
+          };
+        })}
+      />
     </>
   );
 }
+
 export default Header;
