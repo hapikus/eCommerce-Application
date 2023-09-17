@@ -51,7 +51,7 @@
   color: rgb(6, 74, 97);
   text-align: center;
   margin-top: 5%;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   font-weight: bold;
   padding-bottom: 10px;
   font-size: 35px;
@@ -155,7 +155,7 @@
 .productInfoTitle h3 {
   text-align: center;
   margin-top: 8%;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   font-family: 'Archivo', sans-serif;
   font-weight: bold;
   padding-bottom: 20px;
@@ -219,7 +219,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 400px;
 }
 
 .personPhotoContainer {
@@ -259,6 +259,7 @@
   margin-top: 16px;
   text-align: center;
 }
+
 .name a {
   padding-left: 10px;
 }
@@ -287,64 +288,116 @@
     margin: 20px auto;
     width: 100%;
   }
-  
- .infoMainContaier {
-  flex-direction: column;
-  height: fit-content;
- }
 
- .logo img {
-  width: 400px;
+  .infoMainContaier {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .logo img {
+    width: 400px;
+  }
+
+  .textAbout {
+    padding-top: 50px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .personPhoto {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    align-items: baseline;
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .teamMemberInfo {
+    flex-direction: column;
+  }
+
+  .teamMemberContainer .sectionContaier {
+    width: 80%;
+  }
+
+  .textAboutLearning {
+    font-size: 35px;
+    padding: 15px 0;
+    margin: 0 auto;
+  }
+
+  .aboutProductBlock {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
-.textAbout {
-  padding-top: 50px;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.personPhoto{
-  display: flex;
-  flex-direction: column;
-  margin-left: 40px;
-  align-items: baseline;
-  width: 200px;
-}
-
-.teamMemberInfo {
-  flex-direction: column;
-}
-.teamMemberContainer .sectionContaier {
-  width: 80%;
-}
-
-.textAboutLearning {
-  font-size: 35px;
-  padding: 15px 0;
-  margin: 0 auto;
-}
-
-.aboutProductBlock {
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
- 
-
-}
-
-@media (max-width: 692px) {
+@media (max-width: 750px) {
   .row {
     flex-direction: column;
     align-items: center;
     width: fit-content;
   }
 
-  .quotes  img {
-width: 50px;
+  .quotes img {
+    width: 50px;
+  }
+
+  .personPhoto img {
+    height: 300px;
+    width: 250px;
+  }
+
+  .personPhoto {
+    margin: 0 auto;
+  }
+
+  .personPhotoContainer {
+    height: 300px;
+    width: 300px;
+  }
+
+  .name {
+    font-size: 30px;
+  }
+
+  .textAboutLearning {
+    font-size: 25px;
+  }
+
+  .infoBlock,
+  .textAboutTeamMember {
+    margin: 0 auto;
+  }
+
+  .productSlader,
+  .productInfo {
+    width: 500px;
+    margin: 0 auto;
+  }
+
+  .productInfoTitle {
+    font-size: 30px;
+    padding-bottom: 0;
   }
 }
 
 @media (max-width: 472px) {
+  .logo {
+    width: 300px;
+  }
 
+  .productSlader,
+  .productInfo {
+    width: 350px;
+    margin: 0 auto;
+  }
+
+  .productInfoTitle {
+    font-size: 25px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+  }
 }

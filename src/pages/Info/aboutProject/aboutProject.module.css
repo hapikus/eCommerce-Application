@@ -59,6 +59,10 @@
   margin: 0;
 }
 
+.period {
+  padding-bottom: 10px;
+}
+
 .sprint_1_title h3 {
   width: max-content;
   font-size: 26px;
@@ -315,3 +319,115 @@
   width: 500px;
   border-radius: 10px;
 }
+
+@media (max-width: 945px) {
+  .container {
+    width: 100%;
+  }
+
+  .sectionContaier {
+    margin: 20px auto;
+    width: 100%;
+  }
+  
+ .infoMainContaier {
+  flex-direction: column;
+  height: fit-content;
+ }
+
+.aboutProductBlock {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerBlock {
+  flex-direction: column;
+}
+
+.loginForm {
+  display: none;
+}
+
+.sprint_1_title h3 {
+  font-size: 20px;
+  width: 600px;
+}
+
+
+ 
+
+}
+
+@media (max-width: 750px) {
+  .sprint_1_title h3 {
+    font-size: 20px;
+    width: 500px;
+  }
+
+  .loginForm {
+    display: none;
+  }
+
+  .column_2 {
+    flex-direction: column; 
+   }
+
+   .timeLine {
+    margin: 0 auto;
+  }
+
+  .appBlocks {
+    display: none;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  
+  .productSlader, .productInfo {
+    width: 350px;
+    margin: 0 auto;
+  }
+  
+  .productInfoTitle {
+    font-size: 25px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+  }
+
+  .logoBlock {
+    display: none;
+  }
+
+  .sprint_1_title h2 {
+    font-size: 25px;
+  }
+
+  .sprint_1_title h3 {
+    font-size: 20px;
+    width: 400px;
+  }
+
+  .column_2 {
+    flex-direction: column; 
+   }
+
+  .appBlocks {
+    display: none;
+  }
+
+  .timePeriodTitleLeft .timePeriodTitleRight {
+    width: 160px;
+  }
+
+  .timePeroidText {
+    margin: 0;
+    width: 160px;
+  }
+
+  .timeLine {
+    margin: 0 auto;
+  }
+  }

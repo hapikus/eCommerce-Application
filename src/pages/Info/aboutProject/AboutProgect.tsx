@@ -1,5 +1,5 @@
 import { CheckOutlined, GithubOutlined, MehOutlined } from '@ant-design/icons';
-import { Button, Carousel, Timeline, Image, List, } from 'antd';
+import { Button, Carousel, Timeline, Image, List } from 'antd';
 import { Link } from 'react-router-dom';
 import styles from './aboutProject.module.css';
 
@@ -55,7 +55,7 @@ function AboutProject() {
                     marginLeft: '30px',
                     fontStyle: 'normal',
                     fontFamily: 'Poppins',
-                    fontWeight: '500'
+                    fontWeight: '500',
                   }}
                   renderItem={(item) => (
                     <List.Item>
@@ -149,7 +149,6 @@ function AboutProject() {
           </div>
         </div>
       </section>
-
       <section className={styles.sprint_1}>
         <div className={styles.sectionContaier}>
           <div className={styles.sprint_1_title}>
@@ -163,7 +162,7 @@ function AboutProject() {
                 style={{
                   fontSize: '40px',
                   color: 'black',
-                  paddingBlock: '0'
+                  paddingBlock: '0',
                 }}
                 items={[
                   {
@@ -171,6 +170,12 @@ function AboutProject() {
                       <div className={styles.period}>
                         <div className={styles.timePeriodTitleRight}>
                           <p>CodeFrondlers team was created</p>
+                        </div>
+                        <div className={styles.timePeroidText}>
+                          <p>
+                            A group of <b>three young frontend developers</b>{' '}
+                            come together to create an online store website.
+                          </p>
                         </div>
                       </div>
                     ),
@@ -191,6 +196,13 @@ function AboutProject() {
                         <div className={styles.timePeriodTitleRight}>
                           <p>Task Board</p>
                         </div>
+                        <div className={styles.timePeroidText}>
+                          <p>
+                            Whithout any dobs choose <b>Jira </b> as the tool
+                            for task managment. Set rules of checking task and
+                            meetting schedule.
+                          </p>
+                        </div>
                       </div>
                     ),
                     color: 'blue',
@@ -200,7 +212,7 @@ function AboutProject() {
                       <GithubOutlined
                         style={{
                           fontSize: '40px',
-                          // backgroundColor: 'rgb(230, 230, 230)',
+                          backgroundColor: 'rgb(230, 230, 230)',
                           color: 'black',
                           // padding: '30px',
                           borderRadius: '50%',
@@ -212,6 +224,12 @@ function AboutProject() {
                         <div className={styles.timePeriodTitleRight}>
                           <p>Create GitHub repository</p>
                         </div>
+                        <div className={styles.timePeroidText}>
+                          <p>
+                            Our Team lead was responsible to set up repository
+                            for the project
+                          </p>
+                        </div>
                       </div>
                     ),
                   },
@@ -222,14 +240,8 @@ function AboutProject() {
                         <div className={styles.timePeriodTitleRight}>
                           <p>Brain Storm</p>
                         </div>
-                      </div>
-                    ),
-                  },
-                  {
-                    children: (
-                      <div className={styles.period}>
-                        <div className={styles.timePeriodTitleRight}>
-                          <p>Create a services site</p>
+                        <div className={styles.timePeroidText}>
+                          <p>What we shood sell? What design to choose?</p>
                         </div>
                       </div>
                     ),
@@ -306,14 +318,14 @@ function AboutProject() {
                         <div className={styles.timePeriodTitleRight}>
                           <img src={SelionesImg} alt="icon" />
                           <p>Seliones</p>
-
                         </div>
                         <div className={styles.timePeroidText}>
-                          <p>creating themes,
-                            designing website pages,
-                            setting up a server for user-server interaction,
-                            and facilitating communication between the frontend
-                            and backend of the website.</p>
+                          <p>
+                            creating themes, designing website pages, setting up
+                            a server for user-server interaction, and
+                            facilitating communication between the frontend and
+                            backend of the website.
+                          </p>
                         </div>
                       </div>
                     ),
@@ -327,10 +339,14 @@ function AboutProject() {
                           <p>Hapikus</p>
                         </div>
                         <div className={styles.timePeroidTextLeft}>
-                          <p>Login page. Conducted discussions on the possibility of using
-                            MOBX instead of REDUX. Code reviews and requested implementations.
-                            discussed topics such as the vite.config.ts file,
-                            implementation and validation of dobValid.ts, and the database for products.</p>
+                          <p>
+                            Login page. Conducted discussions on the possibility
+                            of using MOBX instead of REDUX. Code reviews and
+                            requested implementations. discussed topics such as
+                            the vite.config.ts file, implementation and
+                            validation of dobValid.ts, and the database for
+                            products.
+                          </p>
                         </div>
                       </div>
                     ),
@@ -344,7 +360,10 @@ function AboutProject() {
                           <p>Lukshaolya</p>
                         </div>
                         <div className={styles.timePeroidText}>
-                          <p>Implement client-side validation for all required fields in the registration form</p>
+                          <p>
+                            Implement client-side validation for all required
+                            fields in the registration form
+                          </p>
                           <p>Implement routing for navigation</p>
                           <p>404 page ideas</p>
                         </div>
@@ -359,7 +378,10 @@ function AboutProject() {
                           <p>Brain Storm</p>
                         </div>
                         <div className={styles.timePeroidTextLeft}>
-                          <p>Discussion about the main page design and the decision to take inspiration from the Steam website.</p>
+                          <p>
+                            Discussion about the main page design and the
+                            decision to take inspiration from the Steam website.
+                          </p>
                         </div>
                       </div>
                     ),
@@ -379,7 +401,11 @@ function AboutProject() {
         <div className={styles.sectionContaier}>
           <div className={styles.sprint_1_title}>
             <h2>Sprint 3</h2>
-            <h3> Catalog Product Page, Detailed Product Page & User Profile Page Implementation</h3>
+            <h3>
+              {' '}
+              Catalog Product Page, Detailed Product Page & User Profile Page
+              Implementation
+            </h3>
           </div>
           <div className={styles.column_2}>
             <div className={styles.timeLine}>
@@ -395,7 +421,11 @@ function AboutProject() {
                           <p>Hapikus</p>
                         </div>
                         <div className={styles.timePeroidTextLeft}>
-                          <p>Detailed product page. Bright discription of each product on spesial page with images of a selected product. </p>
+                          <p>
+                            Detailed product page. Bright discription of each
+                            product on spesial page with images of a selected
+                            product.{' '}
+                          </p>
                         </div>
                       </div>
                     ),
@@ -407,11 +437,13 @@ function AboutProject() {
                         <div className={styles.timePeriodTitleLeft}>
                           <img src={LukshaOlgaImg} alt="icon" />
                           <p>Lukshaolya</p>
-
                         </div>
                         <div className={styles.timePeroidTextLeft}>
                           <p>User page.</p>
-                          <p>Implement oppotunity to change personal data and dinamic adding of several addresses.</p>
+                          <p>
+                            Implement oppotunity to change personal data and
+                            dinamic adding of several addresses.
+                          </p>
                         </div>
                       </div>
                     ),
@@ -422,11 +454,14 @@ function AboutProject() {
                         <div className={styles.timePeriodTitleLeft}>
                           <img src={SelionesImg} alt="icon" />
                           <p>Seliones</p>
-
                         </div>
                         <div className={styles.timePeroidTextLeft}>
-                          <p>Main and Catalog Page.Implement filtering options for users to refine the product list
-                            based on attributes such as price range, brand, name, category. Convenient slider on main page</p>
+                          <p>
+                            Main and Catalog Page.Implement filtering options
+                            for users to refine the product list based on
+                            attributes such as price range, brand, name,
+                            category. Convenient slider on main page
+                          </p>
                         </div>
                       </div>
                     ),
