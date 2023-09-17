@@ -1,0 +1,159 @@
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.listMainCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  min-width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emptyCont {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.emptyCartCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: auto;
+  font-size: 16px;
+}
+
+.emptyCartImg {
+  width: 300px;
+  height: auto;
+}
+
+.emptyCartTitle {
+  display: flex;
+}
+
+.cartProdContainer {
+  display: grid;
+  padding: 8px 16px;
+  column-gap: 10px;
+  justify-items: normal;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'image title price'
+    'image title rating'
+    'image quantity delete';
+  background-color: var(--bg-color-main);
+  border-radius: 8px;
+}
+
+.linkArea {
+  display: grid;
+  width: 100%;
+  grid-area: image;
+}
+
+.cartProdImg {
+  max-width: 160px;
+  height: 100%;
+  grid-area: image;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.cartProdTitle {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 5px;
+  grid-area: title;
+  text-align: start;
+}
+
+.cartProdQuant {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  align-items: flex-start;
+  flex-grow: 1;
+  grid-area: quantity;
+}
+
+.cartProdPrice {
+  display: flex;
+  gap: 5px;
+  grid-area: price;
+}
+
+.cartProdControl {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+  grid-area: delete;
+}
+
+.catrPordDelBtn {
+  grid-area: delete;
+}
+
+.carProdQuanBut {
+  padding: 4px 8px;
+}
+
+.cartProdQuantInputElement {
+  text-align: center;
+  width: 40px;
+}
+
+.clearCartButton {
+  width: 300px;
+  height: 40px;
+  background-color: var(--bg-color-accent);
+  color: var(--color-text);
+}
+
+/* 'image image image '
+'price ctaRow title'
+'quantity ctaRow delete'; */
+
+@media (max-width: 691px) {
+  .cartProdContainer {
+    row-gap: 10px;
+    justify-items: center;
+    grid-template-areas:
+      'image image image '
+      'price quantity delete';
+  }
+
+  .cartProdTitle {
+    display: none;
+  }
+
+  .cartProdImg {
+    max-width: 350px;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .cartProdContainer {
+    row-gap: 10px;
+    justify-items: center;
+    grid-template-areas:
+      'image image image '
+      'price ctaRow title'
+      'quantity ctaRow delete'
+  }
+
+  .cartProdTitle {
+    display: flex;
+  }
+}

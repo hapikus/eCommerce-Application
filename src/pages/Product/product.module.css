@@ -163,7 +163,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 72px;
+  min-height: 72px;
   background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
 
   font-size: 21px;
@@ -208,7 +208,7 @@
   align-items: center;
   text-align: center;
   margin: 0px 5px;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
 }
 

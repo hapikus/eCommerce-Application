@@ -1,9 +1,8 @@
-import { useEffect, useLayoutEffect, useCallback, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { message } from 'antd';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 import {
   fetchProductData,
   fetchRandProducts,
@@ -42,6 +41,7 @@ function Product() {
   const { productTitle } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const [titleForRequest, setTitleForRequest] = useState('');
   const [randomProductsNum, setRandomProductsNum] = useState(
@@ -57,14 +57,6 @@ function Product() {
     };
     window.addEventListener('resize', handleResize);
   }, [randomProductsNum]);
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage(''));
-  }, [dispatch]);
-
-  useLayoutEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
 
   const productLoading = useSelector(
     (state: RootState) => state.product.isLoading,
@@ -98,6 +90,8 @@ function Product() {
                   genres: [],
                   themes: [],
                   tags: [],
+                  minPrice: 0,
+                  maxPrice: 60,
                 } as IFilters),
               );
             }}
@@ -115,6 +109,8 @@ function Product() {
                   genres: [gameGenre[0]],
                   themes: [],
                   tags: [],
+                  minPrice: 0,
+                  maxPrice: 60,
                 } as IFilters),
               );
             }}
@@ -132,6 +128,8 @@ function Product() {
                   genres: [gameGenre[0]],
                   themes: [gameTheme[0]],
                   tags: [],
+                  minPrice: 0,
+                  maxPrice: 60,
                 } as IFilters),
               );
             }}
@@ -139,26 +137,14 @@ function Product() {
             {`${gameTheme[0]} >`}
           </Link>
         </p>
-        <p className={styles.pathGameTitle}>
-          <Link
-            className={styles.pathLink}
-            to="/catalog"
-            onClick={() => {
-              dispatch(
-                setSelectedFilters({
-                  genres: gameGenre,
-                  themes: gameTheme,
-                  tags: [],
-                } as IFilters),
-              );
-            }}
-          >
-            {gameTitle}
-          </Link>
-        </p>
+        <p className={styles.pathGameTitle}>{gameTitle}</p>
       </div>
     );
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     if (titleForRequest !== productTitle) {
