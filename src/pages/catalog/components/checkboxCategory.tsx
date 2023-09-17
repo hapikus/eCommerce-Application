@@ -13,7 +13,6 @@ import store, { RootState } from '../../../redux/store';
 import styles from './checkBoxCategory.module.css';
 import { IFilters } from '../../../types/storeType';
 
-
 function CheckBoxCategory() {
   const dispatch = useDispatch();
 
@@ -34,7 +33,6 @@ function CheckBoxCategory() {
       await store.dispatch(fetchAllCategory());
     }
   };
-
 
   const setFilters = (type: string) => (checkedValues: CheckboxValueType[]) => {
     const newFilters: IFilters = {
@@ -100,9 +98,7 @@ function CheckBoxCategory() {
       children: (
         <Checkbox.Group
           options={optionsAvaTags}
-          onChange={
-            setFilters('tags')
-          }
+          onChange={setFilters('tags')}
           value={selectedFilters.tags}
           className={styles.checkBoxGroup}
         />

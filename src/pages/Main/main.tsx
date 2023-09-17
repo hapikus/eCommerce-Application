@@ -113,7 +113,7 @@ function SideBar() {
         {productsRandom.length !== 0 && BannerCarousel(productsRandom)}
       </div> */}
       <div className={styles.headerBlockCont}>
-      {loadingRabd ? <Spin /> : <SwiperMain products={productsRandom}/>}
+        {loadingRabd ? <Spin /> : <SwiperMain products={productsRandom} />}
       </div>
       <div className={styles.headerBlockCont}>
         <PromoBanner />
