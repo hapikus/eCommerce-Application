@@ -12,11 +12,12 @@ import AntdLogo from '../../../assets/images/logo/Ant_logo.png';
 import TSLogo from '../../../assets/images/logo/TS_logo.png';
 import RLogo from '../../../assets/images/logo/redux_logo.png';
 import JiraLogo from '../../../assets/images/logo/jira_logo.png';
-import Logo from '../../../assets/images/logo/download (1).png';
+import Logo from '../../../assets/images/logo/logoTeam.png';
 import LoginImg from '../../../assets/images/pagesScreens/loginPage.png';
 import SelionesImg from '../../../assets/images/teamPhoto/selionis icon.png';
 import HapikusImg from '../../../assets/images/teamPhoto/hapikus icon.png';
 import LukshaOlgaImg from '../../../assets/images/teamPhoto/lukshaolga icon.png';
+import Card from '../../../assets/images/logo/superStore.png';
 
 function AboutProject() {
   const data = [
@@ -79,7 +80,6 @@ function AboutProject() {
                   <Image
                     src={Screen_1}
                     alt="CAPSULE"
-                    // width="100%"
                     style={{ height: '100%' }}
                     className={styles.carouselItemImg}
                   />
@@ -88,7 +88,6 @@ function AboutProject() {
                   <Image
                     src={Screen_2}
                     alt="CAPSULE"
-                    // width="100%"
                     style={{ height: '100%' }}
                     className={styles.carouselItemImg}
                   />
@@ -97,7 +96,6 @@ function AboutProject() {
                   <Image
                     src={Screen_3}
                     alt="CAPSULE"
-                    // width="100%"
                     style={{ height: '100%' }}
                     className={styles.carouselItemImg}
                   />
@@ -106,7 +104,6 @@ function AboutProject() {
                   <Image
                     src={Screen_4}
                     alt="CAPSULE"
-                    // width="100%"
                     style={{ height: '100%' }}
                     className={styles.carouselItemImg}
                   />
@@ -473,6 +470,81 @@ function AboutProject() {
             <div className={styles.appBlocks}>
               <div className={styles.loginForm}>
                 {/* <img src={LoginImg} alt="login" /> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={styles.sprint_1}>
+        <div className={styles.sectionContaier}>
+          <div className={styles.sprint_1_title}>
+            <h2>Sprint 4</h2>
+            <h3>
+              {' '}
+              Basket Page, Catalog Page Enhancements, and About Us Page Implementation 
+            </h3>
+          </div>
+          <div className={styles.column_2}>
+            <div className={styles.timeLine}>
+              <Timeline
+                mode="left"
+                style={{ fontSize: '40px', color: 'black' }}
+                items={[
+                  {
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleRight}>
+                          <img src={LukshaOlgaImg} alt="icon" />
+                          <p>Lukshaolya</p>
+                        </div>
+                        <div className={styles.timePeroidText}>
+                          <p>About Project page.</p>
+                          <p>
+                          Tried to reconstruct the events of the last two months and evaluate the results of the work done.
+                          </p>
+                        </div>
+                      </div>
+                    ),
+                  },
+                  {
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleRight}>
+                          <img src={HapikusImg} alt="icon" />
+                          <p>Hapikus</p>
+                        </div>
+                        <div className={styles.timePeroidText}>
+                          <p>
+                          Basket Page. Implement oppotunity to clear, add, remove a list of products in basket.
+                          </p>
+                        </div>
+                      </div>
+                    ),
+                    color: 'blue',
+                  },
+                  
+                  {
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleRight}>
+                          <img src={SelionesImg} alt="icon" />
+                          <p>Seliones</p>
+                        </div>
+                        <div className={styles.timePeroidText}>
+                          <p>
+                          Catalog Page integration with Basket Page. Paggination and some performance optimization tools.
+                          </p>
+                        </div>
+                      </div>
+                    ),
+                    color: 'white',
+                  },
+                ]}
+              />
+            </div>
+            <div className={styles.appBlocks}>
+              <div className={styles.loginForm}>
+                <img src={Card} alt="login" />
               </div>
             </div>
           </div>

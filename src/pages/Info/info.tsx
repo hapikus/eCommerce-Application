@@ -17,7 +17,7 @@ import LeftQuote from '../../assets/images/logo/left-quote (1).png';
 import RightQuote from '../../assets/images/logo/right-quotation-sign.png';
 import LukshaOlyaImg from '../../assets/images/teamPhoto/olkaLuksha.png';
 import HapikusImg from '../../assets/images/teamPhoto/hapikus.png';
-import Logo from '../../assets/images/logo/download (1).png';
+import Logo from '../../assets/images/logo/logoTeam.png';
 import styles from './info.module.css';
 import greetingStyles from './greeting.module.css';
 

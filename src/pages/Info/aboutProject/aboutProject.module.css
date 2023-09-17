@@ -320,7 +320,7 @@
   border-radius: 10px;
 }
 
-@media (max-width: 945px) {
+@media (max-width: 970px) {
   .container {
     width: 100%;
   }
@@ -354,7 +354,10 @@
   width: 600px;
 }
 
-
+.jiraBlock {
+  width: 350px;
+  padding-left: 0px;
+}
  
 
 }
