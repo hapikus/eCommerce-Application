@@ -1,14 +1,6 @@
 import { useEffect, useState } from 'react';
-import {
-  AppstoreAddOutlined,
-  GithubOutlined,
-  HomeOutlined,
-  LoginOutlined,
-  LogoutOutlined,
-  ShoppingCartOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import { Menu, message } from 'antd';
+import { GithubOutlined } from '@ant-design/icons';
+import { Menu, message, Button } from 'antd';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './footer.module.css';
@@ -65,40 +57,32 @@ function Footer() {
       <div className={styles.rule} />
       <div className={styles.footerFirstLine}>
         <div className={styles.userCont}>
-          <Menu
-            mode={currentSize.width > 630 ? 'vertical' : 'horizontal'}
-            selectable={false}
-            disabledOverflow
-            style={{ borderInlineEnd: 'none' }}
-          >
-            <Menu.Item key="login" icon={<LoginOutlined />}>
-              <Link to="/login">Sign in</Link>
-            </Menu.Item>
-            <Menu.Item key="registration" icon={<LogoutOutlined />}>
-              <Link to="/signup">Sign up</Link>
-            </Menu.Item>
-            <Menu.Item key="user" icon={<UserOutlined />}>
-              <Link to="/user">User</Link>
-            </Menu.Item>
-          </Menu>
+          <Button type="link">
+            <Link to="/login">Sign in</Link>
+          </Button>
+          <Button type="link">
+            <Link to="/signup">Sign up</Link>
+          </Button>
+          <Button type="link">
+            <Link to="/user">User</Link>
+          </Button>
         </div>
         <div className={styles.productCont}>
           <Menu
-            mode={currentSize.width > 630 ? 'vertical' : 'horizontal'}
+            mode={currentSize.width > 630 ? 'horizontal' : 'horizontal'}
             selectable={false}
             disabledOverflow
             style={{ borderInlineEnd: 'none' }}
           >
-            <Menu.Item key="home" icon={<HomeOutlined />}>
+            <Menu.Item key="home">
               <Link to="/">Main</Link>
             </Menu.Item>
-            <Menu.Item key="catalog" icon={<AppstoreAddOutlined />}>
+            <Menu.Item key="catalog">
               <Link to="/catalog">Catalog</Link>
             </Menu.Item>
             <Menu.Item
               key="product"
               onClick={handleLinkClick}
-              icon={<ShoppingCartOutlined />}
               disabled={isRandomLoading}
             >
               <Link to={`/product/${randomProduct}`}>Product</Link>
@@ -107,15 +91,15 @@ function Footer() {
         </div>
         <div className={styles.infoCardCont}>
           <Menu
-            mode={currentSize.width > 630 ? 'vertical' : 'horizontal'}
+            mode={currentSize.width > 630 ? 'horizontal' : 'horizontal'}
             selectable={false}
             disabledOverflow
             style={{ borderInlineEnd: 'none' }}
           >
-            <Menu.Item key="info" icon={<HomeOutlined />}>
+            <Menu.Item key="info">
               <Link to="/info">Info</Link>
             </Menu.Item>
-            <Menu.Item key="cart" icon={<ShoppingCartOutlined />}>
+            <Menu.Item key="cart">
               <Link to="/cart">Cart</Link>
             </Menu.Item>
           </Menu>
@@ -123,7 +107,7 @@ function Footer() {
         {currentSize.width < 420 ? null : (
           <div className={styles.githubLinks}>
             <Menu
-              mode={currentSize.width > 630 ? 'vertical' : 'horizontal'}
+              mode={currentSize.width > 630 ? 'horizontal' : 'horizontal'}
               selectable={false}
               disabledOverflow
               style={{ borderInlineEnd: 'none' }}

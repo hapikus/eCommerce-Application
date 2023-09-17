@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import UserMenu from './components/userMenu';
 import UserProfile from './components/userProfile';
@@ -17,6 +17,7 @@ import store, { RootState } from '../../redux/store';
 import styles from './user.module.css';
 
 function UserPage() {
+  const dispatch = useDispatch();
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const isFirstLoading = useSelector(
     (state: RootState) => state.user.isFirstLoad,
