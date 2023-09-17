@@ -1,13 +1,11 @@
 // import { Button, Carousel } from 'antd';
 // import { Link } from 'react-router-dom';
 import { CheckOutlined, GithubOutlined, MehOutlined } from '@ant-design/icons';
-import { Button, Carousel, Timeline, Image, List } from 'antd';
+import { Button, Carousel, Timeline, Image, List, } from 'antd';
 // import { Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styles from './aboutProject.module.css';
 
-// import Screen_1 from '../../../assets/images/pagesScreens/screen1_light.png';
-// import Screen_2 from '../../../assets/images/pagesScreens/screen2.png';
 import Screen_1 from '../../../assets/images/pagesScreens/screen1_light.png';
 import Screen_2 from '../../../assets/images/pagesScreens/screen2.png';
 import Screen_3 from '../../../assets/images/pagesScreens/screen3.png';
@@ -18,9 +16,9 @@ import TSLogo from '../../../assets/images/logo/TS_logo.png';
 import RLogo from '../../../assets/images/logo/redux_logo.png';
 import JiraLogo from '../../../assets/images/logo/jira_logo.png';
 import Logo from '../../../assets/images/logo/download (1).png';
+import LoginImg from '../../../assets/images/pagesScreens/loginPage.png';
 
 function AboutProject() {
-
   const data = [
     {
       title: 'the best gaming experience possible',
@@ -40,41 +38,35 @@ function AboutProject() {
       <section className={styles.productConatiner}>
         <div className={styles.sectionContaier}>
           <div className={styles.aboutProductBlock}>
-
             <div className={styles.productInfo}>
-              {/* <div className={styles.productInfoTitle}>
-                <h3>Our case</h3>
-              </div> */}
               <div>
                 <p className={styles.progectName}> Super Store</p>
                 <p className={styles.progectDiscription}>
                   {' '}
-                  Welcome to Super Store, your ultimate online destination for all things gaming!
+                  Welcome to Super Store, your ultimate online destination for
+                  all things gaming!
                 </p>
-                <div className={styles.list}>
-                  {/* <ul>
-                  <li> the best gaming experience possible</li>
-                  <li>wide range of games</li>
-                  <li>competitive prices and frequent discounts </li>
-                  <li>comfortable UX/UI design</li>
-                </ul> */}
-                 </div>
-                  <List
-                    itemLayout="horizontal"
-                    dataSource={data}
-                    style={{fontSize: '18px', textAlign: 'left', marginLeft: '30px', fontStyle: 'normal'}}
-                    renderItem={(item) => (
-                      <List.Item>
-                        <List.Item.Meta
-                          // avatar={<Avatar src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`} />}
-                          title={item.title}
-                        // description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                        />
-                      </List.Item>
-                  
+                <List
+                  itemLayout="horizontal"
+                  dataSource={data}
+                  style={{
+                    fontSize: '18px',
+                    textAlign: 'left',
+                    marginLeft: '30px',
+                    fontStyle: 'normal',
+                    fontFamily: 'Poppins',
+                    fontWeight: '500'
+                  }}
+                  renderItem={(item) => (
+                    <List.Item>
+                      <List.Item.Meta
+                        avatar={<MehOutlined />}
+                        title={item.title}
+                        style={{fontFamily: 'Poppins',fontWeight: '500'}}
+                      />
+                    </List.Item>
                   )}
-                  />
-
+                />
               </div>
             </div>
             <div className={styles.productSlader}>
@@ -115,7 +107,7 @@ function AboutProject() {
                     src={Screen_4}
                     alt="CAPSULE"
                     // width="100%"
-                    style={{ height: '100%', }}
+                    style={{ height: '100%' }}
                     className={styles.carouselItemImg}
                   />
                 </div>
@@ -157,6 +149,7 @@ function AboutProject() {
           </div>
         </div>
       </section>
+      
       <section className={styles.sprint_1}>
         <div className={styles.sectionContaier}>
           <div className={styles.sprint_1_title}>
@@ -167,142 +160,212 @@ function AboutProject() {
             <div className={styles.timeLine}>
               <Timeline
                 mode="left"
-                style={{ fontSize: '40px', color: 'black', }}
+                style={{ fontSize: '40px', color: 'black', backgroundColor: 'rgb(230, 230, 230)',    paddingBlock: '0' }}
                 items={[
-
                   {
                     children: (
                       <div className={styles.period}>
-                        <div className={styles.timePeriodTitle}>
+                        <div className={styles.timePeriodTitleRight}>
                           <p>CodeFrondlers team was created</p>
                         </div>
                       </div>
                     ),
-                    dot: <MehOutlined style={{
-                      fontSize: '40px',
-                      backgroundColor: 'white',
-                      color: 'black', marginBottom: '30px'
-                    }} />,
+                    dot: (
+                      <MehOutlined
+                        style={{
+                          fontSize: '40px',
+                          backgroundColor: 'rgb(230, 230, 230)',
+                          color: 'black',
+                          marginBottom: '30px',
+                        }}
+                      />
+                    ),
                     color: 'white',
                   },
                   {
-                    children:
-                      (
-                        <div className={styles.period}>
-                          <div className={styles.timePeriodTitle}>
-                            <p>Task Board</p>
-                          </div>
-                          <div className={styles.timePeroidText}>
-                            {/* <p>Every fhgfhgfh</p> */}
-                          </div>
-                        </div>),
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleRight}>
+                          <p>Task Board</p>
+                        </div>
+                        <div className={styles.timePeroidText}>
+                          {/* <p>Every fhgfhgfh</p> */}
+                        </div>
+                      </div>
+                    ),
                     color: 'blue',
                   },
                   {
-                    dot: <GithubOutlined style={{
-                      fontSize: '40px',
-                      // backgroundColor: 'none',
-                      color: 'black', padding: '30px',
-                      borderRadius: '50%'
-                    }} />,
+                    dot: (
+                      <GithubOutlined
+                        style={{
+                          fontSize: '40px',
+                          backgroundColor: 'rgb(230, 230, 230)',
+                          color: 'black',
+                          padding: '30px',
+                          borderRadius: '50%',
+                        }}
+                      />
+                    ),
                     children: (
                       <div className={styles.period}>
-                        <div className={styles.timePeriodTitle}>
+                        <div className={styles.timePeriodTitleRight}>
                           <p>Create GitHub repository</p>
                         </div>
-                      </div>),
+                      </div>
+                    ),
                   },
                   {
-
                     color: 'red',
                     children: (
                       <div className={styles.period}>
-                        <div className={styles.timePeriodTitle}>
+                        <div className={styles.timePeriodTitleRight}>
                           <p>Brain Storm</p>
                         </div>
-                      </div>),
+                      </div>
+                    ),
                   },
                   {
                     children: (
                       <div className={styles.period}>
-                        <div className={styles.timePeriodTitle}>
+                        <div className={styles.timePeriodTitleRight}>
                           <p>Create a services site</p>
                         </div>
-                      </div>),
+                      </div>
+                    ),
                   },
                 ]}
               />
             </div>
             <div className={styles.appBlocks}>
               <div className={styles.jiraBlock}>
-                <div className={styles.jiraBlockHeader}><img src={JiraLogo} alt="logo" />Jira</div>
+                <div className={styles.jiraBlockHeader}>
+                  <img src={JiraLogo} alt="logo" />
+                  Jira
+                </div>
                 <div className={styles.jiraBlockBody}>
                   <ul>
                     <li>
                       <CheckOutlined
-                        style={{ paddingRight: '10px', fontSize: '24px', color: 'green' }} />
-                      Meetting, Monday</li>
+                        style={{
+                          paddingRight: '10px',
+                          fontSize: '24px',
+                          color: 'green',
+                        }}
+                      />
+                      Meetting, Monday
+                    </li>
                     <li>
                       <CheckOutlined
-                        style={{ paddingRight: '10px', fontSize: '24px', color: 'green' }}
-                      /> Meetting, Wensday</li>
-                    <li><CheckOutlined 
-                    style={{ paddingRight: '10px', fontSize: '24px', }}/> Meetting, Friday</li>
+                        style={{
+                          paddingRight: '10px',
+                          fontSize: '24px',
+                          color: 'green',
+                        }}
+                      />{' '}
+                      Meetting, Wensday
+                    </li>
+                    <li>
+                      <CheckOutlined
+                        style={{ paddingRight: '10px', fontSize: '24px' }}
+                      />{' '}
+                      Meetting, Friday
+                    </li>
                   </ul>
                 </div>
               </div>
               <div className={styles.gitBlock}>
-                <div className={styles.gitBlockHeader}><GithubOutlined />Git Hub</div>
-                <div className={styles.gitBlockBody}><p>hapikus / </p><span>eCommerce-Application</span></div>
+                <div className={styles.gitBlockHeader}>
+                  <GithubOutlined />
+                  Git Hub
+                </div>
+                <div className={styles.gitBlockBody}>
+                  <p>hapikus / </p>
+                  <span>eCommerce-Application</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className={styles.sprint_2}>
-        <h2>Sprint 2</h2>
+      <section className={styles.sprint_1}>
+        <div className={styles.sectionContaier}>
+          <div className={styles.sprint_1_title}>
+          <h2>Sprint 2</h2>
         <h3>Login, Registration, and Main Pages Implementation</h3>
-        <div className={styles.s1Container}>
-          <div>
-            <Timeline
-              mode="alternate"
-              // tailColor: 'black'
-              style={{ fontSize: '24px', color: 'black' }}
-              items={[
-                {
-                  children: 'Call meeting every Mn, Wd, Fd',
-                },
-                {
-                  children:
-                    'Login page ',
-                  color: 'green',
-                },
-                // {
-                //   dot: <ClockCircleOutlined style={{ fontSize: '16px' }} />,
-                //   children: 'Create own server',
-                // },
-                {
-                  color: 'red',
-                  children: 'Registaration page',
-                },
-                // {
-                //   children: 'Create a services site 2015-09-01',
-                // },
-                // {
-                //   dot: <ClockCircleOutlined style={{ fontSize: '16px' }} />,
-                //   children: 'Technical testing 2015-09-01',
-                // },
-              ]}
-            />
           </div>
-          <div>
-            <div className={styles.jiraBlock}>
-              <div className={styles.jiraBlockHeader}>Jira</div>
-              <div className={styles.jiraBlockBody}>Create Task Bord</div>
+          <div className={styles.column_2}>
+            <div className={styles.timeLine}>
+              <Timeline
+                mode="alternate"
+                style={{ fontSize: '40px', color: 'black' }}
+                items={[
+                  {
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleRight}>
+                          <p>Seliones</p>
+                         
+                        </div>
+                        <div className={styles.timePeroidText}>
+                          <p>Implement client-side validation for all required fields in the registration form</p>
+                          <p>Implement routing for navigation</p>
+                        </div>
+                      </div>
+                    ),
+                    color: 'white',
+                  },
+                  {
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleLeft}>
+                          <p>Hapikus</p>
+                         
+                        </div>
+                        <div className={styles.timePeroidTextLeft}>
+                          <p>Implement client-side validation for all required fields in the registration form</p>
+                          <p>Implement routing for navigation</p>
+                        </div>
+                      </div>
+                    ),
+                    color: 'blue',
+                  },
+                  {
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitleRight}>
+                          <p>Lukshaolya</p>
+                         
+                        </div>
+                        <div className={styles.timePeroidText}>
+                          <p>Implement client-side validation for all required fields in the registration form</p>
+                          <p>Implement routing for navigation</p>
+                        </div>
+                      </div>
+                    ),
+                  },
+                  {
+                    color: 'red',
+                    children: (
+                      <div className={styles.period}>
+                        <div className={styles.timePeriodTitle}>
+                          <p>Brain Storm</p>
+                        </div>
+                      </div>
+                    ),
+                  },
+                ]}
+              />
             </div>
+            <div className={styles.appBlocks}>
+            <div className={styles.loginForm}>
+                <img src={LoginImg} alt="login" />
+            </div>
+          </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

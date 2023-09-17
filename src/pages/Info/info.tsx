@@ -47,11 +47,12 @@ function InfoPage() {
             </div>
             <div className={styles.teamGreet}>
               <h3>
-                Hello and welcome to CodeFrondlers Team,
-                a group of three young frontend developers who have come together to
-                create an online store website. We are thrilled to have you here and hope you
-                enjoy your experience browsing our carefully crafted website. Feel free to explore
-                our products and dont hesitate to reach out if you have any questions or need assistance.
+                Hello and welcome to CodeFrondlers Team, a group of three young
+                frontend developers who have come together to create an online
+                store website. We are thrilled to have you here and hope you
+                enjoy your experience browsing our carefully crafted website.
+                Feel free to explore our products and dont hesitate to reach out
+                if you have any questions or need assistance.
                 <hr />
                 Happy shopping!
               </h3>
@@ -69,9 +70,9 @@ function InfoPage() {
             </Button>
           </Link>
           <Link to="/project">
-          <Button size="large" style={{ width: '170px', height: '50px' }}>
-            Read about project
-          </Button>
+            <Button size="large" style={{ width: '170px', height: '50px' }}>
+              Read about project
+            </Button>
           </Link>
         </div>
       </section>

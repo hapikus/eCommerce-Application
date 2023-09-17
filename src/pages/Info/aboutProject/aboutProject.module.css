@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:ital,wght@0,400;0,500;1,300&display=swap');
+
 .pageContainer {
   display: flex;
   justify-content: center;
@@ -13,7 +15,7 @@
 }
 
 .logoBlock {
-  background: rgb(230, 230, 230);
+  background: rgb(230 230 230 / 81%);
 }
 
 .containerBlock {
@@ -69,7 +71,7 @@
   width: 300px;
 } */
 
-.timePeriodTitle {
+.timePeriodTitleRight, .timePeriodTitleLeft {
   position: relative;
   /* display: inline; */
   background: rgb(248, 248, 248);
@@ -82,15 +84,35 @@
   font-size: 112.5%;
   line-height: 1.6em;
   width: fit-content;
+  transition: 1s;
+  transform: scale(1);
 }
 
-.period:hover {
+.timePeriodTitleLeft {
+  position: relative;
+  /* display: inline; */
+  background: rgb(248, 248, 248);
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: left;
+  color: rgb(50, 50, 50);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 112.5%;
+  line-height: 1.6em;
+  width: fit-content;
+  transition: 1s;
+  transform: scale(1);
+  margin: 0 0 0 auto;
+}
+
+.timePeriodTitleRight:hover ,.timePeriodTitleLeft:hover {
   transform: scale(1.1);
   color: #51176d;
   padding-left: 20px;
 }
 
-.timePeriodTitle:after {
+.timePeriodTitleRight:after {
   content: "";
   position: absolute;
   right: 100%;
@@ -102,6 +124,7 @@
   border-right-color: rgb(248, 248, 248);
   border-width: 8px;
   pointer-events: none;
+
 }
 
 .timePeroidText {
@@ -111,6 +134,32 @@
   color: rgb(50, 50, 50);
   margin: 1em 0 0 0.75em;
   text-align: left;
+  transition: 1s;
+  transform: scale(1);
+}
+.timePeriodTitleLeft:after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  margin-top: -8px;
+  border: solid transparent;
+  border-right-color: rgb(248, 248, 248);
+  border-width: 8px;
+  pointer-events: none;
+  transform: rotate(182deg);
+}
+
+.timePeroidTextLeft {
+  /* width: 200px; */
+  font-style: italic;
+  line-height: 1.5em;
+  color: rgb(50, 50, 50);
+  margin: 1em 0 0 0.75em;
+  text-align: right;
+
 }
 
 .column_2 {
@@ -121,9 +170,10 @@
 }
 
 .timeLine {
-margin-left: 50px;
+  margin-left: 50px;
 
 }
+
 /* .container {
   background:rgb(230, 230, 230);
 }
@@ -199,16 +249,19 @@ color: BLAck;
   color: rgba(0, 0, 0, 0.7);
   padding: 4px;
 }
-.jiraBlockBody p {
-  font-wight: 600;
-}
+
+/* .jiraBlockBody p {
+   font-wight: 600; 
+} */
+
 .jiraBlockBody li {
- list-style: none;
- font-size: 16px;
- padding: 10px;
+  list-style: none;
+  font-size: 16px;
+  padding: 10px;
 }
+
 .jiraBlockBody ul {
-margin: 0;
+  margin: 0;
 }
 
 
@@ -287,6 +340,7 @@ margin: 0;
 
 .list li {
   list-style: none;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* 
@@ -304,7 +358,8 @@ font-family: 'Rubik Mono One', sans-serif; */
   font-size: 18px;
   line-height: 101%;
   color: rgb(230, 230, 230);
-  font-family: 'EB Garamond', serif;
+  /* font-family: 'EB Garamond', serif; */
+  font-family: 'Poppins', sans-serif;
 }
 
 .progectName {
@@ -361,3 +416,8 @@ font-family: 'Rubik Mono One', sans-serif; */
   padding: 10px;
   text-align: left;
   } */
+
+  .loginForm img {
+    width: 500px;
+    border-radius: 10px;
+  }

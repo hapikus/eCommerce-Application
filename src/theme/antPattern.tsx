@@ -21,7 +21,7 @@ const antPattern = {
       },
       Timeline: {
         tailColor: 'black',
-      }
+      },
     },
   },
   [themes.dark]: {
@@ -39,7 +39,7 @@ const antPattern = {
         tailWidth: 6,
         dotBorderWidth: 6,
         itemPaddingBottom: 50,
-      }
+      },
     },
   },
   [themes.barbie]: {
@@ -55,7 +55,7 @@ const antPattern = {
       },
       Timeline: {
         tailColor: 'black',
-      }
+      },
     },
   },
 };
