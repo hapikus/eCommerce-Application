@@ -1,5 +1,15 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Button } from 'antd';
+
+import store, { RootState } from '../../../redux/store';
+import {
+  addItemToBasket,
+  removeItemFromBasket,
+  getBasketItems,
+} from '../../../redux/slice/basketSlice';
 import IProduct from '../../../types/IProduct';
+
 import styles from '../product.module.css';
 
 interface SystemRequirements {
@@ -18,6 +28,55 @@ interface MainLeftProps {
 
 function MainLeft({ productData }: MainLeftProps) {
   const { gameTitle, price, discountPrice, descriptionLong } = productData;
+  const [needToAdd, setNeedToAdd] = useState(false);
+  const [needToDelete, setNeedToDelete] = useState(false);
+
+  const isLoadingBasketState = useSelector(
+    (state: RootState) => state.basket.isLoading,
+  );
+  const isAuthLoadingState = useSelector(
+    (state: RootState) => state.auth.isLoading,
+  );
+  const basketIdState = useSelector(
+    (state: RootState) => state.basket.basketId,
+  );
+  const itemsGameNameState = useSelector(
+    (state: RootState) => state.basket.itemsGameName,
+  );
+
+  useEffect(() => {
+    if (basketIdState !== '' && needToDelete) {
+      const deleteRequest = async () => {
+        await store.dispatch(
+          removeItemFromBasket({ basketId: basketIdState, gameTitle }),
+        );
+        await store.dispatch(getBasketItems(basketIdState));
+      };
+      deleteRequest();
+      setNeedToDelete(false);
+    }
+  }, [basketIdState, needToDelete, gameTitle]);
+
+  useEffect(() => {
+    if (basketIdState !== '' && needToAdd) {
+      const addRequest = async () => {
+        await store.dispatch(
+          addItemToBasket({ basketId: basketIdState, gameTitle }),
+        );
+        await store.dispatch(getBasketItems(basketIdState));
+      };
+      addRequest();
+      setNeedToAdd(false);
+    }
+  }, [basketIdState, needToAdd, gameTitle]);
+
+  const cartButton = () => {
+    if (itemsGameNameState.includes(gameTitle)) {
+      setNeedToDelete(true);
+      return;
+    }
+    setNeedToAdd(true);
+  };
 
   const priceButton = (
     priceForBlock: number,
@@ -39,7 +98,15 @@ function MainLeft({ productData }: MainLeftProps) {
               {`${Number(discountPriceForBlock).toFixed(2)} €`}
             </div>
           </div>
-          <Button className={styles.priceButton}>Add to Cart</Button>
+          <Button
+            className={styles.priceButton}
+            disabled={isAuthLoadingState || isLoadingBasketState}
+            onClick={() => cartButton()}
+          >
+            {(itemsGameNameState || []).includes(gameTitle)
+              ? 'Remove from Cart'
+              : 'Add to Cart'}
+          </Button>
         </div>
       );
     }
@@ -48,7 +115,15 @@ function MainLeft({ productData }: MainLeftProps) {
         <div className={styles.regPriceText}>
           {`${Number(priceForBlock).toFixed(2)} €`}
         </div>
-        <Button className={styles.addToCartText}>Add to Cart</Button>
+        <Button
+          className={styles.addToCartText}
+          disabled={isAuthLoadingState || isLoadingBasketState}
+          onClick={() => cartButton()}
+        >
+          {(itemsGameNameState || []).includes(gameTitle)
+            ? 'Remove from Cart'
+            : 'Add to Cart'}
+        </Button>
       </div>
     );
   };

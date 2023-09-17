@@ -29,5 +29,5 @@ const themeSlice = createSlice({
 });
 
 export const { setTheme, setCurrentPage } = themeSlice.actions;
-
+export type ThemeSliceType = typeof themeSlice;
 export default themeSlice.reducer;

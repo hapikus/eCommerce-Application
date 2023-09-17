@@ -33,7 +33,6 @@ function UserPage() {
     (state: RootState) => state.user.isFirstLoad,
   );
 
-  // const userFullData = useSelector((state: RootState) => state.user.userFull);
   const currentUserMenu = useSelector(
     (state: RootState) => state.user.currentUserMenu,
   );

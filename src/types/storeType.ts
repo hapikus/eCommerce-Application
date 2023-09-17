@@ -118,6 +118,54 @@ interface CurrentUserMenu {
   payload: string;
 }
 
+interface BasketState {
+  itemsFromServer: BasketItemsResponse;
+  itemsFullFromServer: BasketFullResponse;
+
+  basketId: string;
+  promo: string;
+  itemsGameName: string[];
+  itemsQuantity: number;
+  itemsRegularPrice: number;
+  itemsDiscountPrice: number;
+  itemsPromoPrice: number;
+
+  isLoading: boolean;
+
+  isGettingItem: boolean;
+  isGettingItemFull: boolean;
+  isAdding: boolean;
+  isDeleting: boolean;
+  isChangingQuantity: boolean;
+
+  getItemsError: null | string;
+  getItemsFullError: null | string;
+  addingError: null | string;
+  deletingError: null | string;
+  changingQuantityError: null | string;
+}
+
+interface BasketItemsResponse {
+  basketId: string;
+  items: Map<string, number>;
+  promo: string;
+}
+
+interface BasketFullResponse {
+  [key: string]: BasketFullInfo;
+}
+
+interface BasketFullInfo {
+  gameTitle: string;
+  headerImg: string;
+  descriptionShort: string;
+  price: number;
+  discountPrice: number;
+  sortPrice: number;
+  promoPrice: number;
+  basketQantity: number;
+}
+
 export type {
   AuthState,
   ThemeState,
@@ -135,4 +183,7 @@ export type {
   SetSelectedTag,
   IFilters,
   SetSelectedFilters,
+  BasketState,
+  BasketItemsResponse,
+  BasketFullResponse,
 };

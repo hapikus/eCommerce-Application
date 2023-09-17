@@ -20,6 +20,7 @@ interface UpdateResp {
 interface IPassword {
   password: string;
 }
+
 interface IAddress {
   _id: '';
   country: '';
@@ -28,6 +29,7 @@ interface IAddress {
   postalCode: '';
   isDefault: false;
 }
+
 interface INewAddress {
   country: '';
   city: '';

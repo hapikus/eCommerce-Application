@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 10px 20px;
 }
 
 .content {
@@ -48,4 +49,16 @@
   color: red !important;
   box-sizing: border-box;
   border-bottom: 1px solid #dfdfdf
+}
+
+@media (max-width: 630px) {
+  .footer {
+    height: 100%;
+    background-color: var(--bg-color-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 10px;
+  }
 }
