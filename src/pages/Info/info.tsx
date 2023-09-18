@@ -21,6 +21,7 @@ import SelioniusImg from '../../assets/images/teamPhoto/selionis.png';
 import Logo from '../../assets/images/logo/logoTeam.png';
 import styles from './info.module.css';
 import greetingStyles from './greeting.module.css';
+import RSSLogo from '../../assets/images/rs_school.svg';
 
 function InfoPage() {
   return (
@@ -405,6 +406,16 @@ function InfoPage() {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className={styles.sectionContaier}>
+          <div className={styles.rssLogo}>
+            <h2>Made with support</h2>
+            <Link to="https://rs.school/">
+              <img src={RSSLogo} alt="logo" />
+            </Link>
           </div>
         </div>
       </section>
