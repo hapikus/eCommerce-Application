@@ -68,7 +68,7 @@ function GridCard(props: {
             />
           }
         >
-          <div className={styles.catalogCardDesc}>
+          <div className={styles.gridCardDesc}>
             <Tag style={{ padding: '5px 15px' }}>
               <GetDiscount
                 priceDesc={price}
