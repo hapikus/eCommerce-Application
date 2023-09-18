@@ -14,6 +14,18 @@
   width: 80%;
 }
 
+.rssLogo {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 auto;
+  font-size: 22px;
+}
+
+.rssLogo img {
+  width: 80%;
+}
+
 /* section 1 About */
 .infoMainContaier {
   display: flex;
