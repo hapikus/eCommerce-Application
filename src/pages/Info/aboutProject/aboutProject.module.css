@@ -22,6 +22,8 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 20px;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .block {
@@ -63,6 +65,24 @@
   padding-bottom: 10px;
 }
 
+.clientLogo img {
+  width: 60px;
+}
+
+.clientLogo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnBlock {
+  margin: 50px 0;
+}
+
+.btnBlock h4 {
+  font-size: 25px;
+  color: black;
+}
+
 .sprint_1_title h3 {
   width: max-content;
   font-size: 26px;
@@ -77,7 +97,7 @@
   text-align: left;
   color: rgb(50, 50, 50);
   font-family: 'Open Sans', sans-serif;
-  font-size: 112.5%;
+  font-size: 120%;
   line-height: 1.6em;
   width: fit-content;
   transition: 1s;
@@ -103,7 +123,7 @@
   text-align: left;
   color: rgb(50, 50, 50);
   font-family: 'Open Sans', sans-serif;
-  font-size: 112.5%;
+  font-size: 120%;
   line-height: 1.6em;
   width: fit-content;
   transition: 1s;
@@ -137,14 +157,15 @@
 }
 
 .timePeroidText {
-  width: 200px;
+  width: 250px;
   font-style: italic;
   line-height: 1.5em;
   color: rgb(50, 50, 50);
   margin: 1em 0 0 0.75em;
-  text-align: left;
+  text-align: justify;
   transition: 1s;
   transform: scale(1);
+  font-size: 16px;
 }
 
 .timePeriodTitleLeft:after {
@@ -168,6 +189,7 @@
   color: rgb(50, 50, 50);
   margin: 1em 0 0 0.75em;
   text-align: right;
+  font-size: 16px;
 }
 
 .column_2 {
@@ -274,7 +296,6 @@
 .productSlader {
   width: 600px;
   padding: 13px;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
 
 .productInfo {
@@ -333,38 +354,38 @@
 
   .sectionContaier {
     margin: 20px auto;
-    width: 100%;
+    width: 80%;
   }
-  
- .infoMainContaier {
-  flex-direction: column;
-  height: fit-content;
- }
 
-.aboutProductBlock {
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+  .infoMainContaier {
+    flex-direction: column;
+    height: fit-content;
+  }
 
-.containerBlock {
-  flex-direction: column;
-}
+  .aboutProductBlock {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-.loginForm {
-  display: none;
-}
+  .containerBlock {
+    flex-direction: column;
+  }
 
-.sprint_1_title h3 {
-  font-size: 20px;
-  width: 600px;
-}
+  .loginForm {
+    display: none;
+  }
 
-.jiraBlock {
-  width: 350px;
-  padding-left: 0px;
-}
- 
+  .sprint_1_title h3 {
+    font-size: 20px;
+    width: 600px;
+  }
+
+  .jiraBlock {
+    width: 350px;
+    padding-left: 0px;
+  }
+
 
 }
 
@@ -379,27 +400,26 @@
   }
 
   .column_2 {
-    flex-direction: column; 
-   }
+    flex-direction: column;
+  }
 
-   .timeLine {
+  .timeLine {
     margin: 0 auto;
   }
 
   .appBlocks {
     display: none;
   }
-
-
 }
 
 @media (max-width: 480px) {
-  
-  .productSlader, .productInfo {
+
+  .productSlader,
+  .productInfo {
     width: 350px;
     margin: 0 auto;
   }
-  
+
   .productInfoTitle {
     font-size: 25px;
     padding-bottom: 0px;
@@ -420,8 +440,8 @@
   }
 
   .column_2 {
-    flex-direction: column; 
-   }
+    flex-direction: column;
+  }
 
   .appBlocks {
     display: none;
@@ -439,4 +459,4 @@
   .timeLine {
     margin: 0 auto;
   }
-  }
+}

@@ -6,7 +6,7 @@ import {
   SoundOutlined,
 } from '@ant-design/icons';
 
-import { Button, Carousel, Divider, Image, Space, Tag } from 'antd';
+import { Avatar, Button, Carousel, Divider, Image, Space, Tag } from 'antd';
 import { Link } from 'react-router-dom';
 
 import Screen_1 from '../../assets/images/pagesScreens/screen1_light.png';
@@ -17,6 +17,7 @@ import LeftQuote from '../../assets/images/logo/left-quote (1).png';
 import RightQuote from '../../assets/images/logo/right-quotation-sign.png';
 import LukshaOlyaImg from '../../assets/images/teamPhoto/olkaLuksha.png';
 import HapikusImg from '../../assets/images/teamPhoto/hapikus.png';
+import SelioniusImg from '../../assets/images/teamPhoto/selionis.png';
 import Logo from '../../assets/images/logo/logoTeam.png';
 import styles from './info.module.css';
 import greetingStyles from './greeting.module.css';
@@ -38,7 +39,7 @@ function InfoPage() {
                     team !
                   </li>
                   <li className={greetingStyles.content__container__list__item}>
-                    everybody!
+                    reviewer 1!
                   </li>
                   <li className={greetingStyles.content__container__list__item}>
                     users !
@@ -131,10 +132,15 @@ function InfoPage() {
               <div className={styles.personPhoto}>
                 <div className={styles.personPhotoContainer}>
                   <div className={styles.personPhotoContainerInner}>
-                    <img
-                      className={styles.img}
-                      alt="personal-img"
-                      src={LukshaOlyaImg}
+                    <Avatar
+                      className={styles.avatar}
+                      icon={
+                        <img
+                          className={styles.img}
+                          alt="personal-img"
+                          src={LukshaOlyaImg}
+                        />
+                      }
                     />
                   </div>
                 </div>
@@ -189,13 +195,13 @@ function InfoPage() {
       </section>
       <section className={styles.teamMemberContainer}>
         <div className={styles.sectionContaier}>
-          <div className={styles.teamMemberInfo}>
-            <div className={styles.infoBlock}>
+          <div className={styles.teamMemberInfoRight}>
+            <div className={styles.infoBlockRight}>
               <div className={styles.textAboutLearning}>
                 <span className={styles.quotes}>
                   <img src={LeftQuote} alt="quote" />
                 </span>{' '}
-                <p>Those how know.....know</p>{' '}
+                <p>Now you know.</p>{' '}
                 <span className={styles.quotes}>
                   <img
                     className={styles.rightQuote}
@@ -206,19 +212,32 @@ function InfoPage() {
               </div>
               <div className={styles.textAboutTeamMember}>
                 <h4>
-                  More than 5 years of experience in the field of technology,
+                  I have been working in IT or near-IT structures for more than
+                  10 years. For the last 5 years, I have been working as an IT
+                  solutions integration engineer. Thanks to this, I have learned
+                  how to interact with users and read and create technical
+                  tasks. I have received a higher education as a programmer, but
+                  I have hardly worked as a programmer after the institute. Now
+                  I want to come back to the roots of what led me to the IT
+                  world. I am excited to learn more.
                 </h4>
                 <h4>
-                  More than 6 years of experience working with clients and
-                  users,
+                  I believe that programming is a great skill to have, and I
+                  want to become better at it over time. In the future, I plan
+                  to continue learning more advanced topics and practicing
+                  coding to improve my skills.
                 </h4>
               </div>
               <div className={styles.textAboutTeamMember}>
                 <Divider orientation="left">Got experience</Divider>
                 <Space size={[1, 10]} wrap>
-                  <Tag color="geekblue">Backend Development</Tag>
-                  <Tag color="geekblue">Workung with Redux Toolkit</Tag>
-                  <Tag color="geekblue">Expirience in Team Development</Tag>
+                  <Tag color="geekblue">
+                    Used Redux, despite all the pros of MobX
+                  </Tag>
+                  <Tag color="geekblue">React - once and for all</Tag>
+                  <Tag color="geekblue">
+                    I thought design was just the buttons on the page
+                  </Tag>
                 </Space>
               </div>
             </div>
@@ -226,10 +245,15 @@ function InfoPage() {
               <div className={styles.personPhoto}>
                 <div className={styles.personPhotoContainer}>
                   <div className={styles.personPhotoContainerInner}>
-                    <img
-                      className={styles.img}
-                      alt="personal-img"
-                      src={HapikusImg}
+                    <Avatar
+                      className={styles.avatar}
+                      icon={
+                        <img
+                          className={styles.img}
+                          alt="personal-img"
+                          src={SelioniusImg}
+                        />
+                      }
                     />
                   </div>
                 </div>
@@ -253,10 +277,15 @@ function InfoPage() {
               <div className={styles.personPhoto}>
                 <div className={styles.personPhotoContainer}>
                   <div className={styles.personPhotoContainerInner}>
-                    <img
-                      className={styles.img}
-                      alt="personal-img"
-                      src={HapikusImg}
+                    <Avatar
+                      className={styles.avatar}
+                      icon={
+                        <img
+                          className={styles.img}
+                          alt="personal-img"
+                          src={HapikusImg}
+                        />
+                      }
                     />
                   </div>
                 </div>
@@ -313,7 +342,6 @@ function InfoPage() {
           </div>
         </div>
       </section>
-
       <section className={styles.productConatiner}>
         <div className={styles.sectionContaier}>
           <div className={styles.aboutProductBlock}>

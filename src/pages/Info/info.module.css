@@ -65,7 +65,8 @@
 }
 
 .columnCapabilitis:first-child {
-  background-color: #7979a145;
+  background-color: #303068b0;
+  ;
 }
 
 .columnCapabilitis:first-child .icon {
@@ -73,7 +74,7 @@
 }
 
 .columnCapabilitis:nth-child(2) {
-  background: #92c5c5a1;
+  background: #3ba3a3a1;
 }
 
 .columnCapabilitis:nth-child(2) .icon {
@@ -81,7 +82,7 @@
 }
 
 .columnCapabilitis:nth-child(3) {
-  background: #ffe4c494;
+  background: #be8f5894;
 }
 
 .columnCapabilitis:nth-child(3) .icon {
@@ -89,7 +90,7 @@
 }
 
 .columnCapabilitis:nth-child(4) {
-  background: #d9cc3066;
+  background: #d5c82ba8;
 }
 
 .columnCapabilitis:nth-child(4) .icon {
@@ -191,6 +192,10 @@
   justify-content: space-between;
 }
 
+.infoBlockRight {
+  margin-right: 15%;
+}
+
 .textAboutLearning {
   font-size: 40px;
   display: flex;
@@ -222,11 +227,19 @@
   width: 400px;
 }
 
+.avatar {
+  width: 400px;
+  height: 400px;
+
+}
+
+.avatar img {
+  margin: 0 auto;
+}
+
 .personPhotoContainer {
   height: 400px;
   width: 400px;
-  background: white;
-  border-radius: 50%;
 }
 
 .img {
@@ -254,7 +267,7 @@
 }
 
 .name {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 600;
   margin-top: 16px;
   text-align: center;
@@ -279,9 +292,25 @@
   line-height: 20px;
 }
 
+.teamMemberInfoRight {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 @media (max-width: 945px) {
   .container {
     width: 100%;
+  }
+
+  .infoBlockRight {
+    margin-right: 0;
+    margin-left: 10%;
+  }
+
+  .teamMemberInfoRight {
+    flex-direction: column-reverse;
   }
 
   .sectionContaier {
@@ -332,6 +361,10 @@
     align-items: center;
     flex-direction: column;
   }
+
+  .name {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 750px) {
@@ -345,18 +378,30 @@
     width: 50px;
   }
 
+  .avatar {
+    width: 300px;
+    height: 300px;
+  }
+
   .personPhoto img {
     height: 300px;
-    width: 250px;
+    width: 300px;
+    margin: 0 auto;
   }
 
   .personPhoto {
     margin: 0 auto;
+    width: 300px;
+  }
+
+  .divider {
+    width: 300px;
   }
 
   .personPhotoContainer {
     height: 300px;
     width: 300px;
+    margin: 0 auto;
   }
 
   .name {

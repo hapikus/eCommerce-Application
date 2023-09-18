@@ -1,5 +1,5 @@
-import { CheckOutlined, GithubOutlined, MehOutlined } from '@ant-design/icons';
-import { Button, Carousel, Timeline, Image, List } from 'antd';
+import { GithubOutlined, MehOutlined } from '@ant-design/icons';
+import { Button, Carousel, Timeline, Image, List, Card } from 'antd';
 import { Link } from 'react-router-dom';
 import styles from './aboutProject.module.css';
 
@@ -11,15 +11,29 @@ import ReactLogo from '../../../assets/images/logo/react_logo.png';
 import AntdLogo from '../../../assets/images/logo/Ant_logo.png';
 import TSLogo from '../../../assets/images/logo/TS_logo.png';
 import RLogo from '../../../assets/images/logo/redux_logo.png';
-import JiraLogo from '../../../assets/images/logo/jira_logo.png';
-import Logo from '../../../assets/images/logo/logoTeam.png';
+import Screen_5 from '../../../assets/images/pagesScreens/user_1.png';
+import Screen_6 from '../../../assets/images/pagesScreens/cart_3.png';
+import JiraBordImg from '../../../assets/images/pagesScreens/taskboard.png';
+import JiraBordImg_2 from '../../../assets/images/pagesScreens/taskboard2.png';
+import EslintLogo from '../../../assets/images/logo/ESLint_logo.svg.png';
+import JestLogo from '../../../assets/images/logo/jest.png';
+import AxiousLogo from '../../../assets/images/logo/Axious.png';
+import ViteLogo from '../../../assets/images/logo/vite-js-logo.png';
+import PrettierLogo from '../../../assets/images/logo/prettier-logo.png';
 import LoginImg from '../../../assets/images/pagesScreens/loginPage.png';
 import SelionesImg from '../../../assets/images/teamPhoto/selionis icon.png';
 import HapikusImg from '../../../assets/images/teamPhoto/hapikus icon.png';
 import LukshaOlgaImg from '../../../assets/images/teamPhoto/lukshaolga icon.png';
-import Card from '../../../assets/images/logo/superStore.png';
+import CardImg from '../../../assets/images/logo/superStore.png';
 import DataBase from '../../../assets/images/pagesScreens/DataBase.png';
-import Page from '../../../assets/images/logo/page.jpg';
+import Page from '../../../assets/images/pagesScreens/main_2.png';
+import ExpressJsLogo from '../../../assets/images/logo/expressjs_logo.png';
+import NodeJsLogo from '../../../assets/images/logo/nodejsicon.png';
+import MongoDBLogo from '../../../assets/images/logo/mongo_logo.png';
+import JsonLogo from '../../../assets/images/logo/jsonwebtoken_logo.png';
+import NodeMailerLogo from '../../../assets/images/logo/nodemailer_logo.png';
+import BCryptLogo from '../../../assets/images/logo/bcrypt-logo.webp';
+import SwaggerLogo from '../../../assets/images/logo/swagger_logo.png';
 
 function AboutProject() {
   const data = [
@@ -36,6 +50,132 @@ function AboutProject() {
       title: 'comfortable UX/UI design',
     },
   ];
+
+  const dataClient = [
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Based</h3>
+          <img src={TSLogo} alt="logo" />
+          <img src={ReactLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>State</h3>
+          {/* <p>Redux Toolkit</p> */}
+          <img src={RLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Bunding</h3>
+          {/* <p>Vite</p> */}
+          <img src={ViteLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>HTTP Requests</h3>
+          {/* <p>Axios</p> */}
+          <img src={AxiousLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Testing</h3>
+          {/* <p>Jest</p> */}
+          <img src={JestLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Code Quality🐶</h3>
+          {/* <p>ESLint ✨, Prettier 🎨, Husky 🐶</p> */}
+          <img src={PrettierLogo} alt="logo" />
+          <img src={EslintLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Styles</h3>
+          {/* <p>Ant Design</p> */}
+          <img src={AntdLogo} alt="antd" />
+        </div>
+      ),
+    },
+  ];
+  const dataServer = [
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Based</h3>
+          <img src={NodeJsLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Database</h3>
+          <img src={MongoDBLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Authentication</h3>
+          <img src={JsonLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>API Framework</h3>
+          <img src={ExpressJsLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Security</h3>
+          <img src={BCryptLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Email Sending</h3>
+          <img src={NodeMailerLogo} alt="logo" />
+        </div>
+      ),
+    },
+    {
+      title: (
+        <div className={styles.clientLogo}>
+          <h3>Documentation</h3>
+          <img src={SwaggerLogo} alt="antd" />
+        </div>
+      ),
+    },
+  ];
+
   return (
     <div className={styles.pageContainer}>
       <section className={styles.productConatiner}>
@@ -110,6 +250,22 @@ function AboutProject() {
                     className={styles.carouselItemImg}
                   />
                 </div>
+                <div>
+                  <Image
+                    src={Screen_5}
+                    alt="CAPSULE"
+                    style={{ height: '100%' }}
+                    className={styles.carouselItemImg}
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={Screen_6}
+                    alt="CAPSULE"
+                    style={{ height: '100%' }}
+                    className={styles.carouselItemImg}
+                  />
+                </div>
               </Carousel>
             </div>
           </div>
@@ -130,22 +286,60 @@ function AboutProject() {
       <section className={styles.logoBlock}>
         <div className={styles.sectionContaier}>
           <div className={styles.containerBlock}>
-            <div className={styles.block}>
-              <img src={ReactLogo} alt="logo" />
-            </div>
-            <div className={styles.block}>
-              <img src={RLogo} alt="logo" />
-            </div>
-            <div className={styles.block}>
-              <img src={Logo} alt="logo" />
-            </div>
-            <div className={styles.block}>
-              <img src={TSLogo} alt="logo" />
-            </div>
-            <div className={styles.block}>
-              <img src={AntdLogo} alt="antd" />
-            </div>
+            <Card
+              title="CLIENT"
+              bordered
+              style={{ width: 400, fontSize: '20px', margin: ' 20px 0' }}
+            >
+              <List
+                itemLayout="horizontal"
+                dataSource={dataClient}
+                style={{
+                  fontSize: '18px',
+                  // textAlign: 'left',
+                  // marginLeft: '30px',
+                  fontStyle: 'normal',
+                  fontFamily: 'Poppins',
+                  fontWeight: '500',
+                }}
+                renderItem={(item) => (
+                  <List.Item>
+                    <List.Item.Meta
+                      title={item.title}
+                      style={{ fontFamily: 'Poppins', fontWeight: '500' }}
+                    />
+                  </List.Item>
+                )}
+              />
+            </Card>
+            <Card title="SERVER" bordered style={{ width: 400 }}>
+              <List
+                itemLayout="horizontal"
+                dataSource={dataServer}
+                style={{
+                  fontSize: '18px',
+                  fontStyle: 'normal',
+                  fontFamily: 'Poppins',
+                }}
+                renderItem={(item) => (
+                  <List.Item>
+                    <List.Item.Meta
+                      title={item.title}
+                      style={{ fontFamily: 'Poppins', fontWeight: '500' }}
+                    />
+                  </List.Item>
+                )}
+              />
+            </Card>
           </div>
+        </div>
+        <div className={styles.btnBlock}>
+          <h4>Read more about E-com API</h4>
+          <Link to="https://codefrondlers.store/api-docs/">
+            <Button size="large" style={{ width: '170px', height: '50px' }}>
+              To Swagger
+            </Button>
+          </Link>
         </div>
       </section>
       <section className={styles.sprint_1}>
@@ -249,51 +443,9 @@ function AboutProject() {
               />
             </div>
             <div className={styles.appBlocks}>
-              <div className={styles.jiraBlock}>
-                <div className={styles.jiraBlockHeader}>
-                  <img src={JiraLogo} alt="logo" />
-                  Jira
-                </div>
-                <div className={styles.jiraBlockBody}>
-                  <ul>
-                    <li>
-                      <CheckOutlined
-                        style={{
-                          paddingRight: '10px',
-                          fontSize: '24px',
-                          color: 'green',
-                        }}
-                      />
-                      Meetting, Monday
-                    </li>
-                    <li>
-                      <CheckOutlined
-                        style={{
-                          paddingRight: '10px',
-                          fontSize: '24px',
-                          color: 'green',
-                        }}
-                      />{' '}
-                      Meetting, Wensday
-                    </li>
-                    <li>
-                      <CheckOutlined
-                        style={{ paddingRight: '10px', fontSize: '24px' }}
-                      />{' '}
-                      Meetting, Friday
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className={styles.gitBlock}>
-                <div className={styles.gitBlockHeader}>
-                  <GithubOutlined />
-                  Git Hub
-                </div>
-                <div className={styles.gitBlockBody}>
-                  <p>hapikus / </p>
-                  <span>eCommerce-Application</span>
-                </div>
+              <div className={styles.loginForm}>
+                <img src={JiraBordImg} alt="login" />
+                <img src={JiraBordImg_2} alt="data" />
               </div>
             </div>
           </div>
@@ -320,7 +472,7 @@ function AboutProject() {
                         </div>
                         <div className={styles.timePeroidText}>
                           <p>
-                            creating themes, designing website pages, setting up
+                            Creating themes, designing website pages, setting up
                             a server for user-server interaction, and
                             facilitating communication between the frontend and
                             backend of the website.
@@ -361,9 +513,9 @@ function AboutProject() {
                         <div className={styles.timePeroidText}>
                           <p>
                             Implement client-side validation for all required
-                            fields in the registration form
+                            fields in the registration form. Implement routing
+                            for navigation
                           </p>
-                          <p>Implement routing for navigation</p>
                           <p>404 page ideas</p>
                         </div>
                       </div>
@@ -391,7 +543,7 @@ function AboutProject() {
             <div className={styles.appBlocks}>
               <div className={styles.loginForm}>
                 <img src={LoginImg} alt="login" />
-                <img src={DataBase}  alt="data" />
+                <img src={DataBase} alt="data" />
               </div>
             </div>
           </div>
@@ -551,7 +703,7 @@ function AboutProject() {
             </div>
             <div className={styles.appBlocks}>
               <div className={styles.loginForm}>
-                <img src={Card} alt="login" />
+                <img src={CardImg} alt="login" />
               </div>
             </div>
           </div>
