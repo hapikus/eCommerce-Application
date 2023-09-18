@@ -21,7 +21,6 @@ import BasketService from './models/Basket/BasketService';
 import { checkAuth, setIsFirstLoad } from './redux/slice/authSlice';
 import { setBasketId } from './redux/slice/basketSlice';
 
-
 function App() {
   const dispatch = useDispatch();
   const themeState = useSelector((state: RootState) => state.theme.theme);
@@ -33,12 +32,6 @@ function App() {
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
   );
-
-  // const savedTheme = localStorage.getItem('theme');
-
-  // if (savedTheme) {
-  //   dispatch(setTheme(savedTheme));
-  // }
 
   const refreshToken = async () => {
     await store.dispatch(checkAuth());

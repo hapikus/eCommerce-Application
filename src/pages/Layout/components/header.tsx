@@ -224,16 +224,16 @@ function Header() {
           dispatch(setTheme(value));
         }}
         options={Object.values(themesState).map((themeMap: string) => {
-          let iconName = (<BulbOutlined />);
+          let iconName = <BulbOutlined />;
           if (themeMap === 'dark') {
-            iconName = (<CloudOutlined />);
+            iconName = <CloudOutlined />;
           }
           if (themeMap === 'barbie') {
-            iconName = (<HeartOutlined />);
+            iconName = <HeartOutlined />;
           }
           return {
             value: themeMap,
-            label: ( <div>{ iconName }</div>),
+            label: <div>{iconName}</div>,
           };
         })}
       />
