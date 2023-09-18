@@ -25,6 +25,9 @@ const antPattern = {
       Button: {
         borderColorDisabled: '#52c41a',
       },
+      Timeline: {
+        dotBg: 'transparent'
+      }
     },
   },
   [themes.dark]: {
@@ -40,6 +43,9 @@ const antPattern = {
         colorBgHeader: '#171a21',
         colorBgBody: '#417a9b',
       },
+      Timeline: {
+        dotBg: 'transparent'
+      }
     },
   },
   [themes.barbie]: {
@@ -53,6 +59,9 @@ const antPattern = {
         colorBgHeader: '#ffe6f9',
         colorBgBody: '#417a9b',
       },
+      Timeline: {
+        dotBg: 'transparent'
+      }
     },
   },
 };
