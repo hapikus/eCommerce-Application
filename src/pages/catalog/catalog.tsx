@@ -78,14 +78,6 @@ function CatalogPage() {
   const [cardsNum, setCardsNum] = useState(calculateCardsNum());
   const [activeFilter, setActiveFilter] = useState(FILTERS[0]);
 
-  // const memoizedDispatch = useCallback(() => {
-  //   dispatch(setCurrentPage('catalog'));
-  // }, [dispatch]);
-
-  // useLayoutEffect(() => {
-  //   memoizedDispatch();
-  // }, [memoizedDispatch]);
-
   const catalogProducts = useSelector(
     (state: RootState) => state.product.catalogProducts.products,
   );
@@ -165,6 +157,12 @@ function CatalogPage() {
   const paginationOnChange: PaginationProps['onChange'] = (page: number) => {
     setCatalogCurrPage(page);
   };
+
+  useEffect(() => {
+    if (catalogTotalProducts / cardsNum < catalogCurrPage - 1) {
+      setCatalogCurrPage(1);
+    }
+  }, [cardsNum, catalogCurrPage, catalogTotalProducts]);
 
   const handleFilterChange: MenuProps['onClick'] = ({ key }) => {
     const [direction, type] = key.split('_');

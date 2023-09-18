@@ -1,38 +1,13 @@
-import { Card, Image, Button } from 'antd';
+import { Card, Image } from 'antd';
 import { Link } from 'react-router-dom';
+
 import IProduct from '../../../types/IProduct';
 
 import styles from './banner.module.css';
 
 function BannerCards(products: IProduct[]) {
-  const getDescription = (
-    priceDesc: number,
-    discountPriceDesc: number | null,
-  ) => {
-    if (discountPriceDesc) {
-      return (
-        <div className={styles.discCardTwoPrice}>
-          <div className={styles.discCardRegPrice}>
-            {`${Number(priceDesc).toFixed(2)} €`}
-          </div>
-          <div className={styles.discCardDiscPrice}>
-            {`${Number(discountPriceDesc).toFixed(2)} €`}
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className={styles.discCardOnePrice}>
-        <div className={styles.discCardNormalPrice}>
-          {`${Number(priceDesc).toFixed(2)} €`}
-        </div>
-      </div>
-    );
-  };
-
   return products.map((product: IProduct) => {
-    const { gameTitle, price, headerImg, descriptionShort, discountPrice } =
-      product;
+    const { gameTitle, headerImg, descriptionShort } = product;
     const url = `${headerImg}`.split('/');
     const suffix = url.pop();
     const gameID = url.pop();
@@ -62,14 +37,6 @@ function BannerCards(products: IProduct[]) {
           >
             <p>{descriptionShort}</p>
           </Card>
-          <Button
-            type="primary"
-            onClick={(e) => e.stopPropagation()}
-            className={styles.btn}
-            href="/super-store-s2/#/login"
-          >
-            {getDescription(price, discountPrice)}
-          </Button>
         </div>
       </Link>
     );

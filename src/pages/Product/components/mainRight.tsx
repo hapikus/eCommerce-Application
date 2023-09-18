@@ -82,6 +82,8 @@ function MainRight({ productData }: MainRightProps) {
                         genres: [],
                         themes: [theme],
                         tags: [],
+                        minPrice: 0,
+                        maxPrice: 60,
                       } as IFilters),
                     );
                   }}
@@ -107,6 +109,8 @@ function MainRight({ productData }: MainRightProps) {
                         genres: [genre],
                         themes: [],
                         tags: [],
+                        minPrice: 0,
+                        maxPrice: 60,
                       } as IFilters),
                     );
                   }}

@@ -13,6 +13,9 @@ const antPattern = {
     token: {
       colorBgContainer: '#eae7ea',
       colorText: '#000',
+      colorLink: '#000',
+      colorLinkActive: '#91caff',
+      colorLinkHover: '#003eb3',
     },
     components: {
       Layout: {
@@ -22,12 +25,21 @@ const antPattern = {
       Timeline: {
         tailColor: 'black',
       },
+      Button: {
+        borderColorDisabled: '#52c41a',
+      },
+      Timeline: {
+        dotBg: 'transparent'
+      }
     },
   },
   [themes.dark]: {
     token: {
       colorBgContainer: '#171a21',
       colorText: '#fff',
+      colorLink: '#fff',
+      colorLinkActive: '#0958d9',
+      colorLinkHover: '#4096ff',
     },
     components: {
       Layout: {
@@ -40,6 +52,8 @@ const antPattern = {
         dotBorderWidth: 6,
         itemPaddingBottom: 50,
       },
+        dotBg: 'transparent'
+      }
     },
   },
   [themes.barbie]: {
@@ -56,6 +70,8 @@ const antPattern = {
       Timeline: {
         tailColor: 'black',
       },
+        dotBg: 'transparent'
+      }
     },
   },
 };

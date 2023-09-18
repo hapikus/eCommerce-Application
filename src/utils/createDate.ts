@@ -7,8 +7,18 @@ export default function getDataFromString(dateStr: string): Date | string {
     const day = parseInt(parts[2], 10);
 
     if (!Number.isNaN(year) && !Number.isNaN(month) && !Number.isNaN(day)) {
-      const parsedDate = new Date(year, month - 1, day);
-      return parsedDate;
+      if (month >= 1 && month <= 12) {
+        const parsedDate = new Date(year, month - 1, day);
+        if (
+          parsedDate.getFullYear() === year &&
+          parsedDate.getMonth() === month - 1 &&
+          parsedDate.getDate() === day
+        ) {
+          return parsedDate;
+        }
+        return 'Invalid day for the given month';
+      }
+      return 'Invalid month';
     }
     return 'Invalid date components';
   }

@@ -2,9 +2,10 @@ import { useDispatch } from 'react-redux';
 import { Card, Image } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { setSelectedTag } from '../../../redux/slice/productSlice';
+import { setSelectedFilters } from '../../../redux/slice/productSlice';
 
 import styles from './banner.module.css';
+import { IFilters } from '../../../types/storeType';
 
 const topTagPic = [
   'https://store.steampowered.com/categories/homepageimage/category/action?cc=us&l=russian',
@@ -17,16 +18,26 @@ const topTagPic = [
   'https://store.steampowered.com/categories/homepageimage/category/story_rich?cc=us&l=russian',
 ];
 
-function CategoryCards(categorys: string[]) {
+function CategoryCards(genres: string[]) {
   const dispatch = useDispatch();
-  return categorys.map((category: string, index) => (
-    <Link to="/catalog" key={category}>
+  return genres.map((genre: string, index) => (
+    <Link to="/catalog" key={genre}>
       <div className={styles.categoryCardContainer}>
         <Card
           hoverable
-          key={category}
+          key={genre}
           className={styles.categoryCard}
-          onClick={() => dispatch(setSelectedTag([category]))}
+          onClick={() => {
+            dispatch(
+              setSelectedFilters({
+                genres: [genre],
+                themes: [],
+                tags: [],
+                minPrice: 0,
+                maxPrice: 60,
+              } as IFilters),
+            );
+          }}
           cover={
             <Image
               preview={false}
@@ -36,7 +47,7 @@ function CategoryCards(categorys: string[]) {
             />
           }
         >
-          <span className={styles.categoryTitle}>{category}</span>
+          <span className={styles.categoryTitle}>{genre}</span>
           <div className={styles.gradient} />
         </Card>
       </div>

@@ -1,0 +1,114 @@
+.promoBanner {
+  width: 100%;
+}
+
+.promoBannerFirstOrder {
+  width: 80%;
+  padding: 0px 5px;
+}
+
+.bannerCont {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 130px;
+  flex: 1;
+  border-radius: 16px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.6;
+  background:  linear-gradient(180deg, rgb(0, 0, 0) 58%, rgba(0, 0, 0, 0) 95%),
+  radial-gradient(
+    15.77% 44.22% at 50% 104.95%,
+    rgba(66, 66, 66, 0) 0%,
+    #333333 100%
+  ),
+  radial-gradient(
+    30.95% 86.8% at 30.69% 13.2%,
+    rgba(66, 66, 66, 0.33) 0%,
+    #333333 100%
+  ),
+  radial-gradient(
+    51.31% 143.89% at 49.99% 24.75%,
+    #000000 0%,
+    #000000 52.6%,
+    rgba(0, 0, 0, 0.18) 83.33%,
+    rgba(0, 0, 0, 0) 95.31%
+  ),
+  radial-gradient(
+    51.31% 143.89% at 49.99% 24.75%,
+    #000000 0%,
+    #000000 52.6%,
+    rgba(0, 0, 0, 0.18) 83.33%,
+    rgba(0, 0, 0, 0) 95.31%
+  ),
+  linear-gradient(180deg, #000000 90%, rgba(0, 0, 0, 0) 100%);
+}
+
+.bannerImg {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.bannerDesc {
+  position: absolute;
+  transform: translate(0%, 0%);
+  display: flex;
+  pointer-events: none;
+  background-color: transparent;
+  color: #fff;
+  z-index: 2;
+  flex-direction: column;
+}
+
+.bannerCardTitle {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.bannerCardDesc {
+  font-size: 1.2rem;
+  color: #fff;
+  opacity: 0.7;
+}
+
+@media (max-width: 945px) {
+
+  .promoBannerFirstOrder {
+    width: 100%;
+  }
+  
+
+}
+
+@media (max-width: 692px) {
+
+  .bannerCardTitle {
+    font-size: 1rem;
+  }
+  .bannerCardDesc {
+    font-size: 1rem;
+  }
+  .promoBannerFirstOrder{
+    padding: 0px 10px;
+}
+}
+
+@media (max-width: 472px) {
+  .bannerCardTitle {
+    font-size: 0.7rem;
+  }
+  .bannerCardDesc {
+    font-size: 0.7rem;
+  }
+}

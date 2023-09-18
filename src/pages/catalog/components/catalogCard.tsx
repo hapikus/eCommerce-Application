@@ -1,43 +1,59 @@
-import { useState } from 'react';
-import { Card, Tag, Spin, Image, Button, Tooltip } from 'antd';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Card, Tag, Spin, Image, Button, Tooltip } from 'antd';
+import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 
-import { ShoppingCartOutlined } from '@ant-design/icons';
-import getDisccount from '../../../components/shared/getDiscount';
-import { RootState } from '../../../redux/store';
+import GetDiscount from '../../../components/shared/getDiscount';
+import store, { RootState } from '../../../redux/store';
+import {
+  addItemToBasket,
+  getBasketItems,
+} from '../../../redux/slice/basketSlice';
 
-import styles from './catalogCard.module.css';
 import IProduct from '../../../types/IProduct';
+import styles from './catalogCard.module.css';
 
 function CatalogCards(props: { products: IProduct[] }) {
-  const [loadings, setLoadings] = useState<boolean[]>([]);
-
-  const enterLoading = (index: number) => {
-    setLoadings((prevLoadings) => {
-      const newLoadings = [...prevLoadings];
-      newLoadings[index] = true;
-      return newLoadings;
-    });
-
-    setTimeout(() => {
-      setLoadings((prevLoadings) => {
-        const newLoadings = [...prevLoadings];
-        newLoadings[index] = false;
-        return newLoadings;
-      });
-    }, 18000);
-  };
-
   const { products } = props;
 
+  const basketIdState = useSelector(
+    (state: RootState) => state.basket.basketId,
+  );
+  const isItemLoading = useSelector(
+    (state: RootState) => state.basket.isGettingItem,
+  );
+  const isAdding = useSelector((state: RootState) => state.basket.isAdding);
+  const itemsNameState = useSelector(
+    (state: RootState) => state.basket.itemsGameName,
+  );
   const loadingCatalogProducts = useSelector(
     (state: RootState) => state.product.isLoadingCatalogProducts,
   );
 
+  const itemsGameNameState = useSelector(
+    (state: RootState) => state.basket.itemsGameName,
+  );
+
+  const addButtonHandle = async (gameTitleAdd: string) => {
+    store.dispatch(
+      addItemToBasket({
+        basketId: basketIdState,
+        gameTitle: gameTitleAdd,
+      }),
+    );
+  };
+
+  useEffect(() => {
+    if (!isAdding && basketIdState !== '') {
+      store.dispatch(getBasketItems(basketIdState));
+    }
+  }, [basketIdState, isAdding]);
+
   if (!products) {
     return null;
   }
+
   return (
     <Spin spinning={loadingCatalogProducts}>
       <div className={styles.catalogGridCards}>
@@ -80,18 +96,31 @@ function CatalogCards(props: { products: IProduct[] }) {
                   <p className={styles.descCard}>{descriptionShort}</p>
                   <div className={styles.catalogCardDesc}>
                     <Tag style={{ padding: '5px 15px' }}>
-                      {getDisccount(price, discountPrice)}
+                      <GetDiscount
+                        priceDesc={price}
+                        discountPriceDesc={discountPrice}
+                      />
                     </Tag>
                     <Button
                       type="primary"
-                      icon={<ShoppingCartOutlined />}
-                      loading={loadings[2]}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        enterLoading(2);
+                      onClick={(event) => {
+                        event.preventDefault();
+                        addButtonHandle(gameTitle);
                       }}
-                    />
+                      disabled={
+                        isItemLoading ||
+                        isAdding ||
+                        itemsNameState.includes(gameTitle)
+                      }
+                    >
+                      <Spin spinning={isItemLoading || isAdding}>
+                        {(itemsGameNameState || []).includes(gameTitle) ? (
+                          <CheckOutlined />
+                        ) : (
+                          <ShoppingCartOutlined />
+                        )}
+                      </Spin>
+                    </Button>
                   </div>
                 </Card>
               </div>
