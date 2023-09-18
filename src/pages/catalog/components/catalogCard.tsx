@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card, Tag, Spin, Image, Button, Tooltip } from 'antd';
 import { ShoppingCartOutlined, CheckOutlined } from '@ant-design/icons';
 
-import GetDisccount from '../../../components/shared/getDiscount';
+import GetDiscount from '../../../components/shared/getDiscount';
 import store, { RootState } from '../../../redux/store';
 import {
   addItemToBasket,
@@ -96,7 +96,7 @@ function CatalogCards(props: { products: IProduct[] }) {
                   <p className={styles.descCard}>{descriptionShort}</p>
                   <div className={styles.catalogCardDesc}>
                     <Tag style={{ padding: '5px 15px' }}>
-                      <GetDisccount
+                      <GetDiscount
                         priceDesc={price}
                         discountPriceDesc={discountPrice}
                       />

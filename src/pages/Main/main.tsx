@@ -16,9 +16,12 @@ import DiscountCarousel from './components/discountCarousel';
 import ProductService from '../../models/Product/ProductService';
 import PromoBanner from './components/promo';
 import SwiperMain from './components/swiper';
-import GridCard from './components/gridCard';
+import GridCard from './components/gridCardTemp';
+import PromoFirstBuy from './components/promoFirsBuy';
 
-const RANDOM_PRODUCT_REQUEST = 4;
+const RANDOM_PRODUCT_REQUEST = 10;
+const RANDOM_PRODUCT_DISCOUNT = 6;
+const RANDOM_PRODUCT_SWIPER = 4;
 
 const calculateCategoryNum = () => {
   const windowInnerWidth = window.innerWidth;
@@ -46,16 +49,30 @@ const calculateDiscNum = () => {
   return cardNumber;
 };
 
+const calculateRandTempGridNum = () => {
+  const windowInnerWidth = window.innerWidth;
+  let cardNumber = 8;
+  if (windowInnerWidth > 912) {
+    cardNumber = 8;
+  } else if (windowInnerWidth > 692) {
+    cardNumber = 4;
+  } else if (windowInnerWidth > 472) {
+    cardNumber = 2;
+  }
+  return cardNumber;
+};
+
 function SideBar() {
   const [categoryNum, setCategoryNum] = useState(calculateCategoryNum());
   const [discountNum, setDiscountNum] = useState(calculateDiscNum());
+  const [gridNum, setGridNum] = useState(calculateRandTempGridNum());
   const [topGenres, setTopGenres] = useState([] as string[]);
 
   const productsRandom = useSelector(
     (state: RootState) => state.product.randomProductsData,
   );
 
-  const loadingRabd = useSelector(
+  const loadingRand = useSelector(
     (state: RootState) => state.product.isLoadingRandom,
   );
 
@@ -93,34 +110,33 @@ function SideBar() {
       if (newDiscountNum !== discountNum) {
         setDiscountNum(newDiscountNum);
       }
+      const newGridNum = calculateRandTempGridNum();
+      if (newGridNum !== gridNum) {
+        setGridNum(newGridNum);
+      }
     };
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [categoryNum, discountNum]);
+  }, [categoryNum, discountNum, gridNum]);
 
   useEffect(() => {
     const fetchDiscProducts = async () => {
-      await store.dispatch(fetchDiscountProducts(RANDOM_PRODUCT_REQUEST));
+      await store.dispatch(fetchDiscountProducts(RANDOM_PRODUCT_DISCOUNT));
     };
     fetchDiscProducts();
   }, [discountNum]);
 
-  // dispatch(
-  //   setSelectedFilters({
-  //     genres: [gameGenre[0]],
-  //     themes: [],
-  //     tags: [],
-  //     minPrice: 0,
-  //     maxPrice: 60,
-  //   } as IFilters),
-
   return (
     <div className={styles.mainCont}>
       <SearchMenu />
+      <PromoFirstBuy />
       <div className={styles.headerBlockCont}>
-        {loadingRabd ? <Spin /> : <SwiperMain products={productsRandom} />}
+        {loadingRand ? <Spin /> : <SwiperMain
+         products={productsRandom}
+         productsNum={RANDOM_PRODUCT_SWIPER}
+         />}
       </div>
       <div className={styles.headerBlockCont}>
         <PromoBanner />
@@ -138,7 +154,11 @@ function SideBar() {
           <CategoryCarousel genres={topGenres} categoryShow={categoryNum} />
         ) : null}
       </div>
-      <GridCard />
+      <GridCard
+        productsRandom={productsRandom}
+        randomSwiper={RANDOM_PRODUCT_SWIPER}
+        randomProductsNum={gridNum}
+       />
     </div>
   );
 }

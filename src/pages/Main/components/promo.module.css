@@ -2,6 +2,11 @@
   width: 100%;
 }
 
+.promoBannerFirstOrder {
+  width: 80%;
+  padding: 0px 5px;
+}
+
 .bannerCont {
   position: relative;
   overflow: hidden;
@@ -57,7 +62,6 @@
 
 .bannerDesc {
   position: absolute;
-  bottom: 10%;
   transform: translate(0%, 0%);
   display: flex;
   pointer-events: none;
@@ -65,4 +69,46 @@
   color: #fff;
   z-index: 2;
   flex-direction: column;
+}
+
+.bannerCardTitle {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.bannerCardDesc {
+  font-size: 1.2rem;
+  color: #fff;
+  opacity: 0.7;
+}
+
+@media (max-width: 945px) {
+
+  .promoBannerFirstOrder {
+    width: 100%;
+  }
+  
+
+}
+
+@media (max-width: 692px) {
+
+  .bannerCardTitle {
+    font-size: 1rem;
+  }
+  .bannerCardDesc {
+    font-size: 1rem;
+  }
+  .promoBannerFirstOrder{
+    padding: 0px 10px;
+}
+}
+
+@media (max-width: 472px) {
+  .bannerCardTitle {
+    font-size: 0.7rem;
+  }
+  .bannerCardDesc {
+    font-size: 0.7rem;
+  }
 }

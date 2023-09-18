@@ -7,7 +7,7 @@ interface DescriptionProps {
   quantity?: number;
 }
 
-function GetDescription({
+function GetDiscount({
   priceDesc,
   discountPriceDesc,
   promoPrice = Infinity,
@@ -50,9 +50,9 @@ function GetDescription({
   );
 }
 
-GetDescription.defaultProps = {
+GetDiscount.defaultProps = {
   promoPrice: Infinity,
   quantity: 1,
 };
 
-export default GetDescription;
+export default GetDiscount;

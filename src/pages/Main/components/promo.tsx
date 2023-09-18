@@ -4,6 +4,7 @@ import styles from './promo.module.css';
 import BannerIndie from '../../../assets/images/indie.webp';
 
 function PromoBanner() {
+  const { Meta } = Card;
   return (
     <div className={styles.promoBanner}>
       <div className={styles.bannerCont}>
@@ -18,8 +19,10 @@ function PromoBanner() {
         <Card
           bordered={false}
           className={styles.bannerDesc}
-          title={<span className={styles.bannerCardTitle}>PROMO</span>}
-        />
+        >
+          <Meta title={<span className={styles.bannerCardTitle}>SAVE10</span>}
+          description={<span className={styles.bannerCardDesc}>Don’t miss out on your discount!</span>} />
+        </Card>
       </div>
     </div>
   );

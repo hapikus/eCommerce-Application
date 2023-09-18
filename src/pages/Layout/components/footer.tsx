@@ -57,37 +57,25 @@ function Footer() {
       <div className={styles.rule} />
       <div className={styles.footerFirstLine}>
         <div className={styles.descContent}>
-          <p>WE USE OUR OWN API SERVER. FOR MORE INFORMATION, PLEASE VISIT THE LINKS BELOW.</p>
+          <p>
+            WE USE OUR OWN API SERVER. FOR MORE INFORMATION, PLEASE VISIT THE
+            LINKS BELOW.
+          </p>
         </div>
         <div className={styles.userCont}>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-           >
+          <Button type="link" className={styles.footerLinkBtn}>
             <Link to="/login">Sign in</Link>
           </Button>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-           >
+          <Button type="link" className={styles.footerLinkBtn}>
             <Link to="/signup">Sign up</Link>
           </Button>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-           >
+          <Button type="link" className={styles.footerLinkBtn}>
             <Link to="/user">User</Link>
           </Button>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-           >
+          <Button type="link" className={styles.footerLinkBtn}>
             <Link to="/">Main</Link>
           </Button>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-           >
+          <Button type="link" className={styles.footerLinkBtn}>
             <Link to="/catalog">Catalog</Link>
           </Button>
           <Button
@@ -99,29 +87,19 @@ function Footer() {
           >
             <Link to={`/product/${randomProduct}`}>Product</Link>
           </Button>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-           >
+          <Button type="link" className={styles.footerLinkBtn}>
             <Link to="/info">Info</Link>
           </Button>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-           >
+          <Button type="link" className={styles.footerLinkBtn}>
             <Link to="/cart">Cart</Link>
           </Button>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-           >
+          <Button type="link" className={styles.footerLinkBtn}>
             <Link to="/catalog">Catalog</Link>
           </Button>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-           >
-            <Link to="https://codefrondlers.store/api-docs/">About our API</Link>
+          <Button type="link" className={styles.footerLinkBtn}>
+            <Link to="https://codefrondlers.store/api-docs/">
+              API
+            </Link>
           </Button>
         </div>
         {currentSize.width < 420 ? null : (
