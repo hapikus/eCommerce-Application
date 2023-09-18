@@ -1,7 +1,7 @@
 import { loginAsync } from './authSlice';
 
-describe('loginAsync', () => {
-  it('should loginAsync with resolved response', async () => {
+describe('auth/login', () => {
+  it('should loginAsync rejected with Error', async () => {
     const mockLoginData = {
       email: 'testlogin@email.com',
       password: 'testpassword',
