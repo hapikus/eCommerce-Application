@@ -107,7 +107,7 @@ function LoginPage() {
               {loginErrorState && `${errorStateChecker(loginErrorState)}`}
             </div>
             <div className={styles.helpCont}>
-              <Link to="/support" className={styles.helpLink}>
+              <Link to="/signup" className={styles.helpLink}>
                 Help, I can&apos;t sign in
               </Link>
             </div>

@@ -152,14 +152,6 @@ function MainMenu({
               <span>INFORMATION</span>
             </NavLink>
           </Menu.Item>
-          <Menu.Item key="support">
-            <NavLink
-              to="support"
-              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-            >
-              <span>SUPPORT</span>
-            </NavLink>
-          </Menu.Item>
         </Menu>
       </div>
       <div className={styles.leftMenuCont}>
@@ -204,21 +196,20 @@ function Header() {
     if (value === 'barbie') {
       return <HeartOutlined />;
     }
-      return <BulbOutlined />
-
-  }
+    return <BulbOutlined />;
+  };
 
   const dropdownItems: MenuProps['items'] = Object.values(themesState).map(
     (themeMap: string) => ({
-        value: themeMap,
-        label: (
-          <div>
-            {getIcon(themeMap)}
-            {themeMap}
-          </div>
-        ),
-        key: themeMap,
-      }),
+      value: themeMap,
+      label: (
+        <div>
+          {getIcon(themeMap)}
+          {themeMap}
+        </div>
+      ),
+      key: themeMap,
+    }),
   );
 
   const handleThemeChange: MenuProps['onClick'] = ({ key }) => {

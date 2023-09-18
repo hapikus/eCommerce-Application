@@ -107,7 +107,7 @@
 }
 
 .menuCompTitle {
-  text-align: start;
+  text-align: center;
 }
 
 .priceTag {
@@ -188,7 +188,7 @@
     margin-bottom: 30px;
   }
   .catalogMenuCheckBox {
-    width: 75%;
+    width: 90%;
     flex-direction: column;
     align-items: center;
   }
@@ -200,7 +200,7 @@
   }
 
   .catalogMenuSlider {
-    width: 75%;
+    width: 90%;
   }
 
   .filterComponent {

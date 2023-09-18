@@ -8,7 +8,6 @@ import antPattern, { getThemeAlgorithm } from './theme/antPattern';
 import LayoutPage from './pages/Layout/layout';
 import MainPage from './pages/Main/main';
 import InfoPage from './pages/Info/info';
-import Support from './pages/Support/support';
 import LoginPage from './pages/Login/login';
 import SignUp from './pages/SignUp/signup';
 import Product from './pages/Product/product';
@@ -136,7 +135,6 @@ function App() {
               <Route index element={<MainPage />} />
               <Route path="/catalog" element={<CatalogPage />} />
               <Route path="/info" element={<InfoPage />} />
-              <Route path="/support" element={<Support />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/product/:productTitle" element={<Product />} />
