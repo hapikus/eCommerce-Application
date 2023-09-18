@@ -16,12 +16,15 @@ function PromoBanner() {
           style={{ height: '100%' }}
           className={styles.bannerImg}
         />
-        <Card
-          bordered={false}
-          className={styles.bannerDesc}
-        >
-          <Meta title={<span className={styles.bannerCardTitle}>SAVE10</span>}
-          description={<span className={styles.bannerCardDesc}>Don’t miss out on your discount!</span>} />
+        <Card bordered={false} className={styles.bannerDesc}>
+          <Meta
+            title={<span className={styles.bannerCardTitle}>SAVE10</span>}
+            description={
+              <span className={styles.bannerCardDesc}>
+                Don’t miss out on your discount!
+              </span>
+            }
+          />
         </Card>
       </div>
     </div>

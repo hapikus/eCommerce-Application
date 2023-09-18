@@ -97,9 +97,7 @@ function Footer() {
             <Link to="/catalog">Catalog</Link>
           </Button>
           <Button type="link" className={styles.footerLinkBtn}>
-            <Link to="https://codefrondlers.store/api-docs/">
-              API
-            </Link>
+            <Link to="https://codefrondlers.store/api-docs/">API</Link>
           </Button>
         </div>
         {currentSize.width < 420 ? null : (

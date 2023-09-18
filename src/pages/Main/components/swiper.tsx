@@ -21,10 +21,7 @@ import 'swiper/css/pagination';
 
 import './swiper.css';
 
-function SwiperMain(props: { 
-  products: IProduct[]
-  productsNum: number
- }) {
+function SwiperMain(props: { products: IProduct[]; productsNum: number }) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>();
 
   const getDescription = (

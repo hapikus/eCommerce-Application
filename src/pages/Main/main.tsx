@@ -133,10 +133,14 @@ function SideBar() {
       <SearchMenu />
       <PromoFirstBuy />
       <div className={styles.headerBlockCont}>
-        {loadingRand ? <Spin /> : <SwiperMain
-         products={productsRandom}
-         productsNum={RANDOM_PRODUCT_SWIPER}
-         />}
+        {loadingRand ? (
+          <Spin />
+        ) : (
+          <SwiperMain
+            products={productsRandom}
+            productsNum={RANDOM_PRODUCT_SWIPER}
+          />
+        )}
       </div>
       <div className={styles.headerBlockCont}>
         <PromoBanner />
@@ -158,7 +162,7 @@ function SideBar() {
         productsRandom={productsRandom}
         randomSwiper={RANDOM_PRODUCT_SWIPER}
         randomProductsNum={gridNum}
-       />
+      />
     </div>
   );
 }
