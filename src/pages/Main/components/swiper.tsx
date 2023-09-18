@@ -21,7 +21,7 @@ import 'swiper/css/pagination';
 
 import './swiper.css';
 
-function SwiperMain(props: { products: IProduct[] }) {
+function SwiperMain(props: { products: IProduct[]; productsNum: number }) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>();
 
   const getDescription = (
@@ -49,7 +49,7 @@ function SwiperMain(props: { products: IProduct[] }) {
     );
   };
 
-  const { products } = props;
+  const { products, productsNum } = props;
 
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
@@ -99,7 +99,7 @@ function SwiperMain(props: { products: IProduct[] }) {
         modules={[FreeMode, Navigation, Thumbs, Pagination]}
         className="mySwiper2"
       >
-        {products.map((product: IProduct) => {
+        {products.slice(0, productsNum).map((product: IProduct) => {
           const {
             gameTitle,
             price,

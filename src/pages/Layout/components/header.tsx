@@ -1,7 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Drawer, Menu, Avatar, Badge, Select } from 'antd';
+import {
+  Button,
+  Drawer,
+  Menu,
+  Avatar,
+  Badge,
+  Dropdown,
+  Space,
+  MenuProps,
+} from 'antd';
 import {
   MenuOutlined,
   MehOutlined,
@@ -9,6 +18,7 @@ import {
   BulbOutlined,
   CloudOutlined,
   HeartOutlined,
+  DownOutlined,
 } from '@ant-design/icons';
 import store, { RootState } from '../../../redux/store';
 
@@ -142,14 +152,6 @@ function MainMenu({
               <span>INFORMATION</span>
             </NavLink>
           </Menu.Item>
-          <Menu.Item key="support">
-            <NavLink
-              to="support"
-              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-            >
-              <span>SUPPORT</span>
-            </NavLink>
-          </Menu.Item>
         </Menu>
       </div>
       <div className={styles.leftMenuCont}>
@@ -187,6 +189,36 @@ function Header() {
   const themesState = useSelector((state: RootState) => state.theme.themes);
   const dispatch = useDispatch();
 
+  const getIcon = (value: string) => {
+    if (value === 'dark') {
+      return <CloudOutlined />;
+    }
+    if (value === 'barbie') {
+      return <HeartOutlined />;
+    }
+    return <BulbOutlined />;
+  };
+
+  const dropdownItems: MenuProps['items'] = Object.values(themesState).map(
+    (themeMap: string) => ({
+      value: themeMap,
+      label: (
+        <div>
+          {getIcon(themeMap)}
+          {themeMap}
+        </div>
+      ),
+      key: themeMap,
+    }),
+  );
+
+  const handleThemeChange: MenuProps['onClick'] = ({ key }) => {
+    const theme = key;
+    if (theme !== undefined) {
+      dispatch(setTheme(theme));
+    }
+  };
+
   return (
     <>
       <div className={styles.burgerMenu}>
@@ -216,27 +248,21 @@ function Header() {
       >
         <MainMenu setOpenMenu={setOpenMenu} isInLine />
       </Drawer>
-      <Select
-        className={styles.themeSwitcher}
-        defaultValue={themeState}
-        autoFocus={false}
-        onChange={(value) => {
-          dispatch(setTheme(value));
-        }}
-        options={Object.values(themesState).map((themeMap: string) => {
-          let iconName = (<BulbOutlined />);
-          if (themeMap === 'dark') {
-            iconName = (<CloudOutlined />);
-          }
-          if (themeMap === 'barbie') {
-            iconName = (<HeartOutlined />);
-          }
-          return {
-            value: themeMap,
-            label: ( <div>{ iconName }</div>),
-          };
-        })}
-      />
+      <div className={styles.themeComponent}>
+        <Dropdown
+          menu={{
+            items: dropdownItems,
+            onClick: handleThemeChange,
+            selectable: true,
+          }}
+          trigger={['click']}
+        >
+          <Space>
+            {getIcon(themeState)}
+            <DownOutlined />
+          </Space>
+        </Dropdown>
+      </div>
     </>
   );
 }

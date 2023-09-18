@@ -84,9 +84,9 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 50%;
+  top: 25%;
   left: 25%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   z-index: 99;
   align-items: center;
 }

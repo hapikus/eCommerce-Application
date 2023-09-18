@@ -11,6 +11,7 @@ function DiscountCarousel(props: {
   const { products, productsNum } = props;
   return (
     <div className={styles.categoryContainer}>
+      <h2>POPULAR DISCOUNT GAMES</h2>
       <Carousel
         className={styles.containerCarousel}
         infinite={false}

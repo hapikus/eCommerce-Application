@@ -1,12 +1,12 @@
 import { Image, Card } from 'antd';
 import styles from './promo.module.css';
 
-import BannerIndie from '../../../assets/images/indie.webp';
+import BannerIndie from '../../../assets/images/firstorder1.webp';
 
-function PromoBanner() {
+function PromoFirstBuy() {
   const { Meta } = Card;
   return (
-    <div className={styles.promoBanner}>
+    <div className={styles.promoBannerFirstOrder}>
       <div className={styles.bannerCont}>
         <div className={styles.mask} />
         <Image
@@ -18,10 +18,11 @@ function PromoBanner() {
         />
         <Card bordered={false} className={styles.bannerDesc}>
           <Meta
-            title={<span className={styles.bannerCardTitle}>SAVE10</span>}
+            title={<span className={styles.bannerCardTitle}>FIRST ORDER</span>}
             description={
               <span className={styles.bannerCardDesc}>
-                Don’t miss out on your discount!
+                Welcome bonus for new customers! Get a discount on your first
+                order on our website.
               </span>
             }
           />
@@ -31,4 +32,4 @@ function PromoBanner() {
   );
 }
 
-export default PromoBanner;
+export default PromoFirstBuy;

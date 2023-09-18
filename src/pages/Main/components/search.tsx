@@ -44,7 +44,7 @@ function SearchMenu() {
       <div className={styles.searchContainer}>
         <div className={styles.searchController}>
           <Search
-            placeholder="input search text"
+            placeholder="input game title"
             allowClear
             onSearch={searchGame}
             onChange={(e) => setSearchText(e.target.value)}
