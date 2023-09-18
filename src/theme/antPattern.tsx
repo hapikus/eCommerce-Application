@@ -22,6 +22,9 @@ const antPattern = {
         colorBgHeader: '#eae7ea',
         colorBgBody: '#fff',
       },
+      Timeline: {
+        tailColor: 'black',
+      },
       Button: {
         borderColorDisabled: '#52c41a',
       },
@@ -44,6 +47,11 @@ const antPattern = {
         colorBgBody: '#417a9b',
       },
       Timeline: {
+        tailColor: 'rgb(80,80,80)',
+        tailWidth: 6,
+        dotBorderWidth: 6,
+        itemPaddingBottom: 50,
+      },
         dotBg: 'transparent'
       }
     },
@@ -60,6 +68,8 @@ const antPattern = {
         colorBgBody: '#417a9b',
       },
       Timeline: {
+        tailColor: 'black',
+      },
         dotBg: 'transparent'
       }
     },

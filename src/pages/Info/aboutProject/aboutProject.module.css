@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:ital,wght@0,400;0,500;1,300&display=swap');
+
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+}
+
+.sectionContaier {
+  margin: 50px auto;
+  width: 80%;
+}
+
+.logoBlock {
+  background: rgb(230 230 230 / 81%);
+}
+
+.containerBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.block {
+  width: 50;
+  height: 50;
+  font-size: 30px;
+}
+
+.block img {
+  height: 100px;
+}
+
+.block img:hover {
+  transform: scale(1.2);
+}
+
+/* sprint 1 */
+.sprint_1 {
+  background: rgb(230, 230, 230);
+}
+
+.sprint_1_title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  color: #51176d;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sprint_1_title h2 {
+  border-bottom: 2px solid #51176d;
+  width: max-content;
+  margin: 0;
+}
+
+.period {
+  padding-bottom: 10px;
+}
+
+.clientLogo img {
+  width: 60px;
+}
+
+.clientLogo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnBlock {
+  margin: 50px 0;
+}
+
+.btnBlock h4 {
+  font-size: 25px;
+  color: black;
+}
+
+.sprint_1_title h3 {
+  width: max-content;
+  font-size: 26px;
+}
+
+.timePeriodTitleRight {
+  position: relative;
+  background: rgb(248, 248, 248);
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: left;
+  color: rgb(50, 50, 50);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 120%;
+  line-height: 1.6em;
+  width: fit-content;
+  transition: 1s;
+  transform: scale(1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timePeriodTitleRight img,
+.timePeriodTitleLeft img {
+  border-radius: 50%;
+  width: 60px;
+  padding: 0 10px;
+}
+
+.timePeriodTitleLeft {
+  position: relative;
+  background: rgb(248, 248, 248);
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: left;
+  color: rgb(50, 50, 50);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 120%;
+  line-height: 1.6em;
+  width: fit-content;
+  transition: 1s;
+  transform: scale(1);
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timePeriodTitleRight:hover,
+.timePeriodTitleLeft:hover {
+  transform: scale(1.2);
+  color: #51176d;
+  padding-left: 20px;
+  background-color: rgba(211, 195, 195, 0.897);
+}
+
+.timePeriodTitleRight:after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  margin-top: -8px;
+  border: solid transparent;
+  border-right-color: rgb(248, 248, 248);
+  border-width: 8px;
+  pointer-events: none;
+}
+
+.timePeroidText {
+  width: 250px;
+  font-style: italic;
+  line-height: 1.5em;
+  color: rgb(50, 50, 50);
+  margin: 1em 0 0 0.75em;
+  text-align: justify;
+  transition: 1s;
+  transform: scale(1);
+  font-size: 16px;
+}
+
+.timePeriodTitleLeft:after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  margin-top: -8px;
+  border: solid transparent;
+  border-right-color: rgb(248, 248, 248);
+  border-width: 8px;
+  pointer-events: none;
+  transform: rotate(182deg);
+}
+
+.timePeroidTextLeft {
+  font-style: italic;
+  line-height: 1.5em;
+  color: rgb(50, 50, 50);
+  margin: 1em 0 0 0.75em;
+  text-align: right;
+  font-size: 16px;
+}
+
+.column_2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.timeLine {
+  margin-left: 50px;
+}
+
+.appBlocks {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  width: 50%;
+}
+
+/* Jira */
+.jiraBlock {
+  width: 400px;
+  padding-left: 100px;
+  margin-bottom: 30px;
+}
+
+.jiraBlock img {
+  width: 50px;
+}
+
+.jiraBlockHeader {
+  border-bottom: 1px solid white;
+  background-color: #0052b6;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.jiraBlockBody {
+  background-color: WHITE;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 4px;
+}
+
+.jiraBlockBody li {
+  list-style: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.jiraBlockBody ul {
+  margin: 0;
+}
+
+/* git hub block */
+.gitBlock {
+  width: 400px;
+  height: 120px;
+  padding-right: 50px;
+}
+
+.gitBlockHeader {
+  border-bottom: 1px solid white;
+  background-color: black;
+  height: 50px;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  padding: 10px;
+  font-size: 24px
+}
+
+.gitBlockBody {
+  background-color: WHITE;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+
+/* Product main  */
+.productConatiner {
+  background-color: #1c4b6fa6;
+}
+
+.containerBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.aboutProductBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.productSlader {
+  width: 600px;
+  padding: 13px;
+}
+
+.productInfo {
+  width: 600px;
+  padding-left: 10px;
+  margin-right: 10%;
+}
+
+.productInfoTitle h3 {
+  text-align: center;
+  margin-top: 8%;
+  letter-spacing: .08em;
+  font-family: 'Archivo', sans-serif;
+  font-weight: bold;
+  padding-bottom: 20px;
+  font-size: 40px;
+}
+
+.list li {
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.progectDiscription {
+  text-align: justify;
+  padding-left: 10px;
+  margin-bottom: 10%;
+  font-size: 18px;
+  line-height: 101%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.progectName {
+  font-size: 40px;
+  color: #d6a74f;
+  padding: 20px;
+  text-align: left;
+  font-family: 'Black Ops One';
+}
+
+.loginForm img {
+  width: 400px;
+  border-radius: 10px;
+  padding: 40px 40px;
+}
+
+.loginForm img:hover {
+  transform: scale(1.1);
+  transition: 1ms;
+}
+
+@media (max-width: 970px) {
+  .container {
+    width: 100%;
+  }
+
+  .sectionContaier {
+    margin: 20px auto;
+    width: 80%;
+  }
+
+  .infoMainContaier {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .aboutProductBlock {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .containerBlock {
+    flex-direction: column;
+  }
+
+  .loginForm {
+    display: none;
+  }
+
+  .sprint_1_title h3 {
+    font-size: 20px;
+    width: 600px;
+  }
+
+  .jiraBlock {
+    width: 350px;
+    padding-left: 0px;
+  }
+
+
+}
+
+@media (max-width: 750px) {
+  .sprint_1_title h3 {
+    font-size: 20px;
+    width: 500px;
+  }
+
+  .loginForm {
+    display: none;
+  }
+
+  .column_2 {
+    flex-direction: column;
+  }
+
+  .timeLine {
+    margin: 0 auto;
+  }
+
+  .appBlocks {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .productSlader,
+  .productInfo {
+    width: 350px;
+    margin: 0 auto;
+  }
+
+  .productInfoTitle {
+    font-size: 25px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+  }
+
+  .logoBlock {
+    display: none;
+  }
+
+  .sprint_1_title h2 {
+    font-size: 25px;
+  }
+
+  .sprint_1_title h3 {
+    font-size: 20px;
+    width: 400px;
+  }
+
+  .column_2 {
+    flex-direction: column;
+  }
+
+  .appBlocks {
+    display: none;
+  }
+
+  .timePeriodTitleLeft .timePeriodTitleRight {
+    width: 160px;
+  }
+
+  .timePeroidText {
+    margin: 0;
+    width: 160px;
+  }
+
+  .timeLine {
+    margin: 0 auto;
+  }
+}
