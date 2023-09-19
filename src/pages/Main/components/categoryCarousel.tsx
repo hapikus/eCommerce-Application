@@ -1,6 +1,6 @@
 import { Carousel } from 'antd';
 
-import styles from './banner.module.css';
+import styles from './categoryCarousel.module.css';
 import CategoryCards from './categoryCards';
 
 function CategoryCarousel(props: { genres: string[]; categoryShow: number }) {

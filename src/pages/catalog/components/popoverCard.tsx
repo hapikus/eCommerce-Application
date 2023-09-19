@@ -1,9 +1,9 @@
 import { Image, Tag } from 'antd';
 import { Link } from 'react-router-dom';
 
-import getDiscount from '../../../components/shared/getDiscount';
 import styles from './popover.module.css';
 import IProduct from '../../../types/IProduct';
+import GetDiscount from '../../../components/shared/getDiscount';
 
 function PopoverCards(props: { products: IProduct[] }) {
   const { products } = props;
@@ -32,7 +32,12 @@ function PopoverCards(props: { products: IProduct[] }) {
           <div className={styles.discountPricePop}>
             <p className={styles.titleCardPop}>{gameTitle}</p>
             <div className={styles.popoverCardDesc}>
-              <Tag>{getDiscount(price, discountPrice)}</Tag>
+              <Tag style={{ padding: '5px 15px' }}>
+                <GetDiscount
+                  priceDesc={price}
+                  discountPriceDesc={discountPrice}
+                />
+              </Tag>
             </div>
           </div>
         </Link>

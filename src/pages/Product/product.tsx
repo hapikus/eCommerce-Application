@@ -56,6 +56,9 @@ function Product() {
       }
     };
     window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [randomProductsNum]);
 
   const productLoading = useSelector(

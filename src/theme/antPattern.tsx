@@ -24,7 +24,7 @@ const antPattern = {
       },
       Timeline: {
         tailColor: 'black',
-        dotBg: 'transparent'
+        dotBg: 'transparent',
       },
       Button: {
         borderColorDisabled: '#52c41a',
@@ -46,8 +46,8 @@ const antPattern = {
       },
       Timeline: {
         tailColor: 'black',
-        dotBg: 'transparent'
-      }
+        dotBg: 'transparent',
+      },
     },
   },
   [themes.barbie]: {
@@ -63,8 +63,8 @@ const antPattern = {
       },
       Timeline: {
         tailColor: 'black',
-        dotBg: 'transparent'
-      }
+        dotBg: 'transparent',
+      },
     },
   },
 };

@@ -1,13 +1,13 @@
-import { Image, Card, message, Typography } from 'antd';
+import { Image, Card, Typography, message } from 'antd';
 import styles from './promo.module.css';
 
+import BannerIndie from '../../../assets/images/firstorder1.webp';
 
-function PromoBanner(props: { promo: string, promoDesc: string, banner: string}) {
+function PromoFirstBuy() {
   const { Meta } = Card;
   const { Paragraph } = Typography;
 
-  const { promo, promoDesc, banner } = props;
-
+  const promo = 'FIRST ORDER';
 
   const copyToClipboard = () => {
     const promoCode = promo;
@@ -17,7 +17,7 @@ function PromoBanner(props: { promo: string, promoDesc: string, banner: string})
   const iconPlaceholder = <span style={{ display: 'none' }} />;
 
   return (
-    <div className={styles.promoBanner}>
+    <div className={styles.promoBannerFirstOrder}>
       <Paragraph
         copyable={{
           text: `${promo}`,
@@ -29,17 +29,20 @@ function PromoBanner(props: { promo: string, promoDesc: string, banner: string})
         <div className={styles.bannerCont}>
           <div className={styles.mask} />
           <Image
-            src={banner}
+            src={BannerIndie}
             alt="CAPSULE"
             width="100%"
             className={styles.bannerImg}
           />
           <Card bordered={false} className={styles.bannerDesc}>
             <Meta
-              title={<span className={styles.bannerCardTitle}>{promo}</span>}
+              title={
+                <span className={styles.bannerCardTitle}>FIRST ORDER</span>
+              }
               description={
                 <span className={styles.bannerCardDesc}>
-                  {promoDesc}
+                  Welcome bonus for new customers! Get a discount on your first
+                  order on our website.
                 </span>
               }
             />
@@ -50,4 +53,4 @@ function PromoBanner(props: { promo: string, promoDesc: string, banner: string})
   );
 }
 
-export default PromoBanner;
+export default PromoFirstBuy;

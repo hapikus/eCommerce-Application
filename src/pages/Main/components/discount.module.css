@@ -123,32 +123,6 @@
   width: 200px;
 }
 
-.searchMenu {
-  display: flex;
-  background: var(--gpStoreDarkGrey);
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  z-index: 9999;
-}
-
-.searchContainer {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-}
-
-.searchController {
-  display: flex;
-  align-items: center;
-  width: 80%;
-  padding-left: 10px;
-  justify-content: space-between;
-}
-
 .menu_main {
   display: flex;
   width: auto;
@@ -156,16 +130,6 @@
   min-width: 360px;
   line-height: 30px;
   background: var(--gpStoreDarkGrey);
-  border-bottom: none;
-}
-
-.searchNavMenu {
-  display: flex;
-  width: auto;
-  justify-content: flex-end;
-  min-width: 360px;
-  line-height: 30px;
-  background: transparent;
   border-bottom: none;
 }
 
@@ -304,73 +268,17 @@
     width: 100%;
     height: auto;
   }
-  .searchMenu {
-    justify-content: flex-start;
-    position: sticky;
-    top: 0px;
-    width: 100%;
-    height: 60px;
-    align-items: center;
-    z-index: 999;
-    max-width: auto;
-    padding-left: 0px;
-  }
-  .searchNavMenu {
-    display: flex;
-    justify-content: flex-end;
-    min-width: 360px;
-    line-height: 30px;
-    background: transparent;
-    border-bottom: none;
-    padding-right: 10px;
-  }
-
-  .searchController {
-    width: 100%;
-    min-width: 0;
-  }
 }
 
 @media (max-width: 692px) {
-  .searchNavMenu {
-    width: auto;
-    justify-content: flex-end;
-    min-width: 220px;
-    line-height: 30px;
-    background: transparent;
-    border-bottom: none;
-  }
-  .searchMenu {
-    top: 64px;
-    width: 100%;
-  }
-
   .containerCarousel {
     width: 100%;
     height: auto;
   }
 
-  .searchController {
-    justify-content: space-between;
-    min-width: 0;
-  }
 }
 
 @media (max-width: 472px) {
-  .searchNavMenu {
-    justify-content: space-around;
-    line-height: 30px;
-    min-width: 0;
-    background: transparent;
-    border-bottom: none;
-  }
-
-  .searchMenu {
-    top: 64px;
-    width: 100%;
-    z-index: 999;
-    justify-content: center;
-  }
 
   .containerCarousel {
     width: 100%;

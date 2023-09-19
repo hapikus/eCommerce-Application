@@ -1,0 +1,49 @@
+.gridWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.gridContainer {
+  display: grid;
+  padding: 8px 16px;
+  column-gap: 10px;
+  row-gap: 10px;
+  justify-items: normal;
+  grid-template-columns: 2fr [first-item-col] 1fr [middle-item-col] 1fr [last-item-col];
+  grid-template-rows: [first-row-items] 1fr [second-row-item];
+  width: 100%;
+}
+
+.gridContainer [first-item-col] {
+  height: 100px;
+}
+
+.gridContainer [first-item-col] {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-row-end: 5;
+}
+
+@media (max-width: 945px) {
+
+  .gridWrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 692px) {
+
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr) ;
+  }
+}
+
+@media (max-width: 472px) {
+  .gridContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .gridContainer > :nth-child(n+4) {
+    display: none;
+  }
+}

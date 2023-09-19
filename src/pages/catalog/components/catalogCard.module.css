@@ -82,8 +82,12 @@
 }
 
 .catalogCardRegPrice {
+  display: flex;
   font-weight: 500;
   text-decoration: line-through;
+  font-size: 0.7rem;
+  align-items: center;
+
 }
 
 .catalogCardDiscPrice,

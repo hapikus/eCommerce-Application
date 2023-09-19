@@ -1,0 +1,53 @@
+.containerCarousel {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+}
+
+.categoryContainer {
+  width: 100%;
+  height: auto;
+}
+
+.categoryContainer .slick-dots li button {
+  background: #ff4ef6;
+  opacity: 0.4;
+}
+
+.carouselDots {
+  bottom: -5px !important;
+}
+
+.carouselDots button {
+  height: 6px !important;
+  background-color: var(--bg-color-main-invert) !important;
+  bottom: -16px !important;
+}
+
+@media (max-width: 913px) {
+  .categoryContainer {
+    width: 100%;
+    height: auto;
+  }
+
+  .containerCarousel {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 692px) {
+  .containerCarousel {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+@media (max-width: 472px) {
+  .containerCarousel {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -9,7 +9,7 @@ import {
   getBasketItems,
   removeItemFromBasket,
 } from '../../../redux/slice/basketSlice';
-import GetDescription from '../../../components/shared/getDiscount';
+import GetDiscount from '../../../components/shared/getDiscount';
 import store, { RootState } from '../../../redux/store';
 import BasketService from '../../../models/Basket/BasketService';
 
@@ -176,7 +176,7 @@ function CartGameList() {
               basketQantity,
             } = basketProduct;
             return (
-              <div className={styles.cartProdContainer}>
+              <div className={styles.cartProdContainer} key={gameTitle}>
                 <Link
                   to={`/product/${gameTitle}`}
                   key={gameTitle}
@@ -236,7 +236,7 @@ function CartGameList() {
                 </div>
                 <div className={styles.cartProdPrice}>
                   <Tag style={{ padding: '5px 10px', marginInlineEnd: '0px' }}>
-                    <GetDescription
+                    <GetDiscount
                       priceDesc={price}
                       discountPriceDesc={discountPrice}
                       promoPrice={promoPrice}

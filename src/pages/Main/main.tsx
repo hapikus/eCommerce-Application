@@ -15,9 +15,10 @@ import CategoryCarousel from './components/categoryCarousel';
 import DiscountCarousel from './components/discountCarousel';
 import ProductService from '../../models/Product/ProductService';
 import PromoBanner from './components/promo';
-import SwiperMain from './components/swiper';
+import SwiperMain from './components/swiperMain';
 import GridCard from './components/gridCardTemp';
-import PromoFirstBuy from './components/promoFirsBuy';
+import BannerFirst from '../../assets/images/firstorder1.webp'
+import BannerIndie from '../../assets/images/indie.webp';
 
 const RANDOM_PRODUCT_REQUEST = 10;
 const RANDOM_PRODUCT_DISCOUNT = 6;
@@ -62,6 +63,12 @@ const calculateRandTempGridNum = () => {
   return cardNumber;
 };
 
+const promoCode = 'SAVE10';
+const promoFirst = 'FIRST ORDER';
+
+const promoDescSave10 = 'Don’t miss out on your discount!';
+const promoDescFirst = 'Welcome bonus for new customers! Get a discount on your first order on our website.';
+
 function SideBar() {
   const [categoryNum, setCategoryNum] = useState(calculateCategoryNum());
   const [discountNum, setDiscountNum] = useState(calculateDiscNum());
@@ -74,6 +81,10 @@ function SideBar() {
 
   const loadingRand = useSelector(
     (state: RootState) => state.product.isLoadingRandom,
+  );
+
+  const loadingDisc = useSelector(
+    (state: RootState) => state.product.isLoadingDiscRandom,
   );
 
   const categoryAll = useSelector(
@@ -92,8 +103,8 @@ function SideBar() {
       await store.dispatch(fetchAllCategory());
     };
     const fetchTopGenres = async () => {
-      const todGenres = await ProductService.getTopGenres();
-      setTopGenres(todGenres.data);
+      const topGenresLoad = await ProductService.getTopGenres();
+      setTopGenres(topGenresLoad.data);
     };
     fetchCategory();
     fetchTopGenres();
@@ -131,7 +142,10 @@ function SideBar() {
   return (
     <div className={styles.mainCont}>
       <SearchMenu />
-      <PromoFirstBuy />
+      <PromoBanner
+         promo={promoFirst}
+         promoDesc={promoDescFirst}
+         banner={BannerFirst} />
       <div className={styles.headerBlockCont}>
         {loadingRand ? (
           <Spin />
@@ -143,15 +157,20 @@ function SideBar() {
         )}
       </div>
       <div className={styles.headerBlockCont}>
-        <PromoBanner />
+        <PromoBanner
+         promo={promoCode}
+         promoDesc={promoDescSave10}
+         banner={BannerIndie} />
       </div>
       <div className={styles.headerBlockCont}>
-        {discountRandom?.length ? (
+        {loadingDisc ? (
+          <Spin />
+        ) : (
           <DiscountCarousel
             products={discountRandom}
             productsNum={discountNum}
           />
-        ) : null}
+        )}
       </div>
       <div className={styles.headerBlockCont}>
         {categoryAll?.length ? (
