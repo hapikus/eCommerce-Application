@@ -71,7 +71,6 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>State</h3>
-          {/* <p>Redux Toolkit</p> */}
           <img src={RLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
@@ -80,7 +79,6 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Bunding</h3>
-          {/* <p>Vite</p> */}
           <img src={ViteLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
@@ -89,7 +87,6 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>HTTP Requests</h3>
-          {/* <p>Axios</p> */}
           <img src={AxiousLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
@@ -98,7 +95,6 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Testing</h3>
-          {/* <p>Jest</p> */}
           <img src={JestLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
@@ -107,7 +103,6 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Code Quality</h3>
-          {/* <p>ESLint ✨, Prettier 🎨, Husky 🐶</p> */}
           <div className={styles.logosCont}>
             <img
               src={PrettierLogo}
@@ -127,12 +122,12 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Styles</h3>
-          {/* <p>Ant Design</p> */}
           <img src={AntdLogo} alt="antd" />
         </div>
       ),
     },
   ];
+
   const dataServer = [
     {
       title: (
@@ -424,8 +419,8 @@ function AboutProject() {
                         <div className={styles.timePeroidText}>
                           <p>
                             Whithout any dobs choose <b>Jira </b> as the tool
-                            for task managment. Set rules of checking task and
-                            meetting schedule.
+                            for task management. Set rules of checking task and
+                            meeting schedule.
                           </p>
                         </div>
                       </div>
@@ -465,7 +460,7 @@ function AboutProject() {
                           <p>Brain Storm</p>
                         </div>
                         <div className={styles.timePeroidText}>
-                          <p>What we shood sell? What design to choose?</p>
+                          <p>What we should sell? What design to choose?</p>
                         </div>
                       </div>
                     ),
@@ -521,12 +516,10 @@ function AboutProject() {
                         </div>
                         <div className={styles.timePeroidTextLeft}>
                           <p>
-                            Login page. Conducted discussions on the possibility
-                            of using MOBX instead of REDUX. Code reviews and
-                            requested implementations. discussed topics such as
-                            the vite.config.ts file, implementation and
-                            validation of dobValid.ts, and the database for
-                            products.
+                            Login page.Code reviews and requested
+                            implementations. discussed topics such as the
+                            vite.config.ts file, implementation and validation
+                            of dobValid.ts, and the database for products.
                           </p>
                         </div>
                       </div>

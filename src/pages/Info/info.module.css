@@ -308,6 +308,16 @@
   justify-content: space-between;
 }
 
+.carouselDots {
+  bottom: -5px !important;
+}
+
+.carouselDots button {
+  height: 6px !important;
+  background-color: var(--bg-color-main-invert) !important;
+  bottom: -16px !important;
+}
+
 @media (max-width: 945px) {
   .container {
     width: 100%;
@@ -477,6 +487,7 @@
 }
 
 @media (max-width: 402px) {
+
   .productInfo,
   .productSlader {
     width: 312px;
