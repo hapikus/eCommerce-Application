@@ -44,7 +44,7 @@
 
 .logo img {
   width: 100%;
-    height: auto;
+  height: auto;
 }
 
 .textAbout {
@@ -79,7 +79,6 @@
 
 .columnCapabilitis:first-child {
   background-color: #303068b0;
-  ;
 }
 
 .columnCapabilitis:first-child .icon {
@@ -239,6 +238,12 @@
 .avatar {
   width: 400px;
   height: 400px;
+}
+
+.badgeRibbon {
+  position: absolute;
+  top: 74%;
+  right: 9% !important;
 }
 
 .avatar img {
@@ -498,7 +503,6 @@
 }
 
 @media (max-width: 402px) {
-
   .productInfo,
   .productSlader {
     width: 300px;
