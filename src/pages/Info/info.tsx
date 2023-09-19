@@ -236,7 +236,7 @@ function InfoPage() {
                     Used Redux, despite all the pros of MobX
                   </Tag>
                   <Tag color="geekblue">React - once and for all</Tag>
-                  <Tag color="geekblue">
+                  <Tag color="geekblue" style={{whiteSpace: 'break-spaces'}}>
                     I thought design was just the buttons on the page
                   </Tag>
                 </Space>
@@ -408,8 +408,6 @@ function InfoPage() {
             </div>
           </div>
         </div>
-      </section>
-      <section>
         <div className={styles.sectionContaier}>
           <div className={styles.rssLogo}>
             <h2>Made with support</h2>

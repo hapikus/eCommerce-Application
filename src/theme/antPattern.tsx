@@ -24,13 +24,11 @@ const antPattern = {
       },
       Timeline: {
         tailColor: 'black',
+        dotBg: 'transparent'
       },
       Button: {
         borderColorDisabled: '#52c41a',
       },
-      Timeline: {
-        dotBg: 'transparent'
-      }
     },
   },
   [themes.dark]: {
@@ -47,11 +45,7 @@ const antPattern = {
         colorBgBody: '#417a9b',
       },
       Timeline: {
-        tailColor: 'rgb(80,80,80)',
-        tailWidth: 6,
-        dotBorderWidth: 6,
-        itemPaddingBottom: 50,
-      },
+        tailColor: 'black',
         dotBg: 'transparent'
       }
     },
@@ -69,11 +63,11 @@ const antPattern = {
       },
       Timeline: {
         tailColor: 'black',
-      },
         dotBg: 'transparent'
       }
     },
   },
 };
+
 export { getThemeAlgorithm };
 export default antPattern;

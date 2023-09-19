@@ -136,7 +136,6 @@ function App() {
               <Route path="/catalog" element={<CatalogPage />} />
               <Route path="/info" element={<InfoPage />} />
               <Route path="/project" element={<AboutProject />} />
-              <Route path="/support" element={<Support />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/product/:productTitle" element={<Product />} />

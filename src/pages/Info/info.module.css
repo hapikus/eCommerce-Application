@@ -36,13 +36,15 @@
 .containerBtn {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 400px;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 10px;
   margin: 0 auto;
 }
 
 .logo img {
-  width: 600px;
+  width: 550px;
 }
 
 .textAbout {
@@ -224,8 +226,8 @@
 }
 
 .quotes {
-  padding: 0 20px;
   color: orange;
+  padding-bottom: 20px;
 }
 
 .rightQuote {
@@ -242,7 +244,6 @@
 .avatar {
   width: 400px;
   height: 400px;
-
 }
 
 .avatar img {
@@ -257,7 +258,7 @@
 .img {
   pointer-events: none;
   position: relative;
-  transition: 1s;
+  transition: 0.5s;
   height: 400px;
   width: 300px;
 }
@@ -297,7 +298,7 @@
 }
 
 .textAboutTeamMember {
-  width: 75%;
+  width: 80%;
   margin-left: 15%;
   margin-top: 5%;
   text-align: justify;
@@ -318,7 +319,6 @@
 
   .infoBlockRight {
     margin-right: 0;
-    margin-left: 10%;
   }
 
   .teamMemberInfoRight {
@@ -336,7 +336,7 @@
   }
 
   .logo img {
-    width: 400px;
+    width: 80%;
   }
 
   .textAbout {
@@ -429,6 +429,10 @@
     margin: 0 auto;
   }
 
+  .textAboutTeamMember {
+    width: 95%;
+  }
+
   .productSlader,
   .productInfo {
     width: 500px;
@@ -456,5 +460,59 @@
     font-size: 25px;
     padding-bottom: 0px;
     margin-bottom: 0;
+  }
+
+  .columnCapabilitis {
+    position: relative;
+    width: 95%;
+    height: 280px;
+    text-align: center;
+  }
+
+  .rssLogo {
+    width: 75%;
+  }
+
+  .personPhotoContainer {
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 402px) {
+  .productInfo,
+  .productSlader {
+    width: 312px;
+    margin: 0 auto;
+  }
+
+  .img,
+  .personPhotoContainer,
+  .personPhoto {
+    width: 250px;
+  }
+
+  .personPhoto img {
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  .avatar {
+    height: 250px;
+    width: 250px;
+  }
+
+  .productInfo {
+    width: 90%;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .divider {
+    width: auto;
   }
 }

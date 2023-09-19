@@ -56,49 +56,53 @@ function Footer() {
     <div className={styles.footer}>
       <div className={styles.rule} />
       <div className={styles.footerFirstLine}>
-        <div className={styles.descContent}>
-          <p>
-            WE USE OUR OWN API SERVER. FOR MORE INFORMATION, PLEASE VISIT THE
-            LINKS BELOW.
-          </p>
-        </div>
         <div className={styles.userCont}>
-          <Button type="link" className={styles.footerLinkBtn}>
+          <Button type="link">
             <Link to="/login">Sign in</Link>
           </Button>
-          <Button type="link" className={styles.footerLinkBtn}>
+          <Button type="link">
             <Link to="/signup">Sign up</Link>
           </Button>
-          <Button type="link" className={styles.footerLinkBtn}>
+          <Button type="link">
             <Link to="/user">User</Link>
           </Button>
-          <Button type="link" className={styles.footerLinkBtn}>
-            <Link to="/">Main</Link>
-          </Button>
-          <Button type="link" className={styles.footerLinkBtn}>
-            <Link to="/catalog">Catalog</Link>
-          </Button>
-          <Button
-            type="link"
-            className={styles.footerLinkBtn}
-            key="product"
-            onClick={handleLinkClick}
-            disabled={isRandomLoading}
+        </div>
+        <div className={styles.productCont}>
+          <Menu
+            mode={currentSize.width > 630 ? 'horizontal' : 'horizontal'}
+            selectable={false}
+            disabledOverflow
+            style={{ borderInlineEnd: 'none' }}
           >
-            <Link to={`/product/${randomProduct}`}>Product</Link>
-          </Button>
-          <Button type="link" className={styles.footerLinkBtn}>
-            <Link to="/info">Info</Link>
-          </Button>
-          <Button type="link" className={styles.footerLinkBtn}>
-            <Link to="/cart">Cart</Link>
-          </Button>
-          <Button type="link" className={styles.footerLinkBtn}>
-            <Link to="/catalog">Catalog</Link>
-          </Button>
-          <Button type="link" className={styles.footerLinkBtn}>
-            <Link to="https://codefrondlers.store/api-docs/">API</Link>
-          </Button>
+            <Menu.Item key="home">
+              <Link to="/">Main</Link>
+            </Menu.Item>
+            <Menu.Item key="catalog">
+              <Link to="/catalog">Catalog</Link>
+            </Menu.Item>
+            <Menu.Item
+              key="product"
+              onClick={handleLinkClick}
+              disabled={isRandomLoading}
+            >
+              <Link to={`/product/${randomProduct}`}>Product</Link>
+            </Menu.Item>
+          </Menu>
+        </div>
+        <div className={styles.infoCardCont}>
+          <Menu
+            mode={currentSize.width > 630 ? 'horizontal' : 'horizontal'}
+            selectable={false}
+            disabledOverflow
+            style={{ borderInlineEnd: 'none' }}
+          >
+            <Menu.Item key="info">
+              <Link to="/info">Info</Link>
+            </Menu.Item>
+            <Menu.Item key="cart">
+              <Link to="/cart">Cart</Link>
+            </Menu.Item>
+          </Menu>
         </div>
         {currentSize.width < 420 ? null : (
           <div className={styles.githubLinks}>

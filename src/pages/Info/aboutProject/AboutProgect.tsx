@@ -1,12 +1,10 @@
 import { GithubOutlined, MehOutlined } from '@ant-design/icons';
 import { Button, Carousel, Timeline, Image, List, Card } from 'antd';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+
 import styles from './aboutProject.module.css';
 
-import Screen_1 from '../../../assets/images/pagesScreens/screen1_light.png';
-import Screen_2 from '../../../assets/images/pagesScreens/screen2.png';
-import Screen_3 from '../../../assets/images/pagesScreens/screen3.png';
-import Screen_4 from '../../../assets/images/pagesScreens/screen4.png';
 import ReactLogo from '../../../assets/images/logo/react_logo.png';
 import AntdLogo from '../../../assets/images/logo/Ant_logo.png';
 import TSLogo from '../../../assets/images/logo/TS_logo.png';
@@ -14,7 +12,6 @@ import RLogo from '../../../assets/images/logo/redux_logo.png';
 import Screen_5 from '../../../assets/images/pagesScreens/user_1.png';
 import Screen_6 from '../../../assets/images/pagesScreens/cart_3.png';
 import JiraBordImg from '../../../assets/images/pagesScreens/taskboard.png';
-import JiraBordImg_2 from '../../../assets/images/pagesScreens/taskboard2.png';
 import EslintLogo from '../../../assets/images/logo/ESLint_logo.svg.png';
 import JestLogo from '../../../assets/images/logo/jest.png';
 import AxiousLogo from '../../../assets/images/logo/Axious.png';
@@ -26,6 +23,9 @@ import HapikusImg from '../../../assets/images/teamPhoto/hapikus icon.png';
 import LukshaOlgaImg from '../../../assets/images/teamPhoto/lukshaolga icon.png';
 import CardImg from '../../../assets/images/logo/superStore.png';
 import DataBase from '../../../assets/images/pagesScreens/DataBase.png';
+import MainOneImg from '../../../assets/images/pagesScreens/main_1.png';
+import SignInImg from '../../../assets/images/pagesScreens/signIn.png';
+import CatalogTwoImg from '../../../assets/images/pagesScreens/catalog_2.png';
 import Page from '../../../assets/images/pagesScreens/main_2.png';
 import ExpressJsLogo from '../../../assets/images/logo/expressjs_logo.png';
 import NodeJsLogo from '../../../assets/images/logo/nodejsicon.png';
@@ -56,8 +56,14 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Based</h3>
-          <img src={TSLogo} alt="logo" />
-          <img src={ReactLogo} alt="logo" />
+          <div className={styles.logosCont}>
+            <img src={TSLogo} alt="logo" className={styles.clientServerImg} />
+            <img
+              src={ReactLogo}
+              alt="logo"
+              className={styles.clientServerImg}
+            />
+          </div>
         </div>
       ),
     },
@@ -66,7 +72,7 @@ function AboutProject() {
         <div className={styles.clientLogo}>
           <h3>State</h3>
           {/* <p>Redux Toolkit</p> */}
-          <img src={RLogo} alt="logo" />
+          <img src={RLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
     },
@@ -75,7 +81,7 @@ function AboutProject() {
         <div className={styles.clientLogo}>
           <h3>Bunding</h3>
           {/* <p>Vite</p> */}
-          <img src={ViteLogo} alt="logo" />
+          <img src={ViteLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
     },
@@ -84,7 +90,7 @@ function AboutProject() {
         <div className={styles.clientLogo}>
           <h3>HTTP Requests</h3>
           {/* <p>Axios</p> */}
-          <img src={AxiousLogo} alt="logo" />
+          <img src={AxiousLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
     },
@@ -93,17 +99,27 @@ function AboutProject() {
         <div className={styles.clientLogo}>
           <h3>Testing</h3>
           {/* <p>Jest</p> */}
-          <img src={JestLogo} alt="logo" />
+          <img src={JestLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
     },
     {
       title: (
         <div className={styles.clientLogo}>
-          <h3>Code Quality🐶</h3>
+          <h3>Code Quality</h3>
           {/* <p>ESLint ✨, Prettier 🎨, Husky 🐶</p> */}
-          <img src={PrettierLogo} alt="logo" />
-          <img src={EslintLogo} alt="logo" />
+          <div className={styles.logosCont}>
+            <img
+              src={PrettierLogo}
+              alt="logo"
+              className={styles.clientServerImg}
+            />
+            <img
+              src={EslintLogo}
+              alt="logo"
+              className={styles.clientServerImg}
+            />
+          </div>
         </div>
       ),
     },
@@ -122,7 +138,7 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Based</h3>
-          <img src={NodeJsLogo} alt="logo" />
+          <img src={NodeJsLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
     },
@@ -130,7 +146,11 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Database</h3>
-          <img src={MongoDBLogo} alt="logo" />
+          <img
+            src={MongoDBLogo}
+            alt="logo"
+            className={styles.clientServerImg}
+          />
         </div>
       ),
     },
@@ -138,7 +158,7 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Authentication</h3>
-          <img src={JsonLogo} alt="logo" />
+          <img src={JsonLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
     },
@@ -146,7 +166,11 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>API Framework</h3>
-          <img src={ExpressJsLogo} alt="logo" />
+          <img
+            src={ExpressJsLogo}
+            alt="logo"
+            className={styles.clientServerImg}
+          />
         </div>
       ),
     },
@@ -154,7 +178,7 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Security</h3>
-          <img src={BCryptLogo} alt="logo" />
+          <img src={BCryptLogo} alt="logo" className={styles.clientServerImg} />
         </div>
       ),
     },
@@ -162,7 +186,11 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Email Sending</h3>
-          <img src={NodeMailerLogo} alt="logo" />
+          <img
+            src={NodeMailerLogo}
+            alt="logo"
+            className={styles.clientServerImg}
+          />
         </div>
       ),
     },
@@ -170,7 +198,11 @@ function AboutProject() {
       title: (
         <div className={styles.clientLogo}>
           <h3>Documentation</h3>
-          <img src={SwaggerLogo} alt="antd" />
+          <img
+            src={SwaggerLogo}
+            alt="antd"
+            className={styles.clientServerImg}
+          />
         </div>
       ),
     },
@@ -182,72 +214,66 @@ function AboutProject() {
         <div className={styles.sectionContaier}>
           <div className={styles.aboutProductBlock}>
             <div className={styles.productInfo}>
-              <div>
-                <p className={styles.progectName}> Super Store</p>
-                <p className={styles.progectDiscription}>
-                  {' '}
-                  Welcome to Super Store, your ultimate online destination for
-                  all things gaming!
-                </p>
-                <List
-                  itemLayout="horizontal"
-                  dataSource={data}
-                  style={{
-                    fontSize: '18px',
-                    textAlign: 'left',
-                    marginLeft: '30px',
-                    fontStyle: 'normal',
-                    fontFamily: 'Poppins',
-                    fontWeight: '500',
-                  }}
-                  renderItem={(item) => (
-                    <List.Item>
-                      <List.Item.Meta
-                        avatar={<MehOutlined />}
-                        title={item.title}
-                        style={{ fontFamily: 'Poppins', fontWeight: '500' }}
-                      />
-                    </List.Item>
-                  )}
-                />
-              </div>
+              <p className={styles.progectName}> Super Store</p>
+              <p className={styles.progectDiscription}>
+                {' '}
+                Welcome to Super Store, your ultimate online destination for all
+                things gaming!
+              </p>
+              <List
+                itemLayout="horizontal"
+                dataSource={data}
+                style={{
+                  fontSize: '18px',
+                  textAlign: 'left',
+                  marginLeft: '30px',
+                  fontStyle: 'normal',
+                  fontFamily: 'Poppins',
+                  fontWeight: '500',
+                }}
+                renderItem={(item) => (
+                  <List.Item>
+                    <List.Item.Meta
+                      avatar={<MehOutlined />}
+                      title={item.title}
+                      style={{ fontFamily: 'Poppins', fontWeight: '500' }}
+                    />
+                  </List.Item>
+                )}
+              />
             </div>
             <div className={styles.productSlader}>
               <Carousel
                 className={styles.imgCarousel}
                 dots={{ className: styles.carouselDots }}
                 autoplay
+                infinite
               >
                 <div>
                   <Image
-                    src={Screen_1}
+                    src={MainOneImg}
                     alt="CAPSULE"
                     style={{ height: '100%' }}
                     className={styles.carouselItemImg}
+                    preview={false}
                   />
                 </div>
                 <div>
                   <Image
-                    src={Screen_2}
+                    src={CatalogTwoImg}
                     alt="CAPSULE"
                     style={{ height: '100%' }}
                     className={styles.carouselItemImg}
+                    preview={false}
                   />
                 </div>
                 <div>
                   <Image
-                    src={Screen_3}
+                    src={SignInImg}
                     alt="CAPSULE"
                     style={{ height: '100%' }}
                     className={styles.carouselItemImg}
-                  />
-                </div>
-                <div>
-                  <Image
-                    src={Screen_4}
-                    alt="CAPSULE"
-                    style={{ height: '100%' }}
-                    className={styles.carouselItemImg}
+                    preview={false}
                   />
                 </div>
                 <div>
@@ -256,6 +282,7 @@ function AboutProject() {
                     alt="CAPSULE"
                     style={{ height: '100%' }}
                     className={styles.carouselItemImg}
+                    preview={false}
                   />
                 </div>
                 <div>
@@ -264,6 +291,7 @@ function AboutProject() {
                     alt="CAPSULE"
                     style={{ height: '100%' }}
                     className={styles.carouselItemImg}
+                    preview={false}
                   />
                 </div>
               </Carousel>
@@ -287,17 +315,16 @@ function AboutProject() {
         <div className={styles.sectionContaier}>
           <div className={styles.containerBlock}>
             <Card
+              className={styles.contCardClientServ}
               title="CLIENT"
               bordered
-              style={{ width: 400, fontSize: '20px', margin: ' 20px 0' }}
+              bodyStyle={{padding: '0px 20px'}}
             >
               <List
                 itemLayout="horizontal"
                 dataSource={dataClient}
                 style={{
                   fontSize: '18px',
-                  // textAlign: 'left',
-                  // marginLeft: '30px',
                   fontStyle: 'normal',
                   fontFamily: 'Poppins',
                   fontWeight: '500',
@@ -312,7 +339,12 @@ function AboutProject() {
                 )}
               />
             </Card>
-            <Card title="SERVER" bordered style={{ width: 400 }}>
+            <Card
+              title="SERVER"
+              bordered
+              className={styles.contCardClientServ}
+              bodyStyle={{padding: '0px 20px'}}
+            >
               <List
                 itemLayout="horizontal"
                 dataSource={dataServer}
@@ -407,7 +439,7 @@ function AboutProject() {
                           fontSize: '40px',
                           backgroundColor: 'rgb(230, 230, 230)',
                           color: 'black',
-                          // padding: '30px',
+                          // padding: '50px',
                           borderRadius: '50%',
                         }}
                       />
@@ -444,8 +476,7 @@ function AboutProject() {
             </div>
             <div className={styles.appBlocks}>
               <div className={styles.loginForm}>
-                <img src={JiraBordImg} alt="login" />
-                <img src={JiraBordImg_2} alt="data" />
+                <img src={JiraBordImg} alt="JiraBordImg" />
               </div>
             </div>
           </div>
@@ -559,7 +590,7 @@ function AboutProject() {
               Implementation
             </h3>
           </div>
-          <div className={styles.column_2}>
+          <div className={classNames(styles.column_2, styles.column2reverse)}>
             <div className={styles.timeLine}>
               <Timeline
                 mode="right"

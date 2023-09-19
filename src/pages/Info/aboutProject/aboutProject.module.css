@@ -9,21 +9,28 @@
 }
 
 .sectionContaier {
-  margin: 50px auto;
   width: 80%;
 }
 
 .logoBlock {
   background: rgb(230 230 230 / 81%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
 }
 
 .containerBlock {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin: 20px;
-  width: 70%;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: center;
   margin: 0 auto;
+  width: 90%;
+
+  margin-bottom: 40px;
 }
 
 .block {
@@ -43,6 +50,11 @@
 /* sprint 1 */
 .sprint_1 {
   background: rgb(230, 230, 230);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sprint_1_title {
@@ -57,8 +69,11 @@
 
 .sprint_1_title h2 {
   border-bottom: 2px solid #51176d;
-  width: max-content;
   margin: 0;
+}
+
+.sprint_1_title h3 {
+  width: 90%;
 }
 
 .period {
@@ -71,20 +86,29 @@
 
 .clientLogo {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
+.logosCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+}
+
 .btnBlock {
-  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
 }
 
 .btnBlock h4 {
-  font-size: 25px;
+  font-size: 33px;
   color: black;
+  margin: 0;
 }
 
 .sprint_1_title h3 {
-  width: max-content;
   font-size: 26px;
 }
 
@@ -100,7 +124,7 @@
   font-size: 120%;
   line-height: 1.6em;
   width: fit-content;
-  transition: 1s;
+  transition: 0.3s;
   transform: scale(1);
   display: flex;
   flex-direction: row;
@@ -126,7 +150,7 @@
   font-size: 120%;
   line-height: 1.6em;
   width: fit-content;
-  transition: 1s;
+  transition: 0.3s;
   transform: scale(1);
   margin: 0 0 0 auto;
   display: flex;
@@ -137,9 +161,14 @@
 .timePeriodTitleRight:hover,
 .timePeriodTitleLeft:hover {
   transform: scale(1.2);
+  transform-origin: left;
   color: #51176d;
   padding-left: 20px;
   background-color: rgba(211, 195, 195, 0.897);
+}
+
+.timePeriodTitleLeft:hover {
+  transform-origin: right;
 }
 
 .timePeriodTitleRight:after {
@@ -157,13 +186,12 @@
 }
 
 .timePeroidText {
-  width: 250px;
   font-style: italic;
   line-height: 1.5em;
   color: rgb(50, 50, 50);
   margin: 1em 0 0 0.75em;
   text-align: justify;
-  transition: 1s;
+  transition: 0.3s;
   transform: scale(1);
   font-size: 16px;
 }
@@ -195,19 +223,17 @@
 .column_2 {
   display: flex;
   flex-direction: row;
+  column-gap: 30px;
   justify-content: space-between;
-  margin-top: 5%;
-}
 
-.timeLine {
-  margin-left: 50px;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 .appBlocks {
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
-  width: 50%;
+  width: 35%;
 }
 
 /* Jira */
@@ -275,33 +301,42 @@
 /* Product main  */
 .productConatiner {
   background-color: #1c4b6fa6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+
 }
 
 .containerBtn {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 400px;
-  margin: 0 auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
 }
 
 .aboutProductBlock {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 7%;
+  margin-bottom: 7%;
 }
 
 .productSlader {
-  width: 600px;
+  width: 49.4%;
   padding: 13px;
 }
 
 .productInfo {
-  width: 600px;
-  padding-left: 10px;
-  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  width: 45%;
 }
 
 .productInfoTitle h3 {
@@ -312,6 +347,10 @@
   font-weight: bold;
   padding-bottom: 20px;
   font-size: 40px;
+}
+
+.contCardClientServ {
+  width: 400px;
 }
 
 .list li {
@@ -331,20 +370,49 @@
 .progectName {
   font-size: 40px;
   color: #d6a74f;
-  padding: 20px;
-  text-align: left;
+  padding: 0 10px;
+  text-align: center;
   font-family: 'Black Ops One';
 }
 
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-left: 10px;
+}
+
 .loginForm img {
-  width: 400px;
   border-radius: 10px;
-  padding: 40px 40px;
+  transition: 500ms;
 }
 
 .loginForm img:hover {
-  transform: scale(1.1);
-  transition: 1ms;
+  transform: scale(1.08);
+}
+
+.clientServerImg {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.carouselDots {
+  bottom: -5px !important;
+}
+
+.carouselDots button {
+  height: 6px !important;
+  background-color: var(--bg-color-main-invert) !important;
+  bottom: -16px !important;
+}
+
+.contCardClientServ li[class~="ant-list-item"] {
+  padding: 10px 0;
+}
+
+.column2reverse {
+  flex-direction: row-reverse;
 }
 
 @media (max-width: 970px) {
@@ -353,7 +421,11 @@
   }
 
   .sectionContaier {
-    margin: 20px auto;
+    width: 90%;
+  }
+
+  .productSlader,
+  .productInfo {
     width: 80%;
   }
 
@@ -372,27 +444,19 @@
     flex-direction: column;
   }
 
-  .loginForm {
-    display: none;
-  }
-
   .sprint_1_title h3 {
     font-size: 20px;
-    width: 600px;
   }
 
   .jiraBlock {
     width: 350px;
     padding-left: 0px;
   }
-
-
 }
 
 @media (max-width: 750px) {
   .sprint_1_title h3 {
     font-size: 20px;
-    width: 500px;
   }
 
   .loginForm {
@@ -405,19 +469,22 @@
 
   .timeLine {
     margin: 0 auto;
+    width: 90%;
   }
 
   .appBlocks {
     display: none;
   }
+
+  .timePeroidText {
+    width: auto;
+  }
 }
 
 @media (max-width: 480px) {
-
   .productSlader,
   .productInfo {
-    width: 350px;
-    margin: 0 auto;
+    width: 100%;
   }
 
   .productInfoTitle {
@@ -426,17 +493,12 @@
     margin-bottom: 0;
   }
 
-  .logoBlock {
-    display: none;
-  }
-
   .sprint_1_title h2 {
     font-size: 25px;
   }
 
   .sprint_1_title h3 {
     font-size: 20px;
-    width: 400px;
   }
 
   .column_2 {
@@ -453,10 +515,28 @@
 
   .timePeroidText {
     margin: 0;
-    width: 160px;
   }
 
   .timeLine {
     margin: 0 auto;
+  }
+
+  .contCardClientServ {
+    width: 100%;
+  }
+
+  .contCardClientServ li[class~="ant-list-item"] {
+    padding: 2px 0;
+  }
+
+  .clientServerImg {
+    height: 40px;
+    width: auto;
+  }
+
+  .logosCont {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2px;
   }
 }
