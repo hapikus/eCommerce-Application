@@ -27,12 +27,13 @@
 
 .pathLink {
   font-size: 14px;
-  color: var(--bg-color-accent);
+  color: var(--text-accent);
+  opacity: 0.6;
 }
 
 .pathLink:hover {
-  color: var(--bg-color-accent);
-  opacity: 0.8;
+  color: var(--color-text);
+  opacity: 0.9;
 }
 
 .headerBlockCont {
@@ -163,7 +164,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 72px;
+  min-height: 72px;
   background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
 
   font-size: 21px;
@@ -208,7 +209,7 @@
   align-items: center;
   text-align: center;
   margin: 0px 5px;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -411,14 +412,15 @@
 .genreLink,
 .themeLink,
 .devLink {
-  color: var(--bg-color-accent);
+  color: var(--text-accent);
+  opacity: 0.6;
 }
 
 .genreLink:hover,
 .themeLink:hover,
 .devLink:hover {
-  color: var(--bg-color-accent);
-  opacity: 0.8;
+  color: var(--color-text);
+  opacity: 0.9;
 }
 
 @media (max-width: 945px) {

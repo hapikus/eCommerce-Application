@@ -1,15 +1,13 @@
 import { Carousel } from 'antd';
 
-import styles from './banner.module.css';
+import styles from './categoryCarousel.module.css';
 import CategoryCards from './categoryCards';
 
-function CategoryCarousel(props: {
-  categorys: string[];
-  categoryShow: number;
-}) {
-  const { categorys, categoryShow } = props;
+function CategoryCarousel(props: { genres: string[]; categoryShow: number }) {
+  const { genres, categoryShow } = props;
   return (
     <div className={styles.categoryContainer}>
+      <h2>POPULAR CATEGORY</h2>
       <Carousel
         className={styles.containerCarousel}
         infinite={false}
@@ -17,7 +15,7 @@ function CategoryCarousel(props: {
         slidesToShow={categoryShow}
         dots={{ className: styles.carouselDots }}
       >
-        {CategoryCards(categorys)}
+        {CategoryCards(genres)}
       </Carousel>
     </div>
   );

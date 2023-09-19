@@ -142,10 +142,7 @@ function UserBilling() {
     <Spin spinning={isLoading}>
       {isEditMode ? (
         <h3>
-          BILLING ADDRESSES
-          {' '}
-          <EditOutlined />
-          {' '}
+          BILLING ADDRESSES <EditOutlined />{' '}
         </h3>
       ) : (
         <h3> BILLING ADDRESSES</h3>
@@ -164,11 +161,7 @@ function UserBilling() {
             size="default"
             title={`Address ${index + 1}`}
             key={address._id}
-            extra={(
-              <CloseOutlined
-                onClick={deleteAddress(address)}
-              />
-           )}
+            extra={<CloseOutlined onClick={deleteAddress(address)} />}
           >
             <AddressFormPart
               key={address._id}
@@ -193,9 +186,7 @@ function UserBilling() {
             type="primary"
             style={{ width: 200 }}
           >
-            <EditOutlined />
-            {' '}
-            Edit
+            <EditOutlined /> Edit
           </Button>
         )}
         <Form.List name="newItems" initialValue={[]}>
@@ -207,14 +198,14 @@ function UserBilling() {
                   title={`New address ${field.key + 1}`}
                   style={{ background: 'grey' }}
                   key={field.key}
-                  extra={(
+                  extra={
                     <CloseOutlined
                       onClick={() => {
                         remove(field.key);
                         setIsAddingNewAddress(false);
                       }}
                     />
-                )}
+                  }
                 >
                   <AddressFormPart
                     key={field.key}
@@ -224,7 +215,9 @@ function UserBilling() {
                   />
                 </Card>
               ))}
-              {isAddingNewAddress ? ('') : (
+              {isAddingNewAddress ? (
+                ''
+              ) : (
                 <Button
                   type="dashed"
                   onClick={() => {
@@ -258,7 +251,6 @@ function UserBilling() {
         ) : (
           ''
         )}
-
       </Form>
     </Spin>
   );

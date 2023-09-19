@@ -123,24 +123,6 @@
   width: 200px;
 }
 
-.searchMenu {
-  display: flex;
-  background: var(--gpStoreDarkGrey);
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  z-index: 9999;
-}
-
-.searchController {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding-left: 10px;
-  justify-content: space-between;
-}
-
 .menu_main {
   display: flex;
   width: auto;
@@ -151,21 +133,11 @@
   border-bottom: none;
 }
 
-.searchNavMenu {
-  display: flex;
-  width: auto;
-  justify-content: flex-end;
-  min-width: 360px;
-  line-height: 30px;
-  background: transparent;
-  border-bottom: none;
-}
-
 .carouselItemCont {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 500px;
+  height: 440px;
   flex: 1;
   border-radius: 16px;
   display: flex;
@@ -276,7 +248,7 @@
   bottom: -16px !important;
 }
 
-@media (max-width: 945px) {
+@media (max-width: 913px) {
   .headerBlockContLeft {
     width: 100%;
     height: auto;
@@ -296,79 +268,17 @@
     width: 100%;
     height: auto;
   }
-  .searchMenu {
-    justify-content: flex-start;
-    position: sticky;
-    top: 0px;
-    width: 100%;
-    height: 60px;
-    align-items: center;
-    z-index: 999;
-    max-width: auto;
-    padding-left: 0px;
-  }
-  .searchNavMenu {
-    display: flex;
-    justify-content: flex-end;
-    min-width: 360px;
-    line-height: 30px;
-    background: transparent;
-    border-bottom: none;
-    padding-right: 10px;
-  }
-
-  .searchController {
-    width: 100%;
-    min-width: 0;
-  }
 }
 
 @media (max-width: 692px) {
-  .searchNavMenu {
-    width: auto;
-    justify-content: flex-end;
-    min-width: 220px;
-    line-height: 30px;
-    background: transparent;
-    border-bottom: none;
-  }
-  .searchMenu {
-    justify-content: flex-start;
-    position: sticky;
-    top: 100px;
-    width: 100%;
-    height: 60px;
-    align-items: center;
-    z-index: 999;
-    max-width: auto;
-  }
-
   .containerCarousel {
     width: 100%;
     height: auto;
   }
 
-  .searchController {
-    justify-content: space-between;
-    min-width: 0;
-  }
 }
 
 @media (max-width: 472px) {
-  .searchNavMenu {
-    justify-content: space-around;
-    line-height: 30px;
-    min-width: 0;
-    background: transparent;
-    border-bottom: none;
-  }
-
-  .searchMenu {
-    top: 100px;
-    width: 100%;
-    z-index: 999;
-    justify-content: center;
-  }
 
   .containerCarousel {
     width: 100%;

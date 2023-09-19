@@ -1,34 +1,48 @@
-import { Card, Image, Button, Tag } from 'antd';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Card, Image, Button, Tag, Spin } from 'antd';
 import { Link } from 'react-router-dom';
+import { CheckOutlined } from '@ant-design/icons';
 
-import styles from './banner.module.css';
+import styles from './discount.module.css';
+import store, { RootState } from '../../../redux/store';
+import {
+  addItemToBasket,
+  getBasketItems,
+} from '../../../redux/slice/basketSlice';
 import IProduct from '../../../types/IProduct';
+import GetDiscount from '../../../components/shared/getDiscount';
 
 function DiscountCards(products: IProduct[]) {
-  const getDescription = (
-    priceDesc: number,
-    discountPriceDesc: number | null,
-  ) => {
-    if (discountPriceDesc) {
-      return (
-        <div className={styles.discCardTwoPrice}>
-          <div className={styles.discCardRegPrice}>
-            {`${Number(priceDesc).toFixed(2)} €`}
-          </div>
-          <div className={styles.discCardDiscPrice}>
-            {`${Number(discountPriceDesc).toFixed(2)} €`}
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className={styles.discCardOnePrice}>
-        <div className={styles.discCardNormalPrice}>
-          {`${Number(priceDesc).toFixed(2)} €`}
-        </div>
-      </div>
+  const basketIdState = useSelector(
+    (state: RootState) => state.basket.basketId,
+  );
+  const isItemLoading = useSelector(
+    (state: RootState) => state.basket.isGettingItem,
+  );
+  const isAdding = useSelector((state: RootState) => state.basket.isAdding);
+  const itemsNameState = useSelector(
+    (state: RootState) => state.basket.itemsGameName,
+  );
+  const itemsGameNameState = useSelector(
+    (state: RootState) => state.basket.itemsGameName,
+  );
+
+  const addButtonHandle = async (gameTitleAdd: string) => {
+    store.dispatch(
+      addItemToBasket({
+        basketId: basketIdState,
+        gameTitle: gameTitleAdd,
+      }),
     );
   };
+
+  useEffect(() => {
+    if (!isAdding && basketIdState !== '') {
+      store.dispatch(getBasketItems(basketIdState));
+    }
+  }, [basketIdState, isAdding]);
+
   return products.map((product: IProduct) => {
     const { gameTitle, price, headerImg, discountPrice } = product;
     const url = `${headerImg}`.split('/');
@@ -45,7 +59,7 @@ function DiscountCards(products: IProduct[]) {
           bordered={false}
           key={gameTitle}
           className={styles.discountCard}
-          cover={(
+          cover={
             <Link to={`/product/${gameTitle}`} key={gameTitle}>
               <Image
                 preview={false}
@@ -54,7 +68,7 @@ function DiscountCards(products: IProduct[]) {
                 style={{ objectFit: 'cover' }}
               />
             </Link>
-          )}
+          }
         >
           <div className={styles.discountPrice}>
             <Tag color="green">
@@ -63,12 +77,27 @@ function DiscountCards(products: IProduct[]) {
               )}%`}
             </Tag>
             <Button
+              className={styles.dicbtn}
               type="primary"
-              onClick={(e) => e.stopPropagation()}
-              className={styles.btnDisc}
-              href="/super-store-s2/#/login"
+              onClick={(event) => {
+                event.stopPropagation();
+                event.preventDefault();
+                addButtonHandle(gameTitle);
+              }}
+              disabled={
+                isItemLoading || isAdding || itemsNameState.includes(gameTitle)
+              }
             >
-              {getDescription(price, discountPrice)}
+              <Spin spinning={isItemLoading || isAdding}>
+                {(itemsGameNameState || []).includes(gameTitle) ? (
+                  <CheckOutlined />
+                ) : (
+                  <GetDiscount
+                    priceDesc={price}
+                    discountPriceDesc={discountPrice}
+                  />
+                )}
+              </Spin>
             </Button>
           </div>
         </Card>

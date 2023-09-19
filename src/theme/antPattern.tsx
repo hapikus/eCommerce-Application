@@ -13,11 +13,21 @@ const antPattern = {
     token: {
       colorBgContainer: '#eae7ea',
       colorText: '#000',
+      colorLink: '#000',
+      colorLinkActive: '#91caff',
+      colorLinkHover: '#003eb3',
     },
     components: {
       Layout: {
         colorBgHeader: '#eae7ea',
         colorBgBody: '#fff',
+      },
+      Timeline: {
+        tailColor: 'black',
+        dotBg: 'transparent',
+      },
+      Button: {
+        borderColorDisabled: '#52c41a',
       },
     },
   },
@@ -25,11 +35,18 @@ const antPattern = {
     token: {
       colorBgContainer: '#171a21',
       colorText: '#fff',
+      colorLink: '#fff',
+      colorLinkActive: '#0958d9',
+      colorLinkHover: '#4096ff',
     },
     components: {
       Layout: {
         colorBgHeader: '#171a21',
         colorBgBody: '#417a9b',
+      },
+      Timeline: {
+        tailColor: 'black',
+        dotBg: 'transparent',
       },
     },
   },
@@ -44,8 +61,13 @@ const antPattern = {
         colorBgHeader: '#ffe6f9',
         colorBgBody: '#417a9b',
       },
+      Timeline: {
+        tailColor: 'black',
+        dotBg: 'transparent',
+      },
     },
   },
 };
+
 export { getThemeAlgorithm };
 export default antPattern;

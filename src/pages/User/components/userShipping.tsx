@@ -141,10 +141,7 @@ function UserShipping() {
     <Spin spinning={isLoading}>
       {isEditMode ? (
         <h3>
-          SHIPPING ADDRESSES
-          {' '}
-          <EditOutlined />
-          {' '}
+          SHIPPING ADDRESSES <EditOutlined />{' '}
         </h3>
       ) : (
         <h3>SHIPPING ADDRESSES</h3>
@@ -163,11 +160,7 @@ function UserShipping() {
             size="default"
             title={`Address ${index + 1}`}
             key={address._id}
-            extra={(
-              <CloseOutlined
-                onClick={deleteAddress(address)}
-              />
-           )}
+            extra={<CloseOutlined onClick={deleteAddress(address)} />}
           >
             <AddressFormPart
               key={address._id}
@@ -192,9 +185,7 @@ function UserShipping() {
             type="primary"
             style={{ width: 200 }}
           >
-            <EditOutlined />
-            {' '}
-            Edit
+            <EditOutlined /> Edit
           </Button>
         )}
         <Form.List name="newItems" initialValue={[]}>
@@ -206,14 +197,14 @@ function UserShipping() {
                   title={`New address ${field.key + 1}`}
                   style={{ background: 'grey' }}
                   key={field.key}
-                  extra={(
+                  extra={
                     <CloseOutlined
                       onClick={() => {
                         remove(field.key);
                         setIsAddingNewAddress(false);
                       }}
                     />
-                )}
+                  }
                 >
                   <AddressFormPart
                     key={field.key}
@@ -223,7 +214,9 @@ function UserShipping() {
                   />
                 </Card>
               ))}
-              {isAddingNewAddress ? ('') : (
+              {isAddingNewAddress ? (
+                ''
+              ) : (
                 <Button
                   type="dashed"
                   onClick={() => {
@@ -257,10 +250,8 @@ function UserShipping() {
         ) : (
           ''
         )}
-
       </Form>
     </Spin>
-
   );
 }
 

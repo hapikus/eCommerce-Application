@@ -2,11 +2,10 @@
 .header {
   display: flex;
   justify-content: space-evenly;
-  height: 100px;
+  height: 64px;
   align-items: center;
   text-align: center;
-  line-height: 64px;
-  padding-top: 30px;
+  line-height: 54px;
 }
 
 .footer {
@@ -16,6 +15,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 10px 20px;
 }
 
 .content {
@@ -37,4 +37,27 @@
   overflow: hidden;
   background-color: var(--bg-color-main);
   z-index: 999;
+}
+
+.andLink {
+  color: red !important;
+  position: relative;  
+}
+
+.andLink:hover {
+  color: red !important;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dfdfdf
+}
+
+@media (max-width: 630px) {
+  .footer {
+    height: 100%;
+    background-color: var(--bg-color-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 10px;
+  }
 }

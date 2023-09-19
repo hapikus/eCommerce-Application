@@ -14,21 +14,23 @@
   justify-content: center;
 }
 
-.menu_main {
-  display: flex;
-  width: auto;
-  justify-content: space-around;
-}
-
-.menu_reg {
+.menuMain {
   display: flex;
   align-items: center;
   width: auto;
-  min-width: 160px;
+  min-width: 170px;
   justify-content: space-around;
 }
 
-.menu_items {
+.menuReg {
+  display: flex;
+  align-items: center;
+  width: auto;
+  min-width: 170px;
+  justify-content: space-around;
+}
+
+.menuItems {
   display: flex;
   background-color: var(--bg-color-menu);
   width: 100%;
@@ -36,14 +38,14 @@
   justify-content: center;
 }
 
-.menu_items_line {
+.menuItemsLine {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
 }
 
-.menu_reg > .menu_items {
+.menuReg>.menuItems {
   display: flex;
   background-color: var(--bg-color-menu);
   width: 100%;
@@ -59,33 +61,79 @@
 
 .burger_icon {
   position: absolute;
-  top: 9px;
+  top: 16px;
   left: 10px;
   cursor: pointer;
   width: 36px;
-  height: 31px;
+  height: 32px;
   font-size: 30px;
+}
+
+.themeSwitcher {
+  position: absolute;
+  top: 16px;
+  right: 0px;
+  cursor: pointer;
+  width: 50px;
+  height: 32px;
+  font-size: 30px;
+  z-index: 20;
+}
+
+.themeComponent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .avatarPointer {
   cursor: pointer;
 }
 
-@media (max-width: 710px) {
+.leftMenuCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.cartLink {
+  margin-top: 5px;
+}
+
+@media (max-width: 780px) {
   .headerMenu {
     display: none;
   }
-  .menu_main {
+
+  .menuMain {
     width: 100%;
     margin: 0%;
   }
-  .menu_reg {
+
+  .leftMenuCont {
+    padding-top: 30px;
+    flex-direction: column-reverse;
+    row-gap: 20px;
+  }
+
+  .menuReg {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    column-gap: 20px;
     width: 100%;
     margin: 0%;
   }
+
+  .cartLink {
+    margin: 0 auto;
+  }
+
   .logotip {
     margin: auto;
   }
+
   .burgerMenu {
     position: fixed;
     top: 0;
@@ -95,12 +143,23 @@
     z-index: 20;
     box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.75);
     overflow: hidden;
-    padding: 19px 8px;
     background-color: var(--bg-color-main);
+    height: 64px;
+  }
+
+  .themeComponent {
+    position: fixed;
+    top: 16px;
+    right: 15px;
+    cursor: pointer;
+    width: 50px;
+    height: 32px;
+    font-size: 30px;
+    z-index: 20;
   }
 }
 
-@media (min-width: 692px) {
+@media (min-width: 780px) {
   .burgerMenu {
     display: none;
   }

@@ -2,13 +2,14 @@ html,
 html[data-theme="light"] {
   --bg-color-main: #eae7ea;
   --bg-color-menu: #eae7ea;
-  --bg-color-accent: #96A451;
+  --bg-color-accent: #6fa720;
+  --text-accent: #000;
   --color-main: #e6f4ff;
-  --color-accent: #000;
+  --color-accent: #1677ff;
   --color-text: #000;
   --color-text-accent: #eae7ea;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
-  --gpStoreDarkGrey: #dbdbdb;
+  --gpStoreDarkGrey: #f5f5f5;
   --gpStoreDarkerGrey: #a4b9d3f2;
   --bg-color-main-invert: #171a21;
   --bg-color-menu-invert: #171a21;
@@ -20,9 +21,10 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --bg-color-main: #171a21;
   --bg-color-menu: #171a21;
-  --bg-color-accent: #988B72;
+  --bg-color-accent: #6fa720;
+  --text-accent: #8f98a0;
   --color-main: #fafafa;
-  --color-accent: #69b1ff;
+  --color-accent: #1677ff;
   --color-text: #fff;
   --color-text-accent: #171a21;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
@@ -44,7 +46,7 @@ html[data-theme="barbie"] {
   --color-text: #000;
   --color-text-accent: #ffe6f9;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
-  --gpStoreDarkGrey: #fbc2f7d6;
+  --gpStoreDarkGrey: #fbc2f7;
   --gpStoreDarkerGrey: #ffd6e7f2;
 
   --loadingStart: #FFE0ED;

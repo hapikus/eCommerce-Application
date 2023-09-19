@@ -1,9 +1,8 @@
-import { useEffect, useLayoutEffect, useCallback, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { message } from 'antd';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 import {
   fetchProductData,
   fetchRandProducts,
@@ -42,6 +41,7 @@ function Product() {
   const { productTitle } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const [titleForRequest, setTitleForRequest] = useState('');
   const [randomProductsNum, setRandomProductsNum] = useState(
@@ -56,15 +56,10 @@ function Product() {
       }
     };
     window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [randomProductsNum]);
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage(''));
-  }, [dispatch]);
-
-  useLayoutEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
 
   const productLoading = useSelector(
     (state: RootState) => state.product.isLoading,
@@ -98,6 +93,8 @@ function Product() {
                   genres: [],
                   themes: [],
                   tags: [],
+                  minPrice: 0,
+                  maxPrice: 60,
                 } as IFilters),
               );
             }}
@@ -115,6 +112,8 @@ function Product() {
                   genres: [gameGenre[0]],
                   themes: [],
                   tags: [],
+                  minPrice: 0,
+                  maxPrice: 60,
                 } as IFilters),
               );
             }}
@@ -132,6 +131,8 @@ function Product() {
                   genres: [gameGenre[0]],
                   themes: [gameTheme[0]],
                   tags: [],
+                  minPrice: 0,
+                  maxPrice: 60,
                 } as IFilters),
               );
             }}
@@ -139,26 +140,14 @@ function Product() {
             {`${gameTheme[0]} >`}
           </Link>
         </p>
-        <p className={styles.pathGameTitle}>
-          <Link
-            className={styles.pathLink}
-            to="/catalog"
-            onClick={() => {
-              dispatch(
-                setSelectedFilters({
-                  genres: gameGenre,
-                  themes: gameTheme,
-                  tags: [],
-                } as IFilters),
-              );
-            }}
-          >
-            {gameTitle}
-          </Link>
-        </p>
+        <p className={styles.pathGameTitle}>{gameTitle}</p>
       </div>
     );
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     if (titleForRequest !== productTitle) {
@@ -199,27 +188,31 @@ function Product() {
         <h1 className={styles.productTitle}>{productDataState.gameTitle}</h1>
       </div>
       <div className={styles.headerBlockCont}>
-        {productDataState.screenshotList &&
-          <ImgCarousel productData={productDataState} />}
+        {productDataState.screenshotList && (
+          <ImgCarousel productData={productDataState} />
+        )}
         {productDataState.headerImg &&
           productDataState.descriptionShort &&
           productDataState.userReviewRows &&
           productDataState.releaseDate &&
-          productDataState.devCompany &&
-          <HeaderRight productData={productDataState} />}
+          productDataState.devCompany && (
+            <HeaderRight productData={productDataState} />
+          )}
       </div>
       <div className={styles.mainCont}>
         {productDataState.price &&
           productDataState.descriptionLong &&
           (productDataState.sysRequirementsMinimum ||
-            productDataState.sysRequirementsMinimumFill) &&
-            <MainLeft productData={productDataState} />}
+            productDataState.sysRequirementsMinimumFill) && (
+            <MainLeft productData={productDataState} />
+          )}
         {productDataState.category &&
           productDataState.gameTitle &&
           productDataState.gameGenre &&
           productDataState.gameTheme &&
-          productDataState.devCompany &&
-          <MainRight productData={productDataState} />}
+          productDataState.devCompany && (
+            <MainRight productData={productDataState} />
+          )}
       </div>
       <div className={styles.randProductsCont}>
         {productsRandomState?.length ? (

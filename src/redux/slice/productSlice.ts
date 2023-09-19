@@ -185,7 +185,6 @@ const productSlice = createSlice({
         state.errorProduct = `${action.payload}`;
       })
       .addCase(fetchRandProducts.pending, (state) => {
-        state.randomProductsData = [];
         state.isLoadingRandom = true;
         state.errorRandomProducts = null;
       })
@@ -257,4 +256,5 @@ const productSlice = createSlice({
 
 export const { resetProductData, setSelectedTag, setSelectedFilters } =
   productSlice.actions;
+export type ProductSliceType = typeof productSlice;
 export default productSlice.reducer;

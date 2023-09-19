@@ -4,7 +4,6 @@ import antPattern from '../../../theme/antPattern';
 
 function MarkupSVGGit() {
   const themeState = useSelector((state: RootState) => state.theme.theme);
-  // const themesState = useSelector((state: RootState) => state.theme.themes);
 
   return (
     <svg

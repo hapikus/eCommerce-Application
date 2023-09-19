@@ -1,6 +1,4 @@
 function MarkupSVGRSS() {
-  // const themesState = useSelector((state: RootState) => state.theme.themes);
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

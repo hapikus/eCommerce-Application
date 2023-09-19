@@ -1,0 +1,13 @@
+.randomGridCard {
+  height: 100%;
+}
+
+.randomGridCard div[class~='ant-card-body'] {
+  padding: 5px !important;
+}
+
+.gridCardDesc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

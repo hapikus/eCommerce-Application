@@ -1,11 +1,10 @@
-import { useEffect, useCallback, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { Form, Input, Button, Image, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 
 import store, { RootState } from '../../redux/store';
 import { loginAsync } from '../../redux/slice/authSlice';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import passwordValidationRules from '../../utils/passValid';
 import LoginFormValues from '../../types/types';
@@ -24,16 +23,6 @@ const errorStateChecker = (logErrMsg: string): string => {
 };
 
 function LoginPage() {
-  const dispatch = useDispatch();
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage('login'));
-  }, [dispatch]);
-
-  useEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
-
   const isAuthState = useSelector((state: RootState) => state.auth.isAuth);
   const isLoadingtState = useSelector(
     (state: RootState) => state.auth.isLoading,
@@ -118,7 +107,7 @@ function LoginPage() {
               {loginErrorState && `${errorStateChecker(loginErrorState)}`}
             </div>
             <div className={styles.helpCont}>
-              <Link to="/support" className={styles.helpLink}>
+              <Link to="/signup" className={styles.helpLink}>
                 Help, I can&apos;t sign in
               </Link>
             </div>

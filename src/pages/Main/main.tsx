@@ -1,22 +1,28 @@
-import { useLayoutEffect, useCallback, useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Spin } from 'antd';
 import {
   fetchRandProducts,
   fetchAllCategory,
   fetchDiscountProducts,
 } from '../../redux/slice/productSlice';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import store, { RootState } from '../../redux/store';
 
 import styles from './main.module.css';
-import BannerCarousel from './components/bannerCarousel';
 import SearchMenu from './components/search';
 import CategoryCarousel from './components/categoryCarousel';
 import DiscountCarousel from './components/discountCarousel';
 import ProductService from '../../models/Product/ProductService';
+import PromoBanner from './components/promo';
+import SwiperMain from './components/swiperMain';
+import GridCard from './components/gridCardTemp';
+import BannerFirst from '../../assets/images/firstorder1.webp';
+import BannerIndie from '../../assets/images/indie.webp';
 
-const RANDOM_PRODUCT_REQUEST = 4;
+const RANDOM_PRODUCT_REQUEST = 10;
+const RANDOM_PRODUCT_DISCOUNT = 6;
+const RANDOM_PRODUCT_SWIPER = 4;
 
 const calculateCategoryNum = () => {
   const windowInnerWidth = window.innerWidth;
@@ -44,23 +50,42 @@ const calculateDiscNum = () => {
   return cardNumber;
 };
 
-function SideBar() {
-  const dispatch = useDispatch();
+const calculateRandTempGridNum = () => {
+  const windowInnerWidth = window.innerWidth;
+  let cardNumber = 8;
+  if (windowInnerWidth > 912) {
+    cardNumber = 8;
+  } else if (windowInnerWidth > 692) {
+    cardNumber = 4;
+  } else if (windowInnerWidth > 472) {
+    cardNumber = 2;
+  }
+  return cardNumber;
+};
 
+const promoCode = 'SAVE10';
+const promoFirst = 'FIRST ORDER';
+
+const promoDescSave10 = 'Don’t miss out on your discount!';
+const promoDescFirst =
+  'Welcome bonus for new customers! Get a discount on your first order on our website.';
+
+function SideBar() {
   const [categoryNum, setCategoryNum] = useState(calculateCategoryNum());
   const [discountNum, setDiscountNum] = useState(calculateDiscNum());
-  const [topCategory, setTopCategory] = useState([] as string[]);
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage(''));
-  }, [dispatch]);
-
-  useLayoutEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
+  const [gridNum, setGridNum] = useState(calculateRandTempGridNum());
+  const [topGenres, setTopGenres] = useState([] as string[]);
 
   const productsRandom = useSelector(
     (state: RootState) => state.product.randomProductsData,
+  );
+
+  const loadingRand = useSelector(
+    (state: RootState) => state.product.isLoadingRandom,
+  );
+
+  const loadingDisc = useSelector(
+    (state: RootState) => state.product.isLoadingDiscRandom,
   );
 
   const categoryAll = useSelector(
@@ -78,12 +103,12 @@ function SideBar() {
     const fetchCategory = async () => {
       await store.dispatch(fetchAllCategory());
     };
-    const fetchTopCategory = async () => {
-      const topCatData = await ProductService.getTopCategories();
-      setTopCategory(topCatData.data);
+    const fetchTopGenres = async () => {
+      const topGenresLoad = await ProductService.getTopGenres();
+      setTopGenres(topGenresLoad.data);
     };
     fetchCategory();
-    fetchTopCategory();
+    fetchTopGenres();
     fetchProducts();
   }, []);
 
@@ -97,16 +122,20 @@ function SideBar() {
       if (newDiscountNum !== discountNum) {
         setDiscountNum(newDiscountNum);
       }
+      const newGridNum = calculateRandTempGridNum();
+      if (newGridNum !== gridNum) {
+        setGridNum(newGridNum);
+      }
     };
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [categoryNum, discountNum]);
+  }, [categoryNum, discountNum, gridNum]);
 
   useEffect(() => {
     const fetchDiscProducts = async () => {
-      await store.dispatch(fetchDiscountProducts(RANDOM_PRODUCT_REQUEST));
+      await store.dispatch(fetchDiscountProducts(RANDOM_PRODUCT_DISCOUNT));
     };
     fetchDiscProducts();
   }, [discountNum]);
@@ -115,24 +144,49 @@ function SideBar() {
     <div className={styles.mainCont}>
       <SearchMenu />
       <div className={styles.headerBlockCont}>
-        {productsRandom.length !== 0 && BannerCarousel(productsRandom)}
+        <PromoBanner
+          promo={promoFirst}
+          promoDesc={promoDescFirst}
+          banner={BannerFirst}
+        />
       </div>
       <div className={styles.headerBlockCont}>
-        {discountRandom?.length ? (
+        {loadingRand ? (
+          <Spin />
+        ) : (
+          <SwiperMain
+            products={productsRandom}
+            productsNum={RANDOM_PRODUCT_SWIPER}
+          />
+        )}
+      </div>
+      <div className={styles.headerBlockCont}>
+        <PromoBanner
+          promo={promoCode}
+          promoDesc={promoDescSave10}
+          banner={BannerIndie}
+        />
+      </div>
+      <div className={styles.headerBlockCont}>
+        {loadingDisc ? (
+          <Spin />
+        ) : (
           <DiscountCarousel
             products={discountRandom}
             productsNum={discountNum}
           />
-        ) : null}
+        )}
       </div>
       <div className={styles.headerBlockCont}>
         {categoryAll?.length ? (
-          <CategoryCarousel
-            categorys={topCategory}
-            categoryShow={categoryNum}
-          />
+          <CategoryCarousel genres={topGenres} categoryShow={categoryNum} />
         ) : null}
       </div>
+      <GridCard
+        productsRandom={productsRandom}
+        randomSwiper={RANDOM_PRODUCT_SWIPER}
+        randomProductsNum={gridNum}
+      />
     </div>
   );
 }

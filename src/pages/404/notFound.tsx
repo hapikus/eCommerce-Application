@@ -1,9 +1,7 @@
-import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import MarkupSVGTaro from './components/card';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 import { resetProductData } from '../../redux/slice/productSlice';
 
 import { RootState } from '../../redux/store';
@@ -15,14 +13,6 @@ function NotFound() {
   const productErrorState = useSelector(
     (state: RootState) => state.product.errorProduct,
   );
-
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage('not found'));
-  }, [dispatch]);
-
-  useEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
 
   if (productErrorState) {
     dispatch(resetProductData());

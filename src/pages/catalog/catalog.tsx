@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   Slider,
@@ -10,7 +10,6 @@ import {
 } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { setCurrentPage } from '../../redux/slice/themeSlice';
 
 import CatalogCards from './components/catalogCard';
 import {
@@ -79,14 +78,6 @@ function CatalogPage() {
   const [cardsNum, setCardsNum] = useState(calculateCardsNum());
   const [activeFilter, setActiveFilter] = useState(FILTERS[0]);
 
-  const memoizedDispatch = useCallback(() => {
-    dispatch(setCurrentPage('catalog'));
-  }, [dispatch]);
-
-  useLayoutEffect(() => {
-    memoizedDispatch();
-  }, [memoizedDispatch]);
-
   const catalogProducts = useSelector(
     (state: RootState) => state.product.catalogProducts.products,
   );
@@ -108,6 +99,9 @@ function CatalogPage() {
       }
     };
     window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [cardsNum, catalogCurrPage]);
 
   useEffect(() => {
@@ -127,7 +121,7 @@ function CatalogPage() {
       );
     };
     fetchCatalog();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     selectedFilters.minPrice,
     selectedFilters.maxPrice,
@@ -167,6 +161,12 @@ function CatalogPage() {
     setCatalogCurrPage(page);
   };
 
+  useEffect(() => {
+    if (catalogTotalProducts / cardsNum < catalogCurrPage - 1) {
+      setCatalogCurrPage(1);
+    }
+  }, [cardsNum, catalogCurrPage, catalogTotalProducts]);
+
   const handleFilterChange: MenuProps['onClick'] = ({ key }) => {
     const [direction, type] = key.split('_');
     const filter: Filter | undefined = FILTERS.find(
@@ -185,68 +185,64 @@ function CatalogPage() {
   const selectedItemKey = `${activeFilter.direction}_${activeFilter.type}`;
 
   return (
-    <div className={styles.pageContainer}>
+    <div className={styles.mainCont}>
       <SearchMenu />
-      <h1 className={styles.catalogTitle}>ALL GAMES</h1>
-      <div className={styles.catalog}>
-        <div className={styles.catalogMainContainer}>
-          <div className={styles.filterComponent}>
-            <Dropdown
-              menu={{
-                items: dropdownMenuitems,
-                defaultSelectedKeys: ['1'],
-                onClick: handleFilterChange,
-                selectable: true,
-                selectedKeys: [selectedItemKey],
-              }}
-              trigger={['click']}
-            >
-              <Space>
-                Sort by:
-                {activeFilter.label}
-                <DownOutlined />
-              </Space>
-            </Dropdown>
+      <div className={styles.headerBlockCont}>
+        <h1 className={styles.catalogTitle}>ALL GAMES</h1>
+        <div className={styles.catalog}>
+          <div className={styles.catalogMainContainer}>
+            <div className={styles.filterComponent}>
+              <Dropdown
+                menu={{
+                  items: dropdownMenuitems,
+                  defaultSelectedKeys: ['1'],
+                  onClick: handleFilterChange,
+                  selectable: true,
+                  selectedKeys: [selectedItemKey],
+                }}
+                trigger={['click']}
+              >
+                <Space>
+                  Sort by:
+                  {activeFilter.label}
+                  <DownOutlined />
+                </Space>
+              </Dropdown>
+            </div>
+            <CatalogCards products={catalogProducts} />
+            <Pagination
+              total={catalogTotalProducts}
+              pageSize={cardsNum}
+              onChange={paginationOnChange}
+              current={catalogCurrPage}
+            />
           </div>
-          <CatalogCards products={catalogProducts} />
-          <Pagination
-            total={catalogTotalProducts}
-            pageSize={cardsNum}
-            onChange={paginationOnChange}
-            current={catalogCurrPage}
-          />
-        </div>
-        <div className={styles.menuContainer}>
-          <div className={styles.catalogMenuSlider}>
-            <h3 className={styles.menuCompTitle}>
-              Narrow by price €
-            </h3>
-            <div className={styles.gridContainer}>
-              <div className={styles.priceTag}>
-                <Tag className={styles.inputMin}>
-                  {minPrice}
-                </Tag>
-                <Tag className={styles.inputMax}>
-                  {maxPrice}
-                </Tag>
-              </div>
-              <div className={styles.slider}>
-                <Slider
-                  range
-                  step={1}
-                  defaultValue={[minPrice, maxPrice]}
-                  min={MIN_PRICE}
-                  max={MAX_PRICE}
-                  onChange={setPrice}
-                  value={[maxPrice, minPrice]}
-                  onAfterChange={setFilters()}
-                />
+          <div className={styles.menuContainer}>
+            <div className={styles.catalogMenuSlider}>
+              <h3 className={styles.menuCompTitle}>Narrow by price €</h3>
+              <div className={styles.gridContainer}>
+                <div className={styles.priceTag}>
+                  <Tag className={styles.inputMin}>{minPrice}</Tag>
+                  <Tag className={styles.inputMax}>{maxPrice}</Tag>
+                </div>
+                <div className={styles.slider}>
+                  <Slider
+                    range
+                    step={1}
+                    defaultValue={[minPrice, maxPrice]}
+                    min={MIN_PRICE}
+                    max={MAX_PRICE}
+                    onChange={setPrice}
+                    value={[maxPrice, minPrice]}
+                    onAfterChange={setFilters()}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className={styles.catalogMenuCheckBox}>
-            <h3 className={styles.menuCompTitle}>Narrow by tag</h3>
-            <CheckBoxCategory />
+            <div className={styles.catalogMenuCheckBox}>
+              <h3 className={styles.menuCompTitle}>Narrow by tag</h3>
+              <CheckBoxCategory />
+            </div>
           </div>
         </div>
       </div>
