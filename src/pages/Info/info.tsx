@@ -147,8 +147,8 @@ function InfoPage() {
                 </div>
                 <div className={styles.divider}>
                   <div className={styles.name}>
-                    OLYA LUKSHA
                     <Link to="https://github.com/Lukshaolya">
+                    OLYA LUKSHA
                       <GithubOutlined />
                     </Link>
                   </div>
@@ -260,8 +260,8 @@ function InfoPage() {
                 </div>
                 <div className={styles.divider}>
                   <div className={styles.name}>
-                    ALEXANDER BUDKO
                     <Link to="https://github.com/swallowOnes">
+                    ALEXANDER BUDKO
                       <GithubOutlined />
                     </Link>
                   </div>
@@ -292,8 +292,8 @@ function InfoPage() {
                 </div>
                 <div className={styles.divider}>
                   <div className={styles.name}>
-                    SERGEY CHIKUNOV
                     <Link to="https://github.com/hapikus">
+                      SERGEY CHIKUNOV
                       <GithubOutlined />
                     </Link>
                   </div>
