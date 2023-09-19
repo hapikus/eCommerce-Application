@@ -6,7 +6,16 @@ import {
   SoundOutlined,
 } from '@ant-design/icons';
 
-import { Avatar, Button, Carousel, Divider, Image, Space, Tag } from 'antd';
+import {
+  Avatar,
+  Badge,
+  Button,
+  Carousel,
+  Divider,
+  Image,
+  Space,
+  Tag,
+} from 'antd';
 import { Link } from 'react-router-dom';
 
 import Screen_1 from '../../assets/images/pagesScreens/main_1.png';
@@ -148,7 +157,7 @@ function InfoPage() {
                 <div className={styles.divider}>
                   <div className={styles.name}>
                     <Link to="https://github.com/Lukshaolya">
-                    OLYA LUKSHA
+                      OLYA LUKSHA
                       <GithubOutlined />
                     </Link>
                   </div>
@@ -261,7 +270,7 @@ function InfoPage() {
                 <div className={styles.divider}>
                   <div className={styles.name}>
                     <Link to="https://github.com/swallowOnes">
-                    ALEXANDER BUDKO
+                      ALEXANDER BUDKO
                       <GithubOutlined />
                     </Link>
                   </div>
@@ -278,16 +287,21 @@ function InfoPage() {
               <div className={styles.personPhoto}>
                 <div className={styles.personPhotoContainer}>
                   <div className={styles.personPhotoContainerInner}>
-                    <Avatar
-                      className={styles.avatar}
-                      icon={
-                        <img
-                          className={styles.img}
-                          alt="personal-img"
-                          src={HapikusImg}
-                        />
-                      }
-                    />
+                    <Badge.Ribbon
+                     text="TEAM LEAD"
+                     placement="start"
+                     >
+                      <Avatar
+                        className={styles.avatar}
+                        icon={
+                          <img
+                            className={styles.img}
+                            alt="personal-img"
+                            src={HapikusImg}
+                          />
+                        }
+                      />
+                    </Badge.Ribbon>
                   </div>
                 </div>
                 <div className={styles.divider}>
