@@ -9,7 +9,7 @@ import {
   getBasketItems,
   removeItemFromBasket,
 } from '../../../redux/slice/basketSlice';
-import GetDescription from '../../../components/shared/getDiscount';
+import GetDiscount from '../../../components/shared/getDiscount';
 import store, { RootState } from '../../../redux/store';
 import BasketService from '../../../models/Basket/BasketService';
 
@@ -142,18 +142,16 @@ function CartGameList() {
     const randomPhrase = EMPTY_CART_PHRASES[randomIndex];
     return (
       <div className={styles.emptyCont}>
-        <div className={styles.emptyCartCont}>
-          <Image
-            preview={false}
-            src={SadRobot}
-            className={styles.emptyCartImg}
-            style={{ objectFit: 'cover' }}
-          />
-          <h2>{randomPhrase}</h2>
-          <Button>
-            <Link to="/catalog">Catalog</Link>
-          </Button>
-        </div>
+        <Image
+          preview={false}
+          src={SadRobot}
+          className={styles.emptyCartImg}
+          style={{ objectFit: 'cover' }}
+        />
+        <h2>{randomPhrase}</h2>
+        <Button>
+          <Link to="/catalog">Catalog</Link>
+        </Button>
       </div>
     );
   }
@@ -176,7 +174,7 @@ function CartGameList() {
               basketQantity,
             } = basketProduct;
             return (
-              <div className={styles.cartProdContainer}>
+              <div className={styles.cartProdContainer} key={gameTitle}>
                 <Link
                   to={`/product/${gameTitle}`}
                   key={gameTitle}
@@ -236,7 +234,7 @@ function CartGameList() {
                 </div>
                 <div className={styles.cartProdPrice}>
                   <Tag style={{ padding: '5px 10px', marginInlineEnd: '0px' }}>
-                    <GetDescription
+                    <GetDiscount
                       priceDesc={price}
                       discountPriceDesc={discountPrice}
                       promoPrice={promoPrice}

@@ -7,7 +7,7 @@ import { fetchSearchProducts } from '../../../redux/slice/productSlice';
 
 import store, { RootState } from '../../../redux/store';
 
-import styles from './banner.module.css';
+import styles from './search.module.css';
 import PopoverCards from '../../catalog/components/popoverCard';
 
 const { Search } = Input;

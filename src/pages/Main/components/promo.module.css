@@ -1,10 +1,12 @@
 .promoBanner {
   width: 100%;
+  cursor: pointer;
 }
 
 .promoBannerFirstOrder {
   width: 80%;
   padding: 0px 5px;
+  cursor: pointer;
 }
 
 .bannerCont {

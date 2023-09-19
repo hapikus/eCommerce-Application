@@ -19,35 +19,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import 'swiper/css/pagination';
 
-import './swiper.css';
+import './swiperMain.css';
+import GetDiscount from '../../../components/shared/getDiscount';
 
 function SwiperMain(props: { products: IProduct[]; productsNum: number }) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>();
-
-  const getDescription = (
-    priceDesc: number,
-    discountPriceDesc: number | null,
-  ) => {
-    if (discountPriceDesc) {
-      return (
-        <div className="discCardTwoPrice">
-          <div className="discCardRegPrice">
-            {`${Number(priceDesc).toFixed(2)} €`}
-          </div>
-          <div className="discCardDiscPrice">
-            {`${Number(discountPriceDesc).toFixed(2)} €`}
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className="discCardOnePrice">
-        <div className="discCardNormalPrice">
-          {`${Number(priceDesc).toFixed(2)} €`}
-        </div>
-      </div>
-    );
-  };
 
   const { products, productsNum } = props;
 
@@ -116,7 +92,7 @@ function SwiperMain(props: { products: IProduct[]; productsNum: number }) {
           const capsule = `${baseURL}/${gameId}/${capsuleSuffix}`;
           const header = `${baseURL}/${gameId}/${headerSuffix}`;
           return (
-            <SwiperSlide key={`main_${gameTitle}`}>
+            <SwiperSlide  key={`main_${gameTitle}`}>
               <Link to={`/product/${gameTitle}`} key={gameTitle}>
                 <div className="mask" />
                 <Image
@@ -124,6 +100,7 @@ function SwiperMain(props: { products: IProduct[]; productsNum: number }) {
                   alt="CAPSULE"
                   width="100%"
                   style={{ height: '100%' }}
+                  loading="lazy"
                   preview={{
                     src: `${header}`,
                   }}
@@ -156,7 +133,10 @@ function SwiperMain(props: { products: IProduct[]; productsNum: number }) {
                       {(itemsGameNameState || []).includes(gameTitle) ? (
                         <CheckOutlined />
                       ) : (
-                        getDescription(price, discountPrice)
+                        <GetDiscount
+                        priceDesc={price}
+                        discountPriceDesc={discountPrice}
+                      />
                       )}
                     </Spin>
                   </Button>
@@ -188,7 +168,7 @@ function SwiperMain(props: { products: IProduct[]; productsNum: number }) {
           return (
             <div className="swiper-slide" data-pick={suffix} key={gameId}>
               <SwiperSlide key={`thumb_${gameTitle}`}>
-                <img src={header} alt={gameTitle} />
+                <img loading="lazy" src={header} alt={gameTitle} />
               </SwiperSlide>
             </div>
           );

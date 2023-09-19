@@ -1,0 +1,142 @@
+.searchMenu {
+  display: flex;
+  background: var(--gpStoreDarkGrey);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 9999;
+}
+
+.searchContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.searchController {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  padding-left: 10px;
+  justify-content: space-between;
+}
+
+.popoverContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: space-between;
+  position: absolute;
+  top: calc(0.5em + 70%);
+  left: calc(0.5rem+50%);
+  transform: translateX(0%);
+  box-shadow:
+    0 10px 16px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.searchNavMenu {
+  display: flex;
+  width: auto;
+  justify-content: flex-end;
+  min-width: 360px;
+  line-height: 30px;
+  background: transparent;
+  border-bottom: none;
+}
+
+@media (max-width: 913px) {
+  .headerBlockContLeft {
+    width: 100%;
+    height: auto;
+  }
+
+  .imgCarousel {
+    width: 100%;
+    height: auto;
+  }
+
+  .categoryContainer {
+    width: 100%;
+    height: auto;
+  }
+
+  .containerCarousel {
+    width: 100%;
+    height: auto;
+  }
+  .searchMenu {
+    justify-content: flex-start;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    z-index: 999;
+    max-width: auto;
+    padding-left: 0px;
+  }
+  .searchNavMenu {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 360px;
+    line-height: 30px;
+    background: transparent;
+    border-bottom: none;
+    padding-right: 10px;
+  }
+
+  .searchController {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 692px) {
+  .searchNavMenu {
+    width: auto;
+    justify-content: flex-end;
+    min-width: 220px;
+    line-height: 30px;
+    background: transparent;
+    border-bottom: none;
+  }
+  .searchMenu {
+    top: 64px;
+    width: 100%;
+  }
+  
+  .searchController {
+    justify-content: space-between;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 472px) {
+  .searchNavMenu {
+    justify-content: space-around;
+    line-height: 30px;
+    min-width: 0;
+    background: transparent;
+    border-bottom: none;
+  }
+
+  .searchMenu {
+    top: 64px;
+    width: 100%;
+    z-index: 999;
+    justify-content: center;
+  }
+
+  .searchController {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    /* padding-left: 30px; */
+    flex-direction: row;
+  }
+
+}

@@ -99,6 +99,9 @@ function CatalogPage() {
       }
     };
     window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [cardsNum, catalogCurrPage]);
 
   useEffect(() => {

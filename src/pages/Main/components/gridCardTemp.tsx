@@ -1,4 +1,4 @@
-import styles from './gridCard.module.css';
+import styles from './gridCardTemp.module.css';
 
 import IProduct from '../../../types/IProduct';
 import GridCard from './gridCard';

@@ -15,9 +15,9 @@ import CategoryCarousel from './components/categoryCarousel';
 import DiscountCarousel from './components/discountCarousel';
 import ProductService from '../../models/Product/ProductService';
 import PromoBanner from './components/promo';
-import SwiperMain from './components/swiper';
+import SwiperMain from './components/swiperMain';
 import GridCard from './components/gridCardTemp';
-import PromoFirstBuy from './components/promoFirsBuy';
+import PromoFirstBuy from './components/promoFirstBuy';
 
 const RANDOM_PRODUCT_REQUEST = 10;
 const RANDOM_PRODUCT_DISCOUNT = 6;
@@ -76,6 +76,10 @@ function SideBar() {
     (state: RootState) => state.product.isLoadingRandom,
   );
 
+  const loadingDisc = useSelector(
+    (state: RootState) => state.product.isLoadingDiscRandom
+  )
+
   const categoryAll = useSelector(
     (state: RootState) => state.product.isAllCategoryData,
   );
@@ -92,8 +96,8 @@ function SideBar() {
       await store.dispatch(fetchAllCategory());
     };
     const fetchTopGenres = async () => {
-      const todGenres = await ProductService.getTopGenres();
-      setTopGenres(todGenres.data);
+      const topGenresLoad = await ProductService.getTopGenres();
+      setTopGenres(topGenresLoad.data);
     };
     fetchCategory();
     fetchTopGenres();
@@ -146,12 +150,14 @@ function SideBar() {
         <PromoBanner />
       </div>
       <div className={styles.headerBlockCont}>
-        {discountRandom?.length ? (
+        {loadingDisc ? (
+          <Spin />
+        ) : (
           <DiscountCarousel
-            products={discountRandom}
-            productsNum={discountNum}
-          />
-        ) : null}
+          products={discountRandom}
+          productsNum={discountNum}
+        />
+        )}
       </div>
       <div className={styles.headerBlockCont}>
         {categoryAll?.length ? (

@@ -4,39 +4,16 @@ import { Card, Image, Button, Tag, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import { CheckOutlined } from '@ant-design/icons';
 
-import styles from './banner.module.css';
+import styles from './discount.module.css';
 import store, { RootState } from '../../../redux/store';
 import {
   addItemToBasket,
   getBasketItems,
 } from '../../../redux/slice/basketSlice';
 import IProduct from '../../../types/IProduct';
+import GetDiscount from '../../../components/shared/getDiscount';
 
 function DiscountCards(products: IProduct[]) {
-  const getDescription = (
-    priceDesc: number,
-    discountPriceDesc: number | null,
-  ) => {
-    if (discountPriceDesc) {
-      return (
-        <div className={styles.discCardTwoPrice}>
-          <div className={styles.discCardRegPrice}>
-            {`${Number(priceDesc).toFixed(2)} €`}
-          </div>
-          <div className={styles.discCardDiscPrice}>
-            {`${Number(discountPriceDesc).toFixed(2)} €`}
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className={styles.discCardOnePrice}>
-        <div className={styles.discCardNormalPrice}>
-          {`${Number(priceDesc).toFixed(2)} €`}
-        </div>
-      </div>
-    );
-  };
 
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
@@ -116,7 +93,10 @@ function DiscountCards(products: IProduct[]) {
                 {(itemsGameNameState || []).includes(gameTitle) ? (
                   <CheckOutlined />
                 ) : (
-                  getDescription(price, discountPrice)
+                  <GetDiscount
+                  priceDesc={price}
+                  discountPriceDesc={discountPrice}
+                />
                 )}
               </Spin>
             </Button>

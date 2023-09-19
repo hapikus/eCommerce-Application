@@ -46,7 +46,7 @@ html[data-theme="barbie"] {
   --color-text: #000;
   --color-text-accent: #ffe6f9;
   --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
-  --gpStoreDarkGrey: #fbc2f7d6;
+  --gpStoreDarkGrey: #fbc2f7;
   --gpStoreDarkerGrey: #ffd6e7f2;
 
   --loadingStart: #FFE0ED;

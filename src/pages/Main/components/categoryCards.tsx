@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { setSelectedFilters } from '../../../redux/slice/productSlice';
 
-import styles from './banner.module.css';
+import styles from './categoryCards.module.css';
 import { IFilters } from '../../../types/storeType';
 
 const topTagPic = [
