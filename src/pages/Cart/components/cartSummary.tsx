@@ -15,6 +15,11 @@ import styles from './cartSummary.module.css';
 function CartSummary() {
   const [isEditing, setIsEditing] = useState(false);
   const [isPromoLoading, setIsPromoLoading] = useState(false);
+  const [priceObj, setPriceObj] = useState({
+    price: 0,
+    discountPrice: 0,
+    promoPrice: 0,
+  });
   const inputRef = useRef<InputRef>(null);
 
   const basketIdState = useSelector(
@@ -33,12 +38,6 @@ function CartSummary() {
   useEffect(() => {
     setPromoUseState(promoState);
   }, [promoState]);
-
-  const priceObj = {
-    price: 0,
-    discountPrice: 0,
-    promoPrice: 0,
-  };
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -86,17 +85,23 @@ function CartSummary() {
     }
   };
 
-  if (
-    Object.values(fullBasketData) &&
-    Object.values(fullBasketData).length > 0
-  ) {
-    Object.values(fullBasketData).forEach((gameBasketInfo) => {
-      const { price, sortPrice, promoPrice, basketQantity } = gameBasketInfo;
-      priceObj.price += price * basketQantity;
-      priceObj.discountPrice += sortPrice * basketQantity;
-      priceObj.promoPrice += promoPrice * basketQantity;
-    });
-  }
+  useEffect(() => {
+    const updatedPriceObj = Object.values(fullBasketData).reduce(
+      (accumulator, gameBasketInfo) => {
+        const { price, sortPrice, promoPrice, basketQantity } = gameBasketInfo;
+        accumulator.price += price * basketQantity;
+        accumulator.discountPrice += sortPrice * basketQantity;
+        accumulator.promoPrice += promoPrice * basketQantity;
+        return accumulator;
+      },
+      {
+        price: 0,
+        discountPrice: 0,
+        promoPrice: 0,
+      },
+    );
+    setPriceObj(updatedPriceObj);
+  }, [fullBasketData]);
 
   if (!priceObj.price) {
     return null;

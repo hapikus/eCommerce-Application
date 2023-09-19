@@ -184,6 +184,7 @@ export type {
   IFilters,
   SetSelectedFilters,
   BasketState,
+  BasketFullInfo,
   BasketItemsResponse,
   BasketFullResponse,
 };

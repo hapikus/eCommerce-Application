@@ -25,9 +25,7 @@ function AddressFormPart({ prefix, type, isDisabled }: Props) {
       <div className={styles.userPersFormCont}>
         <div
           style={{
-            // border: '1px dashed #dfdfdf',
             padding: '5px',
-            // background: type === 'new' ? '#dfdfdf' : '',
           }}
           className={styles.addressFormCard}
         >

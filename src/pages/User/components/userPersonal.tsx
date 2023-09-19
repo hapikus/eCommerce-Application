@@ -60,7 +60,6 @@ function UserPersonal() {
         id: userFullData._id,
       };
       await UserService.updateUser(updateUserBody);
-      // console.log(await UserService.updateUser(updateUserBody));
       message.success('Password was changed successful!');
       PasswordChangeForm.resetFields();
     } catch {

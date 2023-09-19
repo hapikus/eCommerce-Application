@@ -143,10 +143,11 @@ function SideBar() {
     <div className={styles.mainCont}>
       <SearchMenu />
       <div className={styles.headerBlockCont}>
-      <PromoBanner
-         promo={promoFirst}
-         promoDesc={promoDescFirst}
-         banner={BannerFirst} />
+        <PromoBanner
+          promo={promoFirst}
+          promoDesc={promoDescFirst}
+          banner={BannerFirst}
+        />
       </div>
       <div className={styles.headerBlockCont}>
         {loadingRand ? (
@@ -160,9 +161,10 @@ function SideBar() {
       </div>
       <div className={styles.headerBlockCont}>
         <PromoBanner
-         promo={promoCode}
-         promoDesc={promoDescSave10}
-         banner={BannerIndie} />
+          promo={promoCode}
+          promoDesc={promoDescSave10}
+          banner={BannerIndie}
+        />
       </div>
       <div className={styles.headerBlockCont}>
         {loadingDisc ? (

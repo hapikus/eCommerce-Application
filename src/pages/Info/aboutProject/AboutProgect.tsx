@@ -439,7 +439,6 @@ function AboutProject() {
                           fontSize: '40px',
                           backgroundColor: 'rgb(230, 230, 230)',
                           color: 'black',
-                          // padding: '50px',
                           borderRadius: '50%',
                         }}
                       />
