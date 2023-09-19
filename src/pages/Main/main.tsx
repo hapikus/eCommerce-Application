@@ -142,10 +142,12 @@ function SideBar() {
   return (
     <div className={styles.mainCont}>
       <SearchMenu />
+      <div className={styles.headerBlockCont}>
       <PromoBanner
          promo={promoFirst}
          promoDesc={promoDescFirst}
          banner={BannerFirst} />
+      </div>
       <div className={styles.headerBlockCont}>
         {loadingRand ? (
           <Spin />

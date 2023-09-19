@@ -27,6 +27,7 @@
   width: 80%;
   padding: 0 10px 10px;
   height: 100%;
+  max-height: 900px;
 }
 
 .headerBlockSearch {
