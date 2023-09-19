@@ -516,10 +516,10 @@ function AboutProject() {
                         </div>
                         <div className={styles.timePeroidTextLeft}>
                           <p>
-                            Login page.Code reviews and requested
-                            implementations. discussed topics such as the
+                            Login page. Code reviews and requested
+                            implementations. Discussed topics such as the
                             vite.config.ts file, implementation and validation
-                            of dobValid.ts, and the database for products.
+                            of dobValid.ts, the database for products.
                           </p>
                         </div>
                       </div>
@@ -537,9 +537,9 @@ function AboutProject() {
                           <p>
                             Implement client-side validation for all required
                             fields in the registration form. Implement routing
-                            for navigation
+                            for navigation.
                           </p>
-                          <p>404 page ideas</p>
+                          <p>404 page ideas.</p>
                         </div>
                       </div>
                     ),
@@ -632,10 +632,10 @@ function AboutProject() {
                         </div>
                         <div className={styles.timePeroidTextLeft}>
                           <p>
-                            Main and Catalog Page.Implement filtering options
+                            Main and Catalog Page. Implement filtering options
                             for users to refine the product list based on
                             attributes such as price range, brand, name,
-                            category. Convenient slider on main page
+                            category. Convenient slider on main page.
                           </p>
                         </div>
                       </div>
