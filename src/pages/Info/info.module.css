@@ -26,7 +26,6 @@
   width: 80%;
 }
 
-/* section 1 About */
 .infoMainContaier {
   display: flex;
   flex-direction: row;
@@ -56,7 +55,6 @@
   text-align: justify;
 }
 
-/* section 2 How we work */
 .aboutTeamContainer {
   background: white;
 }
@@ -145,7 +143,6 @@
   font-family: 'EB Garamond', serif;
 }
 
-/* section about project */
 .aboutProductBlock {
   display: flex;
   flex-direction: row;
@@ -194,7 +191,6 @@
   font-family: 'Black Ops One';
 }
 
-/* about Team Member */
 .teamMemberContainer {
   background-color: #83d56d38;
 }
@@ -497,6 +493,12 @@
     height: 250px;
     width: 250px;
     margin: 0 auto;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
   }
 
   .avatar {
