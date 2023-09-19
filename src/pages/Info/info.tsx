@@ -6,13 +6,22 @@ import {
   SoundOutlined,
 } from '@ant-design/icons';
 
-import { Avatar, Button, Carousel, Divider, Image, Space, Tag } from 'antd';
+import {
+  Avatar,
+  Badge,
+  Button,
+  Carousel,
+  Divider,
+  Image,
+  Space,
+  Tag,
+} from 'antd';
 import { Link } from 'react-router-dom';
 
-import Screen_1 from '../../assets/images/pagesScreens/screen1_light.png';
-import Screen_2 from '../../assets/images/pagesScreens/screen2.png';
-import Screen_3 from '../../assets/images/pagesScreens/screen3.png';
-import Screen_4 from '../../assets/images/pagesScreens/screen4.png';
+import Screen_1 from '../../assets/images/pagesScreens/main_1.png';
+import Screen_2 from '../../assets/images/pagesScreens/main_2.png';
+import Screen_3 from '../../assets/images/pagesScreens/main_4.png';
+import Screen_4 from '../../assets/images/pagesScreens/signIn.png';
 import LeftQuote from '../../assets/images/logo/left-quote (1).png';
 import RightQuote from '../../assets/images/logo/right-quotation-sign.png';
 import LukshaOlyaImg from '../../assets/images/teamPhoto/olkaLuksha.png';
@@ -147,8 +156,8 @@ function InfoPage() {
                 </div>
                 <div className={styles.divider}>
                   <div className={styles.name}>
-                    OLYA LUKSHA
                     <Link to="https://github.com/Lukshaolya">
+                      OLYA LUKSHA
                       <GithubOutlined />
                     </Link>
                   </div>
@@ -187,7 +196,7 @@ function InfoPage() {
                 <Space size={[1, 10]} wrap>
                   <Tag color="geekblue">Crazy about React components</Tag>
                   <Tag color="geekblue">Wish to use Ant design forever</Tag>
-                  <Tag color="geekblue">Grow up whith Team</Tag>
+                  <Tag color="geekblue">Grow up with Team</Tag>
                 </Space>
               </div>
             </div>
@@ -260,8 +269,8 @@ function InfoPage() {
                 </div>
                 <div className={styles.divider}>
                   <div className={styles.name}>
-                    ALEXANDER BUDKO
                     <Link to="https://github.com/swallowOnes">
+                      ALEXANDER BUDKO
                       <GithubOutlined />
                     </Link>
                   </div>
@@ -278,22 +287,24 @@ function InfoPage() {
               <div className={styles.personPhoto}>
                 <div className={styles.personPhotoContainer}>
                   <div className={styles.personPhotoContainerInner}>
-                    <Avatar
-                      className={styles.avatar}
-                      icon={
-                        <img
-                          className={styles.img}
-                          alt="personal-img"
-                          src={HapikusImg}
-                        />
-                      }
-                    />
+                    <Badge.Ribbon text="TEAM LEAD" placement="end" className={styles.badgeRibbon}>
+                      <Avatar
+                        className={styles.avatar}
+                        icon={
+                          <img
+                            className={styles.img}
+                            alt="personal-img"
+                            src={HapikusImg}
+                          />
+                        }
+                      />
+                    </Badge.Ribbon>
                   </div>
                 </div>
                 <div className={styles.divider}>
                   <div className={styles.name}>
-                    SERGEY CHIKUNOV
                     <Link to="https://github.com/hapikus">
+                      SERGEY CHIKUNOV
                       <GithubOutlined />
                     </Link>
                   </div>
@@ -335,8 +346,8 @@ function InfoPage() {
                 <Divider orientation="left">Got experience</Divider>
                 <Space size={[1, 10]} wrap>
                   <Tag color="geekblue">Backend Development</Tag>
-                  <Tag color="geekblue">Workung with Redux Toolkit</Tag>
-                  <Tag color="geekblue">Expirience in Team Development</Tag>
+                  <Tag color="geekblue">Working with Redux Toolkit</Tag>
+                  <Tag color="geekblue">Experience in Team Development</Tag>
                 </Space>
               </div>
             </div>
@@ -351,6 +362,7 @@ function InfoPage() {
                 className={styles.imgCarousel}
                 dots={{ className: styles.carouselDots }}
                 autoplay
+                infinite
               >
                 <div>
                   <Image
@@ -395,11 +407,11 @@ function InfoPage() {
                 <p className={styles.progectName}> Super Store</p>
                 <p className={styles.progectDiscription}>
                   {' '}
-                  is more than just an online retailer. Its a gaming haven where
-                  passion, affordability, and community come together. Join us
-                  today and experience the convenience, variety, and excitement
-                  of shopping for video games without leaving the comfort of
-                  your home.
+                  is more than just an online retailer. It is a gaming haven
+                  where passion, affordability, and community come together.
+                  Join us today and experience the convenience, variety, and
+                  excitement of shopping for video games without leaving the
+                  comfort of your home.
                 </p>
                 <Link to="/project">
                   <Button size="large">Learn more</Button>

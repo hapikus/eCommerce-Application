@@ -13,7 +13,7 @@ import SignUp from './pages/SignUp/signup';
 import Product from './pages/Product/product';
 import UserPage from './pages/User/user';
 import NotFound from './pages/404/notFound';
-import AboutProject from './pages/Info/aboutProject/AboutProgect';
+import AboutProject from './pages/Info/aboutProject/aboutProject';
 import CatalogPage from './pages/catalog/catalog';
 import CartPage from './pages/Cart/cart';
 import BasketService from './models/Basket/BasketService';
