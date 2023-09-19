@@ -17,7 +17,7 @@ import ProductService from '../../models/Product/ProductService';
 import PromoBanner from './components/promo';
 import SwiperMain from './components/swiperMain';
 import GridCard from './components/gridCardTemp';
-import BannerFirst from '../../assets/images/firstorder1.webp'
+import BannerFirst from '../../assets/images/firstorder1.webp';
 import BannerIndie from '../../assets/images/indie.webp';
 
 const RANDOM_PRODUCT_REQUEST = 10;
@@ -67,7 +67,8 @@ const promoCode = 'SAVE10';
 const promoFirst = 'FIRST ORDER';
 
 const promoDescSave10 = 'Don’t miss out on your discount!';
-const promoDescFirst = 'Welcome bonus for new customers! Get a discount on your first order on our website.';
+const promoDescFirst =
+  'Welcome bonus for new customers! Get a discount on your first order on our website.';
 
 function SideBar() {
   const [categoryNum, setCategoryNum] = useState(calculateCategoryNum());

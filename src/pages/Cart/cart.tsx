@@ -10,7 +10,7 @@ import CartGameList from './components/cartGameList';
 import styles from './cart.module.css';
 import PromoBanner from '../Main/components/promo';
 
-import Save20 from '../../assets/images/save20.jpg'
+import Save20 from '../../assets/images/save20.jpg';
 
 const promo = 'SAVE20';
 
@@ -40,10 +40,7 @@ function CartPage() {
           <CartSummary />
         </div>
       </div>
-      <PromoBanner
-         promo={promo}
-         promoDesc={promoDesc}
-         banner={Save20} />
+      <PromoBanner promo={promo} promoDesc={promoDesc} banner={Save20} />
     </div>
   );
 }

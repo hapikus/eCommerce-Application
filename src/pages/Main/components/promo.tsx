@@ -1,13 +1,15 @@
 import { Image, Card, message, Typography } from 'antd';
 import styles from './promo.module.css';
 
-
-function PromoBanner(props: { promo: string, promoDesc: string, banner: string}) {
+function PromoBanner(props: {
+  promo: string;
+  promoDesc: string;
+  banner: string;
+}) {
   const { Meta } = Card;
   const { Paragraph } = Typography;
 
   const { promo, promoDesc, banner } = props;
-
 
   const copyToClipboard = () => {
     const promoCode = promo;
@@ -38,9 +40,7 @@ function PromoBanner(props: { promo: string, promoDesc: string, banner: string})
             <Meta
               title={<span className={styles.bannerCardTitle}>{promo}</span>}
               description={
-                <span className={styles.bannerCardDesc}>
-                  {promoDesc}
-                </span>
+                <span className={styles.bannerCardDesc}>{promoDesc}</span>
               }
             />
           </Card>
