@@ -8,6 +8,13 @@ import CartSummary from './components/cartSummary';
 import CartGameList from './components/cartGameList';
 
 import styles from './cart.module.css';
+import PromoBanner from '../Main/components/promo';
+
+import Save20 from '../../assets/images/save20.jpg'
+
+const promo = 'SAVE20';
+
+const promoDesc = 'Last chance to save 20% FOR ALL cart';
 
 function CartPage() {
   const basketIdState = useSelector(
@@ -33,6 +40,10 @@ function CartPage() {
           <CartSummary />
         </div>
       </div>
+      <PromoBanner
+         promo={promo}
+         promoDesc={promoDesc}
+         banner={Save20} />
     </div>
   );
 }

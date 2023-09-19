@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { Avatar, Badge, Button, Menu } from "antd";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Avatar, Badge, Button, Menu } from 'antd';
 
+import { ShoppingCartOutlined } from '@ant-design/icons';
+import store, { RootState } from '../../../redux/store';
+import { getBasketItems, setBasketId } from '../../../redux/slice/basketSlice';
+import { logoutAsync } from '../../../redux/slice/authSlice';
 
-import { ShoppingCartOutlined } from "@ant-design/icons";
-import store, { RootState } from "../../../redux/store";
-import { getBasketItems, setBasketId } from "../../../redux/slice/basketSlice";
-import { logoutAsync } from "../../../redux/slice/authSlice";
-
-import styles from './mainMenu.module.css'
-
+import styles from './mainMenu.module.css';
 
 function MainMenu({
   isInLine = false,

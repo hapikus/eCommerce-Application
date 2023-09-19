@@ -92,7 +92,7 @@ function SwiperMain(props: { products: IProduct[]; productsNum: number }) {
           const capsule = `${baseURL}/${gameId}/${capsuleSuffix}`;
           const header = `${baseURL}/${gameId}/${headerSuffix}`;
           return (
-            <SwiperSlide  key={`main_${gameTitle}`}>
+            <SwiperSlide key={`main_${gameTitle}`}>
               <Link to={`/product/${gameTitle}`} key={gameTitle}>
                 <div className="mask" />
                 <Image
@@ -134,9 +134,9 @@ function SwiperMain(props: { products: IProduct[]; productsNum: number }) {
                         <CheckOutlined />
                       ) : (
                         <GetDiscount
-                        priceDesc={price}
-                        discountPriceDesc={discountPrice}
-                      />
+                          priceDesc={price}
+                          discountPriceDesc={discountPrice}
+                        />
                       )}
                     </Spin>
                   </Button>

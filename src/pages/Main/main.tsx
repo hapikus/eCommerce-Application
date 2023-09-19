@@ -17,7 +17,8 @@ import ProductService from '../../models/Product/ProductService';
 import PromoBanner from './components/promo';
 import SwiperMain from './components/swiperMain';
 import GridCard from './components/gridCardTemp';
-import PromoFirstBuy from './components/promoFirstBuy';
+import BannerFirst from '../../assets/images/firstorder1.webp'
+import BannerIndie from '../../assets/images/indie.webp';
 
 const RANDOM_PRODUCT_REQUEST = 10;
 const RANDOM_PRODUCT_DISCOUNT = 6;
@@ -62,6 +63,12 @@ const calculateRandTempGridNum = () => {
   return cardNumber;
 };
 
+const promoCode = 'SAVE10';
+const promoFirst = 'FIRST ORDER';
+
+const promoDescSave10 = 'Don’t miss out on your discount!';
+const promoDescFirst = 'Welcome bonus for new customers! Get a discount on your first order on our website.';
+
 function SideBar() {
   const [categoryNum, setCategoryNum] = useState(calculateCategoryNum());
   const [discountNum, setDiscountNum] = useState(calculateDiscNum());
@@ -77,8 +84,8 @@ function SideBar() {
   );
 
   const loadingDisc = useSelector(
-    (state: RootState) => state.product.isLoadingDiscRandom
-  )
+    (state: RootState) => state.product.isLoadingDiscRandom,
+  );
 
   const categoryAll = useSelector(
     (state: RootState) => state.product.isAllCategoryData,
@@ -135,7 +142,10 @@ function SideBar() {
   return (
     <div className={styles.mainCont}>
       <SearchMenu />
-      <PromoFirstBuy />
+      <PromoBanner
+         promo={promoFirst}
+         promoDesc={promoDescFirst}
+         banner={BannerFirst} />
       <div className={styles.headerBlockCont}>
         {loadingRand ? (
           <Spin />
@@ -147,16 +157,19 @@ function SideBar() {
         )}
       </div>
       <div className={styles.headerBlockCont}>
-        <PromoBanner />
+        <PromoBanner
+         promo={promoCode}
+         promoDesc={promoDescSave10}
+         banner={BannerIndie} />
       </div>
       <div className={styles.headerBlockCont}>
         {loadingDisc ? (
           <Spin />
         ) : (
           <DiscountCarousel
-          products={discountRandom}
-          productsNum={discountNum}
-        />
+            products={discountRandom}
+            productsNum={discountNum}
+          />
         )}
       </div>
       <div className={styles.headerBlockCont}>

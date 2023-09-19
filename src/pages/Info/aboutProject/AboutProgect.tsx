@@ -318,7 +318,7 @@ function AboutProject() {
               className={styles.contCardClientServ}
               title="CLIENT"
               bordered
-              bodyStyle={{padding: '0px 20px'}}
+              bodyStyle={{ padding: '0px 20px' }}
             >
               <List
                 itemLayout="horizontal"
@@ -343,7 +343,7 @@ function AboutProject() {
               title="SERVER"
               bordered
               className={styles.contCardClientServ}
-              bodyStyle={{padding: '0px 20px'}}
+              bodyStyle={{ padding: '0px 20px' }}
             >
               <List
                 itemLayout="horizontal"

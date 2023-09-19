@@ -87,7 +87,10 @@ function DiscountCarousel(props: {
                 }
               >
                 <div className={styles.discountPrice}>
-                  <Tag color="green" style={{ padding: '6px 10px', marginInlineEnd: '0px' }}>
+                  <Tag
+                    color="green"
+                    style={{ padding: '6px 10px', marginInlineEnd: '0px' }}
+                  >
                     {`-${Number(
                       Math.ceil((1 - (discountPrice || 0) / price) * 100),
                     )}%`}

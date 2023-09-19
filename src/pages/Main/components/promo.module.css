@@ -104,6 +104,9 @@
   .promoBannerFirstOrder{
     padding: 0px 10px;
 }
+.bannerImg {
+  height: 100% !important;
+}
 }
 
 @media (max-width: 472px) {
@@ -112,5 +115,9 @@
   }
   .bannerCardDesc {
     font-size: 0.7rem;
+  }
+
+  .bannerImg {
+    height: 100% !important;
   }
 }

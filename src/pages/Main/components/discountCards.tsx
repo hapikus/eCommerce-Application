@@ -14,7 +14,6 @@ import IProduct from '../../../types/IProduct';
 import GetDiscount from '../../../components/shared/getDiscount';
 
 function DiscountCards(products: IProduct[]) {
-
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
   );
@@ -94,9 +93,9 @@ function DiscountCards(products: IProduct[]) {
                   <CheckOutlined />
                 ) : (
                   <GetDiscount
-                  priceDesc={price}
-                  discountPriceDesc={discountPrice}
-                />
+                    priceDesc={price}
+                    discountPriceDesc={discountPrice}
+                  />
                 )}
               </Spin>
             </Button>

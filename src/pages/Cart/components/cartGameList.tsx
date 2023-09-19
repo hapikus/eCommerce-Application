@@ -142,16 +142,18 @@ function CartGameList() {
     const randomPhrase = EMPTY_CART_PHRASES[randomIndex];
     return (
       <div className={styles.emptyCont}>
-        <Image
-          preview={false}
-          src={SadRobot}
-          className={styles.emptyCartImg}
-          style={{ objectFit: 'cover' }}
-        />
-        <h2>{randomPhrase}</h2>
-        <Button>
-          <Link to="/catalog">Catalog</Link>
-        </Button>
+        <div className={styles.emptyCartCont}>
+          <Image
+            preview={false}
+            src={SadRobot}
+            className={styles.emptyCartImg}
+            style={{ objectFit: 'cover' }}
+          />
+          <h2>{randomPhrase}</h2>
+          <Button>
+            <Link to="/catalog">Catalog</Link>
+          </Button>
+        </div>
       </div>
     );
   }
