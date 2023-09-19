@@ -396,11 +396,11 @@ function InfoPage() {
                 <p className={styles.progectName}> Super Store</p>
                 <p className={styles.progectDiscription}>
                   {' '}
-                  is more than just an online retailer. It is a gaming haven where
-                  passion, affordability, and community come together. Join us
-                  today and experience the convenience, variety, and excitement
-                  of shopping for video games without leaving the comfort of
-                  your home.
+                  is more than just an online retailer. It is a gaming haven
+                  where passion, affordability, and community come together.
+                  Join us today and experience the convenience, variety, and
+                  excitement of shopping for video games without leaving the
+                  comfort of your home.
                 </p>
                 <Link to="/project">
                   <Button size="large">Learn more</Button>

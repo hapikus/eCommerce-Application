@@ -616,8 +616,8 @@ function AboutProject() {
                         <div className={styles.timePeroidTextLeft}>
                           <p>User page.</p>
                           <p>
-                            Implement oppotunity to change personal data and
-                            dinamic adding of several addresses.
+                            Implement opportunity to change personal data and
+                            dynamic adding of several addresses.
                           </p>
                         </div>
                       </div>
