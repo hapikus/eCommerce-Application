@@ -92,13 +92,13 @@ function MainMenu({
                 : null
             }
           >
-            <span className={styles.cartBadge}>CART</span>
             <Button
               type="primary"
               shape="circle"
               icon={<ShoppingCartOutlined />}
             />
           </Badge>
+          <span className={styles.cartBadge}>CART</span>
         </NavLink>
       </Menu.Item>
     </Menu>
@@ -120,12 +120,12 @@ function MainMenu({
             overflowCount={9}
             count={
               itemsBasket
-              ? Object.values(itemsBasket).reduce(
-                (acc, count) => acc + count,
-                0,
-                )
+                ? Object.values(itemsBasket).reduce(
+                    (acc, count) => acc + count,
+                    0,
+                  )
                 : null
-              }
+            }
           >
             <Button
               type="primary"
@@ -133,22 +133,24 @@ function MainMenu({
               icon={<ShoppingCartOutlined />}
             />
           </Badge>
-              <span className={styles.cartBadge}>CART</span>
+          <span className={styles.cartBadge}>CART</span>
         </NavLink>
       </Menu.Item>
       <MenuItem>
-      <NavLink
-        to="user"
-        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-      >
-        <Avatar
-          style={{ backgroundColor: '#28784D' }}
-          className={styles.avatarPointer}
+        <NavLink
+          to="user"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
+          <Avatar
+            style={{ backgroundColor: '#28784D' }}
+            className={styles.avatarPointer}
+          >
             {userInfo[0]}
-        </Avatar>
-          </NavLink>
-        <Button onClick={logOut} type="text">Logout</Button>
+          </Avatar>
+        </NavLink>
+        <Button onClick={logOut} type="text">
+          Logout
+        </Button>
       </MenuItem>
     </Menu>
   );

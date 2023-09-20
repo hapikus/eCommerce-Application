@@ -287,7 +287,11 @@ function InfoPage() {
               <div className={styles.personPhoto}>
                 <div className={styles.personPhotoContainer}>
                   <div className={styles.personPhotoContainerInner}>
-                    <Badge.Ribbon text="TEAM LEAD" placement="end" className={styles.badgeRibbon}>
+                    <Badge.Ribbon
+                      text="TEAM LEAD"
+                      placement="end"
+                      className={styles.badgeRibbon}
+                    >
                       <Avatar
                         className={styles.avatar}
                         icon={
