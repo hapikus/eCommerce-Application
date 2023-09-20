@@ -25,6 +25,8 @@ function MainMenu({
   const itemsBasket = useSelector(
     (state: RootState) => state.basket.itemsFromServer.items,
   );
+  const userFullData = useSelector((state: RootState) => state.user.userFull);
+  const { firstName } = userFullData;
 
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
@@ -35,7 +37,7 @@ function MainMenu({
 
   useEffect(() => {
     setSelectedItem([location.pathname.replace('/', '')]);
-  }, [location]);
+  }, [location, userFullData]);
 
   const onMenuClick = () => {
     setOpenMenu(false);
@@ -62,7 +64,7 @@ function MainMenu({
       mode={isInLine ? 'inline' : 'horizontal'}
       selectedKeys={selectedItem}
     >
-      <Menu.Item key="login">
+      <Menu.Item key="login" className={styles.menuBadge}>
         <NavLink
           to="login"
           className={({ isActive }) => (isActive ? 'active' : 'inactive')}
@@ -70,7 +72,7 @@ function MainMenu({
           <span>LOG IN</span>
         </NavLink>
       </Menu.Item>
-      <Menu.Item key="signup">
+      <Menu.Item key="signup" className={styles.menuBadge}>
         <NavLink
           to="signup"
           className={({ isActive }) => (isActive ? 'active' : 'inactive')}
@@ -113,7 +115,7 @@ function MainMenu({
       mode={isInLine ? 'inline' : 'horizontal'}
       selectedKeys={selectedItem}
     >
-      <Menu.Item key="cart" className={styles.cartMenuItem}>
+      <Menu.Item key="cart" className={styles.menuBadge}>
         <NavLink to="/cart" className={styles.cartLink}>
           <Badge
             color={themeState === 'dark' ? '#faad14' : '#f5222d'}
@@ -136,10 +138,11 @@ function MainMenu({
           <span className={styles.cartBadge}>CART</span>
         </NavLink>
       </Menu.Item>
-      <MenuItem>
+      <MenuItem key="user" className={styles.cartLink}>
+        <div className={styles.userMenuBadge}>
         <NavLink
           to="user"
-          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          className={styles.userMenuBadge}
         >
           <Avatar
             style={{ backgroundColor: '#28784D' }}
@@ -147,10 +150,12 @@ function MainMenu({
           >
             {userInfo[0]}
           </Avatar>
+          <span className={styles.menuBadge}>{firstName}</span>
         </NavLink>
         <Button onClick={logOut} type="text">
           Logout
         </Button>
+        </div>
       </MenuItem>
     </Menu>
   );
@@ -171,7 +176,7 @@ function MainMenu({
               to=""
               className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             >
-              <span>STORE</span>
+              <span className={styles.menuBadge}>STORE</span>
             </NavLink>
           </Menu.Item>
           <Menu.Item key="catalog">
@@ -179,15 +184,15 @@ function MainMenu({
               to="catalog"
               className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             >
-              <span>ALL GAMES</span>
+              <span className={styles.menuBadge}>ALL GAMES</span>
             </NavLink>
           </Menu.Item>
-          <Menu.Item key="info">
+          <Menu.Item key="info" className={styles.cartLink}>
             <NavLink
               to="info"
               className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             >
-              <span>INFORMATION</span>
+              <span className={styles.menuBadge}>INFORMATION</span>
             </NavLink>
           </Menu.Item>
         </Menu>

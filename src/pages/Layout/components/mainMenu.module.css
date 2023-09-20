@@ -14,6 +14,18 @@
   background-color: transparent;
 }
 
+.menuReg li[class~='ant-menu-item'] {
+  height: 55px !important;
+}
+
+.leftMenuCont li[class~='ant-menu-item'] {
+  height: 55px !important;
+}
+
+.menuMain li[class~='ant-menu-item'] {
+  height: 55px !important;
+}
+
 .avatarPointer {
   cursor: pointer;
 }
@@ -24,8 +36,16 @@
   column-gap: 10px;
 }
 
+.menuMain {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+}
+
 .cartLink {
-  margin-top: 5px;
+  display: flex !important;
+  align-items: center;
 }
 
 .userMenuItem {
@@ -48,12 +68,29 @@
   border-bottom: none;
 }
 
+.menuBadge {
+  display: flex !important;
+  gap: 10px;
+  align-items: center;
+}
+
 .cartBadge {
   display: none;
 }
 
 .cartMenuItem {
   display: flex;
+}
+
+.menuIcon {
+  display: none;
+  font-size: 32px !important;
+}
+
+.userMenuBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 
@@ -77,12 +114,46 @@
     display: flex;
     column-gap: 10px;
     justify-content: flex-start;
+    align-items: center;
+    height: 55px;
 }
 
   .cartBadge {
-    display: block;
-
+    display: flex;
+    gap: 10px;
+    align-items: center;
   }
 
+  .menuIcon {
+    display: flex;
+  }
+
+  .menuBadge {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    align-items: center;
+  }
+
+  .userMenuBadge{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menuReg li[class~='ant-menu-item'] {
+    height: 52px !important;
+    margin-block: 0px;
+  }
+
+  .leftMenuCont li[class~='ant-menu-item'] {
+    height: 52px !important;
+    margin-block: 0px;
+  }
+
+  .menuMain li[class~='ant-menu-item'] {
+    height: 52px !important;
+    margin-block: 0px;
+  }
 }
 
