@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  background-color: transparent;
 }
 
 .avatarPointer {
@@ -27,12 +28,16 @@
   margin-top: 5px;
 }
 
+.userMenuItem {
+  display: flex;
+}
+
 .menuReg {
   display: flex;
   align-items: center;
   width: auto;
-  min-width: 170px;
-  justify-content: space-around;
+  min-width: 270px;
+  justify-content: center;
 }
 
 .menuReg>.menuItems {
@@ -41,6 +46,14 @@
   width: 100%;
   justify-content: flex-end;
   border-bottom: none;
+}
+
+.cartBadge {
+  display: none;
+}
+
+.cartMenuItem {
+  display: flex;
 }
 
 
@@ -55,13 +68,20 @@
   }
 
   .leftMenuCont {
-    padding-top: 30px;
     flex-direction: column-reverse;
     row-gap: 20px;
   }
 
   .cartLink {
     margin: 0 auto;
+    display: flex;
+    column-gap: 10px;
+    justify-content: flex-start;
+}
+
+  .cartBadge {
+    display: block;
+
   }
 
 }

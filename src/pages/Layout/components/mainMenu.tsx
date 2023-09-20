@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Avatar, Badge, Button, Menu } from 'antd';
 
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import MenuItem from 'antd/es/menu/MenuItem';
 import store, { RootState } from '../../../redux/store';
 import { getBasketItems, setBasketId } from '../../../redux/slice/basketSlice';
 import { logoutAsync } from '../../../redux/slice/authSlice';
@@ -77,25 +78,79 @@ function MainMenu({
           <span>SIGN UP</span>
         </NavLink>
       </Menu.Item>
+      <Menu.Item key="cart" className={styles.cartMenuItem}>
+        <NavLink to="/cart" className={styles.cartLink}>
+          <Badge
+            color={themeState === 'dark' ? '#faad14' : '#f5222d'}
+            overflowCount={9}
+            count={
+              itemsBasket
+                ? Object.values(itemsBasket).reduce(
+                    (acc, count) => acc + count,
+                    0,
+                  )
+                : null
+            }
+          >
+            <span className={styles.cartBadge}>CART</span>
+            <Button
+              type="primary"
+              shape="circle"
+              icon={<ShoppingCartOutlined />}
+            />
+          </Badge>
+        </NavLink>
+      </Menu.Item>
     </Menu>
   );
 
   const renderAuthMenu = () => (
-    <>
-      <Button onClick={logOut}>Logout</Button>
-      <Avatar
-        style={{ backgroundColor: '#28784D' }}
-        className={styles.avatarPointer}
-        size="large"
-      >
-        <NavLink
-          to="user"
-          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-        >
-          {userInfo[0]}
+    <Menu
+      className={isInLine ? styles.menuItemsLine : styles.menuItems}
+      onClick={onMenuClick}
+      theme="light"
+      forceSubMenuRender
+      mode={isInLine ? 'inline' : 'horizontal'}
+      selectedKeys={selectedItem}
+    >
+      <Menu.Item key="cart" className={styles.cartMenuItem}>
+        <NavLink to="/cart" className={styles.cartLink}>
+          <Badge
+            color={themeState === 'dark' ? '#faad14' : '#f5222d'}
+            overflowCount={9}
+            count={
+              itemsBasket
+              ? Object.values(itemsBasket).reduce(
+                (acc, count) => acc + count,
+                0,
+                )
+                : null
+              }
+          >
+            <Button
+              type="primary"
+              shape="circle"
+              icon={<ShoppingCartOutlined />}
+            />
+          </Badge>
+              <span className={styles.cartBadge}>CART</span>
         </NavLink>
-      </Avatar>
-    </>
+      </Menu.Item>
+      <MenuItem>
+      <NavLink
+        to="user"
+        className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+      >
+        <Avatar
+          style={{ backgroundColor: '#28784D' }}
+          className={styles.avatarPointer}
+        >
+            {userInfo[0]}
+        </Avatar>
+          </NavLink>
+        <Button onClick={logOut} type="text">Logout</Button>
+      </MenuItem>
+    </Menu>
   );
 
   return (
@@ -136,26 +191,6 @@ function MainMenu({
         </Menu>
       </div>
       <div className={styles.leftMenuCont}>
-        <Link to="/cart" className={styles.cartLink}>
-          <Badge
-            color={themeState === 'dark' ? '#faad14' : '#f5222d'}
-            overflowCount={9}
-            count={
-              itemsBasket
-                ? Object.values(itemsBasket).reduce(
-                    (acc, count) => acc + count,
-                    0,
-                  )
-                : null
-            }
-          >
-            <Button
-              type="primary"
-              shape="circle"
-              icon={<ShoppingCartOutlined />}
-            />
-          </Badge>
-        </Link>
         <div className={styles.menuReg}>
           {isAuthState ? renderAuthMenu() : renderLoginMenu()}
         </div>
