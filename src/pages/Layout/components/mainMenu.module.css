@@ -74,6 +74,12 @@
   align-items: center;
 }
 
+.loginName {
+  display: none;
+  gap: 10px;
+  align-items: center;
+}
+
 .cartBadge {
   display: none;
 }
@@ -154,6 +160,12 @@
   .menuMain li[class~='ant-menu-item'] {
     height: 52px !important;
     margin-block: 0px;
+  }
+
+  .loginName {
+    display: flex;
+    gap: 10px;
+    align-items: center;
   }
 }
 

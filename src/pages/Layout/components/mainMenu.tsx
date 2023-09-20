@@ -140,21 +140,18 @@ function MainMenu({
       </Menu.Item>
       <MenuItem key="user" className={styles.cartLink}>
         <div className={styles.userMenuBadge}>
-        <NavLink
-          to="user"
-          className={styles.userMenuBadge}
-        >
-          <Avatar
-            style={{ backgroundColor: '#28784D' }}
-            className={styles.avatarPointer}
-          >
-            {userInfo[0]}
-          </Avatar>
-          <span className={styles.menuBadge}>{firstName}</span>
-        </NavLink>
-        <Button onClick={logOut} type="text">
-          Logout
-        </Button>
+          <NavLink to="user" className={styles.userMenuBadge}>
+            <Avatar
+              style={{ backgroundColor: '#28784D' }}
+              className={styles.avatarPointer}
+            >
+              {userInfo[0]}
+            </Avatar>
+            <span className={styles.loginName}>{firstName}</span>
+          </NavLink>
+          <Button onClick={logOut} type="text">
+            Logout
+          </Button>
         </div>
       </MenuItem>
     </Menu>
