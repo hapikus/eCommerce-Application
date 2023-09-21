@@ -64,23 +64,7 @@ function MainMenu({
       mode={isInLine ? 'inline' : 'horizontal'}
       selectedKeys={selectedItem}
     >
-      <Menu.Item key="login" className={styles.menuBadge}>
-        <NavLink
-          to="login"
-          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-        >
-          <span>LOG IN</span>
-        </NavLink>
-      </Menu.Item>
-      <Menu.Item key="signup" className={styles.menuBadge}>
-        <NavLink
-          to="signup"
-          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-        >
-          <span>SIGN UP</span>
-        </NavLink>
-      </Menu.Item>
-      <Menu.Item key="cart" className={styles.cartMenuItem}>
+      <Menu.Item key="cart" className={styles.menuBadge}>
         <NavLink to="/cart" className={styles.cartLink}>
           <Badge
             color={themeState === 'dark' ? '#faad14' : '#f5222d'}
@@ -101,6 +85,22 @@ function MainMenu({
             />
           </Badge>
           <span className={styles.cartBadge}>CART</span>
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item key="login" className={styles.menuBadge}>
+        <NavLink
+          to="login"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+        >
+          <span>LOG IN</span>
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item key="signup" className={styles.menuBadge}>
+        <NavLink
+          to="signup"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+        >
+          <span>SIGN UP</span>
         </NavLink>
       </Menu.Item>
     </Menu>
