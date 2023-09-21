@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Image, Tag, Button, InputNumber, Spin, message } from 'antd';
+import { Image, Tag, Button, InputNumber, Spin, message, Modal } from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 
 import {
@@ -27,6 +27,8 @@ const EMPTY_CART_PHRASES = [
 function CartGameList() {
   const [changeQuantFlag, setChangeQuantFlag] = useState(false);
   const [delBasketState, setDelBasketState] = useState(false);
+  const [isClearCartModalVisible, setIsClearCartModalVisible] = useState(false);
+
   const basketIdState = useSelector(
     (state: RootState) => state.basket.basketId,
   );
@@ -98,7 +100,11 @@ function CartGameList() {
     }
   };
 
-  const handleClearCartClick = async () => {
+  const showClearCartModal = () => {
+    setIsClearCartModalVisible(true);
+  };
+
+  const handleClearCartConfirm = async () => {
     setDelBasketState(true);
     try {
       await BasketService.deleteBasket(basketIdState);
@@ -106,8 +112,13 @@ function CartGameList() {
     } catch (error) {
       message.error('Server error');
     } finally {
+      setIsClearCartModalVisible(false);
       setDelBasketState(false);
     }
+  };
+
+  const handleClearCartCancel = () => {
+    setIsClearCartModalVisible(false);
   };
 
   useEffect(() => {
@@ -261,13 +272,22 @@ function CartGameList() {
           <div className={styles.clearCartCont}>
             <Button
               className={styles.clearCartButton}
-              onClick={handleClearCartClick}
+              onClick={showClearCartModal}
             >
               Clear Cart
             </Button>
           </div>
         ) : null}
       </div>
+      <Modal
+        title="Confirmation"
+        open={isClearCartModalVisible}
+        onOk={handleClearCartConfirm}
+        onCancel={handleClearCartCancel}
+        confirmLoading={delBasketState}
+      >
+        <p>Are you sure you want to clear the cart?</p>
+      </Modal>
     </Spin>
   );
 }

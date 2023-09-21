@@ -10,8 +10,20 @@ font-family: 'Roboto', sans-serif;
 
 body {
   margin: 0;
+  overflow: auto
 }
 
 p {
   margin: 0;
 }
+
+/* ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.2);
+  border-radius: 10px;
+} */
+

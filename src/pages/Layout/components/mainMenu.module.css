@@ -11,6 +11,19 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  background-color: transparent;
+}
+
+.menuReg li[class~='ant-menu-item'] {
+  height: 55px !important;
+}
+
+.leftMenuCont li[class~='ant-menu-item'] {
+  height: 55px !important;
+}
+
+.menuMain li[class~='ant-menu-item'] {
+  height: 55px !important;
 }
 
 .avatarPointer {
@@ -23,16 +36,28 @@
   column-gap: 10px;
 }
 
+.menuMain {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+}
+
 .cartLink {
-  margin-top: 5px;
+  display: flex !important;
+  align-items: center;
+}
+
+.userMenuItem {
+  display: flex;
 }
 
 .menuReg {
   display: flex;
   align-items: center;
   width: auto;
-  min-width: 170px;
-  justify-content: space-around;
+  min-width: 270px;
+  justify-content: center;
 }
 
 .menuReg>.menuItems {
@@ -41,6 +66,37 @@
   width: 100%;
   justify-content: flex-end;
   border-bottom: none;
+}
+
+.menuBadge {
+  display: flex !important;
+  gap: 10px;
+  align-items: center;
+}
+
+.loginName {
+  display: none;
+  gap: 10px;
+  align-items: center;
+}
+
+.cartBadge {
+  display: none;
+}
+
+.cartMenuItem {
+  display: flex;
+}
+
+.menuIcon {
+  display: none;
+  font-size: 32px !important;
+}
+
+.userMenuBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 
@@ -55,14 +111,61 @@
   }
 
   .leftMenuCont {
-    padding-top: 30px;
     flex-direction: column-reverse;
     row-gap: 20px;
   }
 
   .cartLink {
     margin: 0 auto;
+    display: flex;
+    column-gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    height: 55px;
+}
+
+  .cartBadge {
+    display: flex;
+    gap: 10px;
+    align-items: center;
   }
 
+  .menuIcon {
+    display: flex;
+  }
+
+  .menuBadge {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    align-items: center;
+  }
+
+  .userMenuBadge{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menuReg li[class~='ant-menu-item'] {
+    height: 52px !important;
+    margin-block: 0px;
+  }
+
+  .leftMenuCont li[class~='ant-menu-item'] {
+    height: 52px !important;
+    margin-block: 0px;
+  }
+
+  .menuMain li[class~='ant-menu-item'] {
+    height: 52px !important;
+    margin-block: 0px;
+  }
+
+  .loginName {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
 }
 

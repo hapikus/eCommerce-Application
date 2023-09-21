@@ -101,6 +101,11 @@
   margin-top: 5px;
 }
 
+.themeHolder {
+  display: flex;
+  gap: 10px;
+}
+
 @media (max-width: 780px) {
   .headerMenu {
     display: none;

@@ -37,7 +37,7 @@ function Header() {
     (themeMap: string) => ({
       value: themeMap,
       label: (
-        <div>
+        <div className={styles.themeHolder}>
           {getIcon(themeMap)}
           {themeMap}
         </div>
