@@ -1,0 +1,83 @@
+.sumMainCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  width: 300px;
+}
+
+.sumTitle {
+  font-size: 16px;
+  text-align: center;
+}
+
+.sumTotalPriceCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.totalPrice,
+.discountPrice,
+.promoPrice,
+.orderPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  font-size: 14px;
+}
+
+.orderPrice {
+  font-weight: 600;
+}
+
+.checkOutButton {
+  height: 40px;
+  font-size: 12px;
+}
+
+.promoContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.promoButtonCont {
+  display: flex;
+  width: 100%;
+}
+
+.promoInput,
+.promoButton {
+  height: 40px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.currentPromo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.currentPromoTitle,
+.currentPromoText {
+  font-size: 12px;
+}
+
+.spinCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 135px;
+}
+
+.spinInfoCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  height: 135px;
+}

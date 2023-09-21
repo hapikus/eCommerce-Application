@@ -1,0 +1,13 @@
+.title {
+  font-size: 18px;
+  text-align: center;
+}
+
+.NameContInput {
+  height: 40px;
+}
+
+.checkBoxCont {
+  display: flex;
+  flex-direction: column;
+}

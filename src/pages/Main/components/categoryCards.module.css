@@ -1,0 +1,28 @@
+.categoryCard {
+  height: 183px;
+  margin: 0 5px -10px 5px;
+  border-radius: 0;
+}
+
+.categoryTitle {
+  z-index: 999;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.categoryTitle div[class~='ant-card-meta-title'] {
+  white-space: pre-wrap;
+  font-size: 30px;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  height: 102%;
+  width: 102%;
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bg-color-main));
+  margin: -1px -13px 11px -25px;
+}

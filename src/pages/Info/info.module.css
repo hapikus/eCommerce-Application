@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Croissant+One&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Press+Start+2P&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap');
+
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+}
+
+.sectionContaier {
+  margin: 50px auto;
+  width: 80%;
+}
+
+.rssLogo {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 auto;
+  font-size: 22px;
+}
+
+.rssLogo img {
+  width: 80%;
+}
+
+.infoMainContaier {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.containerBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 10px;
+  margin: 0 auto;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+.textAbout {
+  padding-top: 150px;
+  width: 40%;
+}
+
+.teamGreet {
+  text-align: justify;
+}
+
+.aboutTeamContainer {
+  background: white;
+}
+
+.sectionTitle {
+  color: rgb(6, 74, 97);
+  text-align: center;
+  margin-top: 5%;
+  letter-spacing: 0.08em;
+  font-weight: bold;
+  padding-bottom: 10px;
+  font-size: 35px;
+}
+
+.columnCapabilitis {
+  position: relative;
+  width: 50%;
+  height: 280px;
+  text-align: center;
+}
+
+.columnCapabilitis:first-child {
+  background-color: #303068b0;
+}
+
+.columnCapabilitis:first-child .icon {
+  color: rgb(229 177 22);
+}
+
+.columnCapabilitis:nth-child(2) {
+  background: #3ba3a3a1;
+}
+
+.columnCapabilitis:nth-child(2) .icon {
+  color: rgb(229 177 22);
+}
+
+.columnCapabilitis:nth-child(3) {
+  background: #be8f5894;
+}
+
+.columnCapabilitis:nth-child(3) .icon {
+  color: rgb(229 177 22);
+}
+
+.columnCapabilitis:nth-child(4) {
+  background: #d5c82ba8;
+}
+
+.columnCapabilitis:nth-child(4) .icon {
+  color: rgb(229 177 22);
+}
+
+.row {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.icon {
+  font-size: 50px;
+  margin: 30px auto;
+  padding: 30px auto;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  color: rgb(6, 74, 97);
+}
+
+.columnCapabilitis h3 {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 2%;
+  font-size: 24px;
+}
+
+.columnCapabilitis p {
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 18px;
+  font-family: 'EB Garamond', serif;
+}
+
+.aboutProductBlock {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.productSlader {
+  width: 50%;
+  padding: 13px;
+  border: 5px solid #d5cdcd;
+  border-radius: 10%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-right: 20px;
+}
+
+.productInfo {
+  width: 600px;
+  padding-left: 10px;
+}
+
+.productInfoTitle h3 {
+  text-align: center;
+  margin-top: 8%;
+  letter-spacing: 0.08em;
+  font-family: 'Archivo', sans-serif;
+  font-weight: bold;
+  padding-bottom: 20px;
+  font-size: 40px;
+}
+
+.progectDiscription {
+  text-align: justify;
+  padding-left: 10px;
+  margin-bottom: 10%;
+  font-size: 18px;
+  line-height: 101%;
+  font-family: 'EB Garamond', serif;
+}
+
+.progectName {
+  font-size: 30px;
+  color: #e7bd71;
+  padding: 10px;
+  text-align: left;
+  font-family: 'Black Ops One';
+}
+
+.teamMemberContainer {
+  background-color: #83d56d38;
+}
+
+.teamMemberInfo {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.infoBlockRight {
+  margin-right: 15%;
+}
+
+.textAboutLearning {
+  font-size: 40px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 20px 0;
+}
+
+.infoBlock {
+}
+
+.textAboutLearning p {
+  margin-top: 10px;
+}
+
+.quotes {
+  color: orange;
+  padding-bottom: 20px;
+}
+
+.rightQuote {
+  margin-top: 30px;
+}
+
+.personPhoto {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.avatar {
+  width: 400px;
+  height: 400px;
+}
+
+.badgeRibbon {
+  position: absolute;
+  top: 74%;
+  right: 9% !important;
+}
+
+.avatar img {
+  margin: 0 auto;
+}
+
+.personPhotoContainer {
+  height: 400px;
+  width: 400px;
+}
+
+.img {
+  pointer-events: none;
+  position: relative;
+  transition: 0.3s;
+  height: 400px;
+  width: 300px;
+}
+
+.personPhotoContainer:hover .img {
+  transform: translateY(0) scale(1.2);
+}
+
+.img1 {
+  left: 22px;
+  top: 164px;
+  width: 340px;
+}
+
+.divider {
+  border-top: 1px solid #ca6060;
+  width: 360px;
+  margin-top: 20px;
+}
+
+.name {
+  font-size: 34px;
+  font-weight: 600;
+  margin-top: 16px;
+  text-align: center;
+  transition: all 0.3s ease !important;
+}
+
+.name:hover * {
+  color: var(--color-accent);
+}
+
+.name a {
+  padding-left: 10px;
+}
+
+.title {
+  font-family: arial;
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.textAboutTeamMember {
+  width: 80%;
+  margin-left: 15%;
+  margin-top: 5%;
+  text-align: justify;
+  line-height: 20px;
+}
+
+.teamMemberInfoRight {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.carouselDots {
+  bottom: -5px !important;
+}
+
+.carouselDots button {
+  height: 6px !important;
+  background-color: var(--bg-color-main-invert) !important;
+  bottom: -16px !important;
+}
+
+@media (max-width: 945px) {
+  .container {
+    width: 100%;
+  }
+
+  .infoBlockRight {
+    margin-right: 0;
+  }
+
+  .teamMemberInfoRight {
+    flex-direction: column-reverse;
+  }
+
+  .sectionContaier {
+    margin: 20px auto;
+    width: 100%;
+  }
+
+  .infoMainContaier {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .logo img {
+    width: 80%;
+  }
+
+  .columnCapabilitis {
+    position: relative;
+    width: 95%;
+    height: 280px;
+    text-align: center;
+  }
+
+  .textAbout {
+    padding-top: 50px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .personPhoto {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    align-items: baseline;
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .teamMemberInfo {
+    flex-direction: column;
+  }
+
+  .teamMemberContainer .sectionContaier {
+    width: 80%;
+  }
+
+  .textAboutLearning {
+    font-size: 35px;
+    padding: 15px 0;
+    margin: 0 auto;
+  }
+
+  .aboutProductBlock {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .name {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 850px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+  }
+
+  .quotes img {
+    width: 50px;
+  }
+
+  .avatar {
+    width: 300px;
+    height: 300px;
+  }
+
+  .personPhoto img {
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .personPhoto {
+    margin: 0 auto;
+    width: 300px;
+  }
+
+  .divider {
+    width: 300px;
+  }
+
+  .personPhotoContainer {
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .name {
+    font-size: 30px;
+  }
+
+  .textAboutLearning {
+    font-size: 25px;
+  }
+
+  .infoBlock,
+  .textAboutTeamMember {
+    margin: 0 auto;
+  }
+
+  .textAboutTeamMember {
+    width: 95%;
+  }
+
+  .productSlader,
+  .productInfo {
+    width: 440px;
+    margin: 0 auto;
+  }
+
+  .productInfoTitle {
+    font-size: 30px;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 472px) {
+  .logo {
+    width: 300px;
+  }
+
+  .productSlader,
+  .productInfo {
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .productInfoTitle {
+    font-size: 25px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+  }
+
+  .columnCapabilitis {
+    position: relative;
+    width: 95%;
+    height: 280px;
+    text-align: center;
+  }
+
+  .rssLogo {
+    width: 75%;
+  }
+
+  .personPhotoContainer {
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 402px) {
+  .productInfo,
+  .productSlader {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .img,
+  .personPhotoContainer,
+  .personPhoto {
+    width: 250px;
+  }
+
+  .personPhoto img {
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
+  }
+
+  .avatar {
+    height: 250px;
+    width: 250px;
+  }
+
+  .productInfo {
+    width: 90%;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .divider {
+    width: auto;
+  }
+}

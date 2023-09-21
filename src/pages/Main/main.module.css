@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1800px;
+}
+
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  z-index: 1;
+  margin-bottom: 40px;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.headerBlockCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  padding: 10px;
+  margin-right: 10px;
+  justify-content: center;
+  width: 80%;
+  padding: 0 10px 10px;
+  height: 100%;
+  max-height: 900px;
+}
+
+.headerBlockSearch {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: var(--bg-color-main);
+}
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: auto;
+  row-gap: 40px;
+  margin-top: 40px;
+  z-index: 1;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+
+@media (max-width: 945px) {
+  .container {
+    width: 100%;
+  }
+
+  .headerBlockCont {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 692px) {
+  .headerBlockCont {
+    width: 100%;
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 472px) {
+
+}

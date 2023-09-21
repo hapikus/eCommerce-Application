@@ -1,0 +1,537 @@
+.productCont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 940px;
+}
+
+.productTitleCont {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 5px;
+  padding: 30px 10px 0px;
+}
+
+.productTitle {
+  font-size: 26px;
+  margin: 0px;
+}
+
+.pathCont {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 3px;
+}
+
+.pathLink {
+  font-size: 14px;
+  color: var(--text-accent);
+  opacity: 0.6;
+}
+
+.pathLink:hover {
+  color: var(--color-text);
+  opacity: 0.9;
+}
+
+.headerBlockCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.imgCarousel {
+  width: 600px;
+  height: 338px;
+}
+
+.carouselDots button {
+  height: 6px !important;
+  background-color: var(--color-main) !important;
+}
+
+.imgCarouselCont {
+  width: 600px;
+  height: 338px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.centerVertically {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.headerBlockContRight {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.headerImg {
+  width: 325px;
+  height: 151px;
+}
+
+.headerTextdapt {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.shortDescCont {
+  font-size: 12px;
+  text-align: left;
+  padding-right: 16px;
+}
+
+.detailsData {
+  display: flex;
+  flex-direction: column;
+}
+
+.recentReview {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  height: 16px;
+}
+
+.allReview {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  height: 16px;
+}
+
+.reviewText {
+  text-align: left;
+  width: 104px;
+}
+
+.reviewTextResult {
+  margin-right: 4px;
+}
+
+.releaseDate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 10px;
+  height: 38px;
+}
+
+.releaseText {
+  text-align: left;
+  width: 104px;
+}
+
+.developData {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 10px;
+  height: 16px;
+}
+
+.developText {
+  text-align: left;
+  width: 104px;
+}
+
+.mainCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  padding: 0 10px;
+}
+
+.mainLeft {
+  width: 616px;
+}
+
+.priceCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 72px;
+  background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+
+  font-size: 21px;
+}
+
+.mainPriceCont {
+  position: absolute;
+  height: 36px;
+  right: 18px;
+  bottom: -18px;
+  font-size: 13px;
+}
+
+.regPriceCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+  background-color: var(--bg-color-accent);
+  color: var(--color-text-accent);
+  padding: 4px 8px;
+}
+
+.regPriceText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.discountCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  background-color: var(--bg-color-accent);
+  color: var(--color-text-accent);
+  padding: 4px 8px;
+}
+
+.discountSize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0px 5px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.doublePriceCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.regularPriceCont {
+  font-size: 11px;
+  text-decoration: line-through;
+}
+
+.aboutGame {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  text-align: left;
+}
+
+.aboutGameTitle {
+  position: relative;
+  font-size: 16px;
+}
+
+.aboutGameTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  /* Adjust the height to control the thickness of the "border" */
+  background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+}
+
+.sysReq {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.sysReqTitle {
+  position: relative;
+  font-size: 16px;
+  text-align: left;
+}
+
+.sysReqTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  /* Adjust the height to control the thickness of the "border" */
+  background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+}
+
+.reqNameForCont {
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.reqRow {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  text-align: left;
+}
+
+.reqName {
+  font-weight: 600;
+}
+
+.reqMinAndRec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.reqMin,
+.reqRec {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+  width: 49%;
+}
+
+.mainRight {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.tagsCont {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 308px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.tagCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2px;
+  height: 26px;
+}
+
+.tagTextCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.randProductsCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+  margin: 0 auto;
+  width: 892px;
+  margin-bottom: 20px;
+}
+
+.discCardTwoPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.discCardRegPrice {
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.discCardDiscPrice,
+.discCardNormalPrice {
+  font-weight: 500;
+}
+
+.additInfoMainCont {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 308px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.additInfoGameTitle,
+.additInfoGameTheme,
+.additInfoGameGenre {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 5px;
+  min-height: 22px;
+}
+
+.additInfoGameDev {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 5px;
+  min-height: 22px;
+}
+
+.additInfoDevTitle {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.additInfoDevText {
+  text-align: left;
+}
+
+.additInfoTitle {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.additInfoText {
+  font-size: 13px;
+}
+
+.additInfoLinks {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+.genreLink,
+.themeLink,
+.devLink {
+  color: var(--text-accent);
+  opacity: 0.6;
+}
+
+.genreLink:hover,
+.themeLink:hover,
+.devLink:hover {
+  color: var(--color-text);
+  opacity: 0.9;
+}
+
+@media (max-width: 945px) {
+  .productCont {
+    width: 100%;
+    margin: 0px 10px;
+  }
+
+  .headerBlockCont {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  .headerBlockContRight {
+    flex-direction: row;
+    width: 100%;
+    column-gap: 10px;
+    order: -1;
+  }
+
+  .headerImgAdapt {
+    width: 50%;
+  }
+
+  .headerImg {
+    width: 100%;
+    height: auto;
+  }
+
+  .headerTextdapt {
+    width: 50%;
+  }
+
+  .headerBlockContLeft {
+    width: 100%;
+    height: auto;
+  }
+
+  .imgCarousel {
+    width: 100%;
+    height: auto;
+  }
+
+  .mainCont {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    padding: 0 10px;
+  }
+
+  .mainLeft {
+    width: 100%;
+  }
+
+  .mainRight {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 756px) {
+  .headerBlockContRight {
+    flex-direction: column;
+  }
+
+  .headerImgAdapt,
+  .headerTextdapt {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .reqMinAndRec {
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  .reqMin,
+  .reqRec {
+    width: 100%;
+  }
+
+  .reqNameForCont {
+    text-align: center;
+  }
+}
+
+@media (max-width: 338px) {
+  .tagsCont {
+    width: 300px;
+  }
+}
+
+@media (max-width: 912px) {
+  .randProductsCont {
+    width: 672px;
+  }
+}
+
+@media (max-width: 692px) {
+  .randProductsCont {
+    width: 452px;
+  }
+}
+
+@media (max-width: 472px) {
+  .randProductsCont {
+    width: 242px;
+  }
+
+  .pathLink {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,53 @@
+.baskContMain {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  margin: 20px 5px;
+
+  width: 75%;
+}
+
+.baskOptionsCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+
+.mainInfoCont {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+.mainLeftCont {
+  width: 100%;
+}
+
+@media (max-width: 1130px) {
+  .mainInfoCont {
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .baskContMain {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .baskContMain {
+    width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .baskContMain {
+    width: 100%;
+  }
+}

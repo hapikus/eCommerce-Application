@@ -1,0 +1,64 @@
+html,
+html[data-theme="light"] {
+  --bg-color-main: #eae7ea;
+  --bg-color-menu: #eae7ea;
+  --bg-color-accent: #6fa720;
+  --text-accent: #000;
+  --color-main: #e6f4ff;
+  --color-accent: #1677ff;
+  --color-text: #000;
+  --color-text-accent: #eae7ea;
+  --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
+  --gpStoreDarkGrey: #f5f5f5;
+  --gpStoreDarkerGrey: #a4b9d3f2;
+  --bg-color-main-invert: #171a21;
+  --bg-color-menu-invert: #171a21;
+  --color-text-invert: #fff;
+  --loadingStart: #C2D4E9;
+  --loadingMiddle: #A4B9D3;
+}
+
+html[data-theme="dark"] {
+  --bg-color-main: #171a21;
+  --bg-color-menu: #171a21;
+  --bg-color-accent: #6fa720;
+  --text-accent: #8f98a0;
+  --color-main: #fafafa;
+  --color-accent: #1677ff;
+  --color-text: #fff;
+  --color-text-accent: #171a21;
+  --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
+  --gpStoreDarkGrey: #2e4c63;
+  --gpStoreDarkerGrey: rgba(27, 40, 56, 0.8);
+  --bg-color-main-invert: #eae7ea;
+  --bg-color-menu-invert: #eae7ea;
+  --color-text-invert: #000;
+  --loadingStart: #6F839C;
+  --loadingMiddle: #5F7B9C;
+}
+
+html[data-theme="barbie"] {
+  --bg-color-main: #ffe6f9;
+  --bg-color-menu: #ffe6f9;
+  --bg-color-accent: #8FA64B;
+  --color-main: #fafafa;
+  --color-accent: #000;
+  --color-text: #000;
+  --color-text-accent: #ffe6f9;
+  --image2: url('./src/assets/images/abstract-digital-grid-black-background.jpg');
+  --gpStoreDarkGrey: #fbc2f7;
+  --gpStoreDarkerGrey: #ffd6e7f2;
+
+  --loadingStart: #FFE0ED;
+  --loadingMiddle: #FFD6E7;
+}
+
+
+html * {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+body {
+  background-color: var(--bg-color-main);
+  color: var(--color-main);
+}
