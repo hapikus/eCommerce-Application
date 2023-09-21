@@ -1,6 +1,8 @@
 # eCommerce-Application
 
-![eCommerce-Application](./public/temp.png)
+[Deploy](https://hapikus.github.io/eCommerce-Application/)
+
+![Снимок экрана 2023-09-22 012035](https://github.com/hapikus/eCommerce-Application/assets/84094895/867aba82-0ea6-4f0d-8560-37aba67ca6dd)
 
 ## Table of Contents
 
@@ -20,9 +22,16 @@ eCommerce-Application is a web application built with React and TypeScript using
 
 The project uses the following technologies:
 
-- React: A popular JavaScript library for building user interfaces.
-- TypeScript: A superset of JavaScript that adds static typing to the language.
-- Vite: A fast and lightweight build tool for modern web applications.
+- **React**: A popular JavaScript library for building user interfaces.
+- **TypeScript**: A superset of JavaScript that adds static typing to the language.
+- **Vite**: A fast and lightweight build tool for modern web applications.
+- **Redux Toolkit**: Redux Toolkit is a set of tools and conventions that simplify the process of managing application state in a predictable and efficient manner.
+- **Axios**: Axios is a popular JavaScript library used for making HTTP requests, making it easy to interact with APIs and fetch data from servers.
+- **Jest**: JavaScript testing framework that provides a simple and efficient way to write unit tests, ensuring the reliability and quality of your code.
+- **ESLint**: ESLint is a widely-used linter that helps maintain code quality by identifying and fixing code style issues and potential errors.
+- **Prettier**: Prettier is an opinionated code formatter that enforces consistent code formatting across the project, making the codebase more readable and maintainable.
+- **Husky**: Husky is a tool that allows you to set up pre-commit and pre-push hooks, ensuring code quality checks are performed before changes are committed or pushed to the repository.
+- **Ant Design**: Ant Design is a comprehensive design system and UI library that provides a wide range of components and styles to create visually appealing and consistent user interfaces.
 
 ## Available Scripts
 
